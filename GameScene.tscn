@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
 [ext_resource type="Script" uid="uid://kjavq4i37ayq" path="res://addons/tile_path_3d/tile_path_3d.gd" id="2_k77ap"]
-[ext_resource type="Script" uid="uid://b7t04foy11btw" path="res://scripts/enemy.gd" id="3_haeiw"]
+[ext_resource type="PackedScene" uid="uid://jkspmi6x2fhu" path="res://scenes/Enemy.tscn" id="3_b5kf5"]
+[ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -56,17 +57,6 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kil2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_hvuor"]
-material = SubResource("StandardMaterial3D_1kil2")
-radius = 0.02
-height = 0.08
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k77ap"]
-radius = 0.02
-height = 0.08
-
 [sub_resource type="MultiMesh" id="MultiMesh_5cvvu"]
 transform_format = 1
 instance_count = 12
@@ -117,19 +107,16 @@ _tile_mmis = [NodePath("tile_mmi_0")]
 _last_built_curve = SubResource("Curve3D_i2arf")
 metadata/_custom_type_script = "uid://kjavq4i37ayq"
 
-[node name="EnemyPathFollow" type="PathFollow3D" parent="Room/MapLayout/TilePath3D" unique_id=1332727746]
-transform = Transform3D(-0.0032698764, 0.0038223346, -0.99991316, 0, 0.99993956, 0.0038222747, 0.99989957, 1.2499817e-05, -0.0032699208, -0.029999495, -0.0022410154, -0.003966689)
-
-[node name="Enemy" type="Area3D" parent="Room/MapLayout/TilePath3D/EnemyPathFollow" unique_id=128922892]
-transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)
-script = ExtResource("3_haeiw")
-
-[node name="EnemyMesh" type="MeshInstance3D" parent="Room/MapLayout/TilePath3D/EnemyPathFollow/Enemy" unique_id=236741512]
-transform = Transform3D(1, -9.094947e-13, 2.3283064e-10, -9.094947e-13, 1, -5.980283e-10, 0, -1.3414692e-10, 1.0000002, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_hvuor")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/MapLayout/TilePath3D/EnemyPathFollow/Enemy" unique_id=1461847817]
-shape = SubResource("CapsuleShape3D_k77ap")
+[node name="Enemy" parent="Room/MapLayout/TilePath3D" unique_id=1241046123 instance=ExtResource("3_b5kf5")]
+transform = Transform3D(-0.0032698745, 0.0038223325, -0.9999126, 0, 0.999939, 0.0038222726, 0.999899, 1.24998105e-05, -0.003269919, -0.029999495, -0.0022410154, -0.003966689)
 
 [node name="tile_mmi_0" type="MultiMeshInstance3D" parent="Room/MapLayout/TilePath3D" unique_id=1771681911]
 multimesh = SubResource("MultiMesh_5cvvu")
+
+[node name="EnemySpawner" type="Timer" parent="Room/MapLayout/TilePath3D" unique_id=1533716669 node_paths=PackedStringArray("path_3d")]
+wait_time = 4.0
+autostart = true
+script = ExtResource("4_b5kf5")
+path_3d = NodePath("..")
+
+[connection signal="timeout" from="Room/MapLayout/TilePath3D/EnemySpawner" to="Room/MapLayout/TilePath3D/EnemySpawner" method="_on_timeout"]

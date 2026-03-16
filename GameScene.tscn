@@ -134,7 +134,7 @@ _last_built_curve = SubResource("Curve3D_hvuor")
 metadata/_custom_type_script = "uid://kjavq4i37ayq"
 
 [node name="Enemy" parent="Room/MapLayout/TilePath3D" unique_id=1241046123 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.003269872, 0.0038223297, -0.99991184, 0, 0.99993825, 0.0038222696, 0.99989825, 1.24998005e-05, -0.0032699164, -0.029999495, -0.0022410154, -0.003966689)
+transform = Transform3D(-0.0032698717, 0.0038223295, -0.9999118, 0, 0.9999382, 0.0038222694, 0.9998982, 1.24998e-05, -0.0032699162, -0.029999495, -0.0022410154, -0.003966689)
 
 [node name="tile_mmi_0" type="MultiMeshInstance3D" parent="Room/MapLayout/TilePath3D" unique_id=1771681911]
 multimesh = SubResource("MultiMesh_i2arf")
@@ -145,16 +145,10 @@ autostart = true
 script = ExtResource("4_b5kf5")
 path_3d = NodePath("..")
 
-[node name="table test" parent="Room" unique_id=1230260504 instance=ExtResource("6_i2arf")]
+[node name="table test" parent="Room" unique_id=1995631501 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="ref" parent="Room/table test" index="0" unique_id=1538565557]
-visible = false
-
-[node name="table edit" parent="Room/table test" index="1" unique_id=289952077]
-visible = false
-
-[node name="SM_table" parent="Room/table test" index="2" unique_id=73261375]
+[node name="SM_table" parent="Room/table test" index="0" unique_id=163631786]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Room/table test" unique_id=1393446496]

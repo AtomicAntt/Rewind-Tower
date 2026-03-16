@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d5u4k7myj4w0"]
+
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_lnnsc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnnsc"]
+albedo_color = Color(0.19041687, 0.5578926, 0.8399917, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lnnsc"]
+material = SubResource("StandardMaterial3D_lnnsc")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnnsc"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrlnj"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fu7nh"]
+material = SubResource("StandardMaterial3D_nrlnj")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.05
+
+[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_lnnsc")
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1974449866]
+mesh = SubResource("BoxMesh_lnnsc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1477189192]
+shape = SubResource("BoxShape3D_lnnsc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=622142637]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0.070361055)
+mesh = SubResource("CylinderMesh_fu7nh")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d5u4k7myj4w0"]
 
-[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_lnnsc"]
+[ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_lnnsc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnnsc"]
 albedo_color = Color(0.19041687, 0.5578926, 0.8399917, 1)
@@ -36,3 +36,11 @@ shape = SubResource("BoxShape3D_lnnsc")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=622142637]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0.070361055)
 mesh = SubResource("CylinderMesh_fu7nh")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1128226714]
+autostart = true
+
+[node name="ShootPosition" type="Marker3D" parent="." unique_id=1614817252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0984558)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

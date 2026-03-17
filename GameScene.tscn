@@ -134,7 +134,7 @@ _last_built_curve = SubResource("Curve3D_hvuor")
 metadata/_custom_type_script = "uid://kjavq4i37ayq"
 
 [node name="Enemy" parent="Room/MapLayout/TilePath3D" unique_id=1241046123 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.003269872, 0.0038223297, -0.99991184, 0, 0.99993825, 0.0038222696, 0.99989825, 1.24998005e-05, -0.0032699164, -0.029999495, -0.0022410154, -0.003966689)
+transform = Transform3D(-0.0032698694, 0.0038223267, -0.99991107, 0, 0.9999375, 0.0038222666, 0.9998975, 1.24997905e-05, -0.0032699138, -0.029999495, -0.0022410154, -0.003966689)
 
 [node name="tile_mmi_0" type="MultiMeshInstance3D" parent="Room/MapLayout/TilePath3D" unique_id=1771681911]
 multimesh = SubResource("MultiMesh_i2arf")

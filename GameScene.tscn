@@ -151,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527
 curve = SubResource("Curve3D_1kil2")
 
 [node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.9921362, 5.265525e-05, -0.12435716, -3.6376117e-12, 0.9999424, 0.00042337776, 0.12435433, 0.00042009947, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+transform = Transform3D(-0.9921362, 5.2655236e-05, -0.12435716, -3.6376117e-12, 0.9999421, 0.00042337776, 0.12435433, 0.00042009933, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
 
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
@@ -175,7 +175,7 @@ material_override = SubResource("StandardMaterial3D_oieil")
 mesh = SubResource("ArrayMesh_fwv7s")
 
 [node name="CastleGate" parent="Room/MapLayout" unique_id=727058708 instance=ExtResource("6_ed8b8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9329282, 1.105413, -0.7537447)
+transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82658976, -0.90961826, 1.105413, -0.74865764)
 
 [node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480]
 

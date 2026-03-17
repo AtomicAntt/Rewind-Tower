@@ -16,18 +16,38 @@ extends PathFollow3D
 ## Enemy's speed: how many meters they move per second.
 @export var enemy_speed: float = 0.1
 
+## How much damage the enemy does to a defense per second (Or however long the wait_time of the AttackTimer node is).
+@export var damage: float = 1.0
+
+# This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
+var current_defense_attacking: DefenseHitbox = null
+
 func _physics_process(delta: float) -> void:
-	var new_progress_ratio: float = progress_ratio
-	new_progress_ratio += (enemy_speed * delta) / path_length
+	# If there isn't a current defense to attack, move along the path.
+	if not is_instance_valid(current_defense_attacking):
+		var new_progress_ratio: float = progress_ratio
+		new_progress_ratio += (enemy_speed * delta) / path_length
+	
+		if new_progress_ratio >= 1.0:
+			queue_free()
+		else:
+			progress_ratio = new_progress_ratio
+		
+		$AttackTimer.stop()
 	
 	health_bar.value = enemy_hp
-	
-	if new_progress_ratio >= 1.0:
-		queue_free()
-	else:
-		progress_ratio = new_progress_ratio
 
 func hurt(amount: float) -> void:
 	enemy_hp -= amount
 	if enemy_hp <= 0:
 		queue_free()
+
+func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
+	if area.is_in_group("DefenseHitbox"):
+		var defense_hitbox: DefenseHitbox = area
+		current_defense_attacking = defense_hitbox
+		$AttackTimer.start()
+
+func _on_attack_timer_timeout() -> void:
+	if is_instance_valid(current_defense_attacking):
+		current_defense_attacking.hurt(damage)

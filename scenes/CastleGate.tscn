@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cy5271teptgq1"]
 
+[ext_resource type="Script" uid="uid://dq628ogum8q8x" path="res://scenes/DefenseHitbox.gd" id="1_p7bue"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_eqhe0"]
 size = Vector3(0.2, 0.2, 0.01)
 
@@ -9,13 +11,43 @@ albedo_color = Color(0.9654462, 0.17409414, 0, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f666u"]
 points = PackedVector3Array(0, 0.1, 0.005, 0.1, -0.1, 0.005, 0, 0.1, -0.005, -0.1, -0.1, 0.005, 0.1, -0.1, -0.005, -0.1, -0.1, -0.005)
 
-[node name="CastleGate" type="Area3D" unique_id=727058708]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p7bue"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdw76"]
+bg_color = Color(1, 0, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ea75"]
+bg_color = Color(0, 1, 0.3137255, 1)
+
+[node name="CastleGate" type="Area3D" unique_id=727058708 node_paths=PackedStringArray("health_bar") groups=["DefenseHitbox"]]
+script = ExtResource("1_p7bue")
+health_bar = NodePath("SubViewport/ProgressBar")
 
 [node name="EnemyDestination" type="MeshInstance3D" parent="." unique_id=1133590205]
-transform = Transform3D(0.53145766, 0, 0.8470848, 0, 1, 0, -0.8470848, 0, 0.53145766, 0, 0, 0)
 mesh = SubResource("PrismMesh_eqhe0")
 surface_material_override/0 = SubResource("StandardMaterial3D_haeiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1339985242]
-transform = Transform3D(0.53145766, 0, 0.8470848, 0, 1, 0, -0.8470848, 0, 0.53145766, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_f666u")
+
+[node name="Healthbar" type="Sprite3D" parent="." unique_id=659437166]
+transform = Transform3D(0.013, -1.7053023e-14, 9.4587446e-12, 5.5422328e-14, 0.004, -8.503685e-12, -9.4587446e-12, 2.6165185e-12, 0.013, 1.1368684e-13, 0.1233122, -0.00010148283)
+texture = SubResource("ViewportTexture_p7bue")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1060430780]
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=2040120092]
+layout_direction = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_kdw76")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0ea75")
+max_value = 10.0
+value = 10.0

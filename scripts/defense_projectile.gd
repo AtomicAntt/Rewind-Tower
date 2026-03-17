@@ -5,7 +5,7 @@ extends Area3D
 @export var damage: float = 2.0
 
 ## How fast this projectile moves in m/s
-@export var speed: float = 5.0
+@export var speed: float = 2.0
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Enemy"):

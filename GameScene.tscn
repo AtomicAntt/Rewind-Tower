@@ -138,7 +138,7 @@ _last_built_curve = SubResource("Curve3D_hvuor")
 metadata/_custom_type_script = "uid://kjavq4i37ayq"
 
 [node name="Enemy" parent="Room/MapLayout/TilePath3D" unique_id=1241046123 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.0032698717, 0.0038223292, -0.9999117, 0, 0.99993813, 0.0038222692, 0.99989814, 1.2499799e-05, -0.003269916, -0.029999495, -0.0022410154, -0.003966689)
+transform = Transform3D(-0.0032698715, 0.003822329, -0.99991167, 0, 0.9999381, 0.003822269, 0.9998981, 1.2499799e-05, -0.003269916, -0.029999495, -0.0022410154, -0.003966689)
 
 [node name="tile_mmi_0" type="MultiMeshInstance3D" parent="Room/MapLayout/TilePath3D" unique_id=1771681911]
 multimesh = SubResource("MultiMesh_i2arf")
@@ -152,7 +152,7 @@ path_3d = NodePath("..")
 [node name="table test" parent="Room" unique_id=666892369 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/table test" index="0" unique_id=386338973]
+[node name="SM_table" parent="Room/table test" index="0" unique_id=1644408477]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ed8b8")
 

@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		closest_enemy_area = find_closest_enemy_area3d()
 		if is_instance_valid(closest_enemy_area):
-			look_at(find_closest_enemy_area3d().global_position)
+			look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
 
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null

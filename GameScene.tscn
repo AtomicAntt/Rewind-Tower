@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 [ext_resource type="PackedScene" uid="uid://d5u4k7myj4w0" path="res://scenes/DefenseTroop.tscn" id="6_1kil2"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/T_UniversalTexture.jpg" id="6_5cvvu"]
+[ext_resource type="PackedScene" uid="uid://cy5271teptgq1" path="res://scenes/CastleGate.tscn" id="6_ed8b8"]
 [ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/SM_table.glb" id="6_i2arf"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="7_5cvvu"]
 
@@ -32,9 +33,6 @@ size = Vector3(0.2, 0.2, 0.01)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k77ap"]
 albedo_color = Color(0, 0.7019608, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haeiw"]
-albedo_color = Color(0.9654462, 0.17409414, 0, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_1kil2"]
 _data = {
@@ -148,17 +146,12 @@ transform = Transform3D(-0.95615155, 0, 0.2928724, 0, 1, 0, -0.2928724, 0, -0.95
 mesh = SubResource("PrismMesh_eqhe0")
 surface_material_override/0 = SubResource("StandardMaterial3D_k77ap")
 
-[node name="EnemyDestination" type="MeshInstance3D" parent="Room/MapLayout" unique_id=1055071734]
-transform = Transform3D(0.53145766, 0, 0.8470848, 0, 1, 0, -0.8470848, 0, 0.53145766, -0.9329282, 1.105413, -0.7537447)
-mesh = SubResource("PrismMesh_eqhe0")
-surface_material_override/0 = SubResource("StandardMaterial3D_haeiw")
-
 [node name="Path3D" type="Path3D" parent="Room/MapLayout" unique_id=1164165072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527828)
 curve = SubResource("Curve3D_1kil2")
 
 [node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.9921362, 5.2655258e-05, -0.12435716, -3.6376117e-12, 0.99994254, 0.00042337776, 0.12435433, 0.0004200995, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+transform = Transform3D(-0.9921362, 5.265525e-05, -0.12435716, -3.6376117e-12, 0.9999424, 0.00042337776, 0.12435433, 0.00042009947, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
 
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
@@ -180,6 +173,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0
 [node name="SM_Archer" type="MeshInstance3D" parent="Room/MapLayout/SM_archer" unique_id=61547068]
 material_override = SubResource("StandardMaterial3D_oieil")
 mesh = SubResource("ArrayMesh_fwv7s")
+
+[node name="CastleGate" parent="Room/MapLayout" unique_id=727058708 instance=ExtResource("6_ed8b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9329282, 1.105413, -0.7537447)
 
 [node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480]
 

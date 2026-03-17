@@ -13,9 +13,19 @@ height = 0.08
 radius = 0.02
 height = 0.08
 
-[node name="Enemy" type="PathFollow3D" unique_id=1241046123]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3gvst"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gvst"]
+bg_color = Color(1, 0, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55jtl"]
+bg_color = Color(0, 1, 0.3137255, 1)
+
+[node name="Enemy" type="PathFollow3D" unique_id=1241046123 node_paths=PackedStringArray("health_bar")]
 transform = Transform3D(-0.0032698764, 0.0038223346, -0.99991316, 0, 0.99993956, 0.0038222747, 0.99989957, 1.2499817e-05, -0.0032699208, 0, 0, 0)
 script = ExtResource("1_3gvst")
+health_bar = NodePath("SubViewport/ProgressBar")
 
 [node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["Enemy"]]
 transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)
@@ -26,3 +36,23 @@ mesh = SubResource("CapsuleMesh_hvuor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHitbox" unique_id=18594969]
 shape = SubResource("CapsuleShape3D_k77ap")
+
+[node name="Healthbar" type="Sprite3D" parent="." unique_id=1416964014]
+transform = Transform3D(0.013, -1.7053023e-14, 9.4587446e-12, 5.5422328e-14, 0.004, -8.503685e-12, -9.4587446e-12, 2.6165185e-12, 0.013, 1.1368684e-13, 0.10345233, -0.00010148283)
+texture = SubResource("ViewportTexture_3gvst")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=221414044]
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1694784576]
+layout_direction = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_3gvst")
+theme_override_styles/fill = SubResource("StyleBoxFlat_55jtl")
+max_value = 10.0

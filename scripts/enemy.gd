@@ -6,6 +6,8 @@ extends PathFollow3D
 
 @onready var path_length: float = path_3d.curve.get_baked_length()
 
+@export var health_bar: ProgressBar
+
 ## Amount of HP the enemy has.
 @export var enemy_hp: float = 10.0
 
@@ -17,6 +19,9 @@ extends PathFollow3D
 func _physics_process(delta: float) -> void:
 	var new_progress_ratio: float = progress_ratio
 	new_progress_ratio += (enemy_speed * delta) / path_length
+	
+	
+	health_bar.value = enemy_hp
 	
 	if new_progress_ratio >= 1.0:
 		queue_free()

@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	var new_progress_ratio: float = progress_ratio
 	new_progress_ratio += (enemy_speed * delta) / path_length
 	
-	
 	health_bar.value = enemy_hp
 	
 	if new_progress_ratio >= 1.0:

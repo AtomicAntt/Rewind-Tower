@@ -1,21 +1,23 @@
 extends Node
 
-@export var pickable : XRToolsPickable
+@export var pickable: XRToolsPickable
 
-var crankValue : float = 0.0
-var prevRotation : float = 0.0
+var crank_value: float = 0.0
+var prev_rotation: float = 0.0
 
-var position : Vector3
+@export var power: float = 0.0
+
+var position: Vector3
 
 func _ready() -> void:
 	position = pickable.position
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	pickable.position = position
 	pickable.rotation = Vector3(0, pickable.rotation.y, 0)
 	
 	if pickable.is_picked_up():
-		var controller : XRController3D = pickable.get_picked_up_by_controller()
+		var controller: XRController3D = pickable.get_picked_up_by_controller()
 		
 		pickable.look_at(controller.global_position)
 		
@@ -23,14 +25,16 @@ func _process(_delta) -> void:
 		pickable.rotation.z = 0
 		
 		var current_rotation = pickable.rotation.y
-		var deltaRot = current_rotation - prevRotation
+		var delta_rot = current_rotation - prev_rotation
 		
 		# Fix wraparound
-		if deltaRot > PI:
-			deltaRot -= TAU
-		elif deltaRot < -PI:
-			deltaRot += TAU
+		if delta_rot > PI:
+			delta_rot -= TAU
+		elif delta_rot < -PI:
+			delta_rot += TAU
 		
-		crankValue += deltaRot
-		prevRotation = current_rotation
-		print(crankValue)
+		crank_value += delta_rot
+		prev_rotation = current_rotation
+		
+		power = abs(crank_value)
+		print(power)

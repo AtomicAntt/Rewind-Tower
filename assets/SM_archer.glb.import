@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdaojy0lsa15w"
-path="res://.godot/imported/SM_table.glb-7a0e2d4ac059281686872130dee6e1c9.scn"
+uid="uid://bhe4owap71vr5"
+path="res://.godot/imported/SM_archer.glb-3ad9edcc6965b1f4b0a10f85a40b7bba.scn"
 
 [deps]
 
-source_file="res://assets/SM_table.glb"
-dest_files=["res://.godot/imported/SM_table.glb-7a0e2d4ac059281686872130dee6e1c9.scn"]
+source_file="res://assets/SM_archer.glb"
+dest_files=["res://.godot/imported/SM_archer.glb-3ad9edcc6965b1f4b0a10f85a40b7bba.scn"]
 
 [params]
 
@@ -34,9 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=2
+materials/extract=0
 materials/extract_format=0
-materials/extract_path="res://assets/"
+materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

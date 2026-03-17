@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cy5271teptgq1"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_eqhe0"]
+size = Vector3(0.2, 0.2, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haeiw"]
+albedo_color = Color(0.9654462, 0.17409414, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f666u"]
+points = PackedVector3Array(0, 0.1, 0.005, 0.1, -0.1, 0.005, 0, 0.1, -0.005, -0.1, -0.1, 0.005, 0.1, -0.1, -0.005, -0.1, -0.1, -0.005)
+
+[node name="CastleGate" type="Area3D" unique_id=727058708]
+
+[node name="EnemyDestination" type="MeshInstance3D" parent="." unique_id=1133590205]
+transform = Transform3D(0.53145766, 0, 0.8470848, 0, 1, 0, -0.8470848, 0, 0.53145766, 0, 0, 0)
+mesh = SubResource("PrismMesh_eqhe0")
+surface_material_override/0 = SubResource("StandardMaterial3D_haeiw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1339985242]
+transform = Transform3D(0.53145766, 0, 0.8470848, 0, 1, 0, -0.8470848, 0, 0.53145766, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_f666u")

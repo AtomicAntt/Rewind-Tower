@@ -8,12 +8,15 @@ extends XRToolsPickable
 var power: int = 0
 var power_lost: int = 0;
 
-@export var required_power: int = 0
 @export var max_power: int = 0
 @export var power_lose_rate: int = 0
 
 @export var power_bar: ProgressBar
 @export var crank: Node3D
+
+@export var pickable: XRToolsPickable
+
+var can_shoot: bool = false
 
 var closest_enemy_area: Area3D = null
 
@@ -29,6 +32,11 @@ func _physics_process(_delta: float) -> void:
 	
 	power_bar.value = power
 	
+	if power >= power_lose_rate and not pickable.is_picked_up():
+		can_shoot = true
+	else:
+		can_shoot = false
+	
 	if not Engine.is_editor_hint():
 		closest_enemy_area = find_closest_enemy_area3d()
 		if is_instance_valid(closest_enemy_area):
@@ -38,13 +46,13 @@ func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null
 	var closest_distance: float = INF
 	for enemy_area: Area3D in get_tree().get_nodes_in_group("EnemyHitbox"):
-		if global_position.distance_to(enemy_area.global_position) < closest_distance and power >= required_power:
+		if global_position.distance_to(enemy_area.global_position) < closest_distance and can_shoot:
 			closest_area3d = enemy_area
 			closest_distance = global_position.distance_to(enemy_area.global_position)
 	return closest_area3d
 
 func _on_shoot_timer_timeout() -> void:
-	if is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and power >= required_power:
+	if is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot:
 		var projectile_instance: DefenseProjectile = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
 		projectile_instance.global_position = shoot_position.global_position

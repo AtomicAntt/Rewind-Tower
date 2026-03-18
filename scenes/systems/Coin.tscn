@@ -1,7 +1,13 @@
 [gd_scene format=4 uid="uid://dvhvka0e3xywf"]
 
 [ext_resource type="Script" uid="uid://d1l5bofweyt0h" path="res://scripts/coin.gd" id="1_v0hfv"]
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_m64p1"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_wyc53"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_f88kw"]
+[ext_resource type="Animation" uid="uid://dkjsnihi81b7p" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Large.res" id="5_d7eli"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_xrphr"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_qew2k"]
+[ext_resource type="Animation" uid="uid://cuwwpxi44vwpm" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Large.res" id="8_qew2k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6cjs"]
 size = Vector3(0.05, 0.025, 0.05)
@@ -40,15 +46,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bbqbx")
 
+[sub_resource type="Resource" id="Resource_b0x6d"]
+script = ExtResource("6_qew2k")
+open_pose = ExtResource("5_d7eli")
+closed_pose = ExtResource("5_d7eli")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_o6qiv"]
+script = ExtResource("6_qew2k")
+open_pose = ExtResource("8_qew2k")
+closed_pose = ExtResource("8_qew2k")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_s6cjs"]
 radius = 0.2
 
 [node name="Coin" type="Node3D" unique_id=343890196]
 script = ExtResource("1_v0hfv")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=821032932]
-can_sleep = false
-linear_damp = 10.0
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1884192017]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_m64p1")
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1422744451]
 shape = SubResource("BoxShape3D_s6cjs")
@@ -58,6 +78,14 @@ shape = SubResource("BoxShape3D_s6cjs")
 [node name="SM_coin" type="MeshInstance3D" parent="RigidBody3D/SM_coin2" unique_id=2085963481]
 material_override = ExtResource("2_wyc53")
 mesh = SubResource("ArrayMesh_m64p1")
+
+[node name="GrabPointHandLeft" parent="RigidBody3D" unique_id=640163202 instance=ExtResource("4_f88kw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03222463, 0.07758375, -0.10001615)
+hand_pose = SubResource("Resource_b0x6d")
+
+[node name="GrabPointHandRight" parent="RigidBody3D" unique_id=683623689 instance=ExtResource("5_xrphr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016656712, 0.07605915, -0.10852094)
+hand_pose = SubResource("Resource_o6qiv")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=45772457]
 

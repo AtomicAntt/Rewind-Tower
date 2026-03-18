@@ -19,6 +19,8 @@ extends PathFollow3D
 ## How much damage the enemy does to a defense per second (Or however long the wait_time of the AttackTimer node is).
 @export var damage: float = 1.0
 
+const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
+
 # This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
 var current_defense_attacking: DefenseHitbox = null
 
@@ -40,6 +42,20 @@ func _physics_process(delta: float) -> void:
 func hurt(amount: float) -> void:
 	enemy_hp -= amount
 	if enemy_hp <= 0:
+		
+		var coin_amount = randi_range(5, 10)
+		
+		for i in range(coin_amount):
+			var new_coin = coin_scene.instantiate()
+			get_tree().root.add_child(new_coin)
+			
+			new_coin.global_position = global_position
+			
+			var coin_direction: Vector3
+			coin_direction.x = randi_range(1,3)
+			coin_direction.z = randi_range(1,3)
+			new_coin.get_child(0).apply_force(coin_direction * 50)
+		
 		queue_free()
 
 func _on_enemy_hitbox_area_entered(area: Area3D) -> void:

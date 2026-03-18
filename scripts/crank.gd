@@ -37,4 +37,3 @@ func _physics_process(_delta) -> void:
 		prev_rotation = current_rotation
 		
 		power = abs(crank_value)
-		print(power)

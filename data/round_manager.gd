@@ -21,6 +21,8 @@ var current_round: int = 1
 ## The purpose is to start spawning enemies with the EnemySpawner that are in the current_queue.
 signal round_started
 
+signal intermission_started
+
 ## Parses the JSON data according to the round_data_directory.
 func parse_json_data() -> void:
 	var file := FileAccess.get_file_as_string(round_data_directory)
@@ -30,7 +32,7 @@ func _ready() -> void:
 	parse_json_data()
 	
 	# Debug code: Lets say the first round starts right away, as soon as you enter the game
-	start_round()
+	#start_round()
 
 ## Returns an array of all enemies to be spawned in a queue given.
 ## Example: return_queue_data(#) -> ["Raider", "Raider", "Wolf", "Wolf"] (2 raiders, then 2 wolves)
@@ -68,9 +70,22 @@ func start_round() -> void:
 	# (Example: An EnemySpawner should be listening to this signal getting emitted to know when to start the timer to spawn enemies from current_queue)
 	emit_signal("round_started")
 
+func start_intermission() -> void:
+	# Set game state
+	set_intermission()
+	
+	# Clean up the enemies.
+	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.queue_free()
+		
+	emit_signal("intermission_started")
+
 ## Call this to check if the game state is currently in intermission.
 func in_intermission() -> bool:
 	return state == States.INTERMISSION
+
+func in_battle() -> bool:
+	return state == States.BATTLE
 
 func set_intermission() -> void:
 	state = States.INTERMISSION

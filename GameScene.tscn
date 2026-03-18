@@ -509,7 +509,7 @@ material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="Room/SM_archer/SM_archerBase/SM_archerBody" unique_id=1031946062]
-transform = Transform3D(0.96576416, -0.0020680078, 0.25941288, 0.0020912196, 0.9999978, 0.00018649004, -0.2594127, 0.00036238402, 0.96576643, -0.052413225, 0.13324311, 0.019046383)
+transform = Transform3D(0.96592563, 0, 0.25881904, 0, 1, 0, -0.258819, 0, 0.96592575, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_5ys36")
 
@@ -543,7 +543,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527
 curve = SubResource("Curve3D_1kil2")
 
 [node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.9921362, 5.265523e-05, -0.12435716, -3.6376117e-12, 0.999942, 0.00042337776, 0.12435433, 0.0004200993, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+transform = Transform3D(-0.9921362, 5.2655225e-05, -0.12435716, -3.6376117e-12, 0.99994195, 0.00042337776, 0.12435433, 0.00042009927, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
 
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
@@ -567,7 +567,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=831537094]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = ExtResource("7_5cvvu")
 

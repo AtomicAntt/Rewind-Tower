@@ -22,12 +22,12 @@ bg_color = Color(1, 0, 0.3137255, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55jtl"]
 bg_color = Color(0, 1, 0.3137255, 1)
 
-[node name="Enemy" type="PathFollow3D" unique_id=1241046123 node_paths=PackedStringArray("health_bar")]
+[node name="Enemy" type="PathFollow3D" unique_id=1241046123 node_paths=PackedStringArray("health_bar") groups=["Enemy"]]
 transform = Transform3D(-0.0032698764, 0.0038223346, -0.99991316, 0, 0.99993956, 0.0038222747, 0.99989957, 1.2499817e-05, -0.0032699208, 0, 0, 0)
 script = ExtResource("1_3gvst")
 health_bar = NodePath("SubViewport/ProgressBar")
 
-[node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["Enemy"]]
+[node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["EnemyHitbox"]]
 transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)
 
 [node name="EnemyMesh" type="MeshInstance3D" parent="EnemyHitbox" unique_id=817908475]

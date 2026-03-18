@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null
 	var closest_distance: float = INF
-	for enemy_area: Area3D in get_tree().get_nodes_in_group("Enemy"):
+	for enemy_area: Area3D in get_tree().get_nodes_in_group("EnemyHitbox"):
 		if global_position.distance_to(enemy_area.global_position) < closest_distance and power >= required_power:
 			closest_area3d = enemy_area
 			closest_distance = global_position.distance_to(enemy_area.global_position)

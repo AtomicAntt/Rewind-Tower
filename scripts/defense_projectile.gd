@@ -8,7 +8,7 @@ extends Area3D
 @export var speed: float = 2.0
 
 func _on_area_entered(area: Area3D) -> void:
-	if area.is_in_group("Enemy"):
+	if area.is_in_group("EnemyHitbox"):
 		# Area in group Enemy should just be the hitbox of the enemy.
 		var enemy: Enemy = area.get_parent()
 		enemy.hurt(damage)

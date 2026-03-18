@@ -2,13 +2,13 @@
 	{
 		"Round": 1,
 		"Enemies": [
-			{"Raiders" : 5}
+			{"Raider" : 5}
 		]
 	},
 	{
 		"Round": 2,
 		"Enemies": [
-			{"Raiders" : 2}, {"Wolf" : 2}, {"Raiders" : 2}, {"Wolf" : 2}
+			{"Raider" : 2}, {"Wolf" : 2}, {"Raider" : 2}, {"Wolf" : 2}
 		]	
 	}
 ]

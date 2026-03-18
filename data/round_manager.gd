@@ -19,8 +19,6 @@ func parse_json_data() -> void:
 
 func _ready() -> void:
 	parse_json_data()
-	print(return_queue_data(1))
-	print(return_queue_data(2))
 
 ## Returns an array of all enemies to be spawned in a queue given
 ## Example: return_queue_data(#) -> ["Raider", "Raider", "Wolf", "Wolf"] (2 raiders, then 2 wolves)

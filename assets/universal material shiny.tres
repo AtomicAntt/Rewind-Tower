@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dpv0gf31xaw62"]
+
+[ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/T_UniversalTexture.jpg" id="1_0ydv8"]
+
+[resource]
+resource_name = "universal material"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+albedo_texture = ExtResource("1_0ydv8")
+metallic = 1.0
+roughness = 0.5

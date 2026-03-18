@@ -28,6 +28,9 @@ func parse_json_data() -> void:
 
 func _ready() -> void:
 	parse_json_data()
+	
+	# Debug code: Lets say the first round starts right away, as soon as you enter the game
+	start_round()
 
 ## Returns an array of all enemies to be spawned in a queue given.
 ## Example: return_queue_data(#) -> ["Raider", "Raider", "Wolf", "Wolf"] (2 raiders, then 2 wolves)

@@ -7,6 +7,10 @@ extends Timer
 
 @export var path_3d: Path3D
 
+func _ready() -> void:
+	# Whenever a new round starts, this timer will reset and start again.
+	RoundManager.round_started.connect(start)
+
 func _on_timeout() -> void:
 	if not RoundManager.in_intermission() and not RoundManager.current_queue.is_empty():
 		spawn_enemy(RoundManager.current_queue.pop_front())

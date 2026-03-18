@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dyo7m5q4bqoc0"]
 
 [ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
-[ext_resource type="Material" uid="uid://dpv0gf31xaw62" path="res://assets/universal material shiny.tres" id="2_5cvvu"]
+[ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_5cvvu"]
 [ext_resource type="PackedScene" uid="uid://jkspmi6x2fhu" path="res://scenes/Enemy.tscn" id="3_b5kf5"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 [ext_resource type="PackedScene" uid="uid://d5u4k7myj4w0" path="res://scenes/DefenseTroop.tscn" id="6_1kil2"]
@@ -585,7 +585,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527
 curve = SubResource("Curve3D_1kil2")
 
 [node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.9921362, 5.2655225e-05, -0.12435716, -3.6376117e-12, 0.9999419, 0.00042337776, 0.12435433, 0.00042009924, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+transform = Transform3D(-0.9921362, 5.2655218e-05, -0.12435716, -3.6376117e-12, 0.99994177, 0.00042337776, 0.12435433, 0.00042009918, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
 
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
@@ -609,7 +609,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=831537094]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = ExtResource("7_5cvvu")
 

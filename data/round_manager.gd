@@ -1,13 +1,17 @@
 extends Node
 
+enum States {INTERMISSION, BATTLE}
+
+## Current state the game is in.
+var state: States = States.INTERMISSION
+
 ## The directory to the JSON file containing data for each round.
 var round_data_directory: String = "res://data/RoundData.json"
 
 ## The fully JSON parsed array.
 var round_data: Array
 
-## The queue that can be dynamically pushed and popped for the purpose of spawning enemies.
-## Use pop_front() to remove and return the next element in the queue.
+## The queue containing enemy names that can be dynamically pushed and popped for the purpose of spawning enemies.
 var current_queue: Array[String]
 
 ## The current round which the game is currently in. When the tower is winded up, this round will be the one that starts.
@@ -40,14 +44,17 @@ func return_queue_data(round_num: int) -> Array[String]:
 	
 	return queue
 
-## Sets the current queue given a round number.
+## Sets the current queue of enemies given a round number.
 func set_queue(round_num: int) -> void:
 	current_queue = return_queue_data(round_num)
 	
 ## Starts the current round. 
-## This function can be called both when you start a round new after the intermission/tutorial or if you wanted to restart the round.
+## This function can be called for both when you start a round new after the intermission/tutorial or if you wanted to restart the round.
 func start_round() -> void:
-	# First, we gotta clean up the enemies.
+	# Set the game state
+	set_battle()
+	
+	# Clean up the enemies.
 	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.queue_free()
 	
@@ -57,3 +64,13 @@ func start_round() -> void:
 	# Finally, let the game know that the round has started. 
 	# (Example: An EnemySpawner should be listening to this signal getting emitted to know when to start the timer to spawn enemies from current_queue)
 	emit_signal("round_started")
+
+## Call this to check if the game state is currently in intermission.
+func in_intermission() -> bool:
+	return state == States.INTERMISSION
+
+func set_intermission() -> void:
+	state = States.INTERMISSION
+
+func set_battle() -> void:
+	state = States.BATTLE

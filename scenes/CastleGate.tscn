@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cy5271teptgq1"]
 
-[ext_resource type="Script" uid="uid://dq628ogum8q8x" path="res://scenes/DefenseHitbox.gd" id="1_p7bue"]
+[ext_resource type="Script" uid="uid://dq628ogum8q8x" path="res://scripts/DefenseHitbox.gd" id="1_p7bue"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_eqhe0"]
 size = Vector3(0.2, 0.2, 0.01)

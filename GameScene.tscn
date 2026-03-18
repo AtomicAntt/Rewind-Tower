@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5271teptgq1" path="res://scenes/CastleGate.tscn" id="6_ed8b8"]
 [ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/SM_table.glb" id="6_i2arf"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="7_5cvvu"]
+[ext_resource type="PackedScene" uid="uid://cpv76fhn7wiha" path="res://scenes/Drawer.tscn" id="9_ed8b8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -561,7 +562,7 @@ size = Vector3(2.5949707, 0.052734375, 1.4463196)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lchu2"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_5r1k4"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_l6ya2"]
 _surfaces = [{
 "aabb": AABB(-0.29865006, -0.122610375, -0.17727824, 0.5479493, 0.14411025, 0.3536026),
 "format": 34359742465,
@@ -591,11 +592,11 @@ _surfaces = [{
 "vertex_data": PackedByteArray("qeiYviYb+73nwWs9TUh/PiYb+73xQTI+fLQbviYb+71tiDW+YdZkPiYb+73UOP29TUh/PoAgsDzxQTI+YdZkPiYb+73UOP29TUh/PiYb+73xQTI+X9ZkPoAgsDzSOP29X9ZkPoAgsDzSOP29fLQbviYb+71tiDW+YdZkPiYb+73UOP29fLQbvoAgsDxtiDW+qeiYvoAgsDznwWs9fLQbviYb+71tiDW+fLQbvoAgsDxtiDW+qeiYviYb+73nwWs9TUh/PiYb+73xQTI+qeiYvoAgsDznwWs9TUh/PoAgsDzxQTI+qeiYviYb+73nwWs95d2Uvkdg773Ot2I9RBYZvs0Q772UrC2+PQx5Pj9a771Epiw+2GJfPltB771pkfC9U6t3PoAgsDzRaCs+2GJfPltB771pkfC9RSdePoAgsDzitO29PQx5Pj9a771Epiw+RSdePoAgsDzitO292GJfPltB771pkfC9RBYZvs0Q772UrC2+9HcYvoAgsDxd0Su+VvqTvoAgsDzlumA9RBYZvs0Q772UrC2+5d2Uvkdg773Ot2I99HcYvoAgsDxd0Su+PQx5Pj9a771Epiw+U6t3PoAgsDzRaCs+VvqTvoAgsDzlumA95d2Uvkdg773Ot2I9X9ZkPoAgsDzSOP299HcYvoAgsDxd0Su+fLQbvoAgsDxtiDW+VvqTvoAgsDzlumA9RSdePoAgsDzitO29qeiYvoAgsDznwWs9TUh/PoAgsDzxQTI+U6t3PoAgsDzRaCs+7HYHPiYb+71fjjQ+fjYEvCYb+72ADge+olcVPoAgsDxkXvO9fjYEvCYb+72ADge+7HYHPiYb+71fjjQ+URPCvYAgsDyeMRI+7HYHPoAgsDxfjjQ+UGcZvHpe7L0BEgC+E7wHPpjg7L0yMi0+fngVPn8gsDzs4969UGcZvHpe7L0BEgC+E7wHPpjg7L0yMi0+a728vYAgsDy0Tgg+fngVPn8gsDzs4969olcVPoAgsDxkXvO97HYHPoAgsDxfjjQ+a728vYAgsDy0Tgg+URPCvYAgsDyeMRI+URPCvSYb+72eMRI+g9CLPSYb+72/OPm9VsunvSYb+73qthm+z6KJPCYb+71tlCk+OlFNviYb+73nXds9pFcVPiYb+71jXvO9pFcVPiYb+71jXvO9htCLPYAgsDy2OPm9g9CLPSYb+72/OPm9fjYEvIAgsDyADge+VsunvYAgsDzqthm+VsunvSYb+73qthm+z6KJPCYb+71tlCk+z6KJPIAgsDxtlCk+URPCvSYb+72eMRI+OlFNviYb+73nXds9OlFNvoAgsDznXds9Qju+vS3n7L04Egs+VpuKPWRm7L36BOu91EaSPEHf7L0GTCI+gG4VPsZk7L11H+W9kA+svQhT7L2m9BK+DXZKvvHx7L0HuM09gG4VPsZk7L11H+W9ShSKPX8gsDyw0OS9VpuKPWRm7L36BOu9oLoivH8gsDzd/fm9YPWtvYAgsDwJ8w++kA+svQhT7L2m9BK+1EaSPEHf7L0GTCI+EdcHPoAgsDyyUio+XaeVPIAgsDxZcx8+Qju+vS3n7L04Egs+DXZKvvHx7L0HuM09G11JvoAgsDyOecg9ShSKPX8gsDyw0OS9htCLPYAgsDy2OPm9oLoivH8gsDzd/fm9fjYEvIAgsDyADge+YPWtvYAgsDwJ8w++EdcHPoAgsDyyUio+VsunvYAgsDzqthm+z6KJPIAgsDxtlCk+XaeVPIAgsDxZcx8+OlFNvoAgsDznXds9G11JvoAgsDyOecg9/38AAP///7//fwAA////v/9/AAD///+//38AAP///7///zaK////v///Nor///+///82iv///7///zaK////vwAAhfj///+///9C3P///78AAIX4////v///Qtz///+/AAAwsf///78AADCx////vwAAMLH///+/AAAwsf///79ogv9/////Pw5V/3////8/aIL/f////z8OVf9/////P499Vv7///+/j31W/v///7/NgSr+////P82BKv7///8/UAvrfv///z9QC+t+////P1AL637///8/UAvrfv///z9Ziix+////P1mKLH7///8/Iltofv///z8iW2h+////PwrOGn////8/Cs4af////z8Kzhp/////PwrOGn////8/KP5KAP///78o/koA////v6D+zCj///+/oP7MKP///7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//38AAP///7//fwAAB7D/vwAAav7///+///+Y6////792e/9/////P81k/3////8/dnv/f////z/4f9r/DbIHQOaAB/////8/NYOrff///z/2a5l9////P+P9rgX///+/5v3BGv///7//f///////v/9///////+//3///////7//f///////v/9///////+//38AAP//rM//fwAAJhf/P/9/AADZwf+//38AAAAAxRX/fwAA//8O1/9/AAD///+/AABq/v///7////f1////v///9/X///+///+Y6////7///0nh////v///SeH///+/d2//f////z93b/9/////P81k/3////8/O1r/f////z87Wv9/////P/h/2v/z/54x/H/e/5QT+7/8f97/EgCZ6fCA/v7///8/6341/wjEuD/Hfh//i/+GKUGDq33///8/KHZsff///z8odmx9////P/ZrmX3///8/6WAPfv///z/hYA9+////P7z9PRD///+/4/20Bf///7+8/T0Q////v+b9wRr///+/Uf5oJP///79R/mIk////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////78=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_5r1k4")
+shadow_mesh = SubResource("ArrayMesh_l6ya2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqkls"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_p7j4s"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_oieil"]
 _surfaces = [{
 "aabb": AABB(-0.07882516, -0.007343328, -0.03976877, 0.15765038, 0.014686696, 0.042339325),
 "format": 34359742465,
@@ -625,7 +626,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("P8QBvaGg8Du+7K68PsQBvU2g8Lt+nhO9P8QBPaGg8Dt+nhO9QMQBPU2g8Lu+7K68xnVKvaGg8Ds5x9W8zHVKPUyg8Ls5x9W8P8QBvU2g8Lu+7K68/6J0vZf6nrsH0F+8/6J0vez6njuHqoG7B6N0PZf6nrt+qoG7CKN0Pez6njsG0F+8QMQBPaGg8Du+7K68PlcDMEyg8LuU5CK9gtxiMKGg8DuU5CK9CqN0Pez6njt+qoG7l1SRPVJS5ru8dig7l1SRPaRS5ju8dig7l1SRPaRS5jvUNDy8l1SRPVJS5rvUNDy8kVSRvVJS5ruVdig7kVSRvaRS5juVdig7kVSRvaRS5jvbNDy8kVSRvVJS5rvcNDy8yXVKvU2g8Lv07Tq8x3VKvaKg8Dvz7Tq8/6J0vez6njsH0F+8/6J0vZf6nruIqoG7xnVKvUyg8Ls4x9W8PsQBvaGg8Dt+nhO9PlcDMKKg8DvpeM28Ks3uLk2g8LvpeM28P8QBPU2g8Lt+nhO9zXVKPU2g8Lvy7Tq8zHVKPaGg8Dvx7Tq8zHVKPaKg8Ds4x9W8CKN0PZf6nrsG0F+8H2+hPYN4tDvA+to6H2+hPTF4tLsIGRm8H2+hPYN4tDsIGRm8H2+hPTJ4tLvA+to6Fm+hvTF4tLtS+to6FW+hvYR4tDsUGRm8FW+hvTF4tLsUGRm8Fm+hvYR4tDtS+to6apABvdb3DE8NNV8SFcvxU/HKn+0KBWBTlG/9QnkDac8fMk/bCdv4I9/NryTKENCiapD9QqUtSMTyN5sdvTIJO0uhwa/+NOXFs149UC4FhtoMyGPiLRj3J5RvAb3aATrRQcIAAKIBk8FBwv//BwEAv7Newa8/ywbSEHXeRovLGTYQdSC5ucSE+EvC6fT///+/S8IVC17sDsnuit5GYd78Mu6KILmh7zJKsz3p9FX98rKzPRUL8Poozy+UeEO/LVTCL5SGvFguer3yN2PiezwcPUuhPVATNUO+HzKvJI2iBFwNNZ/tM+/qL/9/hcIcABzA/395PaIAVr/xyl8SPAkXsM9reEO8CN6lz2uGvBfBskffzU/bMRCjZwzImx3OCzFZubCApunuD2PK2OEzV7bp1crYHcwasWTCubB+Wd3kzxxFT35ZuLmZSzQnHcw95g/lNCfhM2/n65pFT4CmmLn2MQ==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_p7j4s")
+shadow_mesh = SubResource("ArrayMesh_oieil")
 
 [sub_resource type="Animation" id="Animation_wqol3"]
 resource_name = "SM_drawerOpen"
@@ -745,7 +746,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527
 curve = SubResource("Curve3D_1kil2")
 
 [node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.9921362, 5.265521e-05, -0.12435716, -3.6376117e-12, 0.99994165, 0.00042337776, 0.12435433, 0.00042009912, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+transform = Transform3D(-0.9921362, 5.265517e-05, -0.12435716, -3.6376117e-12, 0.9999409, 0.00042337776, 0.12435433, 0.0004200988, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
 
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
@@ -769,7 +770,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=831537094]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = ExtResource("7_5cvvu")
 
@@ -782,6 +783,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4929245, 1.0645615, -0.506
 
 [node name="SM_drawer2" type="Node3D" parent="." unique_id=1913407216]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.01087635, 1.0038426, -0.44621563)
+visible = false
 
 [node name="SM_drawer" type="MeshInstance3D" parent="SM_drawer2" unique_id=1300540094]
 transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, -0.4061721, -0.07886084, -0.17987007)
@@ -795,6 +797,9 @@ mesh = SubResource("ArrayMesh_82q1h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_drawer2" unique_id=2015528744]
 libraries/ = SubResource("AnimationLibrary_jd2fb")
+
+[node name="Drawer" parent="." unique_id=1729992228 instance=ExtResource("9_ed8b8")]
+transform = Transform3D(-0.5017373, 0, -0.86502016, 0, 1, 0, 0.86502016, 0, -0.5017373, 0.3961445, 0.924327, -0.26577273)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

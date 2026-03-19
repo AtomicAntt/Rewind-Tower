@@ -58,6 +58,8 @@ func hurt(amount: float) -> void:
 			coin_direction.z = randi_range(1,3)
 			new_coin.get_child(0).apply_force(coin_direction * 50)
 		
+		RoundManager.check_round_won()
+		
 		queue_free()
 
 func _on_enemy_hitbox_area_entered(area: Area3D) -> void:

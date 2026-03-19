@@ -2,16 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_5cvvu"]
+[ext_resource type="PackedScene" uid="uid://jkspmi6x2fhu" path="res://scenes/Enemy.tscn" id="3_b5kf5"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/T_UniversalTexture.jpg" id="4_oieil"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/universal material alpha.tres" id="5_0exr2"]
-[ext_resource type="PackedScene" uid="uid://d5u4k7myj4w0" path="res://scenes/DefenseTroop.tscn" id="6_1kil2"]
 [ext_resource type="PackedScene" uid="uid://cy5271teptgq1" path="res://scenes/CastleGate.tscn" id="6_ed8b8"]
 [ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/SM_table.glb" id="6_i2arf"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="7_5cvvu"]
 [ext_resource type="PackedScene" uid="uid://cpv76fhn7wiha" path="res://scenes/Drawer.tscn" id="9_ed8b8"]
-[ext_resource type="Script" uid="uid://mffaxltqg4lb" path="res://scripts/state_label.gd" id="12_0exr2"]
-[ext_resource type="PackedScene" uid="uid://c4n72583y3r4" path="res://scenes/systems/TowerCrank.tscn" id="13_4fxa8"]
+[ext_resource type="PackedScene" uid="uid://qsif260hysjo" path="res://scenes/Archer.tscn" id="12_0exr2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -886,9 +885,6 @@ data = PackedVector3Array(0, 1, 0.39909998, 0.0773, 0.95699996, 0.39429998, 0.07
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kil2"]
 size = Vector3(2.5949707, 0.052734375, 1.4463196)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4fxa8"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lchu2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l6ya2"]
@@ -1008,7 +1004,7 @@ material_override = SubResource("StandardMaterial3D_4fxa8")
 mesh = SubResource("ArrayMesh_cipnl")
 
 [node name="SM_swordsmanArm" type="MeshInstance3D" parent="Room/SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=2030873009]
-transform = Transform3D(1.0719286, -0.8165827, 0.09405909, 0.8212358, 1.0705055, -0.065383404, -0.035015915, 0.10906872, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
+transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.8212357, 1.0705055, -0.065383404, -0.03501591, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_7vkeg")
 
@@ -1125,6 +1121,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k77ap")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527828)
 curve = SubResource("Curve3D_1kil2")
 
+[node name="Enemy" parent="Room/MapLayout/Path3D" unique_id=1344598559 instance=ExtResource("3_b5kf5")]
+transform = Transform3D(-0.9921362, 5.2654563e-05, -0.12435716, -3.6376117e-12, 0.9999293, 0.00042337776, 0.12435433, 0.00042009394, -0.9921587, 0.025200248, -0.010446072, -0.042940006)
+
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
 autostart = true
@@ -1147,7 +1146,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1280308273]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -1160,19 +1159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012573242, 0.9951172, -0.3
 visible = false
 shape = SubResource("BoxShape3D_1kil2")
 disabled = true
-
-[node name="Drawer" parent="Room" unique_id=1729992228 instance=ExtResource("9_ed8b8")]
-transform = Transform3D(-0.5017373, 0, -0.86502016, 0, 1, 0, 0.86502016, 0, -0.5017373, 0.3961445, 0.924327, -0.26577273)
-
-[node name="TowerCrank" parent="Room" unique_id=450228322 instance=ExtResource("13_4fxa8")]
-transform = Transform3D(0.11503717, -0.2770676, 0, -1.2111009e-08, -5.0284346e-09, -0.3, 0.2770676, 0.11503717, -1.3113416e-08, 0.9413263, 1.2083764, -0.0348977)
-
-[node name="ProgressBar" parent="Room/TowerCrank" index="1" unique_id=2128294132]
-transform = Transform3D(0.013, 2.9103829e-12, 5.542182e-14, 5.5422897e-14, 0, -0.013, -9.4587446e-12, 0.004, 0, 0.010961264, -0.011381873, -0.593715)
-texture = SubResource("ViewportTexture_4fxa8")
-
-[node name="DefenseTroop" parent="." unique_id=818195771 instance=ExtResource("6_1kil2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4929245, 1.0645615, -0.50660646)
 
 [node name="SM_drawer2" type="Node3D" parent="." unique_id=1913407216]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.01087635, 1.0038426, -0.44621563)
@@ -1191,17 +1177,12 @@ mesh = SubResource("ArrayMesh_82q1h")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_drawer2" unique_id=2015528744]
 libraries/ = SubResource("AnimationLibrary_jd2fb")
 
-[node name="StateLabel" type="Label3D" parent="." unique_id=63295477]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7235016, -2.0505457)
-text = "Intermission - Round 1"
-script = ExtResource("12_0exr2")
+[node name="Drawer" parent="." unique_id=1729992228 instance=ExtResource("9_ed8b8")]
+transform = Transform3D(-0.5017373, 0, -0.86502016, 0, 1, 0, 0.86502016, 0, -0.5017373, 0.3961445, 0.924327, -0.26577273)
 
-[node name="StateLabel2" type="Label3D" parent="." unique_id=1008657781]
-transform = Transform3D(0.049999997, 0, -0.086602546, 0, 0.1, 0, 0.086602546, 0, 0.049999997, 0.940676, 1.4135869, -0.033427425)
-text = "Intermission - Round 1"
-script = ExtResource("12_0exr2")
+[node name="DefenseTroop2" parent="." unique_id=150638980 instance=ExtResource("12_0exr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22058456, 1.079721, -0.5098705)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 
 [editable path="Room/Table/table test"]
-[editable path="Room/TowerCrank"]

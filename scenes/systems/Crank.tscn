@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_cdhsg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7f47"]
-size = Vector3(1, 1, 2.725)
+size = Vector3(0.5180664, 1.1401367, 0.26654053)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fr4md"]
 size = Vector3(0.1, 0.1, 0.275)

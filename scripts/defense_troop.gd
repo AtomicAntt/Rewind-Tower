@@ -5,6 +5,8 @@ extends XRToolsPickable
 @onready var projectile: PackedScene = preload("res://scenes/DefenseProjectile.tscn")
 @onready var shoot_position: Marker3D = $ShootPosition
 
+var game_manager: Node3D
+
 var power: int = 0
 var power_lost: int = 0;
 
@@ -29,9 +31,13 @@ var closest_enemy_area: Area3D = null
 #Reference the AnimationPlayer which should have the defense_animator script on it
 @export var animator: AnimationPlayer
 
+@export var xray: Node3D
+
 func _ready():
 	super._ready()
 	power_bar.max_value = max_power
+	
+	game_manager = get_parent_node_3d()
 
 func _physics_process(_delta: float) -> void:
 	if is_picked_up():
@@ -78,3 +84,17 @@ func _on_shoot_timer_timeout() -> void:
 		animator._animate()
 		
 		power_lost += 1 * power_lose_rate
+
+
+func on_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Drawer"):
+		xray.visible = true
+		
+	if area.is_in_group("Boundary"):
+		game_manager._respawn_troop()
+		queue_free()
+
+
+func on_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Drawer"):
+		xray.visible = false

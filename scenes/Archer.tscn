@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_ys6re"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_owgmq"]
+[ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/T_UniversalTexture.jpg" id="3_13w10"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="4_qm8lu"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="6_vtcc4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_gj00f"]
+[ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_q5yvk"]
 [ext_resource type="Animation" uid="uid://dd67rufxwj2u" path="res://addons/godot-xr-tools/hands/animations/left/Grip 3.res" id="8_3bass"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_wl1de"]
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="9_13w10"]
@@ -57,6 +59,11 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1fnkj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5yvk"]
+albedo_texture = ExtResource("3_13w10")
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wqs7"]
 
@@ -302,7 +309,7 @@ open_pose = ExtResource("11_q5yvk")
 closed_pose = ExtResource("11_q5yvk")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator")]
+[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray")]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_ys6re")
@@ -314,6 +321,7 @@ pickable = NodePath(".")
 body = NodePath("SM_archer/SM_archerBase/SM_archerBody")
 look_offset = -90
 animator = NodePath("SM_archer/AnimationPlayer")
+xray = NodePath("XRAY")
 ranged_grab_method = 2
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
@@ -358,7 +366,7 @@ mesh = SubResource("ArrayMesh_fwv7s")
 
 [node name="SM_archerBody" type="MeshInstance3D" parent="SM_archer/SM_archerBase" unique_id=1002539329]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.3711395e-08, 0, 0, 0)
-material_override = ExtResource("4_qm8lu")
+material_override = SubResource("StandardMaterial3D_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
@@ -409,6 +417,42 @@ animationAttack = "anim_archer_ArmShoot"
 animationHead = "anim_archerHeadrotat"
 defenseTroop = NodePath("../..")
 
+[node name="XRAY" type="Node3D" parent="." unique_id=1961972023]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
+visible = false
+
+[node name="SM_archerBase" type="MeshInstance3D" parent="XRAY" unique_id=684848962]
+transform = Transform3D(0.740297, 0, 0, 0, 0.740297, 0, 0, 0, 0.740297, 0, 0, 0)
+material_override = ExtResource("7_q5yvk")
+mesh = SubResource("ArrayMesh_fwv7s")
+
+[node name="SM_archerBody" type="MeshInstance3D" parent="XRAY/SM_archerBase" unique_id=437070252]
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.3711395e-08, 0, 0, 0)
+material_override = ExtResource("7_q5yvk")
+mesh = SubResource("ArrayMesh_jmt06")
+
+[node name="SM_archerArm" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=544269908]
+transform = Transform3D(0.9659256, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.96592563, -0.052413225, 0.13324311, 0.019046383)
+material_override = ExtResource("7_q5yvk")
+mesh = SubResource("ArrayMesh_5ys36")
+
+[node name="SM_archerHead" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=675351690]
+transform = Transform3D(0.42261803, 0, 0.9063079, 0, 1, 0, -0.9063079, 0, 0.42261803, -0.007958941, 0.16343772, -0.003614734)
+material_override = ExtResource("7_q5yvk")
+mesh = SubResource("ArrayMesh_3yo6f")
+
+[node name="SM_archerhelmet" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1564271761]
+material_override = ExtResource("7_q5yvk")
+mesh = SubResource("ArrayMesh_ulej5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="XRAY" unique_id=1517720538 node_paths=PackedStringArray("animator", "defenseTroop")]
+libraries/ = SubResource("AnimationLibrary_a2mnt")
+script = ExtResource("5_qm8lu")
+animator = NodePath(".")
+animationAttack = "anim_archer_ArmShoot"
+animationHead = "anim_archerHeadrotat"
+defenseTroop = NodePath("../..")
+
 [node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox"]]
 script = ExtResource("6_vtcc4")
 crank = NodePath("../SM_archer/SM_archerBase/SM_archerBody/Crank")
@@ -420,12 +464,12 @@ shape = SubResource("BoxShape3D_lnnsc")
 
 [node name="GrabPointHandLeft" parent="." unique_id=792512517 instance=ExtResource("7_gj00f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09014428, -0.11023357)
-visible = true
 hand_pose = SubResource("Resource_sm0sf")
 
 [node name="GrabPointHandRight" parent="." unique_id=1828255441 instance=ExtResource("8_wl1de")]
 transform = Transform3D(-1, -8.742278e-08, -7.642742e-15, -8.742278e-08, 1, 8.742278e-08, 0, 8.742278e-08, -1, 0.0021773688, 0.09365268, 0.09369985)
-visible = true
 hand_pose = SubResource("Resource_ea36a")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]
+[connection signal="area_exited" from="DefenseTroopHitbox" to="." method="on_area_exited"]

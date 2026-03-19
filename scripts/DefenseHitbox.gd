@@ -1,6 +1,8 @@
 class_name DefenseHitbox
 extends Area3D
 
+# This class will only be used for the castle gate, for now.
+
 ## The amount of health this entity has.
 @export var health: float = 10.0
 @onready var max_health: float = health

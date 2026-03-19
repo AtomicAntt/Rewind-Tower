@@ -1,0 +1,2 @@
+class_name AutomatWindow
+extends Node3D

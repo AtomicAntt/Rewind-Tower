@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_e3bxy"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/universal material alpha.tres" id="3_04k3f"]
 [ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
+[ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/systems/TwisterInteractable.tscn" id="4_a71aj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uggo0"]
 
@@ -73,7 +74,7 @@ shadow_mesh = SubResource("ArrayMesh_gnt8u")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfal0"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_q5aa4"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_e3bxy"]
 _surfaces = [{
 "aabb": AABB(-0.035947476, -0.040114723, -0.018250218, 0.07189494, 0.080229335, 0.035949588),
 "format": 34359742465,
@@ -103,7 +104,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("sJHXsE1nMzx7gZW8Y6uxu77dGbwwouw5b2ezuyheGzx7gZW8jWezOyheGzx7gZW8aV4bPDFnszt7gZW8fGczPAAAQLN7gZW8aV4bPPFns7t7gZW8jWezO5peG7x7gZW8sJHXsK1nM7x7gZW8b2ezu5peG7x7gZW8WV4bvPFns7t7gZW8gGczvAAAQLN7gZW8WV4bvDFnszt7gZW8TjoeuzhPJD2eLxc8pz0TPX8uk7yeLxc8r+T2uwPcw7xE/pA8KasxPIDyjbAwouw5pj0TvVgukzyeLxc8RjkeO1ZPJL2eLxc8keT2O9vbwzxE/pA8Y6uxu4PdGTwwouw5Y6sxvIDyjbAwouw5/ZEHvTuUiDueLxc8JwBUvP7i+zyeLxc8CloJvUFwtbyeLxc8DHvIvGDnsbtE/pA85MGKvBdilzxE/pA87SOlPPK92TyeLxc8CVoJPRtwtTyeLxc8BnvIPMDmsTtE/pA8+ZEHPTSUiLueLxc83sGKPEBil7xE/pA89/9TPCLj+7yeLxc8BySlvBa+2byeLxc85MGKvBdilzxE/pA83sGKPEBil7xE/pA8DHvIvGDnsbtE/pA8r+T2uwPcw7xE/pA8keT2O9vbwzxE/pA8BnvIPMDmsTtE/pA8KquxO4PdGTwwouw5tsbjsiirMTwwouw5hN0ZPCersTswouw5SDkeOzhPJD2eLxc8vd0ZvCersTswouw5H+exu/V6yDxE/pA8BySlvPK92TyeLxc8C1oJvRtwtTyeLxc88v9TPP3i+zyeLxc8KWKXPM3BijxE/pA8pD0TPVgukzyeLxc8+5EHPT2UiDueLxc87NvDPPHk9rtE/pA8hN0ZPGSrsbswouw5KquxO77dGbwwouw5B1oJPUBwtbyeLxc87iOlPBa+2byeLxc8AeexOx17yLxE/pA8tsbjsmSrMbwwouw5Rjoeu1ZPJL2eLxc8LQBUvCLj+7yeLxc8L2KXvPXBirxE/pA8vd0ZvGSrsbswouw5qT0TvX8uk7yeLxc8+5EHvTSUiLueLxc889vDvFDk9jtE/pA8L2KXvPXBirxE/pA8xLmAs0jXB7Mr/pA8AeexOx17yLxE/pA889vDvFDk9jtE/pA87NvDPPHk9rtE/pA8H+exu/V6yDxE/pA8KWKXPM3BijxE/pA8/39F/////z97M7kd////v1dRztD///8/p67O0P///z/O0Keu////P0X//3////8/ztBXUf///z+nrjAv////P/9/uQD///8/V1EwL////z8wL1dR////P7kA/3////8/MC+nrv///z+RXSHn////v8vmQV3///+/VnFvYv///z///1+4////vzMZvaL///+/baLdGP///7+ojo+d////P3szReL///+/AABfuP///79CBjFl////vydDetP///+/sjvxO////7+EXL99////P/FtJZv///8/wbUL2////79MxA3E////v3qjP4L///8/vPnNmv///78Nktlk////P9e8hCz///+/PUrzJP///7/xbSWb////Pw2S2WT///8/hFy/ff///z9WcW9i////P6iOj53///8/eqM/gv///z+DzEXi////vy66//////+/5eKYzf///79jo1Lm////vxkdmM3///+/pHOjnf///z8vSxfd////vz88ycT///+/675D0v///78Kk+6Y////P7PnGaL///+/QvcAYv///79roax7////P+XiZjL///+/g8y5Hf///7+/wzU7////v8+05yL///+/WoxbYv///z8uugAA////v5tcrBn///+/E0G7Lf///7/0bBBn////PxkdZjL///+/SxjlXf///7+8CP6d////v5NeUoT///8/9GwQZ////z//f/9/////P1qMW2L///8/k15ShP///z9roax7////P6Rzo53///8/CpPumP///z8=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_q5aa4")
+shadow_mesh = SubResource("ArrayMesh_e3bxy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abe3j"]
 
@@ -244,6 +245,7 @@ mesh = SubResource("ArrayMesh_schmv")
 
 [node name="SM_automatCrank" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1051369624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01766339)
+visible = false
 material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_lqk24")
 
@@ -256,6 +258,9 @@ mesh = SubResource("ArrayMesh_6vi87")
 transform = Transform3D(9.451487, 0, 0, 0, -4.131376e-07, -9.451486, 0, 9.451487, -4.1313757e-07, 0.0036740303, 0.755621, 0.049117412)
 material_override = ExtResource("3_04k3f")
 mesh = SubResource("ArrayMesh_tr1qo")
+
+[node name="TwisterInteractable" parent="SM_automatWindow/SM_automatSeg" unique_id=641983309 instance=ExtResource("4_a71aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01766339)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_automatWindow" unique_id=540936324]
 libraries/ = SubResource("AnimationLibrary_hm3qu")

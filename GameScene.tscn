@@ -661,7 +661,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fxa8"]
 size = Vector3(0.25836182, 0.111328125, 0.5456543)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rb7ul"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ex6dp"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -792,7 +792,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=425565111]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -843,7 +843,7 @@ transform = Transform3D(0.12238444, -0.27390155, -8.881784e-16, -1.1972618e-08, 
 
 [node name="ProgressBar" parent="TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(0.013, 2.910383e-12, 5.542268e-14, 5.542268e-14, -1.7746207e-10, -0.013, -9.458744e-12, 0.004, -5.7675176e-10, 5.8651337e-09, -0.015410155, -0.46049133)
-texture = SubResource("ViewportTexture_rb7ul")
+texture = SubResource("ViewportTexture_ex6dp")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)

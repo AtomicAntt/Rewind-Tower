@@ -16,9 +16,18 @@ var power_lost: int = 0;
 
 @export var pickable: XRToolsPickable
 
+#The object that gets rotated towards the enemy
+@export var body: Node3D
+
+#Offset for looking at the enemies
+@export var look_offset: int
+
 var can_shoot: bool = false
 
 var closest_enemy_area: Area3D = null
+
+#Reference the AnimationPlayer which should have the defense_animator script on it
+@export var animator: AnimationPlayer
 
 func _ready():
 	power_bar.max_value = max_power
@@ -40,7 +49,10 @@ func _physics_process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		closest_enemy_area = find_closest_enemy_area3d()
 		if is_instance_valid(closest_enemy_area):
-			look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
+			body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
+			body.rotation.x = 0
+			body.rotate_y(look_offset)
+			body.rotation.z = 0
 
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null
@@ -57,5 +69,7 @@ func _on_shoot_timer_timeout() -> void:
 		get_parent().add_child(projectile_instance)
 		projectile_instance.global_position = shoot_position.global_position
 		projectile_instance.look_at(closest_enemy_area.global_position)
+		
+		animator._animate()
 		
 		power_lost += 1 * power_lose_rate

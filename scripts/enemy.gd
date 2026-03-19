@@ -53,6 +53,7 @@ func hurt(amount: float) -> void:
 			
 			var coin_direction: Vector3
 			coin_direction.x = randi_range(1,3)
+			coin_direction.y = randi_range(2,5)
 			coin_direction.z = randi_range(1,3)
 			new_coin.get_child(0).apply_force(coin_direction * 50)
 		

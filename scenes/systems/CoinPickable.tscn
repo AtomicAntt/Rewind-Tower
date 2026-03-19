@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dvhvka0e3xywf"]
 
-[ext_resource type="Script" uid="uid://d1l5bofweyt0h" path="res://scripts/coin.gd" id="1_baax7"]
+[ext_resource type="Script" uid="uid://dbdiqmbno702x" path="res://scripts/coin_pickable.gd" id="1_ksglj"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_b06pj"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_ot8yy"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_v43ay"]
@@ -59,7 +59,7 @@ closed_pose = ExtResource("8_d8m1q")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [node name="Coin" type="Node3D" unique_id=343890196 groups=["Coin"]]
-script = ExtResource("1_baax7")
+script = ExtResource("1_ksglj")
 
 [node name="XRToolsPickable" type="RigidBody3D" parent="." unique_id=1292231674 groups=["Coin"]]
 disable_mode = 2
@@ -86,3 +86,8 @@ hand_pose = SubResource("Resource_dkdni")
 [node name="GrabPointHandRight" parent="XRToolsPickable" unique_id=1396659195 groups=["Coin"] instance=ExtResource("5_p8ral")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017, 0.076, -0.109)
 hand_pose = SubResource("Resource_6iqci")
+
+[node name="DropTimer" type="Timer" parent="." unique_id=510806765]
+wait_time = 5.0
+
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]

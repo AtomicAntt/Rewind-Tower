@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 	
 	if current_coin != null and !coin_slot.has_snapped_object():
 		coins -= 1
+		current_coin.get_parent_node_3d()._dropped()
 		current_coin = null
 		coin_respawn_timer.start()
 	
@@ -50,8 +51,6 @@ func _process(_delta: float) -> void:
 		
 		coin_in_slot.global_position = coin_slot.global_position
 		coin_in_slot.rotation = coin_slot.rotation
-		
-		print("Coin Spawned")
 
 func _on_coin_respawn_timeout() -> void:
 	can_spawn_coin = true

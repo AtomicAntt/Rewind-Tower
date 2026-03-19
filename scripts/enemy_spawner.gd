@@ -10,11 +10,13 @@ extends Timer
 func _ready() -> void:
 	# Whenever a new round starts, this timer will reset and start again.
 	RoundManager.round_started.connect(start)
-	# Same for when its intermission
+	# Stop in intermission.
 	RoundManager.intermission_started.connect(stop)
-
+	# Also stop if it's game over.
+	RoundManager.game_over.connect(stop)
+	
 func _on_timeout() -> void:
-	if not RoundManager.in_intermission() and not RoundManager.current_queue.is_empty():
+	if RoundManager.in_battle() and not RoundManager.current_queue.is_empty():
 		spawn_enemy(RoundManager.current_queue.pop_front())
 
 func spawn_enemy(enemy_name: String) -> void:

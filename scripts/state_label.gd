@@ -5,5 +5,7 @@ extends Label3D
 func _physics_process(delta: float) -> void:
 	if RoundManager.in_battle():
 		text = "Round " + str(RoundManager.current_round)
-	else:
+	elif RoundManager.in_intermission():
 		text = "Intermission (Round " + str(RoundManager.current_round) + ")"
+	elif RoundManager.is_gameover():
+		text = "Game Over! (Round " + str(RoundManager.current_round) + ")"

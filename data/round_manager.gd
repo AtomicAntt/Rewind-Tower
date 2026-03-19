@@ -1,6 +1,6 @@
 extends Node
 
-enum States {INTERMISSION, BATTLE}
+enum States {INTERMISSION, BATTLE, GAMEOVER}
 
 ## Current state the game is in.
 var state: States = States.INTERMISSION
@@ -22,6 +22,8 @@ var current_round: int = 1
 signal round_started
 
 signal intermission_started
+
+signal game_over
 
 ## Parses the JSON data according to the round_data_directory.
 func parse_json_data() -> void:
@@ -87,8 +89,15 @@ func in_intermission() -> bool:
 func in_battle() -> bool:
 	return state == States.BATTLE
 
+func is_gameover() -> bool:
+	return state == States.GAMEOVER
+
 func set_intermission() -> void:
 	state = States.INTERMISSION
 
 func set_battle() -> void:
 	state = States.BATTLE
+
+func set_gameover() -> void:
+	state = States.GAMEOVER
+	emit_signal("game_over")

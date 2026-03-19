@@ -25,13 +25,14 @@ const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
 var current_defense_attacking: DefenseHitbox = null
 
 func _physics_process(delta: float) -> void:
-	# If there isn't a current defense to attack, move along the path.
-	if not is_instance_valid(current_defense_attacking):
+	# If there isn't a current defense to attack, and the game isn't over, move along the path.
+	if not is_instance_valid(current_defense_attacking) and not RoundManager.is_gameover():
 		var new_progress_ratio: float = progress_ratio
 		new_progress_ratio += (enemy_speed * delta) / path_length
-	
+		
+		# Enemy has reached the end, so the game is over.
 		if new_progress_ratio >= 1.0:
-			queue_free()
+			RoundManager.set_gameover()
 		else:
 			progress_ratio = new_progress_ratio
 		

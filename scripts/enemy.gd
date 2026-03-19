@@ -24,9 +24,11 @@ const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
 # This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
 var current_defense_attacking: DefenseHitbox = null
 
+var current_defense_troop_attacking: DefenseTroopHitbox = null
+
 func _physics_process(delta: float) -> void:
 	# If there isn't a current defense to attack, and the game isn't over, move along the path.
-	if not is_instance_valid(current_defense_attacking) and not RoundManager.is_gameover():
+	if not is_instance_valid(current_defense_attacking) and not RoundManager.is_gameover() and not is_instance_valid(current_defense_troop_attacking):
 		var new_progress_ratio: float = progress_ratio
 		new_progress_ratio += (enemy_speed * delta) / path_length
 		
@@ -67,7 +69,14 @@ func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 		var defense_hitbox: DefenseHitbox = area
 		current_defense_attacking = defense_hitbox
 		$AttackTimer.start()
+	elif area.is_in_group("DefenseTroopHitbox"):
+		var defense_troop_hitbox: DefenseTroopHitbox = area
+		current_defense_troop_attacking = defense_troop_hitbox
+		$AttackTimer.start()
 
 func _on_attack_timer_timeout() -> void:
 	if is_instance_valid(current_defense_attacking):
 		current_defense_attacking.hurt(damage)
+	
+	if is_instance_valid(current_defense_troop_attacking):
+		current_defense_troop_attacking.hurt(damage)

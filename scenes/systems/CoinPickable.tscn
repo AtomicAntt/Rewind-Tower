@@ -1,7 +1,8 @@
-[gd_scene format=4 uid="uid://bqc0gvka8hgry"]
+[gd_scene format=4 uid="uid://dvhvka0e3xywf"]
 
-[ext_resource type="Script" uid="uid://d1l5bofweyt0h" path="res://scripts/coin.gd" id="1_v0hfv"]
-[ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_wyc53"]
+[ext_resource type="Script" uid="uid://d1l5bofweyt0h" path="res://scripts/coin.gd" id="1_baax7"]
+[ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_b06pj"]
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_ot8yy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6cjs"]
 size = Vector3(0.05, 0.025, 0.05)
@@ -40,29 +41,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bbqbx")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_s6cjs"]
-radius = 0.2
-
 [node name="Coin" type="Node3D" unique_id=343890196]
-script = ExtResource("1_v0hfv")
+script = ExtResource("1_baax7")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=821032932]
-can_sleep = false
-linear_damp = 10.0
+[node name="XRToolsPickable" type="RigidBody3D" parent="." unique_id=1292231674]
+collision_layer = 5
+collision_mask = 5
+freeze = true
+script = ExtResource("2_ot8yy")
+release_mode = 0
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1422744451]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable" unique_id=1422744451]
 shape = SubResource("BoxShape3D_s6cjs")
 
-[node name="SM_coin2" type="Node3D" parent="RigidBody3D" unique_id=906220252]
+[node name="SM_coin2" type="Node3D" parent="XRToolsPickable" unique_id=906220252]
 
-[node name="SM_coin" type="MeshInstance3D" parent="RigidBody3D/SM_coin2" unique_id=2085963481]
-material_override = ExtResource("2_wyc53")
+[node name="SM_coin" type="MeshInstance3D" parent="XRToolsPickable/SM_coin2" unique_id=2085963481]
+material_override = ExtResource("2_b06pj")
 mesh = SubResource("ArrayMesh_m64p1")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=45772457]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1172349478]
-shape = SubResource("SphereShape3D_s6cjs")
-
-[connection signal="body_entered" from="RigidBody3D" to="." method="_on_body_entered"]
-[connection signal="area_entered" from="Area3D" to="." method="_on_object_in_range"]

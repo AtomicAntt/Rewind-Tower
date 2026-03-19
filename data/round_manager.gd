@@ -89,9 +89,9 @@ func start_intermission() -> void:
 ## Call this from enemy each time they die.
 ## This will move the game to the next round if no enemies are in the queue + no enemies alive.
 func check_round_won() -> void:
-	for enemy: Enemy in get_tree().get_first_node_in_group("Enemy"):
+	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
 		# Not all enemies may be freed yet, so just check their health to see if all are dead.
-		if enemy.enemy_hp > 0:
+		if enemy.enemy_hp > 0 and is_instance_valid(enemy):
 			return
 	
 	if current_queue.is_empty():

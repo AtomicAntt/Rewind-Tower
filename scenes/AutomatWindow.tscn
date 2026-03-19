@@ -196,6 +196,38 @@ _data = {
 &"SM_automatDoorOpen": SubResource("Animation_5f6qi")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k0va"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wrp2x"]
+_surfaces = [{
+"aabb": AABB(0.39165887, 0.04601247, 0.0001018726, 0.09384984, 0.15772411, 0.0030492763),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAABAAHAAYABgAHAAUABAADAAcABQAIAAEAAwAJAAcABwAKAAUABQAKAAgABwAJAAoAAQAIAAsAAQALAAMACgALAAgAAwALAAkACgAJAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("mZT4PpJ3PD2Cg047ZJn0PuI5Rz6mPkw7mZT4PlKgUD6Cg047uILMPuI5Rz6mPkw7g4fIPlKgUD6Cg047ZJn0PlYRYj2mPkw7g4fIPpJ3PD2Cg047uILMPlYRYj2mPkw7ZJn0PuI5Rz5wpNU4uILMPlYRYj1wpNU4ZJn0PlYRYj1wpNU4uILMPuI5Rz5wpNU4")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_25kda"]
+resource_name = "SM_automatInfo_SM_automatSeg_001"
+_surfaces = [{
+"aabb": AABB(0.39165887, 0.04601247, 0.0001018726, 0.09384984, 0.15772411, 0.0030492763),
+"attribute_data": PackedByteArray("DIc7P84IjD4Mhzs/2sinPgyHOz/ayKc+DIc7P84IjD4Mhzs/2sinPgyHOz+UcG8+DIc7P5Rwbz4Mhzs/2sinPgyHOz988Dc+DIc7P84IjD4Mhzs/zgiMPgyHOz988Dc+DIc7P5Rwbz4Mhzs/fPA3PgyHOz988Dc+DIc7P5Rwbz4Mhzs/zgiMPgyHOz/ayKc+DIc7P9rIpz4Mhzs/zgiMPhKA+j4c9+o+EoD6Pl73wj4SgPo+oB2vPhKA+j5AIv0+DIc7P9rIpz4Mhzs/lHBvPgyHOz+UcG8+DIc7P9rIpz4Mhzs/lHBvPgyHOz988Dc+DIc7P3zwNz4Mhzs/lHBvPgyHOz988Dc+DIc7P84IjD4Mhzs/zgiMPgyHOz988Dc+"),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"material": SubResource("StandardMaterial3D_5k0va"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("mZT4PpJ3PD2Cg047ZJn0PuI5Rz6mPkw7mZT4PlKgUD6Cg047ZJn0PlYRYj2mPkw7mZT4PlKgUD6Cg047uILMPuI5Rz6mPkw7g4fIPlKgUD6Cg047ZJn0PuI5Rz6mPkw7g4fIPpJ3PD2Cg047ZJn0PlYRYj2mPkw7mZT4PpJ3PD2Cg047uILMPlYRYj2mPkw7g4fIPlKgUD6Cg047uILMPlYRYj2mPkw7g4fIPpJ3PD2Cg047uILMPuI5Rz6mPkw7ZJn0PlYRYj2mPkw7ZJn0PuI5Rz5wpNU4ZJn0PuI5Rz6mPkw7ZJn0PlYRYj1wpNU4ZJn0PlYRYj1wpNU4uILMPuI5Rz5wpNU4ZJn0PuI5Rz5wpNU4uILMPlYRYj1wpNU4ZJn0PuI5Rz6mPkw7uILMPuI5Rz5wpNU4uILMPuI5Rz6mPkw7ZJn0PuI5Rz5wpNU4uILMPuI5Rz6mPkw7uILMPlYRYj1wpNU4uILMPlYRYj2mPkw7uILMPuI5Rz5wpNU4uILMPlYRYj2mPkw7ZJn0PlYRYj1wpNU4ZJn0PlYRYj2mPkw7uILMPlYRYj1wpNU4bH//f////z9sf/9/////P2x//3////8/bH//f////z//f4N/////P/9/g3////8//3+Df////z//f4N/////P/9/e4D///8//397gP///z//f3uA////P/9/e4D///8/koD/f////z+SgP9/////P5KA/3////8/koD/f////z8AAP9/////vwAA/3////+/AAD/f////78AAP9/////v/9//3////8//3//f////z//f/9/////P/9//3////8//38AAP///7//fwAA////v/9/AAD///+//38AAP///7////9/////v////3////+/////f////7////9/////v/9///////+//3///////7//f///////v/9///////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wrp2x")
+
 [node name="AutomatWindow" type="Node3D" unique_id=536466322]
 
 [node name="SM_automatWindow" type="Node3D" parent="." unique_id=855241377]
@@ -215,7 +247,7 @@ material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_lqk24")
 
 [node name="SM_automatDoor" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=849999876]
-transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0.2486178, 0.046209924, 0)
+transform = Transform3D(0.10580349, 0, 0, 0, -4.6248174e-09, -0.10580349, 0, 0.10580349, -4.6248174e-09, 0.2486178, 0.046209924, 0)
 material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_6vi87")
 
@@ -226,3 +258,9 @@ mesh = SubResource("ArrayMesh_tr1qo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_automatWindow" unique_id=540936324]
 libraries/ = SubResource("AnimationLibrary_hm3qu")
+
+[node name="SM_automatInfo2" type="Node3D" parent="." unique_id=1080073769]
+
+[node name="SM_automatInfo" type="MeshInstance3D" parent="SM_automatInfo2" unique_id=1004892837]
+material_override = ExtResource("1_kaifn")
+mesh = SubResource("ArrayMesh_25kda")

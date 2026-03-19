@@ -80,6 +80,10 @@ func start_intermission() -> void:
 	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.queue_free()
 		
+	# Restore gate.
+	var castle_gate: DefenseHitbox = get_tree().get_first_node_in_group("CastleGate")
+	castle_gate.restore()
+		
 	emit_signal("intermission_started")
 
 ## Call this to check if the game state is currently in intermission.

@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addon
 DefenseHitbox="Area3D representing a hitbox of a defense (Ex.: Castle gate and defense troops.)"
 EnemyHitbox="Area3D representing the enemy's hitbox."
 Enemy="PathFollow3D representing an enemy that's on the path."
+CastleGate="The castle gate. If destroyed, it's game over."
 
 [physics]
 

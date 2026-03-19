@@ -3,6 +3,7 @@ extends Area3D
 
 ## The amount of health this entity has.
 @export var health: float = 10.0
+@onready var max_health: float = health
 
 ## This must be the actual entity itself that will be destroyed once HP reaches 0. If none is assigned, it will assume itself.
 @export var entity: Node3D = null
@@ -28,4 +29,13 @@ func hurt(amount: float) -> void:
 		health_bar.value = health
 
 func death() -> void:
-	entity.queue_free()
+	entity.visible = false
+	remove_from_group("DefenseHitbox")
+
+func restore() -> void:
+	entity.visible = true
+	add_to_group("DefenseHitbox")
+	health = max_health
+	
+	if is_instance_valid(health_bar):
+		health_bar.value = health

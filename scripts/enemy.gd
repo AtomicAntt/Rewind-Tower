@@ -77,6 +77,10 @@ func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 func _on_attack_timer_timeout() -> void:
 	if is_instance_valid(current_defense_attacking):
 		current_defense_attacking.hurt(damage)
-	
+		if current_defense_attacking.health <= 0: 
+			current_defense_attacking = null
+		
 	if is_instance_valid(current_defense_troop_attacking):
 		current_defense_troop_attacking.hurt(damage)
+		if current_defense_troop_attacking.get_health() <= 0: 
+			current_defense_troop_attacking = null

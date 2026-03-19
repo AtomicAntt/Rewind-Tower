@@ -8,3 +8,6 @@ func hurt(amount: float) -> void:
 		crank.power -= amount
 	else:
 		crank.power = 0
+
+func get_health() -> float:
+	return crank.power

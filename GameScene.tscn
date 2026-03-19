@@ -1147,7 +1147,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1280308273]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -1180,7 +1180,6 @@ libraries/ = SubResource("AnimationLibrary_jd2fb")
 
 [node name="Drawer" parent="." unique_id=1729992228 instance=ExtResource("9_ed8b8")]
 transform = Transform3D(-0.5017373, 0, -0.86502016, 0, 1, 0, 0.86502016, 0, -0.5017373, 0.3961445, 0.924327, -0.26577273)
-script = null
 
 [node name="DefenseTroop2" parent="." unique_id=150638980 instance=ExtResource("12_0exr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22058456, 1.079721, -0.5098705)

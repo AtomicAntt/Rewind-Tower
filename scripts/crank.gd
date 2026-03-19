@@ -1,3 +1,4 @@
+class_name Crank
 extends Node
 
 @export var pickable: XRToolsPickable

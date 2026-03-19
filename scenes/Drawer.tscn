@@ -133,15 +133,14 @@ shape = SubResource("ConcavePolygonShape3D_m70ks")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="InteractableHandle" parent="SliderOrigin/InteractableSlider/HandleOrigin" unique_id=2016259067 instance=ExtResource("6_em1mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020799316, -0.01351288, -0.12815852)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" unique_id=1659411663]
-transform = Transform3D(0.99801135, 0, 0.06303596, 0, 1, 0, -0.06303596, 0, 0.99801135, 0.020799316, -0.01351288, -0.12815852)
+transform = Transform3D(0.99801135, 0, 0.06303596, 0, 1, 0, -0.06303596, 0, 0.99801135, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_m70ks")
 
 [node name="GrabPointRedirect" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" unique_id=1945181283 node_paths=PackedStringArray("target") instance=ExtResource("7_m70ks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022946179, -0.01351288, -0.1474189)
 target = NodePath("../../../StaticBody3D/SM_drawer/Handle/GrabPointHandRight")
 
 [node name="GrabPointRedirect2" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" unique_id=200286939 node_paths=PackedStringArray("target") instance=ExtResource("7_m70ks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022946179, -0.01351288, -0.1474189)
 target = NodePath("../../../StaticBody3D/SM_drawer/Handle/GrabPointHandLeft")

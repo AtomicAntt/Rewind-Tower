@@ -10,6 +10,8 @@ extends Timer
 func _ready() -> void:
 	# Whenever a new round starts, this timer will reset and start again.
 	RoundManager.round_started.connect(start)
+	# Same for when its intermission
+	RoundManager.intermission_started.connect(stop)
 
 func _on_timeout() -> void:
 	if not RoundManager.in_intermission() and not RoundManager.current_queue.is_empty():

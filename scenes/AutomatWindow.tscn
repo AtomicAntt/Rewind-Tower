@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="1_kaifn"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_e3bxy"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/universal material alpha.tres" id="3_04k3f"]
+[ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uggo0"]
 
@@ -264,3 +265,6 @@ libraries/ = SubResource("AnimationLibrary_hm3qu")
 [node name="SM_automatInfo" type="MeshInstance3D" parent="SM_automatInfo2" unique_id=1004892837]
 material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_25kda")
+
+[node name="CoinSnapZone" parent="." unique_id=2083040434 instance=ExtResource("4_04k3f")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.059917703, 0.17669688, 0.004331)

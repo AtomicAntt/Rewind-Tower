@@ -10,6 +10,9 @@ func _ready() -> void:
 	player = get_parent().get_node("Player")
 
 func _on_drop_timer_timeout() -> void:
+	if not is_instance_valid(pickable):
+		return
+	
 	if not pickable.is_picked_up():
 		player.coins += 1
 		queue_free()

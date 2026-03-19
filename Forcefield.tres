@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://mgw652ymvt0x"]
+
+[ext_resource type="Shader" uid="uid://dw0s0ull3xvnu" path="res://Forcefield.gdshader" id="1_aeevo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_aeevo")
+shader_parameter/albedo = Color(0.5046284, 0.9130519, 0.970205, 1)
+shader_parameter/emission_color = Color(0.022607205, 0.47779226, 0.85091245, 1)
+shader_parameter/emission_amount = 5.0
+shader_parameter/rim_steepness = 3.0
+shader_parameter/uv_scale = Vector3(0, 0, 0)
+shader_parameter/uv_offset = Vector3(0, 0, 0)

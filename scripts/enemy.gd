@@ -48,7 +48,7 @@ func hurt(amount: float) -> void:
 		
 		for i in range(coin_amount):
 			var new_coin = coin_scene.instantiate()
-			get_tree().root.add_child(new_coin)
+			get_parent().add_child(new_coin)
 			
 			new_coin.global_position = global_position
 			

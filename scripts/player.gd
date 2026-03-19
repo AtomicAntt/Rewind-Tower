@@ -4,13 +4,17 @@ var xr_interface: XRInterface
 
 @export var coins: int
 
-@onready var coin_slot: Node3D = $XROrigin3D/LeftController/LeftHand/CoinSlot
+@onready var coin_slot: XRToolsSnapZone = $XROrigin3D/LeftController/LeftHand/CoinSlot
 
 @onready var coin_display: Label3D = $XROrigin3D/LeftController/LeftHand/CoinDisplay
+
+@onready var coin_respawn_timer: Timer = $XROrigin3D/LeftController/LeftHand/CoinSlot/CoinRespawn
 
 var coin_pickup: PackedScene = preload("res://scenes/systems/CoinPickable.tscn")
 
 var current_coin: XRToolsPickable
+
+var can_spawn_coin: bool = false
 
 func _ready():
 	
@@ -27,15 +31,27 @@ func _ready():
 		print("OpenXR not initialized, please check if your headset is connected")
 		
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	coin_display.text = ("Coins: " + str(coins))
 	
-	if current_coin != null and current_coin.is_picked_up():
-		current_coin.get_parent().reparent(self.get_parent_node_3d())
-		current_coin = null
-	
-	if coins >= 1 and current_coin == null:
-		var coin_in_slot = coin_pickup.instantiate()
-		coin_slot.add_child(coin_in_slot)
+	if current_coin != null and !coin_slot.has_snapped_object():
 		coins -= 1
+		current_coin = null
+		coin_respawn_timer.start()
+	
+	if coins >= 1 and current_coin == null and can_spawn_coin and !coin_slot.has_snapped_object():
+		can_spawn_coin = false
+		var coin_in_slot = coin_pickup.instantiate()
+		get_parent_node_3d().add_child(coin_in_slot)
+		
 		current_coin = coin_in_slot.get_child(0)
+		
+		coin_in_slot.visible = true
+		
+		coin_in_slot.global_position = coin_slot.global_position
+		coin_in_slot.rotation = coin_slot.rotation
+		
+		print("Coin Spawned")
+
+func _on_coin_respawn_timeout() -> void:
+	can_spawn_coin = true

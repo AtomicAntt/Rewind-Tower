@@ -33,6 +33,7 @@ Enemy="PathFollow3D representing an enemy that's on the path."
 CastleGate="The castle gate. If destroyed, it's game over."
 DefenseTroopHitbox="Defense Troops will have this hitbox (Area3D)."
 Player=""
+Coin=""
 
 [physics]
 

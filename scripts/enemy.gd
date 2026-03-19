@@ -28,7 +28,7 @@ var current_defense_troop_attacking: DefenseTroopHitbox = null
 
 func _physics_process(delta: float) -> void:
 	# If there isn't a current defense to attack, and the game isn't over, move along the path.
-	if not is_instance_valid(current_defense_attacking) and not RoundManager.is_gameover() and not is_instance_valid(current_defense_troop_attacking):
+	if not check_if_valid_attack(current_defense_attacking, current_defense_troop_attacking) and not RoundManager.is_gameover():
 		var new_progress_ratio: float = progress_ratio
 		new_progress_ratio += (enemy_speed * delta) / path_length
 		
@@ -84,3 +84,30 @@ func _on_attack_timer_timeout() -> void:
 		current_defense_troop_attacking.hurt(damage)
 		if current_defense_troop_attacking.get_health() <= 0: 
 			current_defense_troop_attacking = null
+
+func check_if_valid_attack(defense_hitbox: DefenseHitbox, defense_troop_hitbox: DefenseTroopHitbox) -> bool:
+	if is_instance_valid(defense_hitbox):
+		if not defense_hitbox.is_in_group("DefenseHitbox"):
+			current_defense_attacking = null
+			return false
+	
+	if is_instance_valid(defense_troop_hitbox):
+		if not defense_troop_hitbox.is_in_group("DefenseTroopHitbox"):
+			current_defense_troop_attacking = null
+			return false
+	
+	if not is_instance_valid(defense_hitbox) and not is_instance_valid(defense_troop_hitbox):
+		return false
+	
+	var contains_hitbox: bool = false
+	
+	for area in $EnemyHitbox.get_overlapping_areas():
+		if area is DefenseHitbox or DefenseTroopHitbox:
+			contains_hitbox = true
+		
+	if not contains_hitbox:
+		current_defense_attacking = null
+		current_defense_troop_attacking = null
+		return false
+	
+	return true

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="4_qm8lu"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
+[ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="6_vtcc4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnnsc"]
 size = Vector3(0.075, 0.135, 0.1)
@@ -343,7 +344,7 @@ material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
-transform = Transform3D(0.96592563, 0, 0.25881904, 0, 1, 0, -0.258819, 0, 0.9659257, -0.052413225, 0.13324311, 0.019046383)
+transform = Transform3D(0.9659256, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.96592563, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_5ys36")
 
@@ -387,5 +388,14 @@ animator = NodePath(".")
 animationAttack = "anim_archer_ArmShoot"
 animationHead = "anim_archerHeadrotat"
 defenseTroop = NodePath("../..")
+
+[node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox"]]
+script = ExtResource("6_vtcc4")
+crank = NodePath("../SM_archer/SM_archerBase/SM_archerBody/Crank")
+defense_troop = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefenseTroopHitbox" unique_id=1128444388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01964112, 0)
+shape = SubResource("BoxShape3D_lnnsc")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

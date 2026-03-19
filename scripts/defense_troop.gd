@@ -12,7 +12,7 @@ var power_lost: int = 0;
 @export var power_lose_rate: int = 0
 
 @export var power_bar: ProgressBar
-@export var crank: Node3D
+@export var crank: Crank
 
 @export var pickable: XRToolsPickable
 
@@ -30,9 +30,14 @@ var closest_enemy_area: Area3D = null
 @export var animator: AnimationPlayer
 
 func _ready():
+	super._ready()
 	power_bar.max_value = max_power
 
 func _physics_process(_delta: float) -> void:
+	if is_picked_up():
+		crank.pickable.enabled = true
+	else:
+		crank.pickable.enabled = false
 	
 	power = crank.power
 	power -= power_lost

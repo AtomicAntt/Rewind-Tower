@@ -299,7 +299,12 @@ transform = Transform3D(-0.9059904, 0, 0.4232982, 0, 1, 0, -0.4232982, 0, -0.905
 transform = Transform3D(-0.90630776, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, -0.90630776, 0.7016078, 1.067097, -0.47543323)
 cost = 3
 item_name = "Archer"
-item_description = "its archer"
+item_description = "Archer
+Damage:
+-1
+Needed
+Power:
+-1"
 item_scene = ExtResource("12_0exr2")
 
 [node name="AutomatWindow5" parent="AutomatFrame" unique_id=1385339545 instance=ExtResource("14_cg2kh")]

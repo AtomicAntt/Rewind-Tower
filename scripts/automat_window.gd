@@ -17,7 +17,8 @@ var coins_inserted: int = 0
 
 @onready var item_marker_3d: Marker3D = $ItemMaker3D
 @onready var animation_player: AnimationPlayer = $SM_automatWindow/AnimationPlayer
-@onready var cost_label: Label3D = $Label3D
+@onready var cost_label: Label3D = $CostLabel
+@onready var item_info_label: Label3D = $ItemInfoLabel
 
 var open_animation: String = "SM_automatDoorOpen"
 var close_animation: String = "SM_automatDoorClose"
@@ -65,6 +66,7 @@ func close_door() -> void:
 func _ready() -> void:
 	refresh_item()
 	refresh_cost_label()
+	item_info_label.text = item_description
 	
 ## This is after the player twists the crank and tries to purchase. If you can, purchase.
 func check_purchase() -> void:

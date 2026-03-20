@@ -268,6 +268,12 @@ size = Vector3(0.25753784, 0.042546272, 0.012969971)
 
 [node name="AutomatWindow" type="Node3D" unique_id=536466322]
 script = ExtResource("1_a71aj")
+item_description = "Unit
+Damage:
+-1
+Needed
+Power:
+-1"
 
 [node name="SM_automatWindow" type="Node3D" parent="." unique_id=855241377]
 
@@ -368,11 +374,24 @@ shape = SubResource("BoxShape3D_s6mud")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12151417, 0.12126641, -0.07196045)
 shape = SubResource("BoxShape3D_woxi1")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1530304744]
+[node name="CostLabel" type="Label3D" parent="." unique_id=1530304744]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.061103314, 0.07444045, 0.03812477)
 modulate = Color(1, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "0/0"
+
+[node name="ItemInfoLabel" type="Label3D" parent="." unique_id=491329508]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0.43919608, 0.1810001, 0.004506327)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Unit
+Damage:
+-1
+Needed
+Power:
+-1
+"
+vertical_alignment = 0
 
 [connection signal="turned" from="SM_automatWindow/SM_automatSeg/TwisterInteractable" to="." method="_on_twister_interactable_turned"]
 [connection signal="coin_inserted" from="CoinSnapZone" to="." method="_on_coin_snap_zone_coin_inserted"]

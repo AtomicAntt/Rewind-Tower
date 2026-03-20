@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://825ypu8uac50"
+path="res://.godot/imported/sword hit.ogg-46055b9ed480ecb903e661e71d2d7e3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sword hit.ogg"
+dest_files=["res://.godot/imported/sword hit.ogg-46055b9ed480ecb903e661e71d2d7e3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

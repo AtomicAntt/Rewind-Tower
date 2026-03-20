@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1g0o5ecw0hlg"
+path="res://.godot/imported/arrow hit 1.ogg-9890306cb8a84dd6c4f5efb6a8e8a0e2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/arrow hit 1.ogg"
+dest_files=["res://.godot/imported/arrow hit 1.ogg-9890306cb8a84dd6c4f5efb6a8e8a0e2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

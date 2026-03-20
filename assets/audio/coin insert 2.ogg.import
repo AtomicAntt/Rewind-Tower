@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtu2mrdl3kaho"
+path="res://.godot/imported/coin insert 2.ogg-47b1a0209807d31ce5b1624423a7437f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/coin insert 2.ogg"
+dest_files=["res://.godot/imported/coin insert 2.ogg-47b1a0209807d31ce5b1624423a7437f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

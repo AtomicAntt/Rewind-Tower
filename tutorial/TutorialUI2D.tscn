@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cx7xyct1f0u15"]
 
+[ext_resource type="Script" uid="uid://fjmax4mua1nc" path="res://tutorial/tutorial_ui_2d.gd" id="1_50ymr"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptx6b"]
 bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.8666667)
 corner_radius_top_left = 5
@@ -9,6 +11,7 @@ corner_radius_bottom_left = 5
 
 [node name="TutorialUI2D" type="Node2D" unique_id=1046492967]
 texture_filter = 1
+script = ExtResource("1_50ymr")
 
 [node name="Panel" type="Panel" parent="." unique_id=1073963013]
 offset_right = 1000.0
@@ -22,5 +25,6 @@ offset_top = 6.0
 offset_right = 981.0
 offset_bottom = 99.0
 theme_override_font_sizes/font_size = 32
-text = "Hello! Welcome to Rewind Tower, it's a tabletop tower defense game where you must rewind your defense troops."
+text = "Hello! Welcome to Rewind Tower, it's a tabletop tower defense game where you must rewind your defense troops.
+(If you see this text in-game, the developer did something wrong!)"
 autowrap_mode = 3

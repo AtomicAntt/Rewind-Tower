@@ -58,6 +58,13 @@ func _ready():
 		shoot_position = $SM_archer/SM_archerBase/SM_archerBody/ShootPosition
 		
 	enemy_distance = attack_range + 1
+	
+	# For tutorial
+	grabbed.connect(emit_grab_troop)
+
+## This is for tutorial purposes only
+func emit_grab_troop(_pickable, _by) -> void:
+	TutorialSystem.emit_signal("complete", "GrabTroop")
 
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(closest_enemy_area):
@@ -87,6 +94,10 @@ func _physics_process(_delta: float) -> void:
 			body.rotation.x = 0
 			body.rotate_y(look_offset)
 			body.rotation.z = 0
+		
+		# For tutorial
+		if power >= max_power:
+			TutorialSystem.emit_signal("complete", "RewindTroop")
 
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null

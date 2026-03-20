@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://iwjnmij28y3w"]
+
+[ext_resource type="Script" uid="uid://fjmax4mua1nc" path="res://tutorial/tutorial_ui_2d.gd" id="1_rnwo1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptx6b"]
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.8666667)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="TutorialUITooltip2D" type="Node2D" unique_id=1046492967]
+texture_filter = 1
+script = ExtResource("1_rnwo1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1073963013]
+offset_right = 220.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ptx6b")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1468935579]
+layout_mode = 0
+offset_right = 218.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 32
+text = "Grab troop"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

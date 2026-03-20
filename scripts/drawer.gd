@@ -16,4 +16,3 @@ func _physics_process(_delta: float) -> void:
 			if body is RigidBody3D:
 				var rigid_body_3d: RigidBody3D = body
 				rigid_body_3d.global_position += delta_position
-				print(delta_position)

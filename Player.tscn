@@ -18,7 +18,7 @@ script = ExtResource("1_e80uo")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["XRCamera3D"]]
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=129644625]
 tracker = &"left_hand"

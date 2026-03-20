@@ -25,6 +25,7 @@ size = Vector3(1.5, 0.3, 0.02)
 [node name="TutorialUI3D" unique_id=594823687 instance=ExtResource("1_tnr3n")]
 script = ExtResource("2_m8kww")
 tutorial_name = ""
+tutorial_text = null
 screen_size = Vector2(1.5, 0.3)
 scene = ExtResource("2_drgs7")
 viewport_size = Vector2(1000, 200)

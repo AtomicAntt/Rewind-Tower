@@ -11,7 +11,11 @@ var current_index: int = 0
 func _ready() -> void:
 	TutorialSystem.connect("resume", instruction_completed)
 	
+	# We show the initial UI Tutorial
+	tutorial_ui_list[0].show_tutorial()
+	
 func instruction_completed() -> void:
+	print("INSTRUCTION COMPLETED")
 	tutorial_ui_list[current_index].hide_tutorial()
 	current_index += 1
 	if not current_index >= tutorial_ui_list.size():

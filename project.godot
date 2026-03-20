@@ -37,6 +37,7 @@ Player=""
 Coin=""
 Drawer=""
 Boundary=""
+XRCamera3D="The XRCamera3D"
 
 [physics]
 

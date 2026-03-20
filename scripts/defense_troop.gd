@@ -55,7 +55,7 @@ func _ready():
 		shoot_raycast = $SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/ShootRaycast
 		shoot_raycast.swordsman = self
 	else:
-		shoot_position = $ShootPosition
+		shoot_position = $SM_archer/SM_archerBase/SM_archerBody/ShootPosition
 		
 	enemy_distance = attack_range + 1
 

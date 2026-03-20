@@ -316,7 +316,6 @@ script = ExtResource("1_ys6re")
 attack_range = 1.0
 attack_damage = 1.0
 troop_type = "Archer"
-melee = null
 max_power = 50
 power_lose_rate = 2
 power_bar = NodePath("SubViewport/ProgressBar")
@@ -336,9 +335,6 @@ shape = SubResource("BoxShape3D_lnnsc")
 [node name="ShootTimer" type="Timer" parent="." unique_id=1128226714]
 wait_time = 1.2
 autostart = true
-
-[node name="ShootPosition" type="Marker3D" parent="." unique_id=1614817252]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.05, 0)
 
 [node name="PowerBar" type="Sprite3D" parent="." unique_id=250522650]
 transform = Transform3D(0.013, -1.7053023e-14, 9.4587446e-12, 5.5422328e-14, 0.004, -8.503685e-12, -9.4587446e-12, 2.6165185e-12, 0.013, 1.1368684e-13, 0.10345233, -0.00010148283)
@@ -412,6 +408,9 @@ shape = SubResource("BoxShape3D_t7f47")
 transform = Transform3D(3.3333323, -2.9140915e-07, -1.2671789e-14, -2.9140915e-07, -3.3333323, 2.914091e-07, -2.1067478e-14, -2.914091e-07, -3.3333323, 0, -0.0022762418, 0.009318333)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_utp47")
+
+[node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
+transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop")]
 libraries/ = SubResource("AnimationLibrary_a2mnt")

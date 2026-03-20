@@ -183,7 +183,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1461604934]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -285,6 +285,10 @@ transform = Transform3D(-0.9059904, 0, 0.4232982, 0, 1, 0, -0.4232982, 0, -0.905
 
 [node name="AutomatWindow4" parent="AutomatFrame" unique_id=594011476 instance=ExtResource("14_cg2kh")]
 transform = Transform3D(-0.90630776, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, -0.90630776, 0.7016078, 1.067097, -0.47543323)
+cost = 3
+item_name = "Archer"
+item_description = "its archer"
+item_scene = ExtResource("12_0exr2")
 
 [node name="AutomatWindow5" parent="AutomatFrame" unique_id=1385339545 instance=ExtResource("14_cg2kh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.2512232, 1.067097, -0.26528955)

@@ -37,7 +37,7 @@ func refresh_item() -> void:
 	
 	if is_instance_valid(item_instance):
 		displayed_item = item_instance
-		get_parent().get_parent().add_child(displayed_item)
+		get_parent().get_parent().add_child.call_deferred(displayed_item)
 		displayed_item.global_position = item_marker_3d.global_position
 		displayed_item.enabled = false
 

@@ -171,6 +171,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8gcbq")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a71aj"]
+points = PackedVector3Array(1.2430507, 1.5167783, 0.07926749, 1.2430507, 1.5167783, 1.527369e-07, -1.2430509, 1.5167783, 0.07926749, 1.0150281, 1.3384649, 0.07927525, 1.2430507, 0, 0.07926749, 1.2430507, 0, 1.527369e-07, -1.2430509, 1.5167783, 1.527369e-07, -1.2430509, 0, 0.07926749, -1.0152719, 1.3384649, 0.07927525, 1.0150281, 0.17816503, 0.07927525, -1.2430509, 0, 1.527369e-07, -1.0152719, 0.17816503, 0.07927525)
+
 [sub_resource type="Animation" id="Animation_oihuy"]
 resource_name = "SM_automatDoorClose"
 length = 0.75
@@ -181,6 +184,13 @@ tracks/0/path = NodePath("SM_automatSeg/SM_automatDoor")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.7071068, 0, 0, 0.7071068, 0.033333335, 1, 0.7071068, 0, 0, 0.7071068, 0.06666667, 1, 0.69833374, 0, 0, 0.71577233, 0.1, 1, 0.6744234, 0, 0, 0.73834485, 0.13333334, 1, 0.6308416, 0, 0, 0.7759116, 0.16666667, 1, 0.5649963, 0, 0, 0.82509345, 0.2, 1, 0.46650618, 0, 0, 0.884518, 0.23333333, 1, 0.33874428, 0, 0, 0.9408785, 0.26666668, 1, 0.18017522, 0, 0, 0.9836346, 0.3, 1, 0.054427788, 0, 0, 0.99851775, 0.33333334, 1, 0.090069436, 0, 0, 0.9959355, 0.36666667, 1, 0.14794005, 0, 0, 0.9889964, 0.4, 1, 0.18111084, 0, 0, 0.98346275, 0.43333334, 1, 0.18992333, 0, 0, 0.981799, 0.46666667, 1, 0.17449185, 0, 0, 0.9846586, 0.5, 1, 0.1346228, 0, 0, 0.99089694, 0.53333336, 1, 0.061752997, 0, 0, 0.99809146, 0.56666666, 1, 0.036645953, 0, 0, 0.9993284, 0.6, 1, 0.038818542, 0, 0, 0.9992463, 0.6333333, 1, 0.044045515, 0, 0, 0.9990295, 0.6666667, 1, 0.024626154, 0, 0, 0.99969673, 0.7, 1, 0.0138934925, 0, 0, 0.9999035, 0.73333335, 1, 0.0044840844, 0, 0, 0.99999, 0.75, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_automatSeg/DoorCollision")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.7071068, 0, 0, 0.7071068, 0.033333335, 1, 0.7071068, 0, 0, 0.7071068, 0.06666667, 1, 0.69833374, 0, 0, 0.71577233, 0.1, 1, 0.6744234, 0, 0, 0.73834485, 0.13333334, 1, 0.6308416, 0, 0, 0.7759116, 0.16666667, 1, 0.5649963, 0, 0, 0.82509345, 0.2, 1, 0.46650618, 0, 0, 0.884518, 0.23333333, 1, 0.33874428, 0, 0, 0.9408785, 0.26666668, 1, 0.18017522, 0, 0, 0.9836346, 0.3, 1, 0.054427788, 0, 0, 0.99851775, 0.33333334, 1, 0.090069436, 0, 0, 0.9959355, 0.36666667, 1, 0.14794005, 0, 0, 0.9889964, 0.4, 1, 0.18111084, 0, 0, 0.98346275, 0.43333334, 1, 0.18992333, 0, 0, 0.981799, 0.46666667, 1, 0.17449185, 0, 0, 0.9846586, 0.5, 1, 0.1346228, 0, 0, 0.99089694, 0.53333336, 1, 0.061752997, 0, 0, 0.99809146, 0.56666666, 1, 0.036645953, 0, 0, 0.9993284, 0.6, 1, 0.038818542, 0, 0, 0.9992463, 0.6333333, 1, 0.044045515, 0, 0, 0.9990295, 0.6666667, 1, 0.024626154, 0, 0, 0.99969673, 0.7, 1, 0.0138934925, 0, 0, 0.9999035, 0.73333335, 1, 0.0044840844, 0, 0, 0.99999, 0.75, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5f6qi"]
 resource_name = "SM_automatDoorOpen"
@@ -192,6 +202,13 @@ tracks/0/path = NodePath("SM_automatSeg/SM_automatDoor")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.033333335, 1, 0, 0, 0, 1, 0.06666667, 1, 0.012330984, 0, 0, 0.99992406, 0.1, 1, 0.045199357, 0, 0, 0.998978, 0.13333334, 1, 0.10258007, 0, 0, 0.9947248, 0.16666667, 1, 0.18391645, 0, 0, 0.98294187, 0.2, 1, 0.295579, 0, 0, 0.95531833, 0.23333333, 1, 0.4257732, 0, 0, 0.9048299, 0.26666668, 1, 0.5681315, 0, 0, 0.8229377, 0.3, 1, 0.6675724, 0, 0, 0.7445449, 0.33333334, 1, 0.64054406, 0, 0, 0.76792145, 0.36666667, 1, 0.5947166, 0, 0, 0.8039355, 0.4, 1, 0.5673483, 0, 0, 0.82347804, 0.43333334, 1, 0.5599405, 0, 0, 0.8285328, 0.46666667, 1, 0.5728744, 0, 0, 0.81964314, 0.5, 1, 0.60547733, 0, 0, 0.79586256, 0.53333336, 1, 0.66209126, 0, 0, 0.7494232, 0.56666666, 1, 0.68071926, 0, 0, 0.7325444, 0.6, 1, 0.679125, 0, 0, 0.7340227, 0.6333333, 1, 0.6752757, 0, 0, 0.7375655, 0.6666667, 1, 0.689479, 0, 0, 0.7243057, 0.7, 1, 0.69721437, 0, 0, 0.71686274, 0.73333335, 1, 0.70392895, 0, 0, 0.7102704, 0.75, 1, 0.7071068, 0, 0, 0.7071068)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_automatSeg/DoorCollision")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.033333335, 1, 0, 0, 0, 1, 0.06666667, 1, 0.012330984, 0, 0, 0.99992406, 0.1, 1, 0.045199357, 0, 0, 0.998978, 0.13333334, 1, 0.10258007, 0, 0, 0.9947248, 0.16666667, 1, 0.18391645, 0, 0, 0.98294187, 0.2, 1, 0.295579, 0, 0, 0.95531833, 0.23333333, 1, 0.4257732, 0, 0, 0.9048299, 0.26666668, 1, 0.5681315, 0, 0, 0.8229377, 0.3, 1, 0.6675724, 0, 0, 0.7445449, 0.33333334, 1, 0.64054406, 0, 0, 0.76792145, 0.36666667, 1, 0.5947166, 0, 0, 0.8039355, 0.4, 1, 0.5673483, 0, 0, 0.82347804, 0.43333334, 1, 0.5599405, 0, 0, 0.8285328, 0.46666667, 1, 0.5728744, 0, 0, 0.81964314, 0.5, 1, 0.60547733, 0, 0, 0.79586256, 0.53333336, 1, 0.66209126, 0, 0, 0.7494232, 0.56666666, 1, 0.68071926, 0, 0, 0.7325444, 0.6, 1, 0.679125, 0, 0, 0.7340227, 0.6333333, 1, 0.6752757, 0, 0, 0.7375655, 0.6666667, 1, 0.689479, 0, 0, 0.7243057, 0.7, 1, 0.69721437, 0, 0, 0.71686274, 0.73333335, 1, 0.70392895, 0, 0, 0.7102704, 0.75, 1, 0.7071068, 0, 0, 0.7071068)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hm3qu"]
 _data = {
@@ -234,6 +251,15 @@ shadow_mesh = SubResource("ArrayMesh_wrp2x")
 [sub_resource type="BoxShape3D" id="BoxShape3D_a71aj"]
 size = Vector3(0.4972356, 0.24715859, 0.21479492)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6prw"]
+size = Vector3(0.2709961, 0.004470825, 0.15344238)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ggsq"]
+size = Vector3(0.2709961, 0.15750885, 0.0068969727)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woxi1"]
+size = Vector3(0.010986328, 0.15750885, 0.15344238)
+
 [node name="AutomatWindow" type="Node3D" unique_id=536466322]
 script = ExtResource("1_a71aj")
 
@@ -269,6 +295,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01
 
 [node name="Label3D" type="Label3D" parent="SM_automatWindow/SM_automatSeg" unique_id=53849163]
 
+[node name="DoorCollision" type="StaticBody3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1833086916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.046209924, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_automatWindow/SM_automatSeg/DoorCollision" unique_id=651334243]
+transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_a71aj")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_automatWindow" unique_id=540936324]
 libraries/ = SubResource("AnimationLibrary_hm3qu")
 
@@ -289,6 +322,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24052143, 0.09286165, -0.07
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDetectArea" unique_id=1056905225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.12357929, -0.10495428)
 shape = SubResource("BoxShape3D_a71aj")
+
+[node name="BoxStaticCollision" type="StaticBody3D" parent="." unique_id=834272745]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=1836928905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24960825, 0.044747397, -0.07196045)
+shape = SubResource("BoxShape3D_b6prw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=438912123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24960825, 0.19938137, -0.07196045)
+shape = SubResource("BoxShape3D_b6prw")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=437390752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24960825, 0.122862354, -0.14523315)
+shape = SubResource("BoxShape3D_4ggsq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=898181302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37961313, 0.12126641, -0.07196045)
+shape = SubResource("BoxShape3D_woxi1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=443946849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12151417, 0.12126641, -0.07196045)
+shape = SubResource("BoxShape3D_woxi1")
 
 [connection signal="coin_inserted" from="CoinSnapZone" to="." method="_on_coin_snap_zone_coin_inserted"]
 [connection signal="body_exited" from="ItemDetectArea" to="." method="_on_item_detect_area_body_exited"]

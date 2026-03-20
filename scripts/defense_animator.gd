@@ -11,4 +11,5 @@ func _animate() -> void:
 	animator.speed_scale = 2
 		
 	animator.queue(animationAttack)
-	animator.queue(animationHead)
+	if animationHead != "":
+		animator.queue(animationHead)

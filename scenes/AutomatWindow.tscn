@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dpy7oein2g13m"]
 
+[ext_resource type="Script" uid="uid://cfjyjlt06qkip" path="res://scripts/automat_window.gd" id="1_a71aj"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="1_kaifn"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_e3bxy"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/universal material alpha.tres" id="3_04k3f"]
@@ -230,7 +231,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wrp2x")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a71aj"]
+size = Vector3(0.4972356, 0.24715859, 0.21479492)
+
 [node name="AutomatWindow" type="Node3D" unique_id=536466322]
+script = ExtResource("1_a71aj")
 
 [node name="SM_automatWindow" type="Node3D" parent="." unique_id=855241377]
 
@@ -250,7 +255,7 @@ material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_lqk24")
 
 [node name="SM_automatDoor" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=849999876]
-transform = Transform3D(0.10580349, 0, 0, 0, -4.6248174e-09, -0.10580349, 0, 0.10580349, -4.6248174e-09, 0.2486178, 0.046209924, 0)
+transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0.2486178, 0.046209924, 0)
 material_override = ExtResource("1_kaifn")
 mesh = SubResource("ArrayMesh_6vi87")
 
@@ -261,6 +266,8 @@ mesh = SubResource("ArrayMesh_tr1qo")
 
 [node name="TwisterInteractable" parent="SM_automatWindow/SM_automatSeg" unique_id=641983309 instance=ExtResource("4_a71aj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01766339)
+
+[node name="Label3D" type="Label3D" parent="SM_automatWindow/SM_automatSeg" unique_id=53849163]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_automatWindow" unique_id=540936324]
 libraries/ = SubResource("AnimationLibrary_hm3qu")
@@ -273,3 +280,15 @@ mesh = SubResource("ArrayMesh_25kda")
 
 [node name="CoinSnapZone" parent="." unique_id=2083040434 instance=ExtResource("4_04k3f")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.059917703, 0.17669688, 0.004331)
+
+[node name="ItemMaker3D" type="Marker3D" parent="." unique_id=232376649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24052143, 0.09286165, -0.07448111)
+
+[node name="ItemDetectArea" type="Area3D" parent="." unique_id=1503094501]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDetectArea" unique_id=1056905225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.12357929, -0.10495428)
+shape = SubResource("BoxShape3D_a71aj")
+
+[connection signal="coin_inserted" from="CoinSnapZone" to="." method="_on_coin_snap_zone_coin_inserted"]
+[connection signal="body_exited" from="ItemDetectArea" to="." method="_on_item_detect_area_body_exited"]

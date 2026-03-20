@@ -6,9 +6,12 @@ extends Node3D
 var twister_value: float = 0.0
 
 var value: float = 0.0
-var value_threshold: float = 120.0
+var value_threshold: float = 20.0
 
 var prev_rotation: float = 0.0
+
+# Emitted whenever this interactable has been turned by a value of 20.0
+signal turned
 
 func _ready() -> void:
 	pickable.global_position = global_position
@@ -34,7 +37,7 @@ func _physics_process(_delta) -> void:
 		
 		twister_value += delta_rot
 		value = abs(twister_value)
-		print("Value: " + str(value))
 		
-	
-	
+	if value >= value_threshold:
+		emit_signal("turned")
+		value = 0

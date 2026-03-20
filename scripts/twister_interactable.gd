@@ -6,7 +6,7 @@ extends Node3D
 var twister_value: float = 0.0
 
 var value: float = 0.0
-var value_threshold: float = 20.0
+var value_threshold: float = 2.0
 
 var prev_rotation: float = 0.0
 
@@ -24,20 +24,26 @@ func _physics_process(_delta) -> void:
 	if pickable.is_picked_up():
 		var controller: XRController3D = pickable.get_picked_up_by_controller()
 		
-		pickable.rotation.z = controller.rotation.z
-		
-		var current_rotation = pickable.rotation.z
+		var current_rotation = controller.rotation.z
 		var delta_rot = current_rotation - prev_rotation
 		
-		# Fix wraparound
+		 #Fix wraparound
 		if delta_rot > PI:
 			delta_rot -= TAU
 		elif delta_rot < -PI:
 			delta_rot += TAU
 		
 		twister_value += delta_rot
+		pickable.rotation.z += delta_rot
 		value = abs(twister_value)
-		
+		prev_rotation = current_rotation
+	
 	if value >= value_threshold:
 		emit_signal("turned")
 		value = 0
+		twister_value = 0
+
+func _on_twister_pickable_grabbed(_pickable: Variant, by: Variant) -> void:
+	if XRHelpers.get_xr_controller(by):
+		var controller: XRController3D = XRHelpers.get_xr_controller(by)
+		prev_rotation = controller.rotation.z

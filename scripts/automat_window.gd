@@ -17,6 +17,7 @@ var coins_inserted: int = 0
 
 @onready var item_marker_3d: Marker3D = $ItemMaker3D
 @onready var animation_player: AnimationPlayer = $SM_automatWindow/AnimationPlayer
+@onready var cost_label: Label3D = $Label3D
 
 var open_animation: String = "SM_automatDoorOpen"
 var close_animation: String = "SM_automatDoorClose"
@@ -41,6 +42,17 @@ func refresh_item() -> void:
 		displayed_item.global_position = item_marker_3d.global_position
 		displayed_item.enabled = false
 
+func refresh_cost_label() -> void:
+	if cost == -1:
+		cost_label.text = "N/A"
+		return
+	
+	cost_label.text = str(coins_inserted) + "/" + str(cost)
+	if coins_inserted >= cost:
+		cost_label.modulate = Color("00ff00")
+	else:
+		cost_label.modulate = Color("ff0000")
+
 func open_door() -> void:
 	refresh_item()
 	displayed_item.enabled = true
@@ -52,9 +64,12 @@ func close_door() -> void:
 
 func _ready() -> void:
 	refresh_item()
-
+	refresh_cost_label()
+	
 ## This is after the player twists the crank and tries to purchase. If you can, purchase.
 func check_purchase() -> void:
+	refresh_cost_label()
+	
 	if cost == -1:
 		return
 	
@@ -64,7 +79,12 @@ func check_purchase() -> void:
 
 func _on_item_detect_area_body_exited(body: Node3D) -> void:
 	if body == displayed_item:
+		displayed_item = null
 		close_door()
 
 func _on_coin_snap_zone_coin_inserted() -> void:
 	coins_inserted += 1
+	refresh_cost_label()
+
+func _on_twister_interactable_turned() -> void:
+	check_purchase()

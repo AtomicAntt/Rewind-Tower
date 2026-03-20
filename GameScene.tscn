@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://ce5qe2iq1jhhr"]
 
-<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://bov1xim3k40hp" path="res://scripts/game_manager.gd" id="1_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
@@ -15,12 +14,6 @@
 [ext_resource type="PackedScene" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
-=======
-[ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://scenes/systems/Player.tscn" id="1_eqhe0"]
-[ext_resource type="Script" uid="uid://kjavq4i37ayq" path="res://addons/tile_path_3d/tile_path_3d.gd" id="2_k77ap"]
-[ext_resource type="PackedScene" uid="uid://jkspmi6x2fhu" path="res://scenes/Enemy.tscn" id="3_b5kf5"]
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
->>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -137,26 +130,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k77ap")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527828)
 curve = SubResource("Curve3D_1kil2")
 
-<<<<<<< Updated upstream
 [node name="EnemySpawner" type="Timer" parent="Room/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
-=======
-[node name="TilePath3D" type="Path3D" parent="Room/MapLayout" unique_id=1960179565 node_paths=PackedStringArray("_tile_mmis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9534308, 1.0118551, -0.4433254)
-curve = SubResource("Curve3D_b5kf5")
-script = ExtResource("2_k77ap")
-_tile_meshes = Array[Mesh]([SubResource("BoxMesh_hvuor")])
-_tile_mmis = [NodePath("tile_mmi_0")]
-_last_built_curve = SubResource("Curve3D_i2arf")
-metadata/_custom_type_script = "uid://kjavq4i37ayq"
-
-[node name="Enemy" parent="Room/MapLayout/TilePath3D" unique_id=1241046123 instance=ExtResource("3_b5kf5")]
-transform = Transform3D(-0.0032698743, 0.0038223322, -0.99991256, 0, 0.99993896, 0.0038222724, 0.99989897, 1.249981e-05, -0.0032699187, -0.029999495, -0.0022410154, -0.003966689)
-
-[node name="tile_mmi_0" type="MultiMeshInstance3D" parent="Room/MapLayout/TilePath3D" unique_id=1771681911]
-multimesh = SubResource("MultiMesh_5cvvu")
-
-[node name="EnemySpawner" type="Timer" parent="Room/MapLayout/TilePath3D" unique_id=1533716669 node_paths=PackedStringArray("path_3d")]
->>>>>>> Stashed changes
 wait_time = 4.0
 autostart = true
 script = ExtResource("4_b5kf5")

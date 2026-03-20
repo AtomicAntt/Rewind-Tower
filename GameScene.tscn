@@ -704,7 +704,7 @@ material_override = SubResource("StandardMaterial3D_4fxa8")
 mesh = SubResource("ArrayMesh_cipnl")
 
 [node name="SM_swordsmanArm" type="MeshInstance3D" parent="Room/SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=2030873009]
-transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.8212357, 1.0705055, -0.065383404, -0.03501591, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
+transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.82123566, 1.0705055, -0.065383404, -0.035015907, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_7vkeg")
 
@@ -792,7 +792,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=425565111]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 

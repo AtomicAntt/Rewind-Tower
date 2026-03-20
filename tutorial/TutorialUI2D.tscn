@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cx7xyct1f0u15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptx6b"]
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.8666667)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="TutorialUI2D" type="Node2D" unique_id=1046492967]
+texture_filter = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1073963013]
+offset_right = 1000.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ptx6b")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1468935579]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 981.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 32
+text = "Hello! Welcome to Rewind Tower, it's a tabletop tower defense game where you must rewind your defense troops."
+autowrap_mode = 3

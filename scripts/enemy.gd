@@ -7,6 +7,7 @@ extends PathFollow3D
 @onready var path_length: float = path_3d.curve.get_baked_length()
 
 @export var health_bar: ProgressBar
+@export var health_bar_sprite: Sprite3D
 
 ## Amount of HP the enemy has.
 @export var enemy_hp: float = 10.0
@@ -19,6 +20,13 @@ extends PathFollow3D
 ## How much damage the enemy does to a defense per second (Or however long the wait_time of the AttackTimer node is).
 @export var damage: float = 1.0
 
+var is_dead: bool = false
+
+@export var animation_player: AnimationPlayer
+@export var run_anim: String
+@export var attack_anim: String
+@export var death_anim: String
+
 const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
 
 # This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
@@ -26,9 +34,13 @@ var current_defense_attacking: DefenseHitbox = null
 
 var current_defense_troop_attacking: DefenseTroopHitbox = null
 
+func _ready() -> void:
+	health_bar.max_value = max_enemy_hp
+	health_bar.value = enemy_hp
+
 func _physics_process(delta: float) -> void:
 	# If there isn't a current defense to attack, and the game isn't over, move along the path.
-	if not check_if_valid_attack(current_defense_attacking, current_defense_troop_attacking) and not RoundManager.is_gameover():
+	if not check_if_valid_attack(current_defense_attacking, current_defense_troop_attacking) and not RoundManager.is_gameover() and not is_dead:
 		var new_progress_ratio: float = progress_ratio
 		new_progress_ratio += (enemy_speed * delta) / path_length
 		
@@ -39,10 +51,17 @@ func _physics_process(delta: float) -> void:
 			progress_ratio = new_progress_ratio
 		
 		$AttackTimer.stop()
+		
+		if is_instance_valid(animation_player):
+			if animation_player.current_animation != run_anim:
+				animation_player.play(run_anim)
 	
 	health_bar.value = enemy_hp
 
 func hurt(amount: float) -> void:
+	if is_dead:
+		return
+	
 	enemy_hp -= amount
 	if enemy_hp <= 0:
 		
@@ -62,7 +81,21 @@ func hurt(amount: float) -> void:
 		
 		RoundManager.check_round_won()
 		
-		queue_free()
+		death()
+
+func death() -> void:
+	is_dead = true
+	$EnemyHitbox.remove_from_group("EnemyHitbox")
+	if is_instance_valid(animation_player):
+		animation_player.stop()
+		animation_player.play(death_anim)
+	
+	if is_instance_valid(health_bar_sprite):
+		health_bar_sprite.visible = false
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	queue_free()
 
 func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("DefenseHitbox"):
@@ -75,17 +108,27 @@ func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 		$AttackTimer.start()
 
 func _on_attack_timer_timeout() -> void:
+	if is_dead:
+		return
+	
 	if is_instance_valid(current_defense_attacking):
+		if is_instance_valid(animation_player):
+			animation_player.play(attack_anim)
 		current_defense_attacking.hurt(damage)
 		if current_defense_attacking.health <= 0: 
 			current_defense_attacking = null
 		
 	if is_instance_valid(current_defense_troop_attacking):
+		if is_instance_valid(animation_player):
+			animation_player.play(attack_anim)
 		current_defense_troop_attacking.hurt(damage)
 		if current_defense_troop_attacking.get_health() <= 0: 
 			current_defense_troop_attacking = null
 
 func check_if_valid_attack(defense_hitbox: DefenseHitbox, defense_troop_hitbox: DefenseTroopHitbox) -> bool:
+	if is_dead:
+		return false
+	
 	if is_instance_valid(defense_hitbox):
 		if not defense_hitbox.is_in_group("DefenseHitbox"):
 			current_defense_attacking = null

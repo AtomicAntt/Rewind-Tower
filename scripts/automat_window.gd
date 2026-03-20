@@ -68,14 +68,14 @@ func _ready() -> void:
 	
 ## This is after the player twists the crank and tries to purchase. If you can, purchase.
 func check_purchase() -> void:
-	refresh_cost_label()
-	
 	if cost == -1:
 		return
 	
 	if coins_inserted >= cost:
 		coins_inserted -= cost
 		open_door()
+		
+	refresh_cost_label()
 
 func _on_item_detect_area_body_exited(body: Node3D) -> void:
 	if body == displayed_item:

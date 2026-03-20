@@ -313,6 +313,10 @@ metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_ys6re")
+attack_range = 1.0
+attack_damage = 1.0
+troop_type = "Archer"
+melee = null
 max_power = 50
 power_lose_rate = 2
 power_bar = NodePath("SubViewport/ProgressBar")
@@ -370,7 +374,7 @@ material_override = SubResource("StandardMaterial3D_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
-transform = Transform3D(0.9659256, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.96592563, -0.052413225, 0.13324311, 0.019046383)
+transform = Transform3D(0.9659255, 0, 0.258819, 0, 1, 0, -0.25881898, 0, 0.9659256, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_5ys36")
 

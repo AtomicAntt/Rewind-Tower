@@ -93,8 +93,10 @@ func find_closest_enemy_area3d() -> Area3D:
 	var closest_distance: float = INF
 	for enemy_area: Area3D in get_tree().get_nodes_in_group("EnemyHitbox"):
 		if global_position.distance_to(enemy_area.global_position) < closest_distance and can_shoot:
-			closest_area3d = enemy_area
-			closest_distance = global_position.distance_to(enemy_area.global_position)
+			var enemy_node: Enemy = enemy_area.get_parent()
+			if not enemy_node.is_dead:
+				closest_area3d = enemy_area
+				closest_distance = global_position.distance_to(enemy_area.global_position)
 	return closest_area3d
 
 func _on_shoot_timer_timeout() -> void:

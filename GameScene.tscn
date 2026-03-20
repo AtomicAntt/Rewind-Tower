@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="15_rb7ul"]
+[ext_resource type="PackedScene" uid="uid://ui1alaphpder" path="res://tutorial/tutorial_manager.tscn" id="16_icjtl"]
+[ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -875,7 +877,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1461604934]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -1143,6 +1145,11 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Raider/SM_Knight" unique_id=1137297963]
 libraries/ = SubResource("AnimationLibrary_oi8ro")
+
+[node name="TutorialManager" parent="." unique_id=2050269076 instance=ExtResource("16_icjtl")]
+
+[node name="TutorialUI3D" parent="TutorialManager" unique_id=594823687 instance=ExtResource("17_sao6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

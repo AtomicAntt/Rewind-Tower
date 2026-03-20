@@ -14,6 +14,7 @@ viewport_path = NodePath("Viewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khwhh"]
 transparency = 1
 cull_mode = 2
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_nfcsd")
 texture_filter = 1
 
@@ -27,6 +28,7 @@ tutorial_name = ""
 screen_size = Vector2(1.5, 0.3)
 scene = ExtResource("2_drgs7")
 viewport_size = Vector2(1000, 200)
+unshaded = true
 
 [node name="Viewport" parent="." index="0" unique_id=1969951168]
 size = Vector2i(1000, 200)

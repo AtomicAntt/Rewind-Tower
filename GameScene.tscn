@@ -304,7 +304,9 @@ Damage:
 -1
 Needed
 Power:
--1"
+-1
+Cost:
+3 Coins"
 item_scene = ExtResource("12_0exr2")
 
 [node name="AutomatWindow5" parent="AutomatFrame" unique_id=1385339545 instance=ExtResource("14_cg2kh")]

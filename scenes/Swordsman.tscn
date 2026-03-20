@@ -326,7 +326,7 @@ material_override = ExtResource("2_ruurg")
 mesh = SubResource("ArrayMesh_utp47")
 
 [node name="ShootRaycast" type="RayCast3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=1198090811 node_paths=PackedStringArray("raycast")]
-transform = Transform3D(1.3508092, 0, 0, 0, -5.9045746e-08, 1.3508092, 0, -1.3508092, -5.9045746e-08, -0.012663925, 0.06835439, 0.08324437)
+transform = Transform3D(1.3508092, 0, 0, 0, -5.9045746e-08, 1.3508092, 0, -1.3508092, -5.9045746e-08, -0.012663925, 0.06835439, 0.021228373)
 target_position = Vector3(0, -0.2, 0)
 collide_with_areas = true
 script = ExtResource("12_5nm3u")

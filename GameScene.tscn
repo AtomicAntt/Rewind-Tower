@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c4ajri41cpeps" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
-[ext_resource type="PackedScene" uid="uid://ui1alaphpder" path="res://tutorial/tutorial_manager.tscn" id="15_rb7ul"]
-[ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="16_rb7ul"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="15_rb7ul"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
@@ -877,7 +875,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1461604934]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -933,7 +931,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_rb7ul")
+texture = SubResource("ViewportTexture_icjtl")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -1010,7 +1008,7 @@ Needed
 Power:
 -1
 Cost:
-3 Coins"
+3"
 item_scene = ExtResource("15_cg2kh")
 
 [node name="AutomatWindow6" parent="AutomatFrame" unique_id=706605667 instance=ExtResource("14_cg2kh")]
@@ -1094,11 +1092,6 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Raider" unique_id=351515717]
 libraries/ = SubResource("AnimationLibrary_wu487")
-
-[node name="TutorialManager" parent="." unique_id=2050269076 instance=ExtResource("15_rb7ul")]
-
-[node name="TutorialUI3D" parent="TutorialManager" unique_id=594823687 instance=ExtResource("16_rb7ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13186091, 1.2706153, -1.8096598)
 
 [node name="SM_Knight" type="Node3D" parent="SM_Raider" unique_id=2055104301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10607132, 2.3841858e-07, -0.04047087)

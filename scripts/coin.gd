@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_object_in_range(area: Area3D) -> void:
 	if area.get_parent_node_3d() is XRController3D:
+		$XRToolsRumbler.rumble_hand(hand)
 		player._play_coin_pickup()
 		player.coins += 1
 		queue_free()

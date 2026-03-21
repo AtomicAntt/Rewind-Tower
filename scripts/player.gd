@@ -74,3 +74,9 @@ func _play_coin_pickup() -> void:
 			$Audio/Coins5.play()
 		6:
 			$Audio/Coins.play()
+
+func _on_left_function_pickup_has_picked_up(_what: Variant) -> void:
+	$XRToolsRumbler.rumble_hand($XROrigin3D/LeftController)
+
+func _on_right_function_pickup_has_picked_up(_what: Variant) -> void:
+	$XRToolsRumbler.rumble_hand($XROrigin3D/RightController)

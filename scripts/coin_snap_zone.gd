@@ -13,6 +13,7 @@ func _on_has_picked_up(what: Variant) -> void:
 	var tween = create_tween()
 	
 	visual_coin.visible = true
+	
 	what.queue_free()
 	emit_signal("coin_inserted")
 	

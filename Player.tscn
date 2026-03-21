@@ -12,12 +12,20 @@
 [ext_resource type="AudioStream" uid="uid://dj7yj8jncqxs6" path="res://assets/audio/coins 4.ogg" id="10_r3kul"]
 [ext_resource type="AudioStream" uid="uid://bd5t8fnkyl2r5" path="res://assets/audio/coins 5.ogg" id="11_jatw7"]
 [ext_resource type="AudioStream" uid="uid://cpbk2rd5sftep" path="res://assets/audio/coins.ogg" id="12_rv870"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_d6rpx"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_r3kul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dtqjt"]
 size = Vector3(0.05, 0.05, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e80uo"]
 size = Vector3(0.05, 0.1, 0.168)
+
+[sub_resource type="Resource" id="Resource_jatw7"]
+script = ExtResource("14_r3kul")
+magnitude = 0.2
+duration_ms = 30
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
 
 [node name="Player" type="Node3D" unique_id=970537108 groups=["Player"]]
 script = ExtResource("1_e80uo")
@@ -101,4 +109,11 @@ stream = ExtResource("11_jatw7")
 [node name="Coins" type="AudioStreamPlayer" parent="Audio" unique_id=867959921]
 stream = ExtResource("12_rv870")
 
+[node name="XRToolsRumbler" type="Node" parent="." unique_id=877640356]
+script = ExtResource("13_d6rpx")
+event = SubResource("Resource_jatw7")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
+
+[connection signal="has_picked_up" from="XROrigin3D/LeftController/FunctionPickup" to="." method="_on_left_function_pickup_has_picked_up"]
 [connection signal="timeout" from="XROrigin3D/LeftController/LeftHand/CoinSlot/CoinRespawn" to="." method="_on_coin_respawn_timeout"]
+[connection signal="has_picked_up" from="XROrigin3D/RightController/FunctionPickup" to="." method="_on_right_function_pickup_has_picked_up"]

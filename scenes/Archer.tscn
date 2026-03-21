@@ -199,9 +199,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_674tt")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t7f47"]
-size = Vector3(0.5180664, 1.1401367, 0.26654053)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wh7d"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sb0n8"]
@@ -235,6 +232,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sb0n8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5yvk"]
+size = Vector3(0.03857248, 0.007841473, 0.015066948)
 
 [sub_resource type="Animation" id="Animation_ptunn"]
 resource_name = "anim_archerHeadrest"
@@ -354,7 +354,7 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_fu7nh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwwrs")
-max_value = 25.0
+max_value = 30.0
 
 [node name="SM_archer" type="Node3D" parent="." unique_id=2005014714]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
@@ -370,7 +370,7 @@ material_override = SubResource("StandardMaterial3D_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
-transform = Transform3D(0.9659255, 0, 0.258819, 0, 1, 0, -0.25881898, 0, 0.9659256, -0.052413225, 0.13324311, 0.019046383)
+transform = Transform3D(0.9659255, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659255, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_5ys36")
 
@@ -400,14 +400,14 @@ picked_up_layer = 65552
 ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=596594051]
-transform = Transform3D(4.3711346e-09, 0.09999994, 8.742275e-09, -0.09999996, 4.371138e-09, -8.742273e-09, -8.742272e-09, -8.742276e-09, 0.09999996, -0.057726927, -0.009318307, 0.022626672)
-shape = SubResource("BoxShape3D_t7f47")
-
 [node name="SM_archerCrank" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=2112353820]
-transform = Transform3D(3.3333323, -2.9140915e-07, -1.2671789e-14, -2.9140915e-07, -3.3333323, 2.914091e-07, -2.1067478e-14, -2.914091e-07, -3.3333323, 0, -0.0022762418, 0.009318333)
+transform = Transform3D(-1.4570458e-07, 0, -3.3333323, 0, 3.3333323, 0, 3.3333323, 0, -1.4570458e-07, -0.014021579, 0, 0.000117715135)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_utp47")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1299690188]
+transform = Transform3D(-1.4570458e-07, 0, -3.3333323, 0, 3.3333323, 0, 3.3333323, 0, -1.4570458e-07, 0.010659132, 4.6788078e-05, -0.051309615)
+shape = SubResource("BoxShape3D_q5yvk")
 
 [node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)

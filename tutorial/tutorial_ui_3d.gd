@@ -32,7 +32,7 @@ func _ready() -> void:
 
 ## Whenever complete signal is emitted, we see if we can resume the tutorial UI
 func check_signal(what: String) -> void:
-	if what == tutorial_name and not completed:
+	if what == tutorial_name and not completed and visible:
 		completed = true
 		TutorialSystem.emit_signal("resume")
 

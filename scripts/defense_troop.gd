@@ -61,10 +61,15 @@ func _ready():
 	
 	# For tutorial
 	grabbed.connect(emit_grab_troop)
+	dropped.connect(emit_drop_troop)
 
 ## This is for tutorial purposes only
 func emit_grab_troop(_pickable, _by) -> void:
 	TutorialSystem.emit_signal("complete", "GrabTroop")
+
+## This is for tutorial purposes only
+func emit_drop_troop(_pickable) -> void:
+	TutorialSystem.emit_signal("complete", "DropTroop")
 
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(closest_enemy_area):

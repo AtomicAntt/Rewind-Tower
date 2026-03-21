@@ -44,6 +44,7 @@ var closest_enemy_area: Area3D = null
 @export var xray: Node3D
 
 var enemy_distance: float
+@onready var initial_body_orientation: Vector3 = body.rotation
 
 func _ready():
 	super._ready()
@@ -80,6 +81,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if is_picked_up():
 		crank.pickable.enabled = true
+		body.rotation = initial_body_orientation
 	else:
 		crank.pickable.enabled = false
 	

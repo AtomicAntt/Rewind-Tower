@@ -369,7 +369,7 @@ material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_fwv7s")
 
 [node name="SM_archerBody" type="MeshInstance3D" parent="SM_archer/SM_archerBase" unique_id=1002539329]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.3711395e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 

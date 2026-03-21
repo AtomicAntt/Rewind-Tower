@@ -50,7 +50,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 shape = SubResource("BoxShape3D_dtqjt")
 
 [node name="CoinRespawn" type="Timer" parent="XROrigin3D/LeftController/LeftHand/CoinSlot" unique_id=2086081812]
-wait_time = 2.0
 autostart = true
 
 [node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661]

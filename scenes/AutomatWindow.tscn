@@ -4,13 +4,8 @@
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="1_kaifn"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_e3bxy"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/universal material alpha.tres" id="3_04k3f"]
-[ext_resource type="PackedScene" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
+[ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
 [ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/systems/TwisterInteractable.tscn" id="4_a71aj"]
-[ext_resource type="AudioStream" uid="uid://cddww7st31inu" path="res://assets/audio/coin insert.ogg" id="7_s6mud"]
-[ext_resource type="AudioStream" uid="uid://c3rs0m4h6fsd0" path="res://assets/audio/coin insert 1.ogg" id="8_vikwq"]
-[ext_resource type="AudioStream" uid="uid://dtu2mrdl3kaho" path="res://assets/audio/coin insert 2.ogg" id="9_lhvv7"]
-[ext_resource type="AudioStream" uid="uid://dx4bh40ag13mt" path="res://assets/audio/coin insert 3.ogg" id="10_yscds"]
-[ext_resource type="AudioStream" uid="uid://ca81u37v1vhcs" path="res://assets/audio/coin insert 4.ogg" id="11_pp1nt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uggo0"]
 
@@ -400,23 +395,6 @@ Power:
 Cost:
 -1"
 vertical_alignment = 0
-
-[node name="Audio" type="Node3D" parent="." unique_id=319926863]
-
-[node name="CoinInsert" type="AudioStreamPlayer3D" parent="Audio" unique_id=1066206053]
-stream = ExtResource("7_s6mud")
-
-[node name="CoinInsert1" type="AudioStreamPlayer3D" parent="Audio" unique_id=1430648229]
-stream = ExtResource("8_vikwq")
-
-[node name="CoinInsert2" type="AudioStreamPlayer3D" parent="Audio" unique_id=356014523]
-stream = ExtResource("9_lhvv7")
-
-[node name="CoinInsert3" type="AudioStreamPlayer3D" parent="Audio" unique_id=844073337]
-stream = ExtResource("10_yscds")
-
-[node name="CoinInsert4" type="AudioStreamPlayer3D" parent="Audio" unique_id=1123629055]
-stream = ExtResource("11_pp1nt")
 
 [connection signal="turned" from="SM_automatWindow/SM_automatSeg/TwisterInteractable" to="." method="_on_twister_interactable_turned"]
 [connection signal="coin_inserted" from="CoinSnapZone" to="." method="_on_coin_snap_zone_coin_inserted"]

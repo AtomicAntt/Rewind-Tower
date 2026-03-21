@@ -99,9 +99,9 @@ func check_round_won() -> void:
 	if current_queue.is_empty():
 		emit_signal("round_won")
 		current_round += 1
-		if current_round < round_data.size():
+		if current_round <= round_data.size():
 			set_intermission()
-		elif current_round >= round_data.size():
+		elif current_round > round_data.size():
 			state = States.GAMEWON
 
 ## Call this to check if the game state is currently in intermission.

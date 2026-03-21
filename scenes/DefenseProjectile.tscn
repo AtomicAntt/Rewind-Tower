@@ -41,8 +41,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ddl0c")
 
+[sub_resource type="Curve" id="Curve_byned"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3046875), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Gradient" id="Gradient_byned"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="DefenseProjectile" type="Area3D" unique_id=549616968]
 script = ExtResource("1_mw8uj")
@@ -63,7 +67,11 @@ process_priority = 9999
 process_physics_priority = 9999
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037384227, 0, -1.6341165e-09)
 script = ExtResource("3_byned")
+max_section_length = 0.5
+limit_mode = 1
+length_limit = 0.3
 width = 0.001
+width_curve = SubResource("Curve_byned")
 gradient = SubResource("Gradient_byned")
 metadata/_custom_type_script = "uid://bqflf4vw8mem1"
 

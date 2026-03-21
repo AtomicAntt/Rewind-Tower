@@ -1156,7 +1156,7 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_oi8ro")
 
 [node name="TutorialManager" parent="." unique_id=2050269076 node_paths=PackedStringArray("tutorial_ui_list") instance=ExtResource("16_icjtl")]
-tutorial_ui_list = [NodePath("InitialGrabTroopUITutorial"), NodePath("RewindTroopUITutorial"), NodePath("DropTroopUITutorial"), NodePath("CrankTowerUITutorial")]
+tutorial_ui_list = [NodePath("InitialGrabTroopUITutorial"), NodePath("RewindTroopUITutorial"), NodePath("DropTroopUITutorial"), NodePath("CrankTowerUITutorial"), NodePath("AwaitRoundComplete"), NodePath("ShopTutorial")]
 
 [node name="InitialGrabTroopUITutorial" parent="TutorialManager" unique_id=1025779043 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
@@ -1165,6 +1165,7 @@ tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
 tool_tips = [NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Grab Troop"])
+awaiting_next = null
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="RewindTroopUITutorial" parent="TutorialManager" unique_id=1535010359 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
@@ -1174,6 +1175,7 @@ tutorial_name = "RewindTroop"
 tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
 tool_tips = [NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Rewind Crank"])
+awaiting_next = null
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="DropTroopUITutorial" parent="TutorialManager" unique_id=2110110219 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
@@ -1183,6 +1185,7 @@ tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
 tool_tips = [NodePath("(EnemiesSpawn)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
+awaiting_next = null
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(EnemiesSpawn)UITooltipTutorial" parent="TutorialManager/DropTroopUITutorial" unique_id=1383273705 instance=ExtResource("18_sao6o")]
@@ -1204,6 +1207,7 @@ tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
 tool_tips = [NodePath("(CrankTower)UITooltipTutorial"), NodePath("(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
+awaiting_next = null
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=379038653 instance=ExtResource("18_sao6o")]
@@ -1212,6 +1216,42 @@ visible = false
 
 [node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=567878876 instance=ExtResource("18_sao6o")]
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
+visible = false
+
+[node name="AwaitRoundComplete" parent="TutorialManager" unique_id=1245266120 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
+visible = false
+tutorial_name = "IntermissionEntered"
+tutorial_text = "N/A"
+tool_tips = []
+tool_tip_text = []
+awaiting_next = true
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
+
+[node name="ShopTutorial" parent="TutorialManager" unique_id=1426297503 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
+visible = false
+tutorial_name = "TroopPurchased"
+tutorial_text = "Once the round ends, you will have time to purchase new defenses to prepare for the next round! Look behind you, and use the coins collected on your wrist to purchase defenses in the shop."
+tool_tips = [NodePath("(InsertCoin)UITooltipTutorial"), NodePath("(InsertCoin)UITooltipTutorial2"), NodePath("(ConfirmPurchase)UITooltipTutorial"), NodePath("(ConfirmPurchase)UITooltipTutorial2")]
+tool_tip_text = Array[String](["Insert Coin", "Insert Coin", "Confirm Purchase", "Confirm Purchase"])
+awaiting_next = false
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
+
+[node name="(InsertCoin)UITooltipTutorial" parent="TutorialManager/ShopTutorial" unique_id=1016709714 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.6215136, -0.08002964, 2.3760133)
+visible = false
+
+[node name="(ConfirmPurchase)UITooltipTutorial" parent="TutorialManager/ShopTutorial" unique_id=827596216 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.59844697, -0.29832602, 2.3316116)
+visible = false
+
+[node name="(ConfirmPurchase)UITooltipTutorial2" parent="TutorialManager/ShopTutorial" unique_id=93179637 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.19240206, -0.3097254, 2.5540662)
+visible = false
+
+[node name="(InsertCoin)UITooltipTutorial2" parent="TutorialManager/ShopTutorial" unique_id=806971655 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.17531645, -0.08002964, 2.558608)
 visible = false
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]

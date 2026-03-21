@@ -83,6 +83,8 @@ func _on_item_detect_area_body_exited(body: Node3D) -> void:
 	if body == displayed_item:
 		displayed_item = null
 		close_door()
+		
+		TutorialSystem.emit_signal("complete", "TroopPurchased")
 
 func _on_coin_snap_zone_coin_inserted() -> void:
 	coins_inserted += 1

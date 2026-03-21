@@ -16,6 +16,9 @@ extends XRToolsViewport2DIn3D
 
 var completed: bool = false
 
+## Sorry if it's complex, but if this is true, it will act as an await as no UI shows up until it goes to the next tutorial.
+@export var awaiting_next: bool = false
+
 func _ready() -> void:
 	super._ready()
 	if not Engine.is_editor_hint():
@@ -35,6 +38,9 @@ func check_signal(what: String) -> void:
 	if what == tutorial_name and not completed and visible:
 		completed = true
 		TutorialSystem.emit_signal("resume")
+	if not visible and what == tutorial_name and not completed and awaiting_next:
+		completed = true
+		TutorialSystem.emit_signal("resume")
 
 func hide_tutorial() -> void:
 	visible = false
@@ -47,6 +53,10 @@ func change_text(new_text: String) -> void:
 	tutorial_ui_2d.change_text(new_text)
 
 func show_tutorial() -> void:
+	# Sorry if it's complex, but if this is true, it will act as an await as no UI shows up until it goes to the next tutorial.
+	if awaiting_next:
+		return
+	
 	visible = true
 	for tool_tip: Node3D in tool_tips:
 		if is_instance_valid(tool_tip):

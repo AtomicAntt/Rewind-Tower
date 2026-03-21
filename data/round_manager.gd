@@ -110,6 +110,8 @@ func is_gameover() -> bool:
 
 func set_intermission() -> void:
 	state = States.INTERMISSION
+	
+	TutorialSystem.emit_signal("complete", "IntermissionEntered")
 
 func set_battle() -> void:
 	state = States.BATTLE

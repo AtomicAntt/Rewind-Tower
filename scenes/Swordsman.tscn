@@ -195,7 +195,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sb0n8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5nm3u"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnl7s"]
 size = Vector3(0.03857248, 0.007841473, 0.015066948)
 
 [sub_resource type="Resource" id="Resource_d6b8k"]
@@ -318,12 +318,12 @@ material_override = ExtResource("2_ruurg")
 mesh = SubResource("ArrayMesh_tjiwa")
 
 [node name="Crank" type="Node3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=450228322 node_paths=PackedStringArray("pickable")]
-transform = Transform3D(-0.39840913, -0.07310636, -0.012136811, -0.013629516, 0.13752086, -0.38095176, 0.072842844, -0.37411913, -0.1376608, -0.0059566787, 0.1132352, -0.0012355703)
+transform = Transform3D(0.39840907, 0.06855323, -0.028147945, 0.013629536, -0.2190796, -0.3406469, -0.072842896, 0.33395544, -0.21769114, -0.0058908444, 0.11407873, -0.0007176602)
 script = ExtResource("4_ck1k0")
 pickable = NodePath("Crank")
 
 [node name="Crank" type="RigidBody3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1827322792]
-transform = Transform3D(-0.9954477, 0.09530727, 1.3876706e-07, -0.09453262, -0.987357, 0.12723768, 0.012126814, 0.12665847, 0.9918721, 0, 0, 0)
+transform = Transform3D(0.9954477, -0.09530718, 1.3876706e-07, 0.09453253, 0.98735696, 0.1272377, -0.012126806, -0.1266585, 0.991872, 0, 0, 0)
 collision_layer = 16
 collision_mask = 21
 gravity_scale = 0.0
@@ -335,13 +335,13 @@ ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
 [node name="SM_archerCrank" type="MeshInstance3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank" unique_id=2112353820]
-transform = Transform3D(-1.4570458e-07, 0.02687788, -3.3332238, -3.5527137e-15, 3.3332238, 0.02687788, 3.3333323, 1.1748753e-09, -1.4569984e-07, -0.01313536, 0.003476077, 0.0054478366)
+transform = Transform3D(0.21065892, 3.323338, 0.1488272, -0.009414931, -0.1485291, 3.330008, 3.3266559, -0.2108692, 5.561089e-09, -0.00048792688, 0.010670783, 0.005213756)
 material_override = ExtResource("2_ruurg")
 mesh = SubResource("ArrayMesh_utp47")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank" unique_id=1960902081]
-transform = Transform3D(-1.4570458e-07, 0.02687788, -3.3332238, -3.5527137e-15, 3.3332238, 0.02687788, 3.3333323, 1.1748753e-09, -1.4569984e-07, 0.0033846535, 0.0033896554, -0.04189999)
-shape = SubResource("BoxShape3D_5nm3u")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank" unique_id=1435060915]
+transform = Transform3D(0.21065892, 3.323338, 0.1488272, -0.009414931, -0.1485291, 3.330008, 3.3266559, -0.2108692, 5.561089e-09, -0.0071375566, -0.0135444105, -0.04600457)
+shape = SubResource("BoxShape3D_qnl7s")
 
 [node name="Audio" type="Node3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1090616789]
 transform = Transform3D(-0.99544775, 0.09530727, 1.4156103e-07, -0.09453262, -0.98735714, 0.12723765, 0.012126815, 0.12665844, 0.9918722, 0, 0, 0)
@@ -433,11 +433,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01964112, 0)
 shape = SubResource("BoxShape3D_lnnsc")
 
 [node name="GrabPointHandLeft" parent="." unique_id=792512517 instance=ExtResource("9_ym3ex")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.09770338, 0.0918817, 0.022111967)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.10731299, 0.0918817, 0.022111967)
 hand_pose = SubResource("Resource_sm0sf")
 
 [node name="GrabPointHandRight" parent="." unique_id=40535934 instance=ExtResource("9_ym3ex")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.097627774, 0.0918817, 0.023740053)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.10723738, 0.0918817, 0.023740051)
 hand = 1
 hand_pose = SubResource("Resource_7movh")
 

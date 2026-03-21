@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_e80uo"]
 [ext_resource type="Material" uid="uid://mgw652ymvt0x" path="res://Forcefield.tres" id="4_cxr5p"]
 [ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="5_tdg3f"]
+[ext_resource type="AudioStream" uid="uid://3o5ofmq2b75b" path="res://assets/audio/coins 1.ogg" id="7_l6ohk"]
+[ext_resource type="AudioStream" uid="uid://dn08lqokfe582" path="res://assets/audio/coins 2.ogg" id="8_oudfo"]
+[ext_resource type="AudioStream" uid="uid://dn8v6ar2nyrm5" path="res://assets/audio/coins 3.ogg" id="9_d6rpx"]
+[ext_resource type="AudioStream" uid="uid://dj7yj8jncqxs6" path="res://assets/audio/coins 4.ogg" id="10_r3kul"]
+[ext_resource type="AudioStream" uid="uid://bd5t8fnkyl2r5" path="res://assets/audio/coins 5.ogg" id="11_jatw7"]
+[ext_resource type="AudioStream" uid="uid://cpbk2rd5sftep" path="res://assets/audio/coins.ogg" id="12_rv870"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dtqjt"]
 size = Vector3(0.05, 0.05, 0.05)
@@ -74,5 +80,25 @@ hand_material_override = ExtResource("4_cxr5p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/Area3D" unique_id=276126665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
 shape = SubResource("BoxShape3D_e80uo")
+
+[node name="Audio" type="Node3D" parent="." unique_id=244856922]
+
+[node name="Coins1" type="AudioStreamPlayer" parent="Audio" unique_id=1137071650]
+stream = ExtResource("7_l6ohk")
+
+[node name="Coins2" type="AudioStreamPlayer" parent="Audio" unique_id=500651073]
+stream = ExtResource("8_oudfo")
+
+[node name="Coins3" type="AudioStreamPlayer" parent="Audio" unique_id=750314379]
+stream = ExtResource("9_d6rpx")
+
+[node name="Coins4" type="AudioStreamPlayer" parent="Audio" unique_id=1607804322]
+stream = ExtResource("10_r3kul")
+
+[node name="Coins5" type="AudioStreamPlayer" parent="Audio" unique_id=1434262779]
+stream = ExtResource("11_jatw7")
+
+[node name="Coins" type="AudioStreamPlayer" parent="Audio" unique_id=867959921]
+stream = ExtResource("12_rv870")
 
 [connection signal="timeout" from="XROrigin3D/LeftController/LeftHand/CoinSlot/CoinRespawn" to="." method="_on_coin_respawn_timeout"]

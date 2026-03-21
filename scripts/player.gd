@@ -57,3 +57,20 @@ func _process(_delta: float) -> void:
 
 func _on_coin_respawn_timeout() -> void:
 	can_spawn_coin = true
+	
+func _play_coin_pickup() -> void:
+	var sound_to_play: int = randi_range(1,4)
+	
+	match sound_to_play:
+		1:
+			$Audio/Coins1.play()
+		2:
+			$Audio/Coins2.play()
+		3:
+			$Audio/Coins3.play()
+		4:
+			$Audio/Coins4.play()
+		5:
+			$Audio/Coins5.play()
+		6:
+			$Audio/Coins.play()

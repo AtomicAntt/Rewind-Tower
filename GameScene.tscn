@@ -466,7 +466,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.621
 visible = false
 
 [node name="(ConfirmPurchase)UITooltipTutorial" parent="TutorialManager/ShopTutorial" unique_id=827596216 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.59844697, -0.29832602, 2.3687353)
+transform = Transform3D(0.7547095, 0, 0.65605897, 0, 0.9999998, 0, -0.6560589, 0, 0.7547095, 0.628, -0.31, 2.364)
 visible = false
 
 [node name="(ConfirmPurchase)UITooltipTutorial2" parent="TutorialManager/ShopTutorial" unique_id=93179637 instance=ExtResource("18_sao6o")]

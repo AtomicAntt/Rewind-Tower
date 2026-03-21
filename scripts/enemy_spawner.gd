@@ -4,6 +4,7 @@ extends Timer
 @onready var enemy: PackedScene = preload("res://scenes/Enemy.tscn")
 @onready var raider: PackedScene = preload("res://scenes/Raider.tscn")
 @onready var wolf: PackedScene = preload("res://scenes/Wolf.tscn")
+@onready var knight: PackedScene = preload("res://scenes/Knight.tscn")
 
 @export var path_3d: Path3D
 
@@ -29,6 +30,8 @@ func spawn_enemy(enemy_name: String) -> void:
 			enemy_instance = raider.instantiate()
 		"Wolf":
 			enemy_instance = wolf.instantiate()
+		"Knight":
+			enemy_instance = knight.instantiate()
 		_:
 			print(enemy_name + " is not found.")
 	

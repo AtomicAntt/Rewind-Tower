@@ -22,6 +22,9 @@ extends PathFollow3D
 
 var is_dead: bool = false
 
+# solely used by the bear trap
+var stunned: bool = false
+
 @export var animation_player: AnimationPlayer
 @export var run_anim: String
 @export var attack_anim: String
@@ -43,7 +46,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# If there isn't a current defense to attack, and the game isn't over, move along the path.
-	if not check_if_valid_attack(current_defense_attacking, current_defense_troop_attacking) and not RoundManager.is_gameover() and not is_dead:
+	if not check_if_valid_attack(current_defense_attacking, current_defense_troop_attacking) and not RoundManager.is_gameover() and not is_dead and not stunned:
 		var new_progress_ratio: float = progress_ratio
 		new_progress_ratio += (enemy_speed * delta) / path_length
 		

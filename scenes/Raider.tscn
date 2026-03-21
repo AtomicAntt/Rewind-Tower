@@ -365,6 +365,7 @@ script = ExtResource("1_gnmqa")
 health_bar = NodePath("SubViewport/ProgressBar")
 health_bar_sprite = NodePath("Healthbar")
 enemy_hp = 4.0
+damage = 5.0
 animation_player = NodePath("EnemyHitbox/SM_Raider/AnimationPlayer")
 run_anim = "anim_raiderRun"
 attack_anim = "anim_raiderAttack"

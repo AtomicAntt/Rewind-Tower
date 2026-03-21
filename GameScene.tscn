@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="15_rb7ul"]
 [ext_resource type="PackedScene" uid="uid://ui1alaphpder" path="res://tutorial/tutorial_manager.tscn" id="16_icjtl"]
+[ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/BearTrap.tscn" id="17_6qjax"]
 [ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
 [ext_resource type="PackedScene" uid="uid://cyl5k1jmir2q" path="res://tutorial/TutorialUITooltip3D.tscn" id="18_sao6o"]
 
@@ -131,7 +132,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sao6o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6qjax"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -946,7 +947,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_sao6o")
+texture = SubResource("ViewportTexture_6qjax")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -1121,15 +1122,15 @@ bones/1/name = "raiderArmLeft"
 bones/1/parent = -1
 bones/1/rest = Transform3D(-1, -1.5684755e-07, -8.9198e-08, 7.780194e-08, -0.8208452, 0.5711513, -1.6280133e-07, 0.5711513, 0.82084507, 0.026211113, 0.09835286, 0)
 bones/1/enabled = true
-bones/1/position = Vector3(0.026211115, 0.09835287, -2.7593605e-09)
-bones/1/rotation = Quaternion(-6.602644e-08, 0.2992951, 0.9541607, 6.14806e-08)
+bones/1/position = Vector3(0.026211118, 0.09835289, -1.41999115e-08)
+bones/1/rotation = Quaternion(-6.602642e-08, 0.2992951, 0.9541607, 6.148059e-08)
 bones/1/scale = Vector3(1, 1.0000004, 1.0000002)
 bones/2/name = "raiderArmRight"
 bones/2/parent = -1
 bones/2/rest = Transform3D(-1, 3.5527147e-14, -3.894145e-07, -2.2241451e-07, -0.8208452, 0.5711513, -3.1964882e-07, 0.5711513, 0.82084507, -0.026211, 0.09835286, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(-0.026210997, 0.098352864, -5.978611e-09)
-bones/2/rotation = Quaternion(-1.8578196e-07, 0.2992951, 0.9541606, -5.8274917e-08)
+bones/2/position = Vector3(-0.026211001, 0.098352864, -7.1761375e-09)
+bones/2/rotation = Quaternion(-1.8578199e-07, 0.29929507, 0.9541607, -5.827495e-08)
 bones/2/scale = Vector3(1, 1.0000004, 1.0000002)
 bones/3/name = "raiderLegLeft"
 bones/3/parent = -1
@@ -1154,6 +1155,9 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Raider/SM_Knight" unique_id=1137297963]
 libraries/ = SubResource("AnimationLibrary_oi8ro")
+
+[node name="BearTrap" parent="SM_Raider" unique_id=594304056 instance=ExtResource("17_6qjax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6088134, 0.037537694, -0.023170501)
 
 [node name="TutorialManager" parent="." unique_id=2050269076 node_paths=PackedStringArray("tutorial_ui_list") instance=ExtResource("16_icjtl")]
 tutorial_ui_list = [NodePath("InitialGrabTroopUITutorial"), NodePath("RewindTroopUITutorial"), NodePath("DropTroopUITutorial"), NodePath("CrankTowerUITutorial"), NodePath("AwaitRoundComplete"), NodePath("ShopTutorial")]

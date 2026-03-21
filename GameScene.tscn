@@ -910,10 +910,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100302, 0.83589834, -0.254
 
 [node name="(GrabTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
-[node name="(RewindTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=594823687 instance=ExtResource("18_sao6o")]
+[node name="(RewindTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=915860077 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="SM_tower" type="Node3D" parent="." unique_id=166081072]
@@ -1152,24 +1154,42 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_oi8ro")
 
 [node name="TutorialManager" parent="." unique_id=2050269076 node_paths=PackedStringArray("tutorial_ui_list") instance=ExtResource("16_icjtl")]
-tutorial_ui_list = [NodePath("InitialGrabTroopUITutorial"), NodePath("RewindTroopUITutorial")]
+tutorial_ui_list = [NodePath("InitialGrabTroopUITutorial"), NodePath("RewindTroopUITutorial"), NodePath("CrankTowerUITutorial")]
 
-[node name="InitialGrabTroopUITutorial" parent="TutorialManager" unique_id=1025779043 node_paths=PackedStringArray("tool_tip") instance=ExtResource("17_sao6o")]
+[node name="InitialGrabTroopUITutorial" parent="TutorialManager" unique_id=1025779043 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
-tool_tip = NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")
-tool_tip_text = "Grab Troop"
+tool_tips = [NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")]
+tool_tip_text = Array[String](["Grab Troop"])
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
-[node name="RewindTroopUITutorial" parent="TutorialManager" unique_id=1535010359 node_paths=PackedStringArray("tool_tip") instance=ExtResource("17_sao6o")]
+[node name="RewindTroopUITutorial" parent="TutorialManager" unique_id=1535010359 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "RewindTroop"
-tutorial_text = "Your first defense troop will be the archer, but right now it's got no power! Grab the crank behind it and rewind it until it's back to max power!"
-tool_tip = NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")
-tool_tip_text = "Rewind crank"
+tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
+tool_tips = [NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")]
+tool_tip_text = Array[String](["Rewind Crank"])
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
+
+[node name="CrankTowerUITutorial" parent="TutorialManager" unique_id=2089567214 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
+visible = false
+tutorial_name = "CrankTower"
+tutorial_text = "Now that you winded up your first defense troop, place it strategically so that you can defend against any enemies along the path! When you are ready, wind up the crank in the right tower!"
+tool_tips = [NodePath("(CrankTower)UITooltipTutorial"), NodePath("(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
+tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
+
+[node name="(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=379038653 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, -0.031128168, 1.7154247)
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
+
+[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=594823687 instance=ExtResource("18_sao6o")]
+transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
+visible = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]

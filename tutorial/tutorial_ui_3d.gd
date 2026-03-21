@@ -9,10 +9,10 @@ extends XRToolsViewport2DIn3D
 @export_multiline var tutorial_text: String
 
 ## This is the tooltip that's attached that will appear/disappear when this does.
-@export var tool_tip: XRToolsViewport2DIn3D
+@export var tool_tips: Array[Node3D]
 
 ## Set the text of the tool tip attached here.
-@export var tool_tip_text: String
+@export var tool_tip_text: Array[String]
 
 var completed: bool = false
 
@@ -22,9 +22,11 @@ func _ready() -> void:
 		TutorialSystem.connect("complete", check_signal)
 		
 		visible = false
-		if is_instance_valid(tool_tip):
-			tool_tip.visible = false
-			change_tooltip_text(tool_tip_text)
+		for i in range(tool_tips.size()):
+			if is_instance_valid(tool_tips[i]):
+				tool_tips[i].visible = false
+				var tutorial_ui_2d: TutorialUI2D = tool_tips[i].get_scene_instance()
+				tutorial_ui_2d.change_text(tool_tip_text[i])
 		
 		change_text(tutorial_text)
 
@@ -36,19 +38,16 @@ func check_signal(what: String) -> void:
 
 func hide_tutorial() -> void:
 	visible = false
-	if is_instance_valid(tool_tip):
-		tool_tip.visible = false
+	for tool_tip: Node3D in tool_tips:
+		if is_instance_valid(tool_tip):
+			tool_tip.visible = false
 
 func change_text(new_text: String) -> void:
 	var tutorial_ui_2d: TutorialUI2D = get_scene_instance()
 	tutorial_ui_2d.change_text(new_text)
 
-func change_tooltip_text(new_text: String) -> void:
-	if is_instance_valid(tool_tip):
-		var tutorial_ui_2d: TutorialUI2D = tool_tip.get_scene_instance()
-		tutorial_ui_2d.change_text(new_text)
-
 func show_tutorial() -> void:
 	visible = true
-	if is_instance_valid(tool_tip):
-		tool_tip.visible = true
+	for tool_tip: Node3D in tool_tips:
+		if is_instance_valid(tool_tip):
+			tool_tip.visible = true

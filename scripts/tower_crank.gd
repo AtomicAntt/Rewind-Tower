@@ -30,6 +30,7 @@ func _physics_process(_delta) -> void:
 			RoundManager.start_intermission()
 		elif RoundManager.in_intermission():
 			RoundManager.start_round()
+			TutorialSystem.emit_signal("complete", "CrankTower")
 		elif RoundManager.is_gameover():
 			RoundManager.start_intermission()
 			

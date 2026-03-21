@@ -1,6 +1,6 @@
 extends Node
 
-enum States {INTERMISSION, BATTLE, GAMEOVER}
+enum States {INTERMISSION, BATTLE, GAMEOVER, GAMEWON}
 
 ## Current state the game is in.
 var state: States = States.INTERMISSION
@@ -99,7 +99,10 @@ func check_round_won() -> void:
 	if current_queue.is_empty():
 		emit_signal("round_won")
 		current_round += 1
-		set_intermission()
+		if current_round < round_data.size():
+			set_intermission()
+		elif current_round >= round_data.size():
+			state = States.GAMEWON
 
 ## Call this to check if the game state is currently in intermission.
 func in_intermission() -> bool:
@@ -110,6 +113,9 @@ func in_battle() -> bool:
 
 func is_gameover() -> bool:
 	return state == States.GAMEOVER
+
+func is_won() -> bool:
+	return state == States.GAMEWON
 
 func set_intermission() -> void:
 	state = States.INTERMISSION

@@ -115,6 +115,7 @@ func set_intermission() -> void:
 	state = States.INTERMISSION
 	
 	TutorialSystem.emit_signal("complete", "IntermissionEntered")
+	rewind_all_valid_troops()
 
 func set_battle() -> void:
 	state = States.BATTLE
@@ -122,3 +123,10 @@ func set_battle() -> void:
 func set_gameover() -> void:
 	state = States.GAMEOVER
 	emit_signal("game_over")
+
+func rewind_all_valid_troops() -> void:
+	for defense_troop: DefenseTroop in get_tree().get_nodes_in_group("DefenseTroop"):
+		if is_instance_valid(defense_troop):
+			defense_troop.crank.crank_value = defense_troop.max_power
+			defense_troop.crank.power = defense_troop.max_power
+			defense_troop.power = defense_troop.max_power

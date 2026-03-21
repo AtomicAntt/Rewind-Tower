@@ -40,7 +40,8 @@ func refresh_item() -> void:
 	if is_instance_valid(item_instance):
 		displayed_item = item_instance
 		get_parent().get_parent().add_child.call_deferred(displayed_item)
-		displayed_item.global_position = item_marker_3d.global_position
+		#displayed_item.global_position = item_marker_3d.global_position
+		displayed_item.global_transform = item_marker_3d.global_transform
 		displayed_item.enabled = false
 
 func refresh_cost_label() -> void:

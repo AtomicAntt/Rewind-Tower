@@ -24,6 +24,9 @@ func _ready() -> void:
 
 func hurt(amount: float) -> void:
 	health -= amount
+	
+	_play_dmg_sound()
+	
 	if health <= 0:
 		death()
 	
@@ -32,6 +35,7 @@ func hurt(amount: float) -> void:
 
 func death() -> void:
 	entity.visible = false
+	$Audio/GateDestroyed.play()
 	remove_from_group("DefenseHitbox")
 
 func restore() -> void:
@@ -41,3 +45,20 @@ func restore() -> void:
 	
 	if is_instance_valid(health_bar):
 		health_bar.value = health
+		
+func _play_dmg_sound():
+	var sound_to_play: int = randi_range(1,6)
+	
+	match sound_to_play:
+		1:
+			$Audio/GateDmg1.play()
+		2:
+			$Audio/GateDmg2.play()
+		3:
+			$Audio/GateDmg3.play()
+		4:
+			$Audio/GateDmg4.play()
+		5:
+			$Audio/GateDmg5.play()
+		6:
+			$Audio/GateDmg.play()

@@ -83,7 +83,8 @@ func _physics_process(_delta: float) -> void:
 	power = crank.power
 	power -= power_lost
 	
-	clamp(power, 0, max_power)
+	power = clamp(power, 0, max_power)
+	crank.power = clamp(crank.power, 0, max_power)
 	
 	power_bar.value = power
 	

@@ -137,20 +137,14 @@ func _on_shoot_timer_timeout() -> void:
 	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and enemy_distance <= attack_range:
 		animator._animate()
 		shoot_raycast._hit()
-<<<<<<< HEAD
-<<<<<<< HEAD
 		power_lost += 1 * power_lose_rate
 		_play_sword_hit()
-=======
 		
 		crank.power -= power_lose_rate
 		power -= power_lose_rate
->>>>>>> e5f2e2f6cad30c658d517f5ee69bd256b1754d42
-=======
 		
 		crank.power -= power_lose_rate
 		power -= power_lose_rate
->>>>>>> e5f2e2f6cad30c658d517f5ee69bd256b1754d42
 
 
 func on_area_entered(area: Area3D) -> void:

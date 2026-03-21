@@ -12,6 +12,15 @@
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="11_mi6e4"]
 [ext_resource type="Script" uid="uid://cd2wggy80wwgu" path="res://scripts/troop_raycast.gd" id="12_5nm3u"]
 [ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="13_5lux3"]
+[ext_resource type="AudioStream" uid="uid://d13xtsw3543h1" path="res://assets/audio/sword hit 2.ogg" id="13_ym3ex"]
+[ext_resource type="AudioStream" uid="uid://qsfb8rtg1vwf" path="res://assets/audio/sword hit 3.ogg" id="14_nysg6"]
+[ext_resource type="AudioStream" uid="uid://c0ucsrmghdkkm" path="res://assets/audio/sword hit 4.ogg" id="15_mi6e4"]
+[ext_resource type="AudioStream" uid="uid://b7htbkv76ieo6" path="res://assets/audio/sword hit 5.ogg" id="16_qnl7s"]
+[ext_resource type="AudioStream" uid="uid://dr0kxwhsub5jm" path="res://assets/audio/sword hit 6.ogg" id="17_5lux3"]
+[ext_resource type="AudioStream" uid="uid://cje6xibejvf50" path="res://assets/audio/sword hit 7.ogg" id="18_d6b8k"]
+[ext_resource type="AudioStream" uid="uid://dben55h3r4t70" path="res://assets/audio/sword hit 8.ogg" id="19_4df0d"]
+[ext_resource type="AudioStream" uid="uid://bnpnp7nmfnkx8" path="res://assets/audio/sword hit 9.ogg" id="20_55swy"]
+[ext_resource type="AudioStream" uid="uid://825ypu8uac50" path="res://assets/audio/sword hit.ogg" id="21_qbnta"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6hr2"]
 
@@ -411,6 +420,35 @@ hand_pose = SubResource("Resource_sm0sf")
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.097627774, 0.0918817, 0.023740053)
 hand = 1
 hand_pose = SubResource("Resource_7movh")
+
+[node name="Audio" type="Node3D" parent="." unique_id=1439723921]
+
+[node name="SwordHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=672104157]
+stream = ExtResource("13_ym3ex")
+
+[node name="SwordHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=1371726771]
+stream = ExtResource("14_nysg6")
+
+[node name="SwordHit4" type="AudioStreamPlayer3D" parent="Audio" unique_id=469059352]
+stream = ExtResource("15_mi6e4")
+
+[node name="SwordHit5" type="AudioStreamPlayer3D" parent="Audio" unique_id=157636476]
+stream = ExtResource("16_qnl7s")
+
+[node name="SwordHit6" type="AudioStreamPlayer3D" parent="Audio" unique_id=2015888314]
+stream = ExtResource("17_5lux3")
+
+[node name="SwordHit7" type="AudioStreamPlayer3D" parent="Audio" unique_id=756538029]
+stream = ExtResource("18_d6b8k")
+
+[node name="SwordHit8" type="AudioStreamPlayer3D" parent="Audio" unique_id=72079661]
+stream = ExtResource("19_4df0d")
+
+[node name="SwordHit9" type="AudioStreamPlayer3D" parent="Audio" unique_id=372396688]
+stream = ExtResource("20_55swy")
+
+[node name="SwordHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=1073367350]
+stream = ExtResource("21_qbnta")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]

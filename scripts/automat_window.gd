@@ -84,6 +84,7 @@ func _on_item_detect_area_body_exited(body: Node3D) -> void:
 	if body == displayed_item:
 		if displayed_item is DefenseTroop:
 			var defense_troop: DefenseTroop = displayed_item
+			defense_troop.crank.crank_value = defense_troop.max_power
 			defense_troop.crank.power = defense_troop.max_power
 			defense_troop.power = defense_troop.max_power
 		displayed_item = null

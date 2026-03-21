@@ -72,6 +72,9 @@ func emit_drop_troop(_pickable) -> void:
 	TutorialSystem.emit_signal("complete", "DropTroop")
 
 func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if is_instance_valid(closest_enemy_area):
 		enemy_distance = global_position.distance_to(closest_enemy_area.global_position)
 	
@@ -81,8 +84,10 @@ func _physics_process(_delta: float) -> void:
 		crank.pickable.enabled = false
 	
 	power = crank.power
-	power -= power_lost
+	#power -= power_lost * delta
+	#crank.power -= power_lost * delta
 	
+	crank.crank_value = clamp(crank.crank_value, -max_power, max_power ) 
 	power = clamp(power, 0, max_power)
 	crank.power = clamp(crank.power, 0, max_power)
 	
@@ -126,11 +131,20 @@ func _on_shoot_timer_timeout() -> void:
 		
 		animator._animate()
 		
-		power_lost += 1 * power_lose_rate
+		crank.power -= power_lose_rate
+		power -= power_lose_rate
+		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and enemy_distance <= attack_range:
 		animator._animate()
 		shoot_raycast._hit()
+<<<<<<< HEAD
 		power_lost += 1 * power_lose_rate
+		_play_sword_hit()
+=======
+		
+		crank.power -= power_lose_rate
+		power -= power_lose_rate
+>>>>>>> e5f2e2f6cad30c658d517f5ee69bd256b1754d42
 
 
 func on_area_entered(area: Area3D) -> void:
@@ -158,3 +172,26 @@ func _play_arrow_hit():
 			$Audio/ArrowHit3.play()
 		4:
 			$Audio/ArrowHit.play()
+
+func _play_sword_hit():
+	var sound_to_play: int = randi_range(1,9)
+	
+	match sound_to_play:
+		1:
+			$Audio/SwordHit2.play()
+		2:
+			$Audio/SwordHit3.play()
+		3:
+			$Audio/SwordHit4.play()
+		4:
+			$Audio/SwordHit5.play()
+		5:
+			$Audio/SwordHit6.play()
+		6:
+			$Audio/SwordHit7.play()
+		7:
+			$Audio/SwordHit8.play()
+		8:
+			$Audio/SwordHit9.play()
+		9:
+			$Audio/SwordHit.play()

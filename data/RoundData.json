@@ -14,7 +14,13 @@
 	{
 		"Round": 3,
 		"Enemies": [
-			{"Raider" : 3}, {"Wolf" : 3}, {"Knight" : 2}, {"Wolf" : 3}, {"Raider": 3}
+			{"Raider" : 3}, {"Wolf" : 3}, {"Knight" : 2}, {"Wolf" : 3}, {"Knight": 2}
+		]
+	},
+	{
+		"Round": 4,
+		"Enemies": [
+			{"Knight" : 5}, {"Bear" : 1}, {"Knight" : 5}, {"Bear" : 1}
 		]
 	}
 ]

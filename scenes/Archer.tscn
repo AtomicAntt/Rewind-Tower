@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="6_vtcc4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_gj00f"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_q5yvk"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="7_wygqj"]
 [ext_resource type="Animation" uid="uid://dd67rufxwj2u" path="res://addons/godot-xr-tools/hands/animations/left/Grip 3.res" id="8_3bass"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="8_bwyyg"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_wl1de"]
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="9_13w10"]
 [ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="11_q5yvk"]
@@ -241,6 +243,12 @@ shadow_mesh = SubResource("ArrayMesh_sb0n8")
 [sub_resource type="BoxShape3D" id="BoxShape3D_q5yvk"]
 size = Vector3(0.03857248, 0.007841473, 0.015066948)
 
+[sub_resource type="Resource" id="Resource_sohxs"]
+script = ExtResource("8_bwyyg")
+magnitude = 0.1
+duration_ms = 10
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
 [sub_resource type="Animation" id="Animation_ptunn"]
 resource_name = "anim_archerHeadrest"
 length = 0.041666668
@@ -418,6 +426,11 @@ shape = SubResource("BoxShape3D_q5yvk")
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270]
 stream = ExtResource("6_ma2m2")
+
+[node name="XRToolsRumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061]
+script = ExtResource("7_wygqj")
+event = SubResource("Resource_sohxs")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)

@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_miqn4"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="5_nysg6"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="6_ihm32"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="6_qnl7s"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="7_5lux3"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_jt50a"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="8_xslay"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="9_ym3ex"]
@@ -196,6 +198,12 @@ shadow_mesh = SubResource("ArrayMesh_sb0n8")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nm3u"]
 size = Vector3(0.03857248, 0.007841473, 0.015066948)
 
+[sub_resource type="Resource" id="Resource_d6b8k"]
+script = ExtResource("7_5lux3")
+magnitude = 0.1
+duration_ms = 10
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
 [sub_resource type="Animation" id="Animation_nr3iu"]
 resource_name = "anim_swordmove"
 length = 0.75
@@ -339,6 +347,11 @@ shape = SubResource("BoxShape3D_5nm3u")
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank/Audio" unique_id=1583073521]
 stream = ExtResource("5_nysg6")
+
+[node name="XRToolsRumbler" type="Node" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1484427707]
+script = ExtResource("6_qnl7s")
+event = SubResource("Resource_d6b8k")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [node name="ShootRaycast" type="RayCast3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=1198090811 node_paths=PackedStringArray("raycast")]
 transform = Transform3D(1.3508092, 0, 0, 0, -5.9045746e-08, 1.3508092, 0, -1.3508092, -5.9045746e-08, -0.012663925, 0.06835439, 0.021228373)

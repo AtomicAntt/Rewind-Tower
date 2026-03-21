@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://644be7vmn00j" path="res://scripts/tower_crank.gd" id="1_xm4i1"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_ytt1w"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="3_ytt1w"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="4_dyiy0"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="5_a3c3f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7f47"]
 size = Vector3(1, 1, 2.725)
@@ -18,6 +20,12 @@ bg_color = Color(1, 0, 0.3137255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8wpu"]
 bg_color = Color(0, 1, 0.3137255, 1)
+
+[sub_resource type="Resource" id="Resource_nmiko"]
+script = ExtResource("5_a3c3f")
+magnitude = 0.1
+duration_ms = 10
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
 
 [node name="TowerCrank" type="Node3D" unique_id=450228322 node_paths=PackedStringArray("pickable")]
 script = ExtResource("1_xm4i1")
@@ -64,3 +72,8 @@ max_value = 20.0
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=1323065441]
 stream = ExtResource("3_ytt1w")
+
+[node name="XRToolsRumbler" type="Node" parent="." unique_id=880722039]
+script = ExtResource("4_dyiy0")
+event = SubResource("Resource_nmiko")
+metadata/_custom_type_script = "uid://dff408qq7s26e"

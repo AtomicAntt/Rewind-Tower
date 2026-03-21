@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c4n72583y3r4" path="res://scenes/systems/TowerCrank.tscn" id="12_4fxa8"]
 [ext_resource type="Script" uid="uid://mffaxltqg4lb" path="res://scripts/state_label.gd" id="13_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://k58gkwocsxla" path="res://scenes/Environment/tree1.tscn" id="13_b3pp0"]
-[ext_resource type="PackedScene" uid="uid://c4ajri41cpeps" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
+[ext_resource type="PackedScene" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://cdmu2yfespg51" path="res://scenes/Environment/vineMesh.tscn" id="14_y0td7"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/BearTrap.tscn" id="17_6qjax"]
 [ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
 [ext_resource type="PackedScene" uid="uid://cyl5k1jmir2q" path="res://tutorial/TutorialUITooltip3D.tscn" id="18_sao6o"]
-[ext_resource type="Script" uid="uid://brl4nrxuagftm" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
+[ext_resource type="Script" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
@@ -385,7 +385,7 @@ transform = Transform3D(0.82658976, 0, 0.56280494, 0, 1, 0, -0.56280494, 0, 0.82
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1461604934]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1280308273]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 

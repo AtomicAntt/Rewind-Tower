@@ -141,7 +141,7 @@ func add(event_key: Variant, event: XRToolsRumbleEvent,
 # Remove an event
 func clear(event_key: Variant, trackers: Array = ALL_TRACKERS) -> void:
 	if not event_key:
-		push_error("Event key is invalid!")
+		#push_error("Event key is invalid!")
 		return
 
 	# Substitube the shorthand for all trackers with the real thing

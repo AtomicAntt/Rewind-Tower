@@ -269,7 +269,7 @@ open_pose = ExtResource("13_5lux3")
 closed_pose = ExtResource("13_5lux3")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray")]
+[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_x0p4g")

@@ -38,6 +38,7 @@ Coin=""
 Drawer=""
 Boundary=""
 XRCamera3D="The XRCamera3D"
+DefenseTroop=""
 
 [physics]
 

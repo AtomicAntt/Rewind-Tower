@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	health_bar.value = enemy_hp
 
 func hurt(amount: float) -> void:
-	if is_dead:
+	if is_dead or RoundManager.is_gameover():
 		return
 	
 	enemy_hp -= amount

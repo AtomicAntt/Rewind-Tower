@@ -4,6 +4,9 @@ extends Node3D
 ## How much this unit costs. If the value is -1, this machine is out of order.
 @export var cost: int = -1
 
+## After a purchase, how much does the price increase?
+@export var cost_increase: int = 0
+
 var coins_inserted: int = 0
 
 ## Name of the item being purchased.
@@ -54,6 +57,8 @@ func refresh_cost_label() -> void:
 		cost_label.modulate = Color("00ff00")
 	else:
 		cost_label.modulate = Color("ff0000")
+	
+	item_info_label.text = item_description + "\nCost:\n" + str(cost) + " coins"
 
 func open_door() -> void:
 	refresh_item()
@@ -67,7 +72,6 @@ func close_door() -> void:
 func _ready() -> void:
 	refresh_item()
 	refresh_cost_label()
-	item_info_label.text = item_description
 	
 ## This is after the player twists the crank and tries to purchase. If you can, purchase.
 func check_purchase() -> void:
@@ -77,6 +81,7 @@ func check_purchase() -> void:
 	if coins_inserted >= cost:
 		coins_inserted -= cost
 		open_door()
+		cost += cost_increase
 		
 	refresh_cost_label()
 

@@ -317,41 +317,37 @@ transform = Transform3D(-0.9059904, 0, 0.4232982, 0, 1, 0, -0.4232982, 0, -0.905
 [node name="AutomatWindow4" parent="AutomatFrame" unique_id=594011476 instance=ExtResource("14_cg2kh")]
 transform = Transform3D(-0.90630776, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, -0.90630776, 0.7016078, 1.067097, -0.47543323)
 cost = 3
+cost_increase = 2
 item_name = "Archer"
 item_description = "Archer
 Damage:
 1.0
 Needed
 Power:
-30
-Cost:
-3 Coins"
+30"
 item_scene = ExtResource("12_0exr2")
 
 [node name="AutomatWindow5" parent="AutomatFrame" unique_id=1385339545 instance=ExtResource("14_cg2kh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.2512232, 1.067097, -0.26528955)
 cost = 3
+cost_increase = 2
 item_name = "Swordsman"
 item_description = "Swordsman
 Damage:
 2.0
 Needed
 Power:
-35
-Cost:
-3 Coins"
+35"
 item_scene = ExtResource("15_cg2kh")
 
 [node name="AutomatWindow6" parent="AutomatFrame" unique_id=706605667 instance=ExtResource("14_cg2kh")]
 transform = Transform3D(-0.9059904, 0, 0.4232982, 0, 1, 0, -0.4232982, 0, -0.9059904, -0.2453982, 1.067097, -0.26528955)
-cost = 1
+cost = 2
 item_name = "BearTrap"
 item_description = "Bear Trap
 Damage:
 20% of HP
-(Stuns for 8s)
-Cost:
-1 Coin"
+(Stuns for 8s)"
 item_scene = ExtResource("17_6qjax")
 
 [node name="AutomatWindow7" parent="AutomatFrame" unique_id=390396405 instance=ExtResource("14_cg2kh")]

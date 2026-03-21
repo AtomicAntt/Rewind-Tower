@@ -32,7 +32,10 @@ func _ready():
 		
 		
 func _process(_delta: float) -> void:
-	coin_display.text = ("Coins: " + str(coins))
+	if coin_slot.has_snapped_object():
+		coin_display.text = ("Coins: " + str(coins+1)) # Visually show that the coin on the coin slot is included in the coin count.
+	else:
+		coin_display.text = ("Coins: " + str(coins))
 	
 	if current_coin != null and !coin_slot.has_snapped_object():
 		coins -= 1

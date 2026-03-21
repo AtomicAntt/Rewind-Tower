@@ -72,6 +72,9 @@ func emit_drop_troop(_pickable) -> void:
 	TutorialSystem.emit_signal("complete", "DropTroop")
 
 func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if is_instance_valid(closest_enemy_area):
 		enemy_distance = global_position.distance_to(closest_enemy_area.global_position)
 	
@@ -81,8 +84,10 @@ func _physics_process(_delta: float) -> void:
 		crank.pickable.enabled = false
 	
 	power = crank.power
-	power -= power_lost
+	#power -= power_lost * delta
+	#crank.power -= power_lost * delta
 	
+	crank.crank_value = clamp(crank.crank_value, -max_power, max_power ) 
 	power = clamp(power, 0, max_power)
 	crank.power = clamp(crank.power, 0, max_power)
 	
@@ -126,11 +131,15 @@ func _on_shoot_timer_timeout() -> void:
 		
 		animator._animate()
 		
-		power_lost += 1 * power_lose_rate
+		crank.power -= power_lose_rate
+		power -= power_lose_rate
+		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and enemy_distance <= attack_range:
 		animator._animate()
 		shoot_raycast._hit()
-		power_lost += 1 * power_lose_rate
+		
+		crank.power -= power_lose_rate
+		power -= power_lose_rate
 
 
 func on_area_entered(area: Area3D) -> void:

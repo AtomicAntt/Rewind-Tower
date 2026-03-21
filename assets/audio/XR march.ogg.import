@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://y5wt34ei2qdx"
+path="res://.godot/imported/XR march.ogg-f9ac5882b355d03a2bfe9d60bea24a91.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/XR march.ogg"
+dest_files=["res://.godot/imported/XR march.ogg-f9ac5882b355d03a2bfe9d60bea24a91.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

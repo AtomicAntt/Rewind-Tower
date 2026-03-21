@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
+[ext_resource type="AudioStream" uid="uid://y5wt34ei2qdx" path="res://assets/audio/XR march.ogg" id="34_ry04y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -415,7 +416,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1461604934]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -747,6 +748,10 @@ stream = ExtResource("21_0p1ba")
 
 [node name="RoundWin" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1904967774]
 stream = ExtResource("22_igvw6")
+
+[node name="Music" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=144347113]
+stream = ExtResource("34_ry04y")
+autoplay = true
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

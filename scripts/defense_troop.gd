@@ -145,3 +145,16 @@ func on_area_entered(area: Area3D) -> void:
 func on_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Drawer"):
 		xray.visible = false
+		
+func _play_arrow_hit():
+	var sound_to_play: int = randi_range(1,4)
+	
+	match sound_to_play:
+		1:
+			$Audio/ArrowHit1.play()
+		2:
+			$Audio/ArrowHit2.play()
+		3:
+			$Audio/ArrowHit3.play()
+		4:
+			$Audio/ArrowHit.play()

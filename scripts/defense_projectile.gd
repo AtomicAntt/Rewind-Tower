@@ -19,6 +19,7 @@ func _on_area_entered(area: Area3D) -> void:
 		# Area in group Enemy should just be the hitbox of the enemy.
 		var enemy: Enemy = area.get_parent()
 		enemy.hurt(damage)
+		archer._play_arrow_hit()
 		queue_free()
 
 func _physics_process(delta: float) -> void:

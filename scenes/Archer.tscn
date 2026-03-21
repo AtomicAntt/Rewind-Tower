@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_wl1de"]
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="9_13w10"]
 [ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="11_q5yvk"]
+[ext_resource type="AudioStream" uid="uid://b1g0o5ecw0hlg" path="res://assets/audio/arrow hit 1.ogg" id="14_6gtsj"]
+[ext_resource type="AudioStream" uid="uid://dwesivo4hjs8g" path="res://assets/audio/arrow hit 2.ogg" id="15_ma2m2"]
+[ext_resource type="AudioStream" uid="uid://cqfkdx87yvvp7" path="res://assets/audio/arrow hit 3.ogg" id="16_8l3ic"]
+[ext_resource type="AudioStream" uid="uid://e2o04uiammmx" path="res://assets/audio/arrow hit.ogg" id="17_wygqj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnnsc"]
 size = Vector3(0.075, 0.135, 0.1)
@@ -472,6 +476,20 @@ hand_pose = SubResource("Resource_sm0sf")
 [node name="GrabPointHandRight" parent="." unique_id=1828255441 instance=ExtResource("8_wl1de")]
 transform = Transform3D(-1, -8.742278e-08, -7.642742e-15, -8.742278e-08, 1, 8.742278e-08, 0, 8.742278e-08, -1, 0.0021773688, 0.09365268, 0.09369985)
 hand_pose = SubResource("Resource_ea36a")
+
+[node name="Audio" type="Node3D" parent="." unique_id=556917948]
+
+[node name="ArrowHit1" type="AudioStreamPlayer3D" parent="Audio" unique_id=2001663902]
+stream = ExtResource("14_6gtsj")
+
+[node name="ArrowHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=1141181607]
+stream = ExtResource("15_ma2m2")
+
+[node name="ArrowHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=2049784804]
+stream = ExtResource("16_8l3ic")
+
+[node name="ArrowHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=894424434]
+stream = ExtResource("17_wygqj")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]

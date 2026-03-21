@@ -9,6 +9,14 @@ extends XRToolsPickable
 var enemy_trapping: Enemy
 var consumed: bool = false
 
+@onready var xray: Node3D = $XRAY
+var game_manager: Node3D
+
+var type = "BearTrap"
+
+func _ready():
+	game_manager = get_parent_node_3d()
+
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("EnemyHitbox") and not consumed:
 		var enemy: Enemy = area.get_parent()
@@ -20,6 +28,18 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			animation_player.queue(shut_animation)
 			enemy_trapping = enemy
 			$Timer.start()
+	if area.is_in_group("Drawer"):
+		xray.visible = true
+		
+	if area.is_in_group("Boundary") and not consumed:
+		game_manager._respawn_troop(type)
+		queue_free()
+	elif area.is_in_group("Boundary") and consumed:
+		queue_free()
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Drawer"):
+		xray.visible = false
 
 func _on_timer_timeout() -> void:
 	animation_player.play(break_animation)

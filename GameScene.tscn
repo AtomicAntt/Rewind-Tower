@@ -1165,7 +1165,7 @@ tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
 tool_tips = [NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Grab Troop"])
-awaiting_next = null
+awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="RewindTroopUITutorial" parent="TutorialManager" unique_id=1535010359 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
@@ -1175,7 +1175,7 @@ tutorial_name = "RewindTroop"
 tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
 tool_tips = [NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Rewind Crank"])
-awaiting_next = null
+awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="DropTroopUITutorial" parent="TutorialManager" unique_id=2110110219 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
@@ -1185,7 +1185,7 @@ tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
 tool_tips = [NodePath("(EnemiesSpawn)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
-awaiting_next = null
+awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(EnemiesSpawn)UITooltipTutorial" parent="TutorialManager/DropTroopUITutorial" unique_id=1383273705 instance=ExtResource("18_sao6o")]
@@ -1207,7 +1207,7 @@ tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
 tool_tips = [NodePath("(CrankTower)UITooltipTutorial"), NodePath("(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
-awaiting_next = null
+awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=379038653 instance=ExtResource("18_sao6o")]

@@ -48,6 +48,7 @@ script = ExtResource("1_v0hfv")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=821032932]
 collision_layer = 2
+can_sleep = false
 linear_damp = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1422744451]
@@ -59,10 +60,10 @@ shape = SubResource("BoxShape3D_s6cjs")
 material_override = ExtResource("2_wyc53")
 mesh = SubResource("ArrayMesh_m64p1")
 
-[node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=45772457]
+[node name="Area3D" type="Area3D" parent="." unique_id=45772457]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=1172349478]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1172349478]
 shape = SubResource("SphereShape3D_s6cjs")
 
 [connection signal="body_entered" from="RigidBody3D" to="." method="_on_body_entered"]
-[connection signal="area_entered" from="RigidBody3D/Area3D" to="." method="_on_object_in_range"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_object_in_range"]

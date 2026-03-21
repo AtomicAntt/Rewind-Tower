@@ -25,6 +25,8 @@ signal intermission_started
 
 signal game_over
 
+signal round_won
+
 ## Parses the JSON data according to the round_data_directory.
 func parse_json_data() -> void:
 	var file := FileAccess.get_file_as_string(round_data_directory)
@@ -95,6 +97,7 @@ func check_round_won() -> void:
 			return
 	
 	if current_queue.is_empty():
+		emit_signal("round_won")
 		current_round += 1
 		set_intermission()
 

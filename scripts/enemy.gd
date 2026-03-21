@@ -30,7 +30,7 @@ var stunned: bool = false
 @export var attack_anim: String
 @export var death_anim: String
 
-## Drops this amount of coins, with a 50% chance of a bonus coin.
+## Drops this amount of coins.
 @export var coin_value: int = 1
 
 const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
@@ -71,7 +71,7 @@ func hurt(amount: float) -> void:
 	enemy_hp -= amount
 	if enemy_hp <= 0:
 		
-		var coin_amount = randi_range(coin_value, coin_value+1)
+		var coin_amount = coin_value
 		
 		for i in range(coin_amount):
 			var new_coin = coin_scene.instantiate()

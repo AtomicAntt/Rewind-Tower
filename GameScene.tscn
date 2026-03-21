@@ -299,7 +299,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0973711, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6473544, -2.389312)
 
 [node name="SM_gameTitle" type="MeshInstance3D" parent="EnvironmentAssets/SM_gameTitle2" unique_id=1266041009]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1318447, 0.0027091375, 0)
+transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 0.6114511, 5.565918, -6.529788)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_ea2ej")
 

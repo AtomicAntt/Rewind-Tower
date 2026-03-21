@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="4_qm8lu"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
+[ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="6_ma2m2"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="6_vtcc4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_gj00f"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_q5yvk"]
@@ -412,6 +413,11 @@ mesh = SubResource("ArrayMesh_utp47")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1299690188]
 transform = Transform3D(-1.4570458e-07, 0, -3.3333323, 0, 3.3333323, 0, 3.3333323, 0, -1.4570458e-07, 0.010659132, 4.6788078e-05, -0.051309615)
 shape = SubResource("BoxShape3D_q5yvk")
+
+[node name="Audio" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=877808349]
+
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270]
+stream = ExtResource("6_ma2m2")
 
 [node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)

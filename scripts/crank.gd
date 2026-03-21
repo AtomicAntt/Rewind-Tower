@@ -34,6 +34,10 @@ func _physics_process(_delta) -> void:
 		elif delta_rot < -PI:
 			delta_rot += TAU
 		
+		if (abs((abs(current_rotation) - abs(prev_rotation)))) > .1:
+			$Audio/Ratchet.play()
+		print(abs((abs(current_rotation) - abs(prev_rotation))))
+		
 		crank_value += delta_rot
 		prev_rotation = current_rotation
 		

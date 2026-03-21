@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_rf5h2"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_cdhsg"]
+[ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="3_8ip3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7f47"]
 size = Vector3(0.5180664, 1.1401367, 0.26654053)
@@ -29,3 +30,8 @@ shape = SubResource("BoxShape3D_t7f47")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Crank" unique_id=1315326043]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.15000004)
 mesh = SubResource("BoxMesh_fr4md")
+
+[node name="Audio" type="Node3D" parent="." unique_id=1834009279]
+
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=54747058]
+stream = ExtResource("3_8ip3p")

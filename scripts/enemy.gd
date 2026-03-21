@@ -27,6 +27,9 @@ var is_dead: bool = false
 @export var attack_anim: String
 @export var death_anim: String
 
+## Drops this amount of coins, with a 50% chance of a bonus coin.
+@export var coin_value: int = 1
+
 const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
 
 # This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
@@ -65,7 +68,7 @@ func hurt(amount: float) -> void:
 	enemy_hp -= amount
 	if enemy_hp <= 0:
 		
-		var coin_amount = randi_range(5, 10)
+		var coin_amount = randi_range(coin_value, coin_value+1)
 		
 		for i in range(coin_amount):
 			var new_coin = coin_scene.instantiate()

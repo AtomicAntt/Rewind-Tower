@@ -239,7 +239,7 @@ radius = 0.0126953125
 
 [node name="BearTrap" type="RigidBody3D" unique_id=594304056]
 collision_layer = 5
-collision_mask = 5
+collision_mask = 33
 script = ExtResource("1_ruw1s")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 

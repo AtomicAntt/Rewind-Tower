@@ -4,11 +4,11 @@ var xr_interface: XRInterface
 
 @export var coins: int
 
-@onready var coin_slot: XRToolsSnapZone = $XROrigin3D/LeftController/LeftHand/CoinSlot
+@onready var coin_slot: XRToolsSnapZone = $XROrigin3D/LeftController/CoinSlot
 
 @onready var coin_display: Label3D = $XROrigin3D/LeftController/LeftHand/CoinDisplay
 
-@onready var coin_respawn_timer: Timer = $XROrigin3D/LeftController/LeftHand/CoinSlot/CoinRespawn
+@onready var coin_respawn_timer: Timer = $XROrigin3D/LeftController/CoinSlot/CoinRespawn
 
 var coin_pickup: PackedScene = preload("res://scenes/systems/CoinPickable.tscn")
 

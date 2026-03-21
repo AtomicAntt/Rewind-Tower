@@ -15,11 +15,11 @@
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_d6rpx"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_r3kul"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dtqjt"]
-size = Vector3(0.05, 0.05, 0.05)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_e80uo"]
 size = Vector3(0.05, 0.1, 0.168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtqjt"]
+size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="Resource" id="Resource_jatw7"]
 script = ExtResource("14_r3kul")
@@ -38,6 +38,7 @@ script = ExtResource("1_e80uo")
 tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftController" unique_id=1356690824 instance=ExtResource("1_xhfnw")]
+grab_distance = 0.1
 grab_collision_mask = 327700
 ranged_collision_mask = 20
 
@@ -50,8 +51,14 @@ transform = Transform3D(-1.0927846e-09, -1.0927849e-09, 0.025, -0.025, -1.092784
 text = "Coins: "
 font_size = 64
 
-[node name="CoinSlot" type="Area3D" parent="XROrigin3D/LeftController/LeftHand" unique_id=991365255]
-transform = Transform3D(1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 1, -4.3711385e-08, -1, -4.3711385e-08, 0, 0, 0.10040973)
+[node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/Area3D" unique_id=764276801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
+shape = SubResource("BoxShape3D_e80uo")
+
+[node name="CoinSlot" type="Area3D" parent="XROrigin3D/LeftController" unique_id=991365255]
+transform = Transform3D(1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 1, -4.3711385e-08, -1, -4.3711385e-08, 0, -0.05035741, 0.15057735)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("5_tdg3f")
@@ -59,23 +66,18 @@ snap_mode = 1
 snap_require = "Coin"
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/LeftHand/CoinSlot" unique_id=1560383783]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/CoinSlot" unique_id=1560383783]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dtqjt")
 
-[node name="CoinRespawn" type="Timer" parent="XROrigin3D/LeftController/LeftHand/CoinSlot" unique_id=2086081812]
+[node name="CoinRespawn" type="Timer" parent="XROrigin3D/LeftController/CoinSlot" unique_id=2086081812]
 autostart = true
-
-[node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/Area3D" unique_id=764276801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
-shape = SubResource("BoxShape3D_e80uo")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=334774302]
 tracker = &"right_hand"
 
 [node name="FunctionPickup" parent="XROrigin3D/RightController" unique_id=1486564980 instance=ExtResource("1_xhfnw")]
+grab_distance = 0.1
 grab_collision_mask = 327700
 ranged_collision_mask = 20
 
@@ -115,5 +117,5 @@ event = SubResource("Resource_jatw7")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [connection signal="has_picked_up" from="XROrigin3D/LeftController/FunctionPickup" to="." method="_on_left_function_pickup_has_picked_up"]
-[connection signal="timeout" from="XROrigin3D/LeftController/LeftHand/CoinSlot/CoinRespawn" to="." method="_on_coin_respawn_timeout"]
+[connection signal="timeout" from="XROrigin3D/LeftController/CoinSlot/CoinRespawn" to="." method="_on_coin_respawn_timeout"]
 [connection signal="has_picked_up" from="XROrigin3D/RightController/FunctionPickup" to="." method="_on_right_function_pickup_has_picked_up"]

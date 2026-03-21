@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://dtu2mrdl3kaho" path="res://assets/audio/coin insert 2.ogg" id="9_lhvv7"]
 [ext_resource type="AudioStream" uid="uid://dx4bh40ag13mt" path="res://assets/audio/coin insert 3.ogg" id="10_yscds"]
 [ext_resource type="AudioStream" uid="uid://ca81u37v1vhcs" path="res://assets/audio/coin insert 4.ogg" id="11_pp1nt"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="12_lhvv7"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="13_yscds"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uggo0"]
 
@@ -271,6 +273,12 @@ size = Vector3(0.12414551, 0.24939919, 0.012969971)
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6mud"]
 size = Vector3(0.25753784, 0.042546272, 0.012969971)
 
+[sub_resource type="Resource" id="Resource_lhvv7"]
+script = ExtResource("13_yscds")
+magnitude = 0.4
+duration_ms = 50
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
 [node name="AutomatWindow" type="Node3D" unique_id=536466322]
 script = ExtResource("1_a71aj")
 item_description = "Unit
@@ -417,6 +425,11 @@ stream = ExtResource("11_pp1nt")
 
 [node name="CoinInsert" type="AudioStreamPlayer3D" parent="Audio" unique_id=646026207]
 stream = ExtResource("7_s6mud")
+
+[node name="PurchasedRumbler" type="Node" parent="." unique_id=596112909]
+script = ExtResource("12_lhvv7")
+event = SubResource("Resource_lhvv7")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [connection signal="turned" from="SM_automatWindow/SM_automatSeg/TwisterInteractable" to="." method="_on_twister_interactable_turned"]
 [connection signal="coin_inserted" from="CoinSnapZone" to="." method="_on_coin_snap_zone_coin_inserted"]

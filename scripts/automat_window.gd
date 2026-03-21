@@ -74,16 +74,20 @@ func _ready() -> void:
 	refresh_cost_label()
 	
 ## This is after the player twists the crank and tries to purchase. If you can, purchase.
-func check_purchase() -> void:
+func check_purchase() -> bool:
 	if cost == -1:
-		return
+		return false
 	
 	if coins_inserted >= cost:
 		coins_inserted -= cost
 		open_door()
 		cost += cost_increase
+		refresh_cost_label()
+		
+		return true
 		
 	refresh_cost_label()
+	return false
 
 func _on_item_detect_area_body_exited(body: Node3D) -> void:
 	if body == displayed_item:
@@ -102,8 +106,9 @@ func _on_coin_snap_zone_coin_inserted() -> void:
 	refresh_cost_label()
 	_play_coin_insert()
 
-func _on_twister_interactable_turned() -> void:
-	check_purchase()
+func _on_twister_interactable_turned(controller: XRController3D) -> void:
+	if check_purchase():
+		$PurchasedRumbler.rumble_hand(controller)
 	
 func _play_coin_insert() -> void:
 	var sound_to_play: int = randi_range(1,5)

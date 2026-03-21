@@ -94,6 +94,22 @@ func _on_item_detect_area_body_exited(body: Node3D) -> void:
 func _on_coin_snap_zone_coin_inserted() -> void:
 	coins_inserted += 1
 	refresh_cost_label()
+	_play_coin_insert()
 
 func _on_twister_interactable_turned() -> void:
 	check_purchase()
+	
+func _play_coin_insert() -> void:
+	var sound_to_play: int = randi_range(1,5)
+	
+	match sound_to_play:
+		1:
+			$Audio/CoinInsert.play()
+		2:
+			$Audio/CoinInsert1.play()
+		3:
+			$Audio/CoinInsert2.play()
+		4:
+			$Audio/CoinInsert3.play()
+		5:
+			$Audio/CoinInsert4.play()

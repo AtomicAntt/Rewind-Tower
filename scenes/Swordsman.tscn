@@ -335,9 +335,10 @@ mesh = SubResource("ArrayMesh_utp47")
 transform = Transform3D(-1.4570458e-07, 0.02687788, -3.3332238, -3.5527137e-15, 3.3332238, 0.02687788, 3.3333323, 1.1748753e-09, -1.4569984e-07, 0.0033846535, 0.0033896554, -0.04189999)
 shape = SubResource("BoxShape3D_5nm3u")
 
-[node name="Audio" type="Node3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank" unique_id=1090616789]
+[node name="Audio" type="Node3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1090616789]
+transform = Transform3D(-0.99544775, 0.09530727, 1.4156103e-07, -0.09453262, -0.98735714, 0.12723765, 0.012126815, 0.12665844, 0.9918722, 0, 0, 0)
 
-[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Crank/Audio" unique_id=1583073521]
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Audio" unique_id=1583073521]
 stream = ExtResource("5_nysg6")
 
 [node name="ShootRaycast" type="RayCast3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=1198090811 node_paths=PackedStringArray("raycast")]

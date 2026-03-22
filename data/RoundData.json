@@ -4,7 +4,7 @@
 		"Enemies": [
 			{"Raider" : 5}
 		],
-		"SpawnTime": 1
+		"SpawnTime": 4
 	},
 	{
 		"Round": 2,
@@ -26,5 +26,47 @@
 			{"Knight" : 5}, {"Bear" : 1}, {"Knight" : 5}, {"Bear" : 1}
 		],
 		"SpawnTime": 3
+	},
+	{
+		"Round": 5,
+		"Enemies": [
+			{"Knight" : 3}, {"Bear" : 3}, {"Knight" : 3}, {"Bear" : 3}, {"Knight" : 3}, {"Bear" : 3}
+		],
+		"SpawnTime": 3
+	},
+	{
+		"Round": 6,
+		"Enemies": [
+			{"Knight" : 4}, {"Bear" : 2}, {"Knight" : 4}, {"Bear" : 2}, {"Knight" : 4}, {"Bear" : 2}
+		],
+		"SpawnTime": 2
+	},
+	{
+		"Round": 7,
+		"Enemies": [
+			{"Raider" : 10}, {"" : 3}, {"Wolf" : 10}, {"" : 3}, {"Knight" : 4}, {"Bear" : 1}, {"" : 1}, {"Bear" : 1}
+		],
+		"SpawnTime": 1
+	},
+	{
+		"Round": 8,
+		"Enemies": [
+			{"Wolf" : 5}, {"Raider" : 5}, {"Knight" : 5}, {"Bear" : 2}, {"Knight" : 5}, {"Raider" : 5}, {"Wolf" : 5}
+		],
+		"SpawnTime": 1
+	},
+	{
+		"Round": 9,
+		"Enemies": [
+			{"Knight" : 5}, {"Bear" : 3}, {"Knight" : 5}, {"Bear" : 3}, {"Knight" : 5}, {"Bear" : 2}, {"Knight" : 5}
+		],
+		"SpawnTime": 1
+	},
+	{
+		"Round": 10,
+		"Enemies": [
+			{"Bear": 18}
+		],
+		"SpawnTime": 1
 	}
 ]

@@ -36,6 +36,8 @@ func spawn_enemy(enemy_name: String) -> void:
 			enemy_instance = knight.instantiate()
 		"Bear":
 			enemy_instance = bear.instantiate()
+		"":
+			pass
 		_:
 			print(enemy_name + " is not found.")
 	

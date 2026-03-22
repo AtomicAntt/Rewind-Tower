@@ -14,6 +14,8 @@ var round_data: Array
 ## The queue containing enemy names that can be dynamically pushed and popped for the purpose of spawning enemies.
 var current_queue: Array[String]
 
+var current_wait_time: float = 4.0
+
 ## The current round which the game is currently in. When the tower is winded up, this round will be the one that starts.
 var current_round: int = 1
 
@@ -56,6 +58,8 @@ func return_queue_data(round_num: int) -> Array[String]:
 ## Sets the current queue of enemies given a round number.
 func set_queue(round_num: int) -> void:
 	current_queue = return_queue_data(round_num)
+	var dict: Dictionary = round_data[round_num-1]
+	current_wait_time = float(dict["SpawnTime"])
 	
 ## Starts the current round. 
 ## This function can be called for both when you start a round new after the intermission/tutorial or if you wanted to restart the round.

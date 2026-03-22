@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://o3a2qnuty0bu" path="res://scripts/coin_snap_zone.gd" id="2_g33g3"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="3_nstef"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_d7ocg"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_nstef"]
 resource_local_to_scene = true
 radius = 0.05
 
@@ -49,7 +49,7 @@ grab_distance = 0.05
 snap_require = "Coin"
 
 [node name="CollisionShape3D" parent="." index="0"]
-shape = SubResource("SphereShape3D_d7ocg")
+shape = SubResource("SphereShape3D_nstef")
 
 [node name="From" type="Marker3D" parent="." index="2" unique_id=1966947015]
 

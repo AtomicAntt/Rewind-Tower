@@ -17,6 +17,7 @@ func _on_has_picked_up(what: Variant) -> void:
 	what.queue_free()
 	emit_signal("coin_inserted")
 	
+	visual_coin.global_position = from_marker.global_position
 	tween.tween_property(visual_coin, "global_position", to_marker.global_position, 0.1)
 	await tween.finished
 	visual_coin.visible = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cakkyc2y2lggt"
+path="res://.godot/imported/XR March Gametime.ogg-494c28b5f75027f935ddbe46d3279e30.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/XR March Gametime.ogg"
+dest_files=["res://.godot/imported/XR March Gametime.ogg-494c28b5f75027f935ddbe46d3279e30.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

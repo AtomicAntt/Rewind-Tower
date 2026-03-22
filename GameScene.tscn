@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c4n72583y3r4" path="res://scenes/systems/TowerCrank.tscn" id="12_4fxa8"]
 [ext_resource type="Script" uid="uid://mffaxltqg4lb" path="res://scripts/state_label.gd" id="13_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://k58gkwocsxla" path="res://scenes/Environment/tree1.tscn" id="13_b3pp0"]
-[ext_resource type="PackedScene" uid="uid://c4ajri41cpeps" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
+[ext_resource type="PackedScene" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://cdmu2yfespg51" path="res://scenes/Environment/vineMesh.tscn" id="14_y0td7"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
@@ -33,7 +33,8 @@
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
-[ext_resource type="AudioStream" uid="uid://y5wt34ei2qdx" path="res://assets/audio/XR march.ogg" id="34_ry04y"]
+[ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
+[ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -235,7 +236,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_y0td7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s8bal"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -416,7 +417,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1280308273]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -484,7 +485,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_y0td7")
+texture = SubResource("ViewportTexture_s8bal")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -734,11 +735,13 @@ visible = false
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.17531645, -0.08002964, 2.558608)
 visible = false
 
-[node name="GlobalAudioManager" type="Node" parent="." unique_id=1783369220 node_paths=PackedStringArray("game_over_audio", "round_start_audio", "round_win_audio")]
+[node name="GlobalAudioManager" type="Node" parent="." unique_id=1783369220 node_paths=PackedStringArray("game_over_audio", "round_start_audio", "round_win_audio", "intermission_music", "gametime_music")]
 script = ExtResource("19_6qjax")
 game_over_audio = NodePath("GameOver")
 round_start_audio = NodePath("RoundStart")
 round_win_audio = NodePath("RoundWin")
+intermission_music = NodePath("../Music/Intermission")
+gametime_music = NodePath("../Music/Gametime")
 
 [node name="GameOver" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1129667753]
 stream = ExtResource("20_k8u5j")
@@ -749,9 +752,13 @@ stream = ExtResource("21_0p1ba")
 [node name="RoundWin" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1904967774]
 stream = ExtResource("22_igvw6")
 
-[node name="Music" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=144347113]
-stream = ExtResource("34_ry04y")
-autoplay = true
+[node name="Music" type="Node3D" parent="." unique_id=2115998662]
+
+[node name="Intermission" type="AudioStreamPlayer" parent="Music" unique_id=1322928451]
+stream = ExtResource("35_0qy1f")
+
+[node name="Gametime" type="AudioStreamPlayer" parent="Music" unique_id=1695678574]
+stream = ExtResource("34_cvqoq")
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

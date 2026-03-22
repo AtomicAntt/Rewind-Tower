@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://xv4k5whp7u0i" path="res://scripts/bear_trap.gd" id="1_ruw1s"]
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="2_ruw1s"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="3_bvxqo"]
+[ext_resource type="AudioStream" uid="uid://y06ow7ojdpfq" path="res://assets/audio/bear trap 1.ogg" id="4_tcocn"]
+[ext_resource type="AudioStream" uid="uid://dfgtto7db04dr" path="res://assets/audio/bear trap 2.ogg" id="5_umju6"]
+[ext_resource type="AudioStream" uid="uid://dsifhsp6jg32q" path="res://assets/audio/bear trap 3.ogg" id="6_ne5gb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2lwd"]
 
@@ -300,6 +303,15 @@ visible = false
 material_override = ExtResource("3_bvxqo")
 mesh = SubResource("ArrayMesh_goqr2")
 skin = SubResource("Skin_m4gpm")
+
+[node name="Audio1" type="AudioStreamPlayer3D" parent="." unique_id=1187248541]
+stream = ExtResource("4_tcocn")
+
+[node name="Audio2" type="AudioStreamPlayer3D" parent="." unique_id=1616782783]
+stream = ExtResource("5_umju6")
+
+[node name="Audio3" type="AudioStreamPlayer3D" parent="." unique_id=1029109079]
+stream = ExtResource("6_ne5gb")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsifhsp6jg32q"
+path="res://.godot/imported/bear trap 3.ogg-35a26976dcd35a8caf587a1b08f9367e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/bear trap 3.ogg"
+dest_files=["res://.godot/imported/bear trap 3.ogg-35a26976dcd35a8caf587a1b08f9367e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

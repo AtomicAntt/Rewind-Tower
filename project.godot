@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="uid://cr1mdwy8xy5hs"
 
+[audio]
+
+general/3d_panning_strength=0.9
+
 [autoload]
 
 XRToolsUserSettings="*uid://bqgb8i74tm0t"

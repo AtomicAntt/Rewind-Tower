@@ -100,16 +100,12 @@ func death() -> void:
 		health_bar_sprite.visible = false
 	
 	if is_instance_valid($Audio):
-		var picked_audio: int = randi_range(1, 4)
+		var picked_audio: int = randi_range(1, 2)
 		match picked_audio:
 			1:
 				$Audio/EnemyBreak.play()
 			2:
 				$Audio/EnemyBreak1.play()
-			3:
-				$Audio/EnemyBreak2.play()
-			4:
-				$Audio/EnemyBreak3.play()
 	
 	#await get_tree().create_timer(1.0).timeout
 	await animation_player.animation_finished

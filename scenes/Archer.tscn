@@ -240,7 +240,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sb0n8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q5yvk"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wygqj"]
 size = Vector3(0.03857248, 0.007841473, 0.015066948)
 
 [sub_resource type="Resource" id="Resource_sohxs"]
@@ -397,7 +397,7 @@ material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_ulej5")
 
 [node name="Crank" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=450228322 node_paths=PackedStringArray("pickable")]
-transform = Transform3D(-0.40524274, -6.118995e-08, 2.6746977e-15, 0, -1.7713722e-08, -0.40524274, 6.118995e-08, -0.4052427, 1.7713722e-08, -0.0073752427, 0.13583243, -0.021543154)
+transform = Transform3D(-0.40524274, -6.118995e-08, 2.6746977e-15, 0, -1.7713722e-08, -0.40524274, 6.118995e-08, -0.4052427, 1.7713722e-08, -0.009522152, 0.13583243, -0.018634249)
 script = ExtResource("2_owgmq")
 pickable = NodePath("Crank")
 
@@ -414,13 +414,13 @@ ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
 [node name="SM_archerCrank" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=2112353820]
-transform = Transform3D(-1.4570458e-07, 0, -3.3333323, 0, 3.3333323, 0, 3.3333323, 0, -1.4570458e-07, -0.014021579, 0, 0.000117715135)
+transform = Transform3D(-1.4570458e-07, -3.3333323, 1.4570458e-07, 0, -1.4570458e-07, -3.3333323, 3.3333323, -1.4570458e-07, 0, 0.00050195935, 6.34844e-10, 0.0053123804)
 material_override = ExtResource("4_qm8lu")
 mesh = SubResource("ArrayMesh_utp47")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1299690188]
-transform = Transform3D(-1.4570458e-07, 0, -3.3333323, 0, 3.3333323, 0, 3.3333323, 0, -1.4570458e-07, 0.010659132, 4.6788078e-05, -0.051309615)
-shape = SubResource("BoxShape3D_q5yvk")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1186815834]
+transform = Transform3D(-1.4570458e-07, -3.3333323, 1.4570458e-07, 0, -1.4570458e-07, -3.3333323, 3.3333323, -1.4570458e-07, 0, 0.0004551725, 0.025111571, -0.045905944)
+shape = SubResource("BoxShape3D_wygqj")
 
 [node name="Audio" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=877808349]
 

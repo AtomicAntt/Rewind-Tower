@@ -27,8 +27,15 @@ magnitude = 0.2
 duration_ms = 30
 metadata/_custom_type_script = "uid://b15qba0ch13uw"
 
+[sub_resource type="Resource" id="Resource_d6rpx"]
+script = ExtResource("14_r3kul")
+magnitude = 0.2
+duration_ms = 20
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
 [node name="Player" type="Node3D" unique_id=970537108 groups=["Player"]]
 script = ExtResource("1_e80uo")
+coins = null
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886]
 
@@ -114,6 +121,11 @@ stream = ExtResource("12_rv870")
 [node name="XRToolsRumbler" type="Node" parent="." unique_id=877640356]
 script = ExtResource("13_d6rpx")
 event = SubResource("Resource_jatw7")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
+
+[node name="CoinPickupRumbler" type="Node" parent="." unique_id=1114918464]
+script = ExtResource("13_d6rpx")
+event = SubResource("Resource_d6rpx")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [connection signal="has_picked_up" from="XROrigin3D/LeftController/FunctionPickup" to="." method="_on_left_function_pickup_has_picked_up"]

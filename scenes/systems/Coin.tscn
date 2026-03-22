@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d1l5bofweyt0h" path="res://scripts/coin.gd" id="1_v0hfv"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/universal material shiny.tres" id="2_wyc53"]
-[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="3_f88kw"]
-[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="4_xrphr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6cjs"]
 size = Vector3(0.05, 0.025, 0.05)
@@ -45,12 +43,6 @@ shadow_mesh = SubResource("ArrayMesh_bbqbx")
 [sub_resource type="SphereShape3D" id="SphereShape3D_s6cjs"]
 radius = 0.1
 
-[sub_resource type="Resource" id="Resource_00fsg"]
-script = ExtResource("4_xrphr")
-magnitude = 0.2
-duration_ms = 20
-metadata/_custom_type_script = "uid://b15qba0ch13uw"
-
 [node name="Coin" type="Node3D" unique_id=343890196]
 script = ExtResource("1_v0hfv")
 
@@ -71,11 +63,6 @@ mesh = SubResource("ArrayMesh_m64p1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=1172349478]
 shape = SubResource("SphereShape3D_s6cjs")
-
-[node name="XRToolsRumbler" type="Node" parent="." unique_id=1490862220]
-script = ExtResource("3_f88kw")
-event = SubResource("Resource_00fsg")
-metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [connection signal="body_entered" from="RigidBody3D" to="." method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody3D/Area3D" to="." method="_on_object_in_range"]

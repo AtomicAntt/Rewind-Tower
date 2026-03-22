@@ -12,6 +12,7 @@ extends Timer
 func _ready() -> void:
 	# Whenever a new round starts, this timer will reset and start again.
 	RoundManager.round_started.connect(start)
+	RoundManager.round_started.connect(change_wait_time)
 	# Stop in intermission.
 	RoundManager.intermission_started.connect(stop)
 	# Also stop if it's game over.
@@ -40,3 +41,6 @@ func spawn_enemy(enemy_name: String) -> void:
 	
 	if is_instance_valid(enemy_instance):
 		path_3d.add_child(enemy_instance)
+
+func change_wait_time() -> void:
+	wait_time = RoundManager.current_wait_time

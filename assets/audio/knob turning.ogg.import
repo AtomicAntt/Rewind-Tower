@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8kfpxdgj3xii"
+path="res://.godot/imported/knob turning.ogg-541112a76cfc10dabf6de04b8fc859ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/knob turning.ogg"
+dest_files=["res://.godot/imported/knob turning.ogg-541112a76cfc10dabf6de04b8fc859ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

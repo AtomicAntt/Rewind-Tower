@@ -64,6 +64,7 @@ func open_door() -> void:
 	refresh_item()
 	displayed_item.enabled = true
 	animation_player.queue(open_animation)
+	$Audio/DoorOpen.play()
 
 func close_door() -> void:
 	refresh_item()
@@ -109,6 +110,7 @@ func _on_coin_snap_zone_coin_inserted() -> void:
 func _on_twister_interactable_turned(controller: XRController3D) -> void:
 	if check_purchase():
 		$PurchasedRumbler.rumble_hand(controller)
+		$Audio/KnobUnlock.play()
 	
 func _play_coin_insert() -> void:
 	var sound_to_play: int = randi_range(1,5)

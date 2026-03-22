@@ -283,6 +283,7 @@ collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_x0p4g")
 attack_range = 0.2
+attack_damage = 1.5
 troop_type = "Swordsman"
 melee = true
 max_power = 35

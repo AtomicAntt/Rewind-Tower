@@ -7,6 +7,8 @@ extends Node3D
 ## After a purchase, how much does the price increase?
 @export var cost_increase: int = 0
 
+@export var cost_max: int = -1
+
 var coins_inserted: int = 0
 
 ## Name of the item being purchased.
@@ -82,7 +84,8 @@ func check_purchase() -> bool:
 	if coins_inserted >= cost:
 		coins_inserted -= cost
 		open_door()
-		cost += cost_increase
+		if not (cost+cost_increase > cost_max and cost_max != -1):
+			cost += cost_increase
 		refresh_cost_label()
 		
 		return true

@@ -433,7 +433,6 @@ animation_player = NodePath("EnemyHitbox/SM_Wolf2/AnimationPlayer")
 run_anim = "anim_wolfRun"
 attack_anim = "anim_wolfAttack"
 death_anim = "anim_wolfDeath"
-coin_value = 2
 
 [node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["EnemyHitbox"]]
 transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)

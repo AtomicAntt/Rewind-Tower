@@ -48,7 +48,6 @@ sky_material = SubResource("ProceduralSkyMaterial_eqhe0")
 background_mode = 2
 sky = SubResource("Sky_k77ap")
 tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8tp2"]
 
@@ -271,7 +270,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cvqoq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0qy1f"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -286,7 +285,6 @@ drawer_spawn_point = NodePath("Drawer/SliderOrigin/InteractableSlider/StaticBody
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=490626395]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1252834670]
@@ -294,6 +292,7 @@ environment = SubResource("Environment_haeiw")
 
 [node name="Player" parent="." unique_id=970537108 instance=ExtResource("1_eqhe0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0973711, 0)
+coins = 0
 
 [node name="EnvironmentAssets" type="Node3D" parent="." unique_id=434211794]
 
@@ -528,7 +527,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_cvqoq")
+texture = SubResource("ViewportTexture_0qy1f")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)

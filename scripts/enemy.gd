@@ -99,7 +99,20 @@ func death() -> void:
 	if is_instance_valid(health_bar_sprite):
 		health_bar_sprite.visible = false
 	
-	await get_tree().create_timer(1.0).timeout
+	if is_instance_valid($Audio):
+		var picked_audio: int = randi_range(1, 4)
+		match picked_audio:
+			1:
+				$Audio/EnemyBreak.play()
+			2:
+				$Audio/EnemyBreak1.play()
+			3:
+				$Audio/EnemyBreak2.play()
+			4:
+				$Audio/EnemyBreak3.play()
+	
+	#await get_tree().create_timer(1.0).timeout
+	await animation_player.animation_finished
 	
 	queue_free()
 

@@ -601,7 +601,7 @@ cost_max = 7
 item_name = "Swordsman"
 item_description = "Swordsman
 Damage:
-2.0
+1.5
 Needed
 Power:
 35"

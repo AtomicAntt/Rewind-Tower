@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
+[ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 
@@ -537,7 +538,7 @@ script = ExtResource("13_4fxa8")
 [node name="Label3D2" type="Label3D" parent="." unique_id=1774004614]
 transform = Transform3D(0.082120895, 0, -0.05706276, 0, 0.1, 0, 0.05706276, 0, 0.082120895, 0.8319073, 1.3916194, 0.1297585)
 text = "Intermission (Round 1)"
-script = ExtResource("13_4fxa8")
+script = ExtResource("24_0qy1f")
 
 [node name="Boundary" type="Node3D" parent="." unique_id=1770071088]
 

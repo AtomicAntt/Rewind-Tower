@@ -18,8 +18,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if RoundManager.in_intermission() and !intermission_music.playing:
 		intermission_music.play()
+		gametime_music.stop()
 	elif RoundManager.in_battle() and !gametime_music.playing and !round_start_audio.playing:
 		gametime_music.play()
+		intermission_music.stop()
 		
 	if round_start_audio.playing:
 		intermission_music.stop()

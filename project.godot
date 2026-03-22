@@ -13,7 +13,9 @@ config_version=5
 config/name="Rewind Tower"
 run/main_scene="uid://ce5qe2iq1jhhr"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="uid://cr1mdwy8xy5hs"
 
 [autoload]
 
@@ -21,6 +23,12 @@ XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 RoundManager="*uid://x8dfdky3j5te"
 TutorialSystem="*uid://s7lg5jxdsomq"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [editor_plugins]
 

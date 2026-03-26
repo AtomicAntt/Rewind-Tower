@@ -35,7 +35,6 @@ metadata/_custom_type_script = "uid://b15qba0ch13uw"
 
 [node name="Player" type="Node3D" unique_id=970537108 groups=["Player"]]
 script = ExtResource("1_e80uo")
-coins = null
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886]
 
@@ -59,6 +58,7 @@ text = "Coins: "
 font_size = 64
 
 [node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661]
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/Area3D" unique_id=764276801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
@@ -93,6 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05035741, 0.05016762)
 hand_material_override = ExtResource("4_cxr5p")
 
 [node name="Area3D" type="Area3D" parent="XROrigin3D/RightController" unique_id=1893232261]
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/Area3D" unique_id=276126665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)

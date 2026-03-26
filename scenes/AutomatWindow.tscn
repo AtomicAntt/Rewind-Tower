@@ -180,8 +180,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8gcbq")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a71aj"]
-points = PackedVector3Array(1.2430507, 1.5167783, 0.07926749, 1.2430507, 1.5167783, 1.527369e-07, -1.2430509, 1.5167783, 0.07926749, 1.0150281, 1.3384649, 0.07927525, 1.2430507, 0, 0.07926749, 1.2430507, 0, 1.527369e-07, -1.2430509, 1.5167783, 1.527369e-07, -1.2430509, 0, 0.07926749, -1.0152719, 1.3384649, 0.07927525, 1.0150281, 0.17816503, 0.07927525, -1.2430509, 0, 1.527369e-07, -1.0152719, 0.17816503, 0.07927525)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pp1nt"]
+size = Vector3(2.4861016, 1.5167783, 0.0792751)
 
 [sub_resource type="Animation" id="Animation_oihuy"]
 resource_name = "SM_automatDoorClose"
@@ -341,10 +341,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01
 
 [node name="DoorCollision" type="StaticBody3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1833086916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.046209924, 0)
+collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_automatWindow/SM_automatSeg/DoorCollision" unique_id=651334243]
-transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_a71aj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_automatWindow/SM_automatSeg/DoorCollision" unique_id=1142799817]
+transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, -1.4901161e-08, 0.08024023, 0.0041938075)
+shape = SubResource("BoxShape3D_pp1nt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_automatWindow" unique_id=540936324]
 libraries/ = SubResource("AnimationLibrary_hm3qu")
@@ -369,6 +370,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.12357929, -0.104
 shape = SubResource("BoxShape3D_a71aj")
 
 [node name="BoxStaticCollision" type="StaticBody3D" parent="." unique_id=834272745]
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=1836928905]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24960825, 0.044747397, -0.07196045)

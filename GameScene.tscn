@@ -276,8 +276,8 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
 size = Vector3(5, 0.05, 5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cg2kh"]
-data = PackedVector3Array(0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.662, -0.7001, 2.1104999, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 1.8052, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0, 0.662, -0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.662, 0.7001, 0, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.5755, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 2.1104999, 0.5755, 0.7001, 2.1104999, 0.662, 0.7001, 1.8052, 0.662, 0.3922, 1.8052, 0.4236, 0.25849998, 1.8052, 0.19929999, 0.1094, 1.8052, 0.3576, 0.7001, 1.8052, 0.5755, 0.25849998, 1.8052, 0.19929999, 0.3922, 1.8052, 0.4236, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, 0.1094, 1.8052, 0.3576, 0.25849998, 1.8052, 0.19929999, -0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.25849998, 1.8052, 0.19929999, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.1094, 1.8052, 0.3576, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 2.1104999, 0.4236, -0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 2.1104999, 0.3576, 0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.1094, 1.8052, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 2.1104999, 0.3576, 0.3922, 2.1104999, 0.4236, 0.3922, 1.8052, 0.4236, 0.3922, 2.1104999, 0.4236, 0.7001, 2.1104999, 0.5755, 0.3922, 1.8052, 0.4236, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.7001, 0.8204, 0.662, -0.7001, 0, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.7001, 1.8052, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 2.1104999, -0.0298, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 0.8204, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0, -0.0298, 0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 2.1104999, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, -0.0298, -0.80179995, 2.1104999, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 1.8052, -0.0298, -0.80179995, 0, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 0.8204, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0, -0.0298, -0.80179995, 0.8204, -0.0298, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1009, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, 0.7197, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1009, -0.0802, -0.8218, 2.1009, -0.0802, -0.8218, 2.1009, 0.7197, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1634, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1634, 0.7197, -0.8218, 2.1634, 0.7197)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8bal"]
+size = Vector3(1.6436133, 0.858241, 0.7998262)
 
 [node name="GameScene" type="Node3D" unique_id=407102983 node_paths=PackedStringArray("drawer_spawn_point")]
 script = ExtResource("1_4fxa8")
@@ -292,7 +292,6 @@ environment = SubResource("Environment_haeiw")
 
 [node name="Player" parent="." unique_id=970537108 instance=ExtResource("1_eqhe0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0973711, 0)
-coins = 0
 
 [node name="EnvironmentAssets" type="Node3D" parent="." unique_id=434211794]
 
@@ -455,6 +454,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8
 transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94932127, -0.89419085, 1.105413, -0.7754818)
 
 [node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480]
+collision_mask = 0
 
 [node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
@@ -465,13 +465,13 @@ material_override = SubResource("StandardMaterial3D_ex6dp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/Table" unique_id=1229946595]
 transform = Transform3D(-0.99939084, 0, -0.03489945, 0, 1, 0, 0.03489945, 0, -0.99939084, -0.01, 0.015, 0.189)
+visible = false
 shape = SubResource("ConcavePolygonShape3D_oieil")
+disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table" unique_id=2122649313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012573242, 0.9951172, -0.3709259)
-visible = false
 shape = SubResource("BoxShape3D_1kil2")
-disabled = true
 
 [node name="Drawer" parent="." unique_id=1729992228 instance=ExtResource("9_ed8b8")]
 transform = Transform3D(-0.5017373, 0, -0.86502016, 0, 1, 0, 0.86502016, 0, -0.5017373, 0.3961445, 0.924327, -0.26577273)
@@ -636,10 +636,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25
 transform = Transform3D(-0.9059904, 0, 0.4232982, 0, 1, 0, -0.4232982, 0, -0.9059904, -0.2453982, 1.5605627, -0.26528955)
 
 [node name="AutomatFrame" type="StaticBody3D" parent="AutomatFrame" unique_id=339330992]
+collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AutomatFrame/AutomatFrame" unique_id=1314593523]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_cg2kh")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AutomatFrame/AutomatFrame" unique_id=1253078563]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.7953863e-08, 0.4291205, -0.31975496)
+shape = SubResource("BoxShape3D_s8bal")
 
 [node name="Tree1Small" parent="AutomatFrame" unique_id=445946835 instance=ExtResource("13_b3pp0")]
 transform = Transform3D(12.795, 0, 0, 0, 12.795, 0, 0, 0, 12.795, -0.27356622, 1.1920929e-07, -6.3001895)
@@ -690,8 +691,6 @@ tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
 tool_tips = [NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Grab Troop"])
-awaiting_next = false
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="RewindTroopUITutorial" parent="TutorialManager" unique_id=1535010359 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
@@ -700,8 +699,6 @@ tutorial_name = "RewindTroop"
 tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
 tool_tips = [NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Rewind Crank"])
-awaiting_next = false
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="DropTroopUITutorial" parent="TutorialManager" unique_id=2110110219 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
@@ -710,8 +707,6 @@ tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
 tool_tips = [NodePath("(EnemiesSpawn)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
-awaiting_next = false
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(EnemiesSpawn)UITooltipTutorial" parent="TutorialManager/DropTroopUITutorial" unique_id=1383273705 instance=ExtResource("18_sao6o")]
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
@@ -732,8 +727,6 @@ tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
 tool_tips = [NodePath("(CrankTower)UITooltipTutorial"), NodePath("(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
-awaiting_next = false
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=379038653 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, -0.031128168, 1.7154247)
@@ -743,15 +736,12 @@ visible = false
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
 visible = false
 
-[node name="AwaitRoundComplete" parent="TutorialManager" unique_id=1245266120 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
+[node name="AwaitRoundComplete" parent="TutorialManager" unique_id=1245266120 instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "IntermissionEntered"
 tutorial_text = "N/A"
-tool_tips = []
-tool_tip_text = []
 awaiting_next = true
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="ShopTutorial" parent="TutorialManager" unique_id=1426297503 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
@@ -760,8 +750,6 @@ tutorial_name = "TroopPurchased"
 tutorial_text = "Once the round ends, you will have time to purchase new defenses to prepare for the next round! Look behind you, and use the coins collected on your wrist to purchase defenses in the shop."
 tool_tips = [NodePath("(InsertCoin)UITooltipTutorial"), NodePath("(InsertCoin)UITooltipTutorial2"), NodePath("(ConfirmPurchase)UITooltipTutorial"), NodePath("(ConfirmPurchase)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Insert Coin", "Insert Coin", "Confirm Purchase", "Confirm Purchase"])
-awaiting_next = false
-scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="(InsertCoin)UITooltipTutorial" parent="TutorialManager/ShopTutorial" unique_id=1016709714 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.6215136, -0.08002964, 2.3760133)

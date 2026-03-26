@@ -22,14 +22,19 @@ texture_filter = 1
 resource_local_to_scene = true
 size = Vector3(1.5, 0.3, 0.02)
 
-[node name="TutorialUI3D" unique_id=594823687 instance=ExtResource("1_tnr3n")]
+[node name="TutorialUI3D" unique_id=594823687 node_paths=PackedStringArray("tool_tips") instance=ExtResource("1_tnr3n")]
 script = ExtResource("2_m8kww")
 tutorial_name = ""
-tutorial_text = null
+tutorial_text = ""
+tool_tips = []
+tool_tip_text = []
+awaiting_next = false
 screen_size = Vector2(1.5, 0.3)
+enabled = false
 scene = ExtResource("2_drgs7")
 viewport_size = Vector2(1000, 200)
 unshaded = true
+scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
 
 [node name="Viewport" parent="." index="0" unique_id=1969951168]
 size = Vector2i(1000, 200)

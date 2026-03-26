@@ -24,6 +24,7 @@ size = Vector3(0.12, 0.027, 0.02)
 [node name="TutorialUITooltip3D" unique_id=594823687 instance=ExtResource("1_hs1pi")]
 script = ExtResource("2_oyai8")
 screen_size = Vector2(0.12, 0.027)
+enabled = false
 scene = ExtResource("3_oyai8")
 viewport_size = Vector2(350, 80)
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")

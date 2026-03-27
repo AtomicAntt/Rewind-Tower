@@ -60,6 +60,9 @@ material_override = ExtResource("2_wyc53")
 mesh = SubResource("ArrayMesh_m64p1")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=45772457]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=1172349478]
 shape = SubResource("SphereShape3D_s6cjs")

@@ -65,15 +65,18 @@ func refresh_cost_label() -> void:
 func open_door() -> void:
 	refresh_item()
 	displayed_item.enabled = true
-	$ItemDetectArea.monitoring = true
-	$ItemDetectArea.process_mode = Node.PROCESS_MODE_ALWAYS
+	$ItemDetectArea.set_deferred("monitoring", true)
+	$ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_ALWAYS)
+	$ItemDetectArea.set_collision_mask_value(6, true)
 	animation_player.queue(open_animation)
 	$Audio/DoorOpen.play()
 
 func close_door() -> void:
 	refresh_item()
-	$ItemDetectArea.monitoring = false
-	$ItemDetectArea.process_mode = Node.PROCESS_MODE_DISABLED
+	#$ItemDetectArea.monitoring = false
+	$ItemDetectArea.set_deferred("monitoring", false)
+	$ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	$ItemDetectArea.set_collision_mask_value(6, false)
 	animation_player.queue(close_animation)
 
 func _ready() -> void:

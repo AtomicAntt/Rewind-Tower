@@ -28,7 +28,7 @@ func _physics_process(_delta) -> void:
 		pickable.rotation.z = 0
 		
 		var current_rotation = pickable.rotation.y
-		var delta_rot = current_rotation - prev_rotation
+		var delta_rot = abs(current_rotation - prev_rotation)
 		
 		# Fix wraparound
 		if delta_rot > PI:

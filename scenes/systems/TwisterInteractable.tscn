@@ -55,6 +55,8 @@ script = ExtResource("1_7b6v5")
 pickable = NodePath("TwisterPickable")
 
 [node name="TwisterPickable" parent="." unique_id=295879653 instance=ExtResource("2_hiliw")]
+collision_layer = 262144
+collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
 ranged_grab_method = 0

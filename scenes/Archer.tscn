@@ -480,6 +480,7 @@ animationHead = "anim_archerHeadrotat"
 defenseTroop = NodePath("../..")
 
 [node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox"]]
+collision_layer = 256
 script = ExtResource("6_vtcc4")
 crank = NodePath("../SM_archer/SM_archerBase/SM_archerBody/Crank")
 defense_troop = NodePath("..")

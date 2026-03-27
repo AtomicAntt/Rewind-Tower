@@ -52,6 +52,13 @@ Boundary=""
 XRCamera3D="The XRCamera3D"
 DefenseTroop=""
 
+[layer_names]
+
+3d_physics/layer_6="Defense Troops Rigidbody"
+3d_physics/layer_7="Coin Drops Area"
+3d_physics/layer_8="Enemy Area"
+3d_physics/layer_9="Defense Area"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

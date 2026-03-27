@@ -57,6 +57,8 @@ bg_color = Color(1, 0, 0.3137255, 1)
 bg_color = Color(0, 1, 0.3137255, 1)
 
 [node name="CastleGate" type="Area3D" unique_id=727058708 node_paths=PackedStringArray("health_bar") groups=["CastleGate", "DefenseHitbox"]]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("1_p7bue")
 health_bar = NodePath("SubViewport/ProgressBar")
 

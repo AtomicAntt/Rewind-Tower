@@ -287,6 +287,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010273091, 0)
 shape = SubResource("BoxShape3D_ruw1s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1650227069]
+collision_layer = 0
+collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=189736635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035707034, 0)

@@ -66,14 +66,14 @@ func open_door() -> void:
 	refresh_item()
 	displayed_item.enabled = true
 	$ItemDetectArea.monitoring = true
-	$ItemDetectArea.process_mode = Node.PROCESS_MODE_DISABLED
+	$ItemDetectArea.process_mode = Node.PROCESS_MODE_ALWAYS
 	animation_player.queue(open_animation)
 	$Audio/DoorOpen.play()
 
 func close_door() -> void:
 	refresh_item()
 	$ItemDetectArea.monitoring = false
-	$ItemDetectArea.process_mode = Node.PROCESS_MODE_ALWAYS
+	$ItemDetectArea.process_mode = Node.PROCESS_MODE_DISABLED
 	animation_player.queue(close_animation)
 
 func _ready() -> void:

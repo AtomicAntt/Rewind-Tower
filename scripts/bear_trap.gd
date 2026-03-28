@@ -12,7 +12,7 @@ var consumed: bool = false
 @onready var xray: Node3D = $XRAY
 var game_manager: Node3D
 
-var type = "BearTrap"
+var type: DefenseTroop.troop_types = DefenseTroop.troop_types.BEARTRAP
 
 func _ready():
 	game_manager = get_parent_node_3d()

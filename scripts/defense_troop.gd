@@ -16,9 +16,10 @@ var power_lost: int = 0;
 @export var attack_range: float = 100.0
 @export var attack_damage: float = 2.0
 
-@export var troop_type: String
+enum troop_types {ARCHER, SWORDSMAN, BEARTRAP}
 
-@export var melee: bool
+@export var troop_type: troop_types
+var melee: bool
 
 @export var max_power: int = 0
 @export var power_lose_rate: int = 0
@@ -51,6 +52,11 @@ func _ready():
 	power_bar.max_value = max_power
 	
 	game_manager = get_parent_node_3d()
+	
+	if troop_type == troop_types.ARCHER:
+		melee = false
+	elif troop_type == troop_types.SWORDSMAN:
+		melee = true
 	
 	if melee:
 		shoot_raycast = $SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/ShootRaycast

@@ -328,7 +328,6 @@ collision_mask = 33
 script = ExtResource("1_ys6re")
 attack_range = 1.0
 attack_damage = 1.5
-troop_type = "Archer"
 max_power = 30
 power_lose_rate = 2
 power_bar = NodePath("SubViewport/ProgressBar")

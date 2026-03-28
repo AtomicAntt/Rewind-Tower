@@ -273,7 +273,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wrp2x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a71aj"]
-size = Vector3(0.4972356, 0.24715859, 0.21479492)
+resource_local_to_scene = true
+size = Vector3(0.2654217, 0.15479618, 0.144281)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6prw"]
 size = Vector3(0.2709961, 0.004470825, 0.15344238)
@@ -341,6 +342,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01
 
 [node name="DoorCollision" type="StaticBody3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1833086916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.046209924, 0)
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_automatWindow/SM_automatSeg/DoorCollision" unique_id=651334243]
 transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0)
@@ -362,13 +365,19 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24052143, 0.09286165, -0.07448111)
 
 [node name="ItemDetectArea" type="Area3D" parent="." unique_id=1503094501]
-collision_mask = 65537
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2455638, 0.10138051, -0.07272844)
+collision_layer = 0
+collision_mask = 65568
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDetectArea" unique_id=1056905225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2486178, 0.12357929, -0.10495428)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0023397505, 0.021245755, 0.0023162887)
 shape = SubResource("BoxShape3D_a71aj")
 
 [node name="BoxStaticCollision" type="StaticBody3D" parent="." unique_id=834272745]
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoxStaticCollision" unique_id=1836928905]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24960825, 0.044747397, -0.07196045)

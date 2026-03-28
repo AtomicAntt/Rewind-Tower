@@ -49,6 +49,9 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="DefenseProjectile" type="Area3D" unique_id=549616968]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
 script = ExtResource("1_mw8uj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=347054477]

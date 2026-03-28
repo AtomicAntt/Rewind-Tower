@@ -29,6 +29,8 @@ health_bar = NodePath("SubViewport/ProgressBar")
 
 [node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["EnemyHitbox"]]
 transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)
+collision_layer = 128
+collision_mask = 256
 
 [node name="EnemyMesh" type="MeshInstance3D" parent="EnemyHitbox" unique_id=817908475]
 transform = Transform3D(1, -9.094947e-13, 2.3283064e-10, -9.094947e-13, 1, -5.980283e-10, 0, -1.3414692e-10, 1.0000002, 0, 0, 0)

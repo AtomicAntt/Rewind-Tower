@@ -51,6 +51,13 @@ Boundary=""
 XRCamera3D="The XRCamera3D"
 DefenseTroop=""
 
+[layer_names]
+
+3d_physics/layer_6="Defense Troops Rigidbody"
+3d_physics/layer_7="Coin Drops Area"
+3d_physics/layer_8="Enemy Area"
+3d_physics/layer_9="Defense Area"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -59,9 +66,14 @@ jolt_physics_3d/simulation/penetration_slop=0.0
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 
 [xr]
 
 openxr/enabled=true
+openxr/foveation_level=3
+openxr/foveation_dynamic=true
 shaders/enabled=true
+openxr/extensions/meta/color_space/starting_color_space=3

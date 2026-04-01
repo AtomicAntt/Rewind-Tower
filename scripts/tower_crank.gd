@@ -36,6 +36,8 @@ func _physics_process(_delta) -> void:
 			
 		crank_value = 0.0
 		power = 0.0
+		# This should prevent cranks from moving.
+		pickable.drop()
 	
 	
 	$SubViewport/ProgressBar.value = power

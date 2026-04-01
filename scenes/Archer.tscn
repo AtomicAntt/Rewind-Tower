@@ -402,10 +402,11 @@ pickable = NodePath("Crank")
 
 [node name="Crank" type="RigidBody3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1827322792]
 transform = Transform3D(-0.99999976, -8.742277e-08, -1.5099576e-07, -8.742276e-08, 0.99999976, -4.371137e-08, 1.5099576e-07, -4.3711356e-08, -0.99999976, 0, 0, 0)
-collision_layer = 16
-collision_mask = 21
+collision_layer = 262144
+collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
+freeze = true
 script = ExtResource("3_qm8lu")
 enabled = false
 picked_up_layer = 65552

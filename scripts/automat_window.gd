@@ -30,7 +30,10 @@ var close_animation: String = "SM_automatDoorClose"
 
 var displayed_item: XRToolsPickable
 
-## This refreshes the pickable, but you must enable it if you want players to pick it up.
+var original_collision_mask: int
+var original_collision_layer: int
+
+## This refreshes the pickable, but you must enable it with enable_displayed_item() if you want players to pick it up.
 func refresh_item() -> void:
 	if is_instance_valid(displayed_item):
 		displayed_item.queue_free()
@@ -45,9 +48,8 @@ func refresh_item() -> void:
 	if is_instance_valid(item_instance):
 		displayed_item = item_instance
 		get_parent().get_parent().add_child.call_deferred(displayed_item)
-		#displayed_item.global_position = item_marker_3d.global_position
 		displayed_item.global_transform = item_marker_3d.global_transform
-		displayed_item.enabled = false
+		disable_displayed_item()
 
 func refresh_cost_label() -> void:
 	if cost == -1:
@@ -62,9 +64,30 @@ func refresh_cost_label() -> void:
 	
 	item_info_label.text = item_description + "\nCost:\n" + str(cost) + " coins"
 
+func enable_displayed_item() -> void:
+	displayed_item.enabled = true
+	displayed_item.collision_layer = original_collision_layer
+	displayed_item.collision_mask = original_collision_mask
+	displayed_item.freeze = false
+	
+	# More likely than not, their XRToolsPickable collision layer & mask has been set to 0 due to a race conditon..
+	# So we have to reset it lol
+	displayed_item.original_collision_layer = original_collision_layer
+	displayed_item.original_collision_mask = original_collision_mask
+
+## This is for extra optimization
+func disable_displayed_item() -> void:
+	original_collision_layer = displayed_item.collision_layer
+	original_collision_mask = displayed_item.collision_mask
+	
+	displayed_item.enabled = false
+	displayed_item.collision_layer = 0
+	displayed_item.collision_mask = 0
+	displayed_item.freeze = true
+
 func open_door() -> void:
 	refresh_item()
-	displayed_item.enabled = true
+	enable_displayed_item()
 	$ItemDetectArea.set_deferred("monitoring", true)
 	$ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_ALWAYS)
 	$ItemDetectArea.set_collision_mask_value(6, true)

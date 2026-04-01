@@ -285,7 +285,6 @@ script = ExtResource("1_x0p4g")
 attack_range = 0.2
 attack_damage = 1.5
 troop_type = 1
-melee = true
 max_power = 35
 power_lose_rate = 1
 power_bar = NodePath("SubViewport/ProgressBar")
@@ -325,13 +324,12 @@ pickable = NodePath("Crank")
 
 [node name="Crank" type="RigidBody3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1827322792]
 transform = Transform3D(0.9954477, -0.09530718, 1.3876706e-07, 0.09453253, 0.98735696, 0.1272377, -0.012126806, -0.1266585, 0.991872, 0, 0, 0)
-collision_layer = 16
-collision_mask = 21
+collision_layer = 262144
+collision_mask = 0
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("5_miqn4")
 enabled = false
-picked_up_layer = 65552
 ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 

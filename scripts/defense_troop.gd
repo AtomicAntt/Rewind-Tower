@@ -135,7 +135,8 @@ func _on_shoot_timer_timeout() -> void:
 		get_parent().add_child(projectile_instance)
 		projectile_instance.global_position = shoot_position.global_position
 		projectile_instance.look_at(closest_enemy_area.global_position)
-		projectile_instance.archer = self
+		projectile_instance.set_damage(attack_damage)
+		projectile_instance.set_defense_troop(self)
 		
 		animator._animate()
 		

@@ -92,6 +92,8 @@ func hurt(amount: float) -> void:
 func death() -> void:
 	is_dead = true
 	$EnemyHitbox.remove_from_group("EnemyHitbox")
+	$EnemyHitbox.collision_layer = 0
+	$EnemyHitbox.collision_mask = 0
 	if is_instance_valid(animation_player):
 		animation_player.stop()
 		animation_player.play(death_anim)

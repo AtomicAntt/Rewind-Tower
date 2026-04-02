@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
+[ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -271,7 +272,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0qy1f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4iqu7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -529,7 +530,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_0qy1f")
+texture = SubResource("ViewportTexture_4iqu7")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -805,6 +806,9 @@ stream = ExtResource("35_0qy1f")
 
 [node name="Gametime" type="AudioStreamPlayer" parent="Music" unique_id=1695678574]
 stream = ExtResource("34_cvqoq")
+
+[node name="DefenseProjectile" parent="." unique_id=549616968 instance=ExtResource("37_s8bal")]
+transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

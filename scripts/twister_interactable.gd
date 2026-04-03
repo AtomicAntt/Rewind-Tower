@@ -1,7 +1,8 @@
 class_name TwisterInteractable
-extends Node3D
+extends XRToolsInteractableHandleDriven
 
 @export var pickable: XRToolsPickable
+@export var mesh: MeshInstance3D
 
 var twister_value: float = 0.0
 var previous_twister_value: float = 0.0
@@ -21,6 +22,7 @@ func _physics_process(_delta) -> void:
 	# basically crank but z
 	pickable.global_position = global_position
 	pickable.rotation = Vector3(0, 0, pickable.rotation.z)
+	mesh.rotation = pickable.rotation
 	
 	if pickable.is_picked_up():
 		var controller: XRController3D = pickable.get_picked_up_by_controller()
@@ -36,6 +38,7 @@ func _physics_process(_delta) -> void:
 		
 		twister_value += delta_rot
 		pickable.rotation.z += delta_rot
+		mesh.rotation = pickable.rotation
 		value = abs(twister_value)
 		prev_rotation = current_rotation
 		

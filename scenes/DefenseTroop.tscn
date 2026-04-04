@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d5u4k7myj4w0"]
 
 [ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_lnnsc"]
-[ext_resource type="PackedScene" uid="uid://dwjnvm3r6mnd3" path="res://scenes/systems/Crank.tscn" id="2_nrlnj"]
+[ext_resource type="PackedScene" uid="uid://dwjnvm3r6mnd3" path="res://scenes/Crank.tscn" id="2_nrlnj"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="3_fu7nh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnnsc"]

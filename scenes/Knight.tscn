@@ -462,10 +462,12 @@ value = 10.0
 [node name="EnemyBreak" type="AudioStreamPlayer3D" parent="Audio" unique_id=466131950]
 stream = ExtResource("3_7vpbp")
 max_distance = 3.0
+bus = &"SFX"
 
 [node name="EnemyBreak1" type="AudioStreamPlayer3D" parent="Audio" unique_id=1225274295]
 stream = ExtResource("4_sn6uc")
 max_distance = 3.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

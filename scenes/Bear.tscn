@@ -528,16 +528,19 @@ value = 10.0
 [node name="BearRoar" type="AudioStreamPlayer3D" parent="." unique_id=1620940403]
 stream = ExtResource("3_4khxr")
 autoplay = true
+bus = &"SFX"
 
 [node name="Audio" type="Node3D" parent="." unique_id=419924875]
 
 [node name="EnemyBreak" type="AudioStreamPlayer3D" parent="Audio" unique_id=881369094]
 stream = ExtResource("4_m6kxa")
 max_distance = 3.0
+bus = &"SFX"
 
 [node name="EnemyBreak1" type="AudioStreamPlayer3D" parent="Audio" unique_id=1754396981]
 stream = ExtResource("5_p8v55")
 max_distance = 3.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

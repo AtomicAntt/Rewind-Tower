@@ -98,21 +98,28 @@ value = 10.0
 
 [node name="GateDmg1" type="AudioStreamPlayer3D" parent="Audio" unique_id=490851263]
 stream = ExtResource("2_1tcto")
+bus = &"SFX"
 
 [node name="GateDmg2" type="AudioStreamPlayer3D" parent="Audio" unique_id=28264184]
 stream = ExtResource("3_jatxn")
+bus = &"SFX"
 
 [node name="GateDmg3" type="AudioStreamPlayer3D" parent="Audio" unique_id=1676930983]
 stream = ExtResource("4_fyufr")
+bus = &"SFX"
 
 [node name="GateDmg4" type="AudioStreamPlayer3D" parent="Audio" unique_id=976031905]
 stream = ExtResource("5_1t43o")
+bus = &"SFX"
 
 [node name="GateDmg5" type="AudioStreamPlayer3D" parent="Audio" unique_id=241772126]
 stream = ExtResource("6_3840f")
+bus = &"SFX"
 
 [node name="GateDmg" type="AudioStreamPlayer3D" parent="Audio" unique_id=87775411]
 stream = ExtResource("7_nd31t")
+bus = &"SFX"
 
 [node name="GateDestroyed" type="AudioStreamPlayer3D" parent="Audio" unique_id=1116931376]
 stream = ExtResource("8_jatxn")
+bus = &"SFX"

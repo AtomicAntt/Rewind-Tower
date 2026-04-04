@@ -426,6 +426,7 @@ shape = SubResource("BoxShape3D_wygqj")
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270]
 stream = ExtResource("6_ma2m2")
+bus = &"SFX"
 
 [node name="XRToolsRumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061]
 script = ExtResource("7_wygqj")
@@ -501,15 +502,19 @@ hand_pose = SubResource("Resource_ea36a")
 
 [node name="ArrowHit1" type="AudioStreamPlayer3D" parent="Audio" unique_id=2001663902]
 stream = ExtResource("14_6gtsj")
+bus = &"SFX"
 
 [node name="ArrowHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=1141181607]
 stream = ExtResource("15_ma2m2")
+bus = &"SFX"
 
 [node name="ArrowHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=2049784804]
 stream = ExtResource("16_8l3ic")
+bus = &"SFX"
 
 [node name="ArrowHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=894424434]
 stream = ExtResource("17_wygqj")
+bus = &"SFX"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]

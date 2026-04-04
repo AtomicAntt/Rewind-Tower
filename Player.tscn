@@ -108,21 +108,27 @@ shape = SubResource("BoxShape3D_e80uo")
 
 [node name="Coins1" type="AudioStreamPlayer" parent="Audio" unique_id=1137071650]
 stream = ExtResource("7_l6ohk")
+bus = &"SFX"
 
 [node name="Coins2" type="AudioStreamPlayer" parent="Audio" unique_id=500651073]
 stream = ExtResource("8_oudfo")
+bus = &"SFX"
 
 [node name="Coins3" type="AudioStreamPlayer" parent="Audio" unique_id=750314379]
 stream = ExtResource("9_d6rpx")
+bus = &"SFX"
 
 [node name="Coins4" type="AudioStreamPlayer" parent="Audio" unique_id=1607804322]
 stream = ExtResource("10_r3kul")
+bus = &"SFX"
 
 [node name="Coins5" type="AudioStreamPlayer" parent="Audio" unique_id=1434262779]
 stream = ExtResource("11_jatw7")
+bus = &"SFX"
 
 [node name="Coins" type="AudioStreamPlayer" parent="Audio" unique_id=867959921]
 stream = ExtResource("12_rv870")
+bus = &"SFX"
 
 [node name="XRToolsRumbler" type="Node" parent="." unique_id=877640356]
 script = ExtResource("13_d6rpx")

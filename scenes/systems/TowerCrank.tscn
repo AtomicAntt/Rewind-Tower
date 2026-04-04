@@ -72,6 +72,7 @@ max_value = 20.0
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=1323065441]
 stream = ExtResource("3_ytt1w")
+bus = &"SFX"
 
 [node name="XRToolsRumbler" type="Node" parent="." unique_id=880722039]
 script = ExtResource("4_dyiy0")

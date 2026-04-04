@@ -51,6 +51,9 @@ snap_require = "Coin"
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_nstef")
 
+[node name="AudioStreamPlayer3D" parent="." index="1"]
+bus = &"SFX"
+
 [node name="From" type="Marker3D" parent="." index="2" unique_id=1966947015]
 
 [node name="To" type="Marker3D" parent="." index="3" unique_id=461211513]

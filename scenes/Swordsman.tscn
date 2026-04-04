@@ -446,30 +446,39 @@ hand_pose = SubResource("Resource_7movh")
 
 [node name="SwordHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=672104157]
 stream = ExtResource("13_ym3ex")
+bus = &"SFX"
 
 [node name="SwordHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=1371726771]
 stream = ExtResource("14_nysg6")
+bus = &"SFX"
 
 [node name="SwordHit4" type="AudioStreamPlayer3D" parent="Audio" unique_id=469059352]
 stream = ExtResource("15_mi6e4")
+bus = &"SFX"
 
 [node name="SwordHit5" type="AudioStreamPlayer3D" parent="Audio" unique_id=157636476]
 stream = ExtResource("16_qnl7s")
+bus = &"SFX"
 
 [node name="SwordHit6" type="AudioStreamPlayer3D" parent="Audio" unique_id=2015888314]
 stream = ExtResource("17_5lux3")
+bus = &"SFX"
 
 [node name="SwordHit7" type="AudioStreamPlayer3D" parent="Audio" unique_id=756538029]
 stream = ExtResource("18_d6b8k")
+bus = &"SFX"
 
 [node name="SwordHit8" type="AudioStreamPlayer3D" parent="Audio" unique_id=72079661]
 stream = ExtResource("19_4df0d")
+bus = &"SFX"
 
 [node name="SwordHit9" type="AudioStreamPlayer3D" parent="Audio" unique_id=372396688]
 stream = ExtResource("20_55swy")
+bus = &"SFX"
 
 [node name="SwordHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=1073367350]
 stream = ExtResource("21_qbnta")
+bus = &"SFX"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]

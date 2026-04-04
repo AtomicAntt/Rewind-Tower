@@ -96,6 +96,7 @@ metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [node name="KnobTurn" type="AudioStreamPlayer3D" parent="." unique_id=780010159]
 stream = ExtResource("6_6h4dk")
+bus = &"SFX"
 
 [node name="SM_automatCrank" type="MeshInstance3D" parent="." unique_id=1664135036]
 material_override = ExtResource("2_1pen4")

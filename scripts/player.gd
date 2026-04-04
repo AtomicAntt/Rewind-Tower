@@ -10,7 +10,7 @@ var xr_interface: XRInterface
 
 @onready var coin_respawn_timer: Timer = $XROrigin3D/LeftController/CoinSlot/CoinRespawn
 
-var coin_pickup: PackedScene = preload("res://scenes/systems/CoinPickable.tscn")
+var coin_pickup: PackedScene = preload("res://scenes/CoinPickable.tscn")
 
 var current_coin: XRToolsPickable
 

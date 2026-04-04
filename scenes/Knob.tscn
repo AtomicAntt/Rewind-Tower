@@ -1,3 +1,87 @@
 [gd_scene format=3 uid="uid://bpwq6hlklc0q8"]
 
+[ext_resource type="Script" uid="uid://cwime0xnbo0wr" path="res://scripts/knob_interactable.gd" id="1_2h1c5"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="2_5b5dq"]
+[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="3_2ij6s"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="4_tlk1a"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="5_0rb0d"]
+[ext_resource type="AudioStream" uid="uid://8kfpxdgj3xii" path="res://assets/audio/knob turning.ogg" id="6_e8re0"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_y7du1"]
+[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="9_5sbvn"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="10_ynqkf"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="11_f1eca"]
+[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="12_c2ake"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2h1c5"]
+height = 0.05
+radius = 0.05
+
+[sub_resource type="Resource" id="Resource_8nhsn"]
+script = ExtResource("5_0rb0d")
+magnitude = 0.1
+duration_ms = 10
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_km6r3"]
+
+[sub_resource type="Resource" id="Resource_lo7sk"]
+script = ExtResource("10_ynqkf")
+open_pose = ExtResource("9_5sbvn")
+closed_pose = ExtResource("9_5sbvn")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_t74b7"]
+script = ExtResource("10_ynqkf")
+open_pose = ExtResource("12_c2ake")
+closed_pose = ExtResource("12_c2ake")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
 [node name="Knob" type="Node3D" unique_id=1668571479]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="KnobInteractable" type="Node3D" parent="." unique_id=641983309 node_paths=PackedStringArray("pickable", "mesh")]
+script = ExtResource("1_2h1c5")
+pickable = NodePath("TwisterPickable")
+mesh = NodePath("Cylinder")
+
+[node name="TwisterPickable" parent="KnobInteractable" unique_id=295879653 instance=ExtResource("2_5b5dq")]
+collision_layer = 262144
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+ranged_grab_method = 0
+
+[node name="CollisionShape3D" parent="KnobInteractable/TwisterPickable" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_2h1c5")
+
+[node name="GrabPointRedirect" parent="KnobInteractable/TwisterPickable" unique_id=2082740115 node_paths=PackedStringArray("target") instance=ExtResource("3_2ij6s")]
+target = NodePath("../../Cylinder/GrabPointHandLeft")
+
+[node name="GrabPointRedirect2" parent="KnobInteractable/TwisterPickable" unique_id=1626058572 node_paths=PackedStringArray("target") instance=ExtResource("3_2ij6s")]
+target = NodePath("../../Cylinder/GrabPointHandRight")
+
+[node name="XRToolsRumbler" type="Node" parent="KnobInteractable" unique_id=561845901]
+script = ExtResource("4_tlk1a")
+event = SubResource("Resource_8nhsn")
+metadata/_custom_type_script = "uid://dff408qq7s26e"
+
+[node name="KnobTurn" type="AudioStreamPlayer3D" parent="KnobInteractable" unique_id=780010159]
+stream = ExtResource("6_e8re0")
+bus = &"SFX"
+
+[node name="Cylinder" type="MeshInstance3D" parent="KnobInteractable" unique_id=1664135036]
+transform = Transform3D(0.1, 0, 0, 0, -1.0927848e-09, -0.1, 0, 0.025, -4.371139e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_km6r3")
+
+[node name="GrabPointHandLeft" parent="KnobInteractable/Cylinder" unique_id=1376312026 instance=ExtResource("8_y7du1")]
+transform = Transform3D(1.3113416e-07, 1, -3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, 1.3113416e-07, 4.371139e-08, 0.09514968, 0.1212682, 0.038438767)
+hand_pose = SubResource("Resource_lo7sk")
+
+[node name="GrabPointHandRight" parent="KnobInteractable/Cylinder" unique_id=1127096417 instance=ExtResource("11_f1eca")]
+transform = Transform3D(-2.1855693e-07, -1, 7.642742e-15, -4.371139e-08, 1.9106855e-15, -1, 1, -2.1855693e-07, -4.371139e-08, -0.09448956, 0.11619894, 0.048066687)
+hand_pose = SubResource("Resource_t74b7")
+
+[connection signal="grabbed" from="KnobInteractable/TwisterPickable" to="KnobInteractable" method="_on_twister_pickable_grabbed"]
+
+[editable path="KnobInteractable/TwisterPickable"]

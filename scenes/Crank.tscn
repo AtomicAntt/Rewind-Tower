@@ -42,10 +42,12 @@ mesh = SubResource("BoxMesh_fr4md")
 [node name="Audio" type="Node3D" parent="." unique_id=1834009279]
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=54747058]
+unique_name_in_owner = true
 stream = ExtResource("3_8ip3p")
 bus = &"SFX"
 
-[node name="XRToolsRumbler" type="Node" parent="." unique_id=1678968895]
+[node name="Rumbler" type="Node" parent="." unique_id=1678968895]
+unique_name_in_owner = true
 script = ExtResource("4_i5r8y")
 event = SubResource("Resource_nnwlo")
 metadata/_custom_type_script = "uid://dff408qq7s26e"

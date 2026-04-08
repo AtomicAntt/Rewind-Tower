@@ -40,7 +40,7 @@ func _physics_process(_delta) -> void:
 		pickable.drop()
 	
 	
-	$SubViewport/ProgressBar.value = power
+	%ProgressBar.value = power
 
 func record_enemies_dict() -> void:
 	# Set these values so that progress ratios of enemies are not affected initially from overturning from previous winds

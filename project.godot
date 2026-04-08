@@ -28,11 +28,6 @@ XRToolsRumbleManager="*uid://by853dk86g1qw"
 RoundManager="*uid://x8dfdky3j5te"
 TutorialSystem="*uid://s7lg5jxdsomq"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/lines_and_trails_3d/plugin.cfg", "res://addons/tile_path_3d/plugin.cfg")

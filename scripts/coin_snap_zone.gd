@@ -2,9 +2,9 @@
 class_name CoinSnapZone
 extends XRToolsSnapZone
 
-@onready var visual_coin: Node3D = $VisualCoin
-@onready var from_marker: Marker3D = $From
-@onready var to_marker: Marker3D = $To
+@onready var visual_coin: Node3D = %VisualCoin
+@onready var from_marker: Marker3D = %From
+@onready var to_marker: Marker3D = %To
 
 ## Emitted whenever a coin gets inserted in the snap zone.
 signal coin_inserted

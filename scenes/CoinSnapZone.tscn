@@ -55,11 +55,14 @@ shape = SubResource("SphereShape3D_nstef")
 bus = &"SFX"
 
 [node name="From" type="Marker3D" parent="." index="2" unique_id=1966947015]
+unique_name_in_owner = true
 
 [node name="To" type="Marker3D" parent="." index="3" unique_id=461211513]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024288893, 1.0617012e-09, -0.043062143)
 
 [node name="VisualCoin" type="Node3D" parent="." index="4" unique_id=1553919424]
+unique_name_in_owner = true
 visible = false
 
 [node name="SM_coin" type="MeshInstance3D" parent="VisualCoin" index="0" unique_id=1723670423]

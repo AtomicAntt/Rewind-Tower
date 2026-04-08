@@ -240,6 +240,11 @@ size = Vector3(0.09034502, 0.048602864, 0.12199934)
 height = 0.100372314
 radius = 0.0126953125
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tcocn"]
+streams_count = 3
+stream_0/stream = ExtResource("4_tcocn")
+stream_1/stream = ExtResource("5_umju6")
+
 [node name="BearTrap" type="RigidBody3D" unique_id=594304056]
 collision_layer = 5
 collision_mask = 33
@@ -279,7 +284,8 @@ mesh = SubResource("ArrayMesh_goqr2")
 skin = SubResource("Skin_m4gpm")
 skeleton = NodePath("..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_BearTrap" unique_id=1337040074]
+[node name="BearTrapAnimPlayer" type="AnimationPlayer" parent="SM_BearTrap" unique_id=1337040074]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0ynst")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1275327490]
@@ -295,10 +301,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035707034, 0)
 shape = SubResource("CylinderShape3D_ruw1s")
 
 [node name="Timer" type="Timer" parent="." unique_id=2030334686]
+unique_name_in_owner = true
 wait_time = 8.0
 one_shot = true
 
 [node name="XRAY" type="Node3D" parent="." unique_id=1843453357]
+unique_name_in_owner = true
 visible = false
 
 [node name="SM_bearTrap" type="MeshInstance3D" parent="XRAY" unique_id=1534741466]
@@ -317,6 +325,12 @@ bus = &"SFX"
 [node name="Audio3" type="AudioStreamPlayer3D" parent="." unique_id=1029109079]
 stream = ExtResource("6_ne5gb")
 bus = &"SFX"
+
+[node name="Audio" type="Node3D" parent="." unique_id=968839326]
+
+[node name="BearTrapClose" type="AudioStreamPlayer3D" parent="Audio" unique_id=1246716059]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_tcocn")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

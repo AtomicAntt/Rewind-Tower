@@ -4,6 +4,8 @@
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="2_j633b"]
 [ext_resource type="AudioStream" uid="uid://didtqghonc5np" path="res://assets/audio/enemy break.ogg" id="3_o6lc5"]
 [ext_resource type="AudioStream" uid="uid://qi5je6gm1d7y" path="res://assets/audio/enemy break 1.ogg" id="4_v2b0b"]
+[ext_resource type="AudioStream" uid="uid://bax14tnburqqx" path="res://assets/audio/enemy break 2.ogg" id="5_o6lc5"]
+[ext_resource type="AudioStream" uid="uid://b4eer3fy87bmh" path="res://assets/audio/enemy break 3.ogg" id="6_v2b0b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amgx5"]
 
@@ -361,6 +363,13 @@ bg_color = Color(1, 0, 0.3137255, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55jtl"]
 bg_color = Color(0, 1, 0.3137255, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wxgy1"]
+streams_count = 4
+stream_0/stream = ExtResource("3_o6lc5")
+stream_1/stream = ExtResource("4_v2b0b")
+stream_2/stream = ExtResource("5_o6lc5")
+stream_3/stream = ExtResource("6_v2b0b")
+
 [node name="Raider" type="PathFollow3D" unique_id=1241046123 node_paths=PackedStringArray("health_bar", "health_bar_sprite", "animation_player") groups=["Enemy"]]
 transform = Transform3D(-0.0032698764, 0.0038223346, -0.99991316, 0, 0.99993956, 0.0038222747, 0.99989957, 1.2499817e-05, -0.0032699208, 0, 0, 0)
 script = ExtResource("1_gnmqa")
@@ -374,6 +383,7 @@ attack_anim = "anim_raiderAttack"
 death_anim = "anim_raiderDeath"
 
 [node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["EnemyHitbox"]]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 4.656613e-10, 0, 1, -1.3236345e-10, -2.3283064e-10, -1.3415047e-10, 1.0000001, 0, 0.04289782, 0.00016397238)
 collision_layer = 128
 collision_mask = 256
@@ -455,16 +465,13 @@ max_value = 10.0
 value = 10.0
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=95284099]
+unique_name_in_owner = true
 
 [node name="Audio" type="Node3D" parent="." unique_id=407490547]
 
-[node name="EnemyBreak" type="AudioStreamPlayer3D" parent="Audio" unique_id=1666183237]
-stream = ExtResource("3_o6lc5")
-max_distance = 3.0
-bus = &"SFX"
-
-[node name="EnemyBreak1" type="AudioStreamPlayer3D" parent="Audio" unique_id=129295041]
-stream = ExtResource("4_v2b0b")
+[node name="EnemyBreak" type="AudioStreamPlayer3D" parent="Audio" unique_id=1214107854]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wxgy1")
 max_distance = 3.0
 bus = &"SFX"
 

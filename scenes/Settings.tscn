@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bkb3hdvknm143"]
+
+[ext_resource type="Script" uid="uid://dxx3xwbvubo8c" path="res://settings.gd" id="1_i47rn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i47rn"]
+
+[node name="Settings" type="Node3D" unique_id=406405812]
+script = ExtResource("1_i47rn")
+
+[node name="Canvas" type="Sprite3D" parent="." unique_id=1068011971]
+transform = Transform3D(75, 0, 0, 0, 50, 0, 0, 0, 75, 0, 0, 0)
+modulate = Color(0.39215687, 0.3529412, 0.29411766, 1)
+texture = SubResource("CanvasTexture_i47rn")
+
+[node name="Title" type="Label3D" parent="." unique_id=935893814]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.17644954, 0.035510063)
+sorting_offset = 1.0
+text = "Settings"
+font_size = 64
+
+[node name="VolumeHeader" type="Label3D" parent="." unique_id=1203502721]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.005709461, 0.02067323, 0.055621207)
+sorting_offset = 1.0
+text = "Volume"
+font_size = 64
+
+[node name="Volume Knobs" type="Node3D" parent="." unique_id=728540339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2522623, -0.09858465, 0)
+
+[node name="MasterText" type="Label3D" parent="Volume Knobs" unique_id=1431496122]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.06516944, 0.06332539, 0.05506456)
+text = "Master
+"
+font_size = 64
+
+[node name="MusicText" type="Label3D" parent="Volume Knobs" unique_id=843896590]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.26516944, 0.06332539, 0.05506456)
+sorting_offset = 1.0
+text = "Music
+"
+font_size = 64
+
+[node name="SFXText" type="Label3D" parent="Volume Knobs" unique_id=1697033952]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.46516943, 0.06332539, 0.05506456)
+text = "SFX
+"
+font_size = 64
+
+[node name="MasterPercent" type="Label3D" parent="Volume Knobs" unique_id=1391541240]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.06516944, -0.052174896, 0.05506456)
+text = "0
+"
+font_size = 64
+
+[node name="MusicPercent" type="Label3D" parent="Volume Knobs" unique_id=371291066]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.26516944, -0.052174896, 0.05506456)
+sorting_offset = 1.0
+text = "0
+"
+font_size = 64
+
+[node name="SFXPercent" type="Label3D" parent="Volume Knobs" unique_id=1193265858]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.46516943, -0.052174896, 0.05506456)
+text = "0"
+font_size = 64

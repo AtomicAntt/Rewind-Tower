@@ -36,10 +36,6 @@ func _physics_process(_delta) -> void:
 		elif delta_rot < -PI:
 			delta_rot += TAU
 		
-		#if (abs((abs(current_rotation) - abs(prev_rotation)))) > .1:
-			#$Audio/Ratchet.play()
-		#print(abs((abs(current_rotation) - abs(prev_rotation))))
-		
 		crank_value += delta_rot
 		prev_rotation = current_rotation
 		
@@ -47,8 +43,7 @@ func _physics_process(_delta) -> void:
 		
 		var int1: int = previous_crank_value
 		var int2: int = crank_value
-		if int1 != int2 and is_instance_valid($XRToolsRumbler):
+		if int1 != int2 and is_instance_valid(%Rumbler):
 			previous_crank_value = crank_value
-			$XRToolsRumbler.rumble_hand(controller)
-			$Audio/Ratchet.play()
-			
+			%Rumbler.rumble_hand(controller)
+			%Ratchet.play()

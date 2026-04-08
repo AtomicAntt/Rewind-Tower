@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="4_qm8lu"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="6_ma2m2"]
-[ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="6_vtcc4"]
+[ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/defense_troop_hitbox.gd" id="6_vtcc4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_gj00f"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_q5yvk"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="7_wygqj"]
@@ -322,6 +322,13 @@ open_pose = ExtResource("11_q5yvk")
 closed_pose = ExtResource("11_q5yvk")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wygqj"]
+streams_count = 4
+stream_0/stream = ExtResource("17_wygqj")
+stream_1/stream = ExtResource("14_6gtsj")
+stream_2/stream = ExtResource("15_ma2m2")
+stream_3/stream = ExtResource("16_8l3ic")
+
 [node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop"]]
 collision_layer = 36
 collision_mask = 33
@@ -425,15 +432,18 @@ shape = SubResource("BoxShape3D_wygqj")
 [node name="Audio" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=877808349]
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270]
+unique_name_in_owner = true
 stream = ExtResource("6_ma2m2")
 bus = &"SFX"
 
-[node name="XRToolsRumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061]
+[node name="Rumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061]
+unique_name_in_owner = true
 script = ExtResource("7_wygqj")
 event = SubResource("Resource_sohxs")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
+unique_name_in_owner = true
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop")]
@@ -500,20 +510,9 @@ hand_pose = SubResource("Resource_ea36a")
 
 [node name="Audio" type="Node3D" parent="." unique_id=556917948]
 
-[node name="ArrowHit1" type="AudioStreamPlayer3D" parent="Audio" unique_id=2001663902]
-stream = ExtResource("14_6gtsj")
-bus = &"SFX"
-
-[node name="ArrowHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=1141181607]
-stream = ExtResource("15_ma2m2")
-bus = &"SFX"
-
-[node name="ArrowHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=2049784804]
-stream = ExtResource("16_8l3ic")
-bus = &"SFX"
-
 [node name="ArrowHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=894424434]
-stream = ExtResource("17_wygqj")
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_wygqj")
 bus = &"SFX"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

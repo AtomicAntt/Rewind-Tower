@@ -55,6 +55,7 @@ texture = SubResource("ViewportTexture_xm4i1")
 [node name="SubViewport" type="SubViewport" parent="." unique_id=945289389]
 
 [node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=820623067]
+unique_name_in_owner = true
 layout_direction = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,10 +72,12 @@ max_value = 20.0
 [node name="Audio" type="Node3D" parent="." unique_id=963074501]
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=1323065441]
+unique_name_in_owner = true
 stream = ExtResource("3_ytt1w")
 bus = &"SFX"
 
-[node name="XRToolsRumbler" type="Node" parent="." unique_id=880722039]
+[node name="Rumbler" type="Node" parent="." unique_id=880722039]
+unique_name_in_owner = true
 script = ExtResource("4_dyiy0")
 event = SubResource("Resource_nmiko")
 metadata/_custom_type_script = "uid://dff408qq7s26e"

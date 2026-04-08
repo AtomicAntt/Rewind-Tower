@@ -4,12 +4,12 @@ extends XRToolsPickable
 
 @export var shut_animation: String = "anin_bearTrapShut"
 @export var break_animation: String = "anin_bearTrapBreak"
-@onready var animation_player: AnimationPlayer = $SM_BearTrap/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %BearTrapAnimPlayer
 
 var enemy_trapping: Enemy
 var consumed: bool = false
 
-@onready var xray: Node3D = $XRAY
+@onready var xray: Node3D = %XRAY
 var game_manager: Node3D
 
 var type: DefenseTroop.troop_types = DefenseTroop.troop_types.BEARTRAP
@@ -27,16 +27,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			enemy.hurt(enemy.max_enemy_hp*0.2)
 			animation_player.queue(shut_animation)
 			enemy_trapping = enemy
-			var sound_to_play: int = randi_range(1, 3)
-			match sound_to_play:
-				1:
-					$Audio1.play()
-				2:
-					$Audio2.play()
-				3:
-					$Audio3.play()
+			%BearTrapClose.play()
 			
-			$Timer.start()
+			%Timer.start()
 	if area.is_in_group("Drawer"):
 		xray.visible = true
 		

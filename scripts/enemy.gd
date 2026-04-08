@@ -33,7 +33,7 @@ var stunned: bool = false
 ## Drops this amount of coins.
 @export var coin_value: int = 1
 
-const coin_scene: PackedScene = preload("res://scenes/systems/Coin.tscn")
+const coin_scene: PackedScene = preload("res://scenes/Coin.tscn")
 
 # This represents the current defense that is being attacked. If one exists, it will stop itself and attack the enemy.
 var current_defense_attacking: DefenseHitbox = null
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			progress_ratio = new_progress_ratio
 		
-		$AttackTimer.stop()
+		%AttackTimer.stop()
 		
 		if is_instance_valid(animation_player):
 			if animation_player.current_animation != run_anim:
@@ -91,9 +91,9 @@ func hurt(amount: float) -> void:
 
 func death() -> void:
 	is_dead = true
-	$EnemyHitbox.remove_from_group("EnemyHitbox")
-	$EnemyHitbox.collision_layer = 0
-	$EnemyHitbox.collision_mask = 0
+	%EnemyHitbox.remove_from_group("EnemyHitbox")
+	%EnemyHitbox.collision_layer = 0
+	%EnemyHitbox.collision_mask = 0
 	if is_instance_valid(animation_player):
 		animation_player.stop()
 		animation_player.play(death_anim)
@@ -101,13 +101,8 @@ func death() -> void:
 	if is_instance_valid(health_bar_sprite):
 		health_bar_sprite.visible = false
 	
-	if is_instance_valid($Audio):
-		var picked_audio: int = randi_range(1, 2)
-		match picked_audio:
-			1:
-				$Audio/EnemyBreak.play()
-			2:
-				$Audio/EnemyBreak1.play()
+	if is_instance_valid(%EnemyBreak):
+		%EnemyBreak.play()
 	
 	#await get_tree().create_timer(1.0).timeout
 	await animation_player.animation_finished
@@ -118,11 +113,11 @@ func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("DefenseHitbox"):
 		var defense_hitbox: DefenseHitbox = area
 		current_defense_attacking = defense_hitbox
-		$AttackTimer.start()
+		%AttackTimer.start()
 	elif area.is_in_group("DefenseTroopHitbox"):
 		var defense_troop_hitbox: DefenseTroopHitbox = area
 		current_defense_troop_attacking = defense_troop_hitbox
-		$AttackTimer.start()
+		%AttackTimer.start()
 
 func _on_attack_timer_timeout() -> void:
 	if is_dead:
@@ -161,7 +156,7 @@ func check_if_valid_attack(defense_hitbox: DefenseHitbox, defense_troop_hitbox: 
 	
 	var contains_hitbox: bool = false
 	
-	for area in $EnemyHitbox.get_overlapping_areas():
+	for area in %EnemyHitbox.get_overlapping_areas():
 		if area is DefenseHitbox or DefenseTroopHitbox:
 			contains_hitbox = true
 		

@@ -61,7 +61,8 @@ metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 [node name="Coin" type="Node3D" unique_id=343890196 groups=["Coin"]]
 script = ExtResource("1_ksglj")
 
-[node name="XRToolsPickable" type="RigidBody3D" parent="." unique_id=1292231674 groups=["Coin"]]
+[node name="Pickable" type="RigidBody3D" parent="." unique_id=1292231674 groups=["Coin"]]
+unique_name_in_owner = true
 disable_mode = 2
 collision_layer = 4
 collision_mask = 5
@@ -70,24 +71,25 @@ picked_up_layer = 65540
 ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable" unique_id=1422744451 groups=["Coin"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickable" unique_id=1422744451 groups=["Coin"]]
 shape = SubResource("BoxShape3D_s6cjs")
 
-[node name="SM_coin2" type="Node3D" parent="XRToolsPickable" unique_id=906220252 groups=["Coin"]]
+[node name="SM_coin2" type="Node3D" parent="Pickable" unique_id=906220252 groups=["Coin"]]
 
-[node name="SM_coin" type="MeshInstance3D" parent="XRToolsPickable/SM_coin2" unique_id=2085963481]
+[node name="SM_coin" type="MeshInstance3D" parent="Pickable/SM_coin2" unique_id=2085963481]
 material_override = ExtResource("2_b06pj")
 mesh = SubResource("ArrayMesh_m64p1")
 
-[node name="GrabPointHandLeft" parent="XRToolsPickable" unique_id=856744965 groups=["Coin"] instance=ExtResource("4_v43ay")]
+[node name="GrabPointHandLeft" parent="Pickable" unique_id=856744965 groups=["Coin"] instance=ExtResource("4_v43ay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032, 0.078, -0.1)
 hand_pose = SubResource("Resource_dkdni")
 
-[node name="GrabPointHandRight" parent="XRToolsPickable" unique_id=1396659195 groups=["Coin"] instance=ExtResource("5_p8ral")]
+[node name="GrabPointHandRight" parent="Pickable" unique_id=1396659195 groups=["Coin"] instance=ExtResource("5_p8ral")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017, 0.076, -0.109)
 hand_pose = SubResource("Resource_6iqci")
 
 [node name="DropTimer" type="Timer" parent="." unique_id=510806765]
+unique_name_in_owner = true
 wait_time = 5.0
 
 [connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]

@@ -1,11 +1,11 @@
 class_name EnemySpawner
 extends Timer
 
-@onready var enemy: PackedScene = preload("res://scenes/Enemy.tscn")
-@onready var raider: PackedScene = preload("res://scenes/Raider.tscn")
-@onready var wolf: PackedScene = preload("res://scenes/Wolf.tscn")
-@onready var knight: PackedScene = preload("res://scenes/Knight.tscn")
-@onready var bear: PackedScene = preload("res://scenes/Bear.tscn")
+const enemy: PackedScene = preload("res://scenes/Enemy.tscn")
+const raider: PackedScene = preload("res://scenes/Raider.tscn")
+const wolf: PackedScene = preload("res://scenes/Wolf.tscn")
+const knight: PackedScene = preload("res://scenes/Knight.tscn")
+const bear: PackedScene = preload("res://scenes/Bear.tscn")
 
 @export var path_3d: Path3D
 

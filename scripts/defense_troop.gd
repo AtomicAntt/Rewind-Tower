@@ -59,10 +59,10 @@ func _ready():
 		melee = true
 	
 	if melee:
-		shoot_raycast = $SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/ShootRaycast
+		shoot_raycast = %ShootRaycast
 		shoot_raycast.swordsman = self
 	else:
-		shoot_position = $SM_archer/SM_archerBase/SM_archerBody/ShootPosition
+		shoot_position = %ShootPosition
 		
 	enemy_distance = attack_range + 1
 	
@@ -146,7 +146,7 @@ func _on_shoot_timer_timeout() -> void:
 	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and enemy_distance <= attack_range:
 		animator._animate()
 		shoot_raycast._hit()
-		_play_sword_hit()
+		%SwordHit.play()
 		
 		crank.power -= power_lose_rate
 		power -= power_lose_rate
@@ -167,37 +167,4 @@ func on_area_exited(area: Area3D) -> void:
 		xray.visible = false
 		
 func _play_arrow_hit():
-	var sound_to_play: int = randi_range(1,4)
-	
-	match sound_to_play:
-		1:
-			$Audio/ArrowHit1.play()
-		2:
-			$Audio/ArrowHit2.play()
-		3:
-			$Audio/ArrowHit3.play()
-		4:
-			$Audio/ArrowHit.play()
-
-func _play_sword_hit():
-	var sound_to_play: int = randi_range(1,9)
-	
-	match sound_to_play:
-		1:
-			$Audio/SwordHit2.play()
-		2:
-			$Audio/SwordHit3.play()
-		3:
-			$Audio/SwordHit4.play()
-		4:
-			$Audio/SwordHit5.play()
-		5:
-			$Audio/SwordHit6.play()
-		6:
-			$Audio/SwordHit7.play()
-		7:
-			$Audio/SwordHit8.play()
-		8:
-			$Audio/SwordHit9.play()
-		9:
-			$Audio/SwordHit.play()
+	%ArrowHit.play()

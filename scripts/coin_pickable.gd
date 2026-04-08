@@ -1,8 +1,8 @@
 extends Node
 
-@onready var pickable: XRToolsPickable = $XRToolsPickable
+@onready var pickable: XRToolsPickable = %Pickable
 
-@onready var drop_timer: Timer = $DropTimer
+@onready var drop_timer: Timer = %DropTimer
 
 var player: Node3D
 

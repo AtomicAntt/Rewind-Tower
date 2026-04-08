@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var interactable_handle: XRToolsInteractableHandle = $SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle
-@onready var relative_area_3d: Area3D = $SliderOrigin/InteractableSlider/StaticBody3D/RelativeArea3D
-@onready var static_body_3d: StaticBody3D = $SliderOrigin/InteractableSlider/StaticBody3D
+@onready var interactable_handle: XRToolsInteractableHandle = %InteractableHandle
+@onready var relative_area_3d: Area3D = %RelativeArea3D
+@onready var static_body_3d: StaticBody3D = %StaticBody3D
 
 @onready var prev_position: Vector3 = global_position
 

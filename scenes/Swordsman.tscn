@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="6_qnl7s"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="7_5lux3"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/xray material.tres" id="7_jt50a"]
-[ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/DefenseTroopHitbox.gd" id="8_xslay"]
+[ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/defense_troop_hitbox.gd" id="8_xslay"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="9_ym3ex"]
 [ext_resource type="Animation" uid="uid://dd67rufxwj2u" path="res://addons/godot-xr-tools/hands/animations/left/Grip 3.res" id="10_nysg6"]
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="11_mi6e4"]
@@ -278,6 +278,18 @@ open_pose = ExtResource("13_5lux3")
 closed_pose = ExtResource("13_5lux3")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_31aqg"]
+streams_count = 9
+stream_0/stream = ExtResource("21_qbnta")
+stream_1/stream = ExtResource("13_ym3ex")
+stream_2/stream = ExtResource("14_nysg6")
+stream_3/stream = ExtResource("15_mi6e4")
+stream_4/stream = ExtResource("16_qnl7s")
+stream_5/stream = ExtResource("17_5lux3")
+stream_6/stream = ExtResource("18_d6b8k")
+stream_7/stream = ExtResource("19_4df0d")
+stream_8/stream = ExtResource("20_55swy")
+
 [node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop"]]
 collision_layer = 36
 collision_mask = 33
@@ -309,7 +321,7 @@ material_override = ExtResource("2_ruurg")
 mesh = SubResource("ArrayMesh_cipnl")
 
 [node name="SM_swordsmanArm" type="MeshInstance3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=84159214]
-transform = Transform3D(1.0719286, -0.8165827, 0.09405909, 0.8212358, 1.0705055, -0.065383404, -0.035015915, 0.10906872, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
+transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.8212357, 1.0705055, -0.065383404, -0.03501591, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
 material_override = ExtResource("2_ruurg")
 mesh = SubResource("ArrayMesh_7vkeg")
 
@@ -346,14 +358,17 @@ shape = SubResource("BoxShape3D_qnl7s")
 transform = Transform3D(-0.99544775, 0.09530727, 1.4156103e-07, -0.09453262, -0.98735714, 0.12723765, 0.012126815, 0.12665844, 0.9918722, 0, 0, 0)
 
 [node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank/Audio" unique_id=1583073521]
+unique_name_in_owner = true
 stream = ExtResource("5_nysg6")
 
-[node name="XRToolsRumbler" type="Node" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1484427707]
+[node name="Rumbler" type="Node" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank" unique_id=1484427707]
+unique_name_in_owner = true
 script = ExtResource("6_qnl7s")
 event = SubResource("Resource_d6b8k")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
 [node name="ShootRaycast" type="RayCast3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=1198090811 node_paths=PackedStringArray("raycast")]
+unique_name_in_owner = true
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -0.012663925, 0.06835439, 0.021228373)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 128
@@ -444,40 +459,9 @@ hand_pose = SubResource("Resource_7movh")
 
 [node name="Audio" type="Node3D" parent="." unique_id=1439723921]
 
-[node name="SwordHit2" type="AudioStreamPlayer3D" parent="Audio" unique_id=672104157]
-stream = ExtResource("13_ym3ex")
-bus = &"SFX"
-
-[node name="SwordHit3" type="AudioStreamPlayer3D" parent="Audio" unique_id=1371726771]
-stream = ExtResource("14_nysg6")
-bus = &"SFX"
-
-[node name="SwordHit4" type="AudioStreamPlayer3D" parent="Audio" unique_id=469059352]
-stream = ExtResource("15_mi6e4")
-bus = &"SFX"
-
-[node name="SwordHit5" type="AudioStreamPlayer3D" parent="Audio" unique_id=157636476]
-stream = ExtResource("16_qnl7s")
-bus = &"SFX"
-
-[node name="SwordHit6" type="AudioStreamPlayer3D" parent="Audio" unique_id=2015888314]
-stream = ExtResource("17_5lux3")
-bus = &"SFX"
-
-[node name="SwordHit7" type="AudioStreamPlayer3D" parent="Audio" unique_id=756538029]
-stream = ExtResource("18_d6b8k")
-bus = &"SFX"
-
-[node name="SwordHit8" type="AudioStreamPlayer3D" parent="Audio" unique_id=72079661]
-stream = ExtResource("19_4df0d")
-bus = &"SFX"
-
-[node name="SwordHit9" type="AudioStreamPlayer3D" parent="Audio" unique_id=372396688]
-stream = ExtResource("20_55swy")
-bus = &"SFX"
-
 [node name="SwordHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=1073367350]
-stream = ExtResource("21_qbnta")
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_31aqg")
 bus = &"SFX"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

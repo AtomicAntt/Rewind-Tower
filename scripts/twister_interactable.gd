@@ -44,10 +44,10 @@ func _physics_process(_delta) -> void:
 		
 		var int1: int = previous_twister_value
 		var int2: int = twister_value
-		if int1 != int2 and is_instance_valid($XRToolsRumbler):
+		if int1 != int2 and is_instance_valid(%XRToolsRumbler):
 				previous_twister_value = twister_value
-				$XRToolsRumbler.rumble_hand(controller)
-				$KnobTurn.play()
+				%XRToolsRumbler.rumble_hand(controller)
+				%KnobTurn.play()
 	
 		if value >= value_threshold:
 			emit_signal("turned", controller)

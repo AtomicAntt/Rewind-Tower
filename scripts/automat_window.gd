@@ -20,10 +20,10 @@ var coins_inserted: int = 0
 ## Insert the actual scene that is purchased here. It should be a XR pickable like a Defense Troop.
 @export var item_scene: PackedScene
 
-@onready var item_marker_3d: Marker3D = $ItemMaker3D
-@onready var animation_player: AnimationPlayer = $SM_automatWindow/AnimationPlayer
-@onready var cost_label: Label3D = $CostLabel
-@onready var item_info_label: Label3D = $ItemInfoLabel
+@onready var item_marker_3d: Marker3D = %ItemMaker3D
+@onready var animation_player: AnimationPlayer = %WindowAnimPlayer
+@onready var cost_label: Label3D = %CostLabel
+@onready var item_info_label: Label3D = %ItemInfoLabel
 
 var open_animation: String = "SM_automatDoorOpen"
 var close_animation: String = "SM_automatDoorClose"
@@ -88,18 +88,18 @@ func disable_displayed_item() -> void:
 func open_door() -> void:
 	refresh_item()
 	enable_displayed_item()
-	$ItemDetectArea.set_deferred("monitoring", true)
-	$ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_ALWAYS)
-	$ItemDetectArea.set_collision_mask_value(6, true)
+	%ItemDetectArea.set_deferred("monitoring", true)
+	%ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_ALWAYS)
+	%ItemDetectArea.set_collision_mask_value(6, true)
 	animation_player.queue(open_animation)
-	$Audio/DoorOpen.play()
+	%DoorOpen.play()
 
 func close_door() -> void:
 	refresh_item()
-	#$ItemDetectArea.monitoring = false
-	$ItemDetectArea.set_deferred("monitoring", false)
-	$ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
-	$ItemDetectArea.set_collision_mask_value(6, false)
+	#%ItemDetectArea.monitoring = false
+	%ItemDetectArea.set_deferred("monitoring", false)
+	%ItemDetectArea.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	%ItemDetectArea.set_collision_mask_value(6, false)
 	animation_player.queue(close_animation)
 
 func _ready() -> void:
@@ -138,24 +138,10 @@ func _on_item_detect_area_body_exited(body: Node3D) -> void:
 func _on_coin_snap_zone_coin_inserted() -> void:
 	coins_inserted += 1
 	refresh_cost_label()
-	_play_coin_insert()
+	%CoinInsert.play()
 
 func _on_twister_interactable_turned(controller: XRController3D) -> void:
 	if check_purchase():
-		$PurchasedRumbler.rumble_hand(controller)
-		$Audio/KnobUnlock.play()
+		%PurchasedRumbler.rumble_hand(controller)
+		%KnobUnlock.play()
 	
-func _play_coin_insert() -> void:
-	var sound_to_play: int = randi_range(1,5)
-	
-	match sound_to_play:
-		1:
-			$Audio/CoinInsert.play()
-		2:
-			$Audio/CoinInsert1.play()
-		3:
-			$Audio/CoinInsert2.play()
-		4:
-			$Audio/CoinInsert3.play()
-		5:
-			$Audio/CoinInsert4.play()

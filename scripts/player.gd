@@ -4,13 +4,13 @@ var xr_interface: XRInterface
 
 @export var coins: int
 
-@onready var coin_slot: XRToolsSnapZone = $XROrigin3D/LeftController/CoinSlot
+@onready var coin_slot: XRToolsSnapZone = %CoinSlot
 
-@onready var coin_display: Label3D = $XROrigin3D/LeftController/LeftHand/CoinDisplay
+@onready var coin_display: Label3D = %CoinDisplay
 
-@onready var coin_respawn_timer: Timer = $XROrigin3D/LeftController/CoinSlot/CoinRespawn
+@onready var coin_respawn_timer: Timer = %CoinRespawn
 
-var coin_pickup: PackedScene = preload("res://scenes/CoinPickable.tscn")
+const coin_pickup: PackedScene = preload("res://scenes/CoinPickable.tscn")
 
 var current_coin: XRToolsPickable
 
@@ -152,26 +152,12 @@ func _on_coin_respawn_timeout() -> void:
 	can_spawn_coin = true
 	
 func _play_coin_pickup() -> void:
-	var sound_to_play: int = randi_range(1,4)
-	
-	match sound_to_play:
-		1:
-			$Audio/Coins1.play()
-		2:
-			$Audio/Coins2.play()
-		3:
-			$Audio/Coins3.play()
-		4:
-			$Audio/Coins4.play()
-		5:
-			$Audio/Coins5.play()
-		6:
-			$Audio/Coins.play()
+	%Coins.play()
 		
-	$CoinPickupRumbler.rumble_hand($XROrigin3D/LeftController)
+	%CoinPickupRumbler.rumble_hand(%LeftController)
 
 func _on_left_function_pickup_has_picked_up(_what: Variant) -> void:
-	$XRToolsRumbler.rumble_hand($XROrigin3D/LeftController)
+	%XRToolsRumbler.rumble_hand(%LeftController)
 
 func _on_right_function_pickup_has_picked_up(_what: Variant) -> void:
-	$XRToolsRumbler.rumble_hand($XROrigin3D/RightController)
+	%XRToolsRumbler.rumble_hand(%RightController)

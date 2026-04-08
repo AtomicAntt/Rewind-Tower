@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cfochiadkifyf" path="res://assets/audio/gate dmg 5.ogg" id="6_3840f"]
 [ext_resource type="AudioStream" uid="uid://nimilp00ypan" path="res://assets/audio/gate dmg.ogg" id="7_nd31t"]
 [ext_resource type="AudioStream" uid="uid://c7esvpme11jhi" path="res://assets/audio/gate destroyed.ogg" id="8_jatxn"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="9_fyufr"]
+[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="9_fyufr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4e35"]
 

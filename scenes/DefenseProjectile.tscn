@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7mo24tesbk7u"]
 
 [ext_resource type="Script" uid="uid://bgs4iv4aus4xm" path="res://scripts/defense_projectile.gd" id="1_mw8uj"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="2_hgosb"]
+[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="2_hgosb"]
 [ext_resource type="Script" uid="uid://bqflf4vw8mem1" path="res://addons/lines_and_trails_3d/trail_3d.gd" id="3_byned"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_55xgr"]

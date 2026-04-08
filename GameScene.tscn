@@ -2,31 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bov1xim3k40hp" path="res://scripts/game_manager.gd" id="1_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
-[ext_resource type="PackedScene" uid="uid://b741fbxy6vc0q" path="res://scenes/Environment/hillMesh.tscn" id="4_0p1ba"]
+[ext_resource type="PackedScene" uid="uid://b741fbxy6vc0q" path="res://scenes/environment/hillMesh.tscn" id="4_0p1ba"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
-[ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/T_UniversalTexture.jpg" id="4_oieil"]
-[ext_resource type="PackedScene" uid="uid://2wt66vbye16f" path="res://scenes/Environment/rock1large.tscn" id="5_fsk3a"]
+[ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="4_oieil"]
+[ext_resource type="PackedScene" uid="uid://2wt66vbye16f" path="res://scenes/environment/rock1large.tscn" id="5_fsk3a"]
 [ext_resource type="PackedScene" uid="uid://cy5271teptgq1" path="res://scenes/CastleGate.tscn" id="6_ed8b8"]
-[ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/SM_table.glb" id="6_i2arf"]
-[ext_resource type="PackedScene" uid="uid://c6ypetm2b2skj" path="res://scenes/Environment/rock1small.tscn" id="6_y0td7"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/universal material.tres" id="7_5cvvu"]
-[ext_resource type="PackedScene" uid="uid://drjdups42402m" path="res://scenes/Environment/rock2small.tscn" id="7_ry04y"]
-[ext_resource type="PackedScene" uid="uid://bpke0xnm44dhp" path="res://scenes/Environment/rock2large.tscn" id="8_cvqoq"]
-[ext_resource type="PackedScene" uid="uid://dihvpur1tnl1t" path="res://scenes/Environment/rock3large.tscn" id="9_0qy1f"]
+[ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/meshes/table/SM_table.glb" id="6_i2arf"]
+[ext_resource type="PackedScene" uid="uid://c6ypetm2b2skj" path="res://scenes/environment/rock1small.tscn" id="6_y0td7"]
+[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="7_5cvvu"]
+[ext_resource type="PackedScene" uid="uid://drjdups42402m" path="res://scenes/environment/rock2small.tscn" id="7_ry04y"]
+[ext_resource type="PackedScene" uid="uid://bpke0xnm44dhp" path="res://scenes/environment/rock2large.tscn" id="8_cvqoq"]
+[ext_resource type="PackedScene" uid="uid://dihvpur1tnl1t" path="res://scenes/environment/rock3large.tscn" id="9_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://cpv76fhn7wiha" path="res://scenes/Drawer.tscn" id="9_ed8b8"]
-[ext_resource type="PackedScene" uid="uid://brd00a61qq522" path="res://scenes/Environment/rock3small.tscn" id="10_s8bal"]
-[ext_resource type="PackedScene" uid="uid://byfo3v12bg3se" path="res://scenes/Environment/tree3.tscn" id="11_4iqu7"]
-[ext_resource type="PackedScene" uid="uid://qsif260hysjo" path="res://scenes/Archer.tscn" id="12_0exr2"]
-[ext_resource type="PackedScene" uid="uid://b7sntgxcdmna0" path="res://scenes/Environment/tree2.tscn" id="12_3g52j"]
-[ext_resource type="PackedScene" uid="uid://c4n72583y3r4" path="res://scenes/systems/TowerCrank.tscn" id="12_4fxa8"]
+[ext_resource type="PackedScene" uid="uid://brd00a61qq522" path="res://scenes/environment/rock3small.tscn" id="10_s8bal"]
+[ext_resource type="PackedScene" uid="uid://byfo3v12bg3se" path="res://scenes/environment/tree3.tscn" id="11_4iqu7"]
+[ext_resource type="PackedScene" uid="uid://qsif260hysjo" path="res://scenes/troops/Archer.tscn" id="12_0exr2"]
+[ext_resource type="PackedScene" uid="uid://b7sntgxcdmna0" path="res://scenes/environment/tree2.tscn" id="12_3g52j"]
+[ext_resource type="PackedScene" uid="uid://c4n72583y3r4" path="res://scenes/TowerCrank.tscn" id="12_4fxa8"]
 [ext_resource type="Script" uid="uid://mffaxltqg4lb" path="res://scripts/state_label.gd" id="13_4fxa8"]
-[ext_resource type="PackedScene" uid="uid://k58gkwocsxla" path="res://scenes/Environment/tree1.tscn" id="13_b3pp0"]
-[ext_resource type="PackedScene" uid="uid://c4ajri41cpeps" path="res://scenes/AutomatFrame.tscn" id="13_ex6dp"]
-[ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/AutomatWindow.tscn" id="14_cg2kh"]
-[ext_resource type="PackedScene" uid="uid://cdmu2yfespg51" path="res://scenes/Environment/vineMesh.tscn" id="14_y0td7"]
-[ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/Swordsman.tscn" id="15_cg2kh"]
+[ext_resource type="PackedScene" uid="uid://k58gkwocsxla" path="res://scenes/environment/tree1.tscn" id="13_b3pp0"]
+[ext_resource type="PackedScene" uid="uid://c4ajri41cpeps" path="res://scenes/automat/AutomatFrame.tscn" id="13_ex6dp"]
+[ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/automat/AutomatWindow.tscn" id="14_cg2kh"]
+[ext_resource type="PackedScene" uid="uid://cdmu2yfespg51" path="res://scenes/environment/vineMesh.tscn" id="14_y0td7"]
+[ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/troops/Swordsman.tscn" id="15_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://ui1alaphpder" path="res://tutorial/tutorial_manager.tscn" id="16_icjtl"]
-[ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/BearTrap.tscn" id="17_6qjax"]
+[ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/troops/BearTrap.tscn" id="17_6qjax"]
 [ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
 [ext_resource type="PackedScene" uid="uid://cyl5k1jmir2q" path="res://tutorial/TutorialUITooltip3D.tscn" id="18_sao6o"]
 [ext_resource type="Script" uid="uid://brl4nrxuagftm" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
@@ -295,7 +295,6 @@ environment = SubResource("Environment_haeiw")
 
 [node name="Player" parent="." unique_id=970537108 instance=ExtResource("1_eqhe0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0973711, 0)
-coins = 0
 
 [node name="EnvironmentAssets" type="Node3D" parent="." unique_id=434211794]
 
@@ -459,10 +458,10 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 
 [node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480]
 
-[node name="table test" parent="Room/Table" unique_id=1702087101 instance=ExtResource("6_i2arf")]
+[node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=220868998]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=473904424]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 

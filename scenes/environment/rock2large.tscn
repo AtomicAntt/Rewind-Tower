@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bpke0xnm44dhp"]
 
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_5cea5"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_wpqrg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ap6lt"]
 
@@ -42,5 +42,5 @@ shadow_mesh = SubResource("ArrayMesh_um33h")
 
 [node name="SM_rock2" type="MeshInstance3D" parent="SM_rocks" unique_id=937912627]
 transform = Transform3D(5.715, 0, 0, 0, 5.715, 0, 0, 0, 5.715, 0, 0, 0)
-material_override = ExtResource("1_5cea5")
+material_override = ExtResource("1_wpqrg")
 mesh = SubResource("ArrayMesh_a3n0n")

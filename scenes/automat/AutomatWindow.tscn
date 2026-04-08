@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://dpy7oein2g13m"]
 
 [ext_resource type="Script" uid="uid://cfjyjlt06qkip" path="res://scripts/automat_window.gd" id="1_a71aj"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_kaifn"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/materials/universal material shiny.tres" id="2_e3bxy"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_s5svj"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/materials/universal material alpha.tres" id="3_04k3f"]
 [ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
 [ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/TwisterInteractable.tscn" id="4_a71aj"]
@@ -319,7 +319,7 @@ Cost:
 [node name="SM_automatWindow" type="Node3D" parent="." unique_id=855241377]
 
 [node name="SM_automatSeg" type="MeshInstance3D" parent="SM_automatWindow" unique_id=1887275413]
-material_override = ExtResource("1_kaifn")
+material_override = ExtResource("2_s5svj")
 mesh = SubResource("ArrayMesh_254dn")
 
 [node name="SM_automatCoinSlot" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=511339970]
@@ -329,13 +329,12 @@ mesh = SubResource("ArrayMesh_schmv")
 
 [node name="SM_automatCrank" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1051369624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01766339)
-visible = false
-material_override = ExtResource("1_kaifn")
+material_override = ExtResource("2_s5svj")
 mesh = SubResource("ArrayMesh_lqk24")
 
 [node name="SM_automatDoor" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=849999876]
 transform = Transform3D(0.10580349, 0, 0, 0, 0.10580349, 0, 0, 0, 0.10580349, 0.2486178, 0.046209924, 0)
-material_override = ExtResource("1_kaifn")
+material_override = ExtResource("2_s5svj")
 mesh = SubResource("ArrayMesh_6vi87")
 
 [node name="SM_automatWindow" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg/SM_automatDoor" unique_id=1612551227]
@@ -364,7 +363,7 @@ libraries/ = SubResource("AnimationLibrary_hm3qu")
 [node name="SM_automatInfo2" type="Node3D" parent="." unique_id=1080073769]
 
 [node name="SM_automatInfo" type="MeshInstance3D" parent="SM_automatInfo2" unique_id=1004892837]
-material_override = ExtResource("1_kaifn")
+material_override = ExtResource("2_s5svj")
 mesh = SubResource("ArrayMesh_25kda")
 
 [node name="CoinSnapZone" parent="." unique_id=2083040434 instance=ExtResource("4_04k3f")]

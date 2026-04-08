@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7mo24tesbk7u"]
 
 [ext_resource type="Script" uid="uid://bgs4iv4aus4xm" path="res://scripts/defense_projectile.gd" id="1_mw8uj"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="2_hgosb"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_byned"]
 [ext_resource type="Script" uid="uid://bqflf4vw8mem1" path="res://addons/lines_and_trails_3d/trail_3d.gd" id="3_byned"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_55xgr"]
@@ -62,7 +62,7 @@ shape = SubResource("SphereShape3D_55xgr")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="SM_arrow" type="MeshInstance3D" parent="SM_arrow2" unique_id=687216527]
-material_override = ExtResource("2_hgosb")
+material_override = ExtResource("2_byned")
 mesh = SubResource("ArrayMesh_o2p75")
 
 [node name="Trail3D" type="MeshInstance3D" parent="SM_arrow2/SM_arrow" unique_id=301349130]

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dq628ogum8q8x" path="res://scripts/defense_hitbox.gd" id="1_p7bue"]
 [ext_resource type="AudioStream" uid="uid://djufsrglrd0lt" path="res://assets/audio/gate dmg 1.ogg" id="2_1tcto"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_fyufr"]
 [ext_resource type="AudioStream" uid="uid://klh7svq23xc8" path="res://assets/audio/gate dmg 2.ogg" id="3_jatxn"]
 [ext_resource type="AudioStream" uid="uid://cavopr84qglwn" path="res://assets/audio/gate dmg 3.ogg" id="4_fyufr"]
 [ext_resource type="AudioStream" uid="uid://nc2dxi62ldqr" path="res://assets/audio/gate dmg 4.ogg" id="5_1t43o"]
 [ext_resource type="AudioStream" uid="uid://cfochiadkifyf" path="res://assets/audio/gate dmg 5.ogg" id="6_3840f"]
 [ext_resource type="AudioStream" uid="uid://nimilp00ypan" path="res://assets/audio/gate dmg.ogg" id="7_nd31t"]
 [ext_resource type="AudioStream" uid="uid://c7esvpme11jhi" path="res://assets/audio/gate destroyed.ogg" id="8_jatxn"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="9_fyufr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4e35"]
 
@@ -75,7 +75,7 @@ health_bar = NodePath("SubViewport/ProgressBar")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.09165025, 0)
 
 [node name="SM_Gate" type="MeshInstance3D" parent="SM_Gate2" unique_id=216333510]
-material_override = ExtResource("9_fyufr")
+material_override = ExtResource("2_fyufr")
 mesh = SubResource("ArrayMesh_itpjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1339985242]

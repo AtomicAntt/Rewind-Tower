@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c4ajri41cpeps"]
 
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_n3fp3"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_xkscr"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/materials/universal material shiny.tres" id="2_nnh6j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viykv"]
@@ -93,7 +93,7 @@ _data = {
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="SM_automatFrame" type="MeshInstance3D" parent="SM_automat" unique_id=1600297829]
-material_override = ExtResource("1_n3fp3")
+material_override = ExtResource("1_xkscr")
 mesh = SubResource("ArrayMesh_4sbp1")
 
 [node name="SM_automatText" type="MeshInstance3D" parent="SM_automat/SM_automatFrame" unique_id=1554271821]

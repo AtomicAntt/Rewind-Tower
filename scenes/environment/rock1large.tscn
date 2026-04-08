@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://2wt66vbye16f"]
 
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_u1jym"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_dkvxr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h7r0"]
 
@@ -43,5 +43,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00015282631, 0, 0.002883762
 
 [node name="SM_rock1" type="MeshInstance3D" parent="SM_rocks" unique_id=1176036393]
 transform = Transform3D(5.92, 0, 0, 0, 5.92, 0, 0, 0, 5.92, 0, 0, 0)
-material_override = ExtResource("1_u1jym")
+material_override = ExtResource("1_dkvxr")
 mesh = SubResource("ArrayMesh_6sjcd")

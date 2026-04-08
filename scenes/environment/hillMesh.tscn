@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b741fbxy6vc0q"]
 
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_jplhl"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_nvs6c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d44bk"]
 
@@ -41,5 +41,5 @@ shadow_mesh = SubResource("ArrayMesh_5e1ci")
 [node name="SM_hill" type="Node3D" parent="." unique_id=883028320]
 
 [node name="SM_Hill" type="MeshInstance3D" parent="SM_hill" unique_id=824387034]
-material_override = ExtResource("1_jplhl")
+material_override = ExtResource("1_nvs6c")
 mesh = SubResource("ArrayMesh_6pkct")

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cdmu2yfespg51"]
 
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="1_q7ay6"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_mc3uk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1ty5"]
 
@@ -41,5 +41,5 @@ shadow_mesh = SubResource("ArrayMesh_1v4wi")
 [node name="SM_vines" type="Node3D" parent="." unique_id=1393791672]
 
 [node name="SM_Vines" type="MeshInstance3D" parent="SM_vines" unique_id=1285673654]
-material_override = ExtResource("1_q7ay6")
+material_override = ExtResource("1_mc3uk")
 mesh = SubResource("ArrayMesh_aq433")

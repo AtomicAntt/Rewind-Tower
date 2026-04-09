@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_s5svj"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/materials/universal material alpha.tres" id="3_04k3f"]
 [ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
-[ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/TwisterInteractable.tscn" id="4_a71aj"]
+[ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/automat/TwisterInteractable.tscn" id="4_a71aj"]
 [ext_resource type="AudioStream" uid="uid://cddww7st31inu" path="res://assets/audio/coin insert.ogg" id="7_s6mud"]
 [ext_resource type="AudioStream" uid="uid://c3rs0m4h6fsd0" path="res://assets/audio/coin insert 1.ogg" id="8_vikwq"]
 [ext_resource type="AudioStream" uid="uid://dtu2mrdl3kaho" path="res://assets/audio/coin insert 2.ogg" id="9_lhvv7"]

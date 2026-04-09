@@ -1,8 +1,8 @@
 extends Node
 
-const archer_troop_scene: PackedScene = preload("res://scenes/Archer.tscn")
-const swordsman_troop_scene: PackedScene = preload("res://scenes/Swordsman.tscn")
-const beartrap_scene: PackedScene = preload("res://scenes/BearTrap.tscn")
+const archer_troop_scene: PackedScene = preload("res://scenes/troops/Archer.tscn")
+const swordsman_troop_scene: PackedScene = preload("res://scenes/troops/Swordsman.tscn")
+const beartrap_scene: PackedScene = preload("res://scenes/troops/BearTrap.tscn")
 
 @export var drawer_spawn_point: Node3D
 

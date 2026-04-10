@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://qsif260hysjo"]
 
 [ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_ys6re"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_3w457"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_owgmq"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="3_13w10"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="4_qm8lu"]
 [ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="6_ma2m2"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/defense_troop_hitbox.gd" id="6_vtcc4"]
@@ -380,7 +380,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
 
 [node name="SM_archerBase" type="MeshInstance3D" parent="SM_archer" unique_id=1914381429]
 transform = Transform3D(0.740297, 0, 0, 0, 0.740297, 0, 0, 0, 0.740297, 0, 0, 0)
-material_override = ExtResource("4_qm8lu")
+material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_fwv7s")
 
 [node name="SM_archerBody" type="MeshInstance3D" parent="SM_archer/SM_archerBase" unique_id=1002539329]
@@ -390,16 +390,16 @@ mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
 transform = Transform3D(0.9659255, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659255, -0.052413225, 0.13324311, 0.019046383)
-material_override = ExtResource("4_qm8lu")
+material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_5ys36")
 
 [node name="SM_archerHead" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1704316942]
 transform = Transform3D(0.42261803, 0, 0.9063079, 0, 1, 0, -0.9063079, 0, 0.42261803, -0.007958941, 0.16343772, -0.003614734)
-material_override = ExtResource("4_qm8lu")
+material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_3yo6f")
 
 [node name="SM_archerhelmet" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1912288963]
-material_override = ExtResource("4_qm8lu")
+material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_ulej5")
 
 [node name="Crank" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=450228322 node_paths=PackedStringArray("pickable")]
@@ -422,7 +422,7 @@ metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
 [node name="SM_archerCrank" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=2112353820]
 transform = Transform3D(-1.4570458e-07, -3.3333323, 1.4570458e-07, 0, -1.4570458e-07, -3.3333323, 3.3333323, -1.4570458e-07, 0, 0.00050195935, 6.34844e-10, 0.0053123804)
-material_override = ExtResource("4_qm8lu")
+material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_utp47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1186815834]

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bpeh1bkthuneu"]
 
 [ext_resource type="Script" uid="uid://b7t04foy11btw" path="res://scripts/enemy.gd" id="1_gnmqa"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="2_j633b"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_s4tsm"]
 [ext_resource type="AudioStream" uid="uid://didtqghonc5np" path="res://assets/audio/enemy break.ogg" id="3_o6lc5"]
 [ext_resource type="AudioStream" uid="uid://qi5je6gm1d7y" path="res://assets/audio/enemy break 1.ogg" id="4_v2b0b"]
 [ext_resource type="AudioStream" uid="uid://bax14tnburqqx" path="res://assets/audio/enemy break 2.ogg" id="5_o6lc5"]
@@ -431,7 +431,7 @@ bones/4/rotation = Quaternion(-1.9470718e-07, -2.5717194e-08, 1, 3.338215e-15)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="SM_raider" type="MeshInstance3D" parent="EnemyHitbox/SM_Raider/RaiderArmature/Skeleton3D" unique_id=78861615]
-material_override = ExtResource("2_j633b")
+material_override = ExtResource("2_s4tsm")
 mesh = SubResource("ArrayMesh_fdrms")
 skin = SubResource("Skin_nxheu")
 skeleton = NodePath("..")

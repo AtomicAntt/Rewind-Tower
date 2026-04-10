@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c5dd6luvuwbqj"]
 
 [ext_resource type="Script" uid="uid://b7t04foy11btw" path="res://scripts/enemy.gd" id="1_joyog"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="2_joyog"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_r0k3s"]
 [ext_resource type="AudioStream" uid="uid://dmahiua3x84n7" path="res://assets/audio/bear.ogg" id="3_4khxr"]
 [ext_resource type="AudioStream" uid="uid://didtqghonc5np" path="res://assets/audio/enemy break.ogg" id="4_m6kxa"]
 [ext_resource type="AudioStream" uid="uid://qi5je6gm1d7y" path="res://assets/audio/enemy break 1.ogg" id="5_p8v55"]
@@ -500,7 +500,7 @@ bones/5/rotation = Quaternion(0.70710576, 8.0252573e-07, 0.7071078, 8.0165626e-0
 bones/5/scale = Vector3(1, 0.99999994, 1)
 
 [node name="SM_Bear" type="MeshInstance3D" parent="EnemyHitbox/SM_Bear2/BearArmature/Skeleton3D" unique_id=1701408206]
-material_override = ExtResource("2_joyog")
+material_override = ExtResource("2_r0k3s")
 mesh = SubResource("ArrayMesh_tbwqe")
 skin = SubResource("Skin_w822t")
 skeleton = NodePath("..")

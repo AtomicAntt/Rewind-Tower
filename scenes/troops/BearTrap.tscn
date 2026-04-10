@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b1b0ofplv78m2"]
 
 [ext_resource type="Script" uid="uid://xv4k5whp7u0i" path="res://scripts/bear_trap.gd" id="1_ruw1s"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="2_ruw1s"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_8b3wy"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/materials/xray material.tres" id="3_bvxqo"]
 [ext_resource type="AudioStream" uid="uid://y06ow7ojdpfq" path="res://assets/audio/bear trap 1.ogg" id="4_tcocn"]
 [ext_resource type="AudioStream" uid="uid://dfgtto7db04dr" path="res://assets/audio/bear trap 2.ogg" id="5_umju6"]
@@ -279,7 +279,7 @@ bones/2/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/2/scale = Vector3(1, 1, 1)
 
 [node name="SM_bearTrap" type="MeshInstance3D" parent="SM_BearTrap/BearTrapArmature/Skeleton3D" unique_id=929504879]
-material_override = ExtResource("2_ruw1s")
+material_override = ExtResource("2_8b3wy")
 mesh = SubResource("ArrayMesh_goqr2")
 skin = SubResource("Skin_m4gpm")
 skeleton = NodePath("..")

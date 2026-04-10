@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkb3hdvknm143"]
 
 [ext_resource type="Script" uid="uid://dxx3xwbvubo8c" path="res://settings.gd" id="1_i47rn"]
+[ext_resource type="PackedScene" uid="uid://bpwq6hlklc0q8" path="res://scenes/Knob.tscn" id="2_i47rn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_i47rn"]
 
@@ -19,7 +20,7 @@ text = "Settings"
 font_size = 64
 
 [node name="VolumeHeader" type="Label3D" parent="." unique_id=1203502721]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.005709461, 0.02067323, 0.055621207)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.005709461, 0.02067323, 0.005459957)
 sorting_offset = 1.0
 text = "Volume"
 font_size = 64
@@ -66,3 +67,15 @@ unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.46516943, -0.052174896, 0.05506456)
 text = "0"
 font_size = 64
+
+[node name="Master" parent="Volume Knobs" unique_id=45405399 instance=ExtResource("2_i47rn")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063, 0, 0.017)
+
+[node name="Music" parent="Volume Knobs" unique_id=1628906129 instance=ExtResource("2_i47rn")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26549482, 0, 0.017260209)
+
+[node name="SFX" parent="Volume Knobs" unique_id=116803961 instance=ExtResource("2_i47rn")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, 0, 0.017)

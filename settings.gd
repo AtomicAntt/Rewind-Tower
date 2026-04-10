@@ -26,18 +26,40 @@ func _ready() -> void:
 	sfx_percent_text = %SFXPercent
 
 func _process(_delta: float) -> void:
-	master_percent_text.text = str(master_knob.twister_value)
-	music_percent_text.text = str(music_knob.twister_value)
-	sfx_percent_text.text = str(sfx_knob.twister_value)
+	master_percent_text.text = str(master_knob.value)
+	music_percent_text.text = str(music_knob.value)
+	sfx_percent_text.text = str(sfx_knob.value)
 	
-	var master_value = clamp(master_knob.twister_value, volume_min, volume_max)
-	var music_value = clamp(music_knob.twister_value, volume_min, volume_max)
-	var sfx_value = clamp(sfx_knob.twister_value, volume_min, volume_max)
+	var master_value = master_knob.value
+	var music_value = music_knob.value
+	var sfx_value = sfx_knob.value
 	
-	var master_percent = master_value * 2.5
-	var music_percent = music_value * 2.5
-	var sfx_percent = sfx_value * 2.5
+	@warning_ignore("narrowing_conversion")
+	var master_percent: int = remap(master_value, -10, 10, 0, 100)
+	@warning_ignore("narrowing_conversion")
+	var music_percent: int = remap(music_value, -10, 10, 0, 100)
+	@warning_ignore("narrowing_conversion")
+	var sfx_percent: int = remap(sfx_value, -10, 10, 0, 100)
 	
-	#AudioServer.set_bus_volume_db(0, master_percent)
-	#AudioServer.set_bus_volume_db(1, music_percent)
-	#AudioServer.set_bus_volume_db(2, sfx_percent)
+	master_percent_text.text = str(master_percent)
+	music_percent_text.text = str(music_percent)
+	sfx_percent_text.text = str(sfx_percent)
+	
+	AudioServer.set_bus_volume_db(0, master_value)
+	AudioServer.set_bus_volume_db(1, music_value)
+	AudioServer.set_bus_volume_db(2, sfx_value)
+	
+	if master_value < -9.5:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
+
+	if music_value < -9.5:
+		AudioServer.set_bus_mute(1, true)
+	else:
+		AudioServer.set_bus_mute(1, false)
+
+	if sfx_value < -9.5:
+		AudioServer.set_bus_mute(2, true)
+	else:
+		AudioServer.set_bus_mute(2, false)

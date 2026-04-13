@@ -329,6 +329,7 @@ mesh = SubResource("ArrayMesh_schmv")
 
 [node name="SM_automatCrank" type="MeshInstance3D" parent="SM_automatWindow/SM_automatSeg" unique_id=1051369624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059787005, 0.07293073, 0.01766339)
+visible = false
 material_override = ExtResource("2_s5svj")
 mesh = SubResource("ArrayMesh_lqk24")
 

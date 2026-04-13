@@ -17,13 +17,18 @@ func set_sfx(value: float):
 	config.set_value("AUDIO","sfx_volume",value)
 	
 func get_master() -> float:
-	return config.get_value("AUDIO","master_volume")
-	
+	if config.get_value("AUDIO","master_volume") != null:
+		return config.get_value("AUDIO","master_volume")
+	return 10
 func get_music() -> float:
-	return config.get_value("AUDIO","music_volume")
+	if config.get_value("AUDIO","music_volume") != null:
+		return config.get_value("AUDIO","music_volume")
+	return 3
 	
 func get_sfx() -> float:
-	return config.get_value("AUDIO","sfx_volume")
+	if config.get_value("AUDIO","sfx_volume") != null:
+		return config.get_value("AUDIO","sfx_volume")
+	return 8
 
 func _ready() -> void:
 	config.load(path)

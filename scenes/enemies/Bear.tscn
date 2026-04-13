@@ -442,7 +442,6 @@ animation_player = NodePath("EnemyHitbox/SM_Bear2/AnimationPlayer")
 run_anim = "anim_bearRun"
 attack_anim = "anim_bearAttack"
 death_anim = "anim_bearDeath"
-coin_value = 2
 
 [node name="EnemyHitbox" type="Area3D" parent="." unique_id=1342597656 groups=["EnemyHitbox"]]
 unique_name_in_owner = true

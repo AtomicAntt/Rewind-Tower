@@ -14,10 +14,18 @@ var round_data: Array
 ## The queue containing enemy names that can be dynamically pushed and popped for the purpose of spawning enemies.
 var current_queue: Array[String]
 
+## Size of the current_queue on round start.
+var initial_queue_size: int
+## Value of CoinsDropped in the current round data on round start.
+var coin_drop_threshold: int
+
 var current_wait_time: float = 4.0
 
 ## The current round which the game is currently in. When the tower is winded up, this round will be the one that starts.
 var current_round: int = 1
+
+## When this value gets to 0, it should be reset to initial_queue_size/coins_drop_threshold
+var enemies_drop_counter: int
 
 ## This signal gets called after start_round().
 ## The purpose is to start spawning enemies with the EnemySpawner that are in the current_queue.
@@ -58,8 +66,10 @@ func return_queue_data(round_num: int) -> Array[String]:
 ## Sets the current queue of enemies given a round number.
 func set_queue(round_num: int) -> void:
 	current_queue = return_queue_data(round_num)
+	initial_queue_size = current_queue.size()
 	var dict: Dictionary = round_data[round_num-1]
 	current_wait_time = float(dict["SpawnTime"])
+	coin_drop_threshold = int(dict["CoinsDropped"])
 	
 ## Starts the current round. 
 ## This function can be called for both when you start a round new after the intermission/tutorial or if you wanted to restart the round.
@@ -73,6 +83,9 @@ func start_round() -> void:
 	
 	# Then, we need to set the queue
 	set_queue(current_round)
+	
+	# Also, reset coin counter when coins drop
+	reset_coin_counter()
 	
 	# Finally, let the game know that the round has started. 
 	# (Example: An EnemySpawner should be listening to this signal getting emitted to know when to start the timer to spawn enemies from current_queue)
@@ -107,6 +120,23 @@ func check_round_won() -> void:
 			set_intermission()
 		elif current_round > round_data.size():
 			state = States.GAMEWON
+
+## Call this whenever enemies die.
+## It should reduce the coin counter, and returns true if it has reached 0. Afterwards, the coin counter should reset.
+func check_coin_drop() -> bool:
+	enemies_drop_counter -= 1
+	if enemies_drop_counter <= 0:
+		reset_coin_counter()
+		return true
+	return false
+
+## Call this to reset the coin counter
+## Example: It reaches 0 after an enemy gets defeated or whenever rounds start.
+func reset_coin_counter() -> void:
+	# We'll ignore integer division as it'll round the value down from how it works.
+	# For example, if there were 11 enemies and 2 coins to be dropped, it'd be dropping coins every 5.5 enemies -> 5 enemies
+	@warning_ignore("integer_division")
+	enemies_drop_counter = initial_queue_size / coin_drop_threshold
 
 ## Call this to check if the game state is currently in intermission.
 func in_intermission() -> bool:

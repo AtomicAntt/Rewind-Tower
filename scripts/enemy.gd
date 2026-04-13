@@ -30,8 +30,8 @@ var stunned: bool = false
 @export var attack_anim: String
 @export var death_anim: String
 
-## Drops this amount of coins.
-@export var coin_value: int = 1
+## Drops this amount of coins. (Probably only elites/bosses will have a specified drop value)
+@export var coin_value: int = 0
 
 const coin_scene: PackedScene = preload("res://scenes/Coin.tscn")
 
@@ -71,23 +71,29 @@ func hurt(amount: float) -> void:
 	enemy_hp -= amount
 	if enemy_hp <= 0:
 		
-		var coin_amount = coin_value
+		# In case a specific enemy has an amount of coins they specifically drop.
+		# In most cases, it should be dropping coins depending on the round manager.
+		drop_coins(coin_value)
 		
-		for i in range(coin_amount):
-			var new_coin = coin_scene.instantiate()
-			get_parent().add_child(new_coin)
-			
-			new_coin.global_position = global_position
-			
-			var coin_direction: Vector3
-			coin_direction.x = randi_range(1,3)
-			coin_direction.y = randi_range(2,5)
-			coin_direction.z = randi_range(1,3)
-			new_coin.get_child(0).apply_force(coin_direction * 50)
+		if RoundManager.check_coin_drop():
+			drop_coins(1)
 		
 		RoundManager.check_round_won()
 		
 		death()
+
+func drop_coins(coin_amount: int) -> void:
+	for i in range(coin_amount):
+		var new_coin = coin_scene.instantiate()
+		get_parent().add_child(new_coin)
+		
+		new_coin.global_position = global_position
+		
+		var coin_direction: Vector3
+		coin_direction.x = randi_range(1,3)
+		coin_direction.y = randi_range(2,5)
+		coin_direction.z = randi_range(1,3)
+		new_coin.get_child(0).apply_force(coin_direction * 50)
 
 func death() -> void:
 	is_dead = true

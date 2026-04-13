@@ -27,6 +27,7 @@ XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 RoundManager="*uid://x8dfdky3j5te"
 TutorialSystem="*uid://s7lg5jxdsomq"
+SettingsHandler="*uid://dl6jthcr3nvga"
 
 [editor_plugins]
 

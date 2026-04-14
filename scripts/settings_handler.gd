@@ -3,6 +3,9 @@ extends Node
 var config: ConfigFile = ConfigFile.new()
 var path: String = "user://config.cfg"
 
+var master_default: float = 10
+var music_default: float = -7.88
+var sfx_default: float = 2.199
 
 func save():
 	config.save(path)
@@ -19,16 +22,16 @@ func set_sfx(value: float):
 func get_master() -> float:
 	if config.get_value("AUDIO","master_volume") != null:
 		return config.get_value("AUDIO","master_volume")
-	return 10
+	return master_default
 func get_music() -> float:
 	if config.get_value("AUDIO","music_volume") != null:
 		return config.get_value("AUDIO","music_volume")
-	return 3
+	return music_default
 	
 func get_sfx() -> float:
 	if config.get_value("AUDIO","sfx_volume") != null:
 		return config.get_value("AUDIO","sfx_volume")
-	return 8
+	return sfx_default
 
 func _ready() -> void:
 	config.load(path)

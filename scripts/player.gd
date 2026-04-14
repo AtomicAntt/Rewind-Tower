@@ -1,4 +1,5 @@
 extends Node3D
+class_name Player
 
 var xr_interface: XRInterface
 
@@ -9,6 +10,9 @@ var xr_interface: XRInterface
 @onready var coin_display: Label3D = %CoinDisplay
 
 @onready var coin_respawn_timer: Timer = %CoinRespawn
+
+@onready var snapzone: XRToolsSnapZone = %Snapzone
+@onready var mouth_particles: GPUParticles3D = %MouthParticles
 
 const coin_pickup: PackedScene = preload("res://scenes/CoinPickable.tscn")
 

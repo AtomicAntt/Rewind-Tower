@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dmy86dohe1g1y"]
+[gd_scene format=3 uid="uid://7lkhpklyrfs"]
 
 [ext_resource type="Script" uid="uid://dflo3au2dabsc" path="res://scripts/player.gd" id="1_e80uo"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="1_xhfnw"]
@@ -9,6 +9,24 @@
 [ext_resource type="AudioStream" uid="uid://cpbk2rd5sftep" path="res://assets/audio/coins.ogg" id="12_rv870"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_d6rpx"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_r3kul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wi0c6"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hp6x6"]
+direction = Vector3(0, 0, -0.05)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, -0.1)
+scale_min = 0.099999994
+scale_max = 0.099999994
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2eguf"]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3tkgg"]
+material = SubResource("StandardMaterial3D_2eguf")
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e80uo"]
 size = Vector3(0.05, 0.1, 0.168)
@@ -34,6 +52,30 @@ script = ExtResource("1_e80uo")
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["XRCamera3D"]]
+
+[node name="Snapzone" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=485673022]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049652874, -0.10750523)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("5_tdg3f")
+grab_distance = 1.0
+snap_require = "Cigarette"
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=1037221598]
+shape = SubResource("BoxShape3D_wi0c6")
+
+[node name="MouthParticles" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=21089323]
+unique_name_in_owner = true
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 3.552713e-16, 0, -3.552713e-16, 0.01, 0, 0, 0)
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_hp6x6")
+draw_pass_1 = SubResource("BoxMesh_3tkgg")
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=129644625]
 unique_name_in_owner = true

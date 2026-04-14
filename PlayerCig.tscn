@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cp5aw4uoggygi"]
+
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_kne1u"]
+[ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="2_tdg3f"]
+[ext_resource type="Script" uid="uid://b18kkstg643yw" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_cxr5p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtqjt"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxr5p"]
+direction = Vector3(0, 0, -0.05)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, -0.1)
+scale_min = 0.099999994
+scale_max = 0.099999994
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1xre"]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tdg3f"]
+material = SubResource("StandardMaterial3D_p1xre")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdg3f"]
+size = Vector3(0.08, 0.1, 0.15)
+
+[node name="Player" type="Node3D" unique_id=904474994 groups=["Player"]]
+
+[node name="Origin" type="XROrigin3D" parent="." unique_id=2099254621]
+
+[node name="Camera" type="XRCamera3D" parent="Origin" unique_id=352708780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Snapzone" type="Area3D" parent="Origin/Camera" unique_id=149206355]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049652874, -0.10750523)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_tdg3f")
+grab_distance = 1.0
+snap_require = "Cigarette"
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/Camera/Snapzone" unique_id=923505524]
+shape = SubResource("BoxShape3D_dtqjt")
+
+[node name="MouthParticles" type="GPUParticles3D" parent="Origin/Camera/Snapzone" unique_id=937998724]
+unique_name_in_owner = true
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 3.552713e-16, 0, -3.552713e-16, 0.01, 0, 0, 0)
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cxr5p")
+draw_pass_1 = SubResource("BoxMesh_tdg3f")
+
+[node name="LeftController" type="XRController3D" parent="Origin" unique_id=610097834]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="Origin/LeftController" unique_id=1767341659 instance=ExtResource("1_kpjcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.046817124, 0.05457817)
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="Origin/LeftController" unique_id=1972606173]
+script = ExtResource("3_cxr5p")
+ranged_enable = false
+ranged_distance = 1.0
+metadata/_custom_type_script = "uid://b18kkstg643yw"
+
+[node name="Area3D" type="Area3D" parent="Origin/LeftController/XRToolsFunctionPickup" unique_id=1928825365]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/LeftController/XRToolsFunctionPickup/Area3D" unique_id=2117141072]
+shape = SubResource("BoxShape3D_tdg3f")
+
+[node name="RightController" type="XRController3D" parent="Origin" unique_id=1403567616]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="Origin/RightController" unique_id=466531577 instance=ExtResource("2_kne1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.046817124, 0.05457817)
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="Origin/RightController" unique_id=1464517118]
+script = ExtResource("3_cxr5p")
+ranged_enable = false
+ranged_distance = 1.0
+metadata/_custom_type_script = "uid://b18kkstg643yw"
+
+[node name="Area3D" type="Area3D" parent="Origin/RightController/XRToolsFunctionPickup" unique_id=1341570989]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/RightController/XRToolsFunctionPickup/Area3D" unique_id=584788804]
+shape = SubResource("BoxShape3D_tdg3f")

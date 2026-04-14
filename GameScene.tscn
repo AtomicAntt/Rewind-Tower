@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ce5qe2iq1jhhr"]
 
 [ext_resource type="Script" uid="uid://bov1xim3k40hp" path="res://scripts/game_manager.gd" id="1_4fxa8"]
-[ext_resource type="PackedScene" uid="uid://dmy86dohe1g1y" path="res://Player.tscn" id="1_eqhe0"]
+[ext_resource type="PackedScene" uid="uid://7lkhpklyrfs" path="res://Player.tscn" id="1_eqhe0"]
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="3_4iqu7"]
 [ext_resource type="PackedScene" uid="uid://b741fbxy6vc0q" path="res://scenes/environment/hillMesh.tscn" id="4_0p1ba"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
@@ -38,7 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
-[ext_resource type="PackedScene" uid="uid://bkb3hdvknm143" path="res://scenes/Settings.tscn" id="40_b3pp0"]
+[ext_resource type="PackedScene" uid="uid://cn2ukcfhnhk6u" path="res://scenes/Cigarrete.tscn" id="39_3g52j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -463,7 +463,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1142927959]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -809,8 +809,8 @@ bus = &"Music"
 [node name="DefenseProjectile" parent="." unique_id=549616968 instance=ExtResource("37_s8bal")]
 transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
 
-[node name="Settings" parent="." unique_id=406405812 instance=ExtResource("40_b3pp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12405686, 1.265, -0.6096397)
+[node name="Cigarette" parent="." unique_id=1965363167 instance=ExtResource("39_3g52j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7402221, 1.025, -0.14563093)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 

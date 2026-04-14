@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cn2ukcfhnhk6u"]
+
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_k0ele"]
+[ext_resource type="Script" uid="uid://bt6jwoam8ywa" path="res://scripts/cigarette.gd" id="1_s2std"]
+[ext_resource type="PackedScene" uid="uid://dwl56camhwkgn" path="res://assets/meshes/environment/Cigarette.glb" id="2_fl3ag"]
+[ext_resource type="Script" uid="uid://dx3swqg2owe4p" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_lc1qp"]
+[ext_resource type="Animation" uid="uid://cc6phxovf1ban" path="res://addons/godot-xr-tools/hands/animations/left/Sign 2.res" id="3_8qhmk"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="3_gsbp4"]
+[ext_resource type="Animation" uid="uid://btnsp36fjkldf" path="res://addons/godot-xr-tools/hands/animations/right/Sign 2.res" id="5_2eguf"]
+[ext_resource type="Animation" uid="uid://bxmc3vlfih764" path="res://addons/godot-xr-tools/hands/animations/right/Peace.res" id="6_ytnr3"]
+[ext_resource type="AudioStream" uid="uid://byvmfh01tw2rg" path="res://assets/audio/Inhale.ogg" id="8_s2std"]
+[ext_resource type="AudioStream" uid="uid://4a633ulw32kp" path="res://assets/audio/Exhale.ogg" id="9_334er"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7us5"]
+size = Vector3(0.02, 0.12, 0.02)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qhmk"]
+direction = Vector3(0, 0, -0.05)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, -0.1)
+scale_min = 0.099999994
+scale_max = 0.099999994
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qhmk"]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2eguf"]
+material = SubResource("StandardMaterial3D_8qhmk")
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="Resource" id="Resource_fvy3l"]
+script = ExtResource("3_gsbp4")
+open_pose = ExtResource("3_8qhmk")
+closed_pose = ExtResource("3_8qhmk")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_2eguf"]
+script = ExtResource("3_gsbp4")
+open_pose = ExtResource("6_ytnr3")
+closed_pose = ExtResource("5_2eguf")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[node name="Cigarette" type="Node3D" unique_id=1965363167 groups=["Cigarette"]]
+script = ExtResource("1_s2std")
+
+[node name="Pickable" type="RigidBody3D" parent="." unique_id=1002078310 groups=["Cigarette"]]
+unique_name_in_owner = true
+collision_layer = 5
+collision_mask = 5
+freeze = true
+script = ExtResource("1_k0ele")
+picked_up_layer = 65541
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickable" unique_id=1761232147 groups=["Cigarette"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_g7us5")
+
+[node name="Cigarette" parent="Pickable" unique_id=2018712655 instance=ExtResource("2_fl3ag")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="TipParticles" type="GPUParticles3D" parent="Pickable/Cigarette" unique_id=143335786 groups=["Cigarette"]]
+unique_name_in_owner = true
+transform = Transform3D(-5.2453664e-10, -0.012000003, 1.748454e-10, 0, -5.245365e-10, -0.0039999997, 0.012, -5.245368e-10, 7.642735e-18, 0.08159865, -6.661338e-16, -0.00032018512)
+emitting = false
+amount = 16
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8qhmk")
+draw_pass_1 = SubResource("BoxMesh_2eguf")
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="Pickable" unique_id=1888022409]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, -4.371139e-08, 0.08694367, 0.08292435, -0.035031572)
+visible = false
+script = ExtResource("2_lc1qp")
+hand_pose = SubResource("Resource_fvy3l")
+metadata/_custom_type_script = "uid://dx3swqg2owe4p"
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="Pickable" unique_id=309678991]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, -0.082597405, 0.08292435, -0.035031572)
+visible = false
+script = ExtResource("2_lc1qp")
+hand = 1
+hand_pose = SubResource("Resource_2eguf")
+metadata/_custom_type_script = "uid://dx3swqg2owe4p"
+
+[node name="Inhale" type="AudioStreamPlayer" parent="." unique_id=984123323]
+unique_name_in_owner = true
+stream = ExtResource("8_s2std")
+bus = &"SFX"
+
+[node name="Exhale" type="AudioStreamPlayer" parent="." unique_id=776665264]
+unique_name_in_owner = true
+stream = ExtResource("9_334er")
+bus = &"SFX"

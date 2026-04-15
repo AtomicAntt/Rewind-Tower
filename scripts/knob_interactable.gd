@@ -1,7 +1,8 @@
 extends Node
 class_name KnobInteractable
 
-@onready var pickable: XRToolsPickable = %Pickable
+@export var pickable: XRToolsPickable
+@export var wheel: Node3D
 var controller: XRController3D
 
 var position: Vector3
@@ -28,7 +29,6 @@ func _process(_delta: float) -> void:
 	pickable.position = position
 	pickable.rotation = Vector3(0,0,rotation)
 	
-	
 	if pickable.is_picked_up():
 		has_been_let_go = false
 		
@@ -53,11 +53,18 @@ func _process(_delta: float) -> void:
 		
 		delta_rot = controller_rot - picked_up_rotation
 		
-		delta_rot = clampf(delta_rot, -10, 10)
+		delta_rot = clampf(delta_rot, -1, 3.8)
 		
 		rotation = delta_rot
 		
 		value = -delta_rot
+		
+		wheel.rotation.z = -rotation *.6
+		
+		if value > 0:
+			value *= 6
+		else:
+			value *= 2.75
 		
 		#print(delta_rot)
 		

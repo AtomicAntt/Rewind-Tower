@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bpeh1bkthuneu"]
 
 [ext_resource type="Script" uid="uid://b7t04foy11btw" path="res://scripts/enemy.gd" id="1_gnmqa"]
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_s4tsm"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_s4tsm"]
 [ext_resource type="AudioStream" uid="uid://didtqghonc5np" path="res://assets/audio/enemy break.ogg" id="3_o6lc5"]
 [ext_resource type="AudioStream" uid="uid://qi5je6gm1d7y" path="res://assets/audio/enemy break 1.ogg" id="4_v2b0b"]
 [ext_resource type="AudioStream" uid="uid://bax14tnburqqx" path="res://assets/audio/enemy break 2.ogg" id="5_o6lc5"]

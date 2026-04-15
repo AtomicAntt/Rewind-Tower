@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq628ogum8q8x" path="res://scripts/defense_hitbox.gd" id="1_p7bue"]
 [ext_resource type="AudioStream" uid="uid://djufsrglrd0lt" path="res://assets/audio/gate dmg 1.ogg" id="2_1tcto"]
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_fyufr"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_fyufr"]
 [ext_resource type="AudioStream" uid="uid://klh7svq23xc8" path="res://assets/audio/gate dmg 2.ogg" id="3_jatxn"]
 [ext_resource type="AudioStream" uid="uid://cavopr84qglwn" path="res://assets/audio/gate dmg 3.ogg" id="4_fyufr"]
 [ext_resource type="AudioStream" uid="uid://nc2dxi62ldqr" path="res://assets/audio/gate dmg 4.ogg" id="5_1t43o"]

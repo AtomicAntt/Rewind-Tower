@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bov1xim3k40hp" path="res://scripts/game_manager.gd" id="1_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://7lkhpklyrfs" path="res://Player.tscn" id="1_eqhe0"]
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="3_4iqu7"]
 [ext_resource type="PackedScene" uid="uid://b741fbxy6vc0q" path="res://scenes/environment/hillMesh.tscn" id="4_0p1ba"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="4_oieil"]
@@ -10,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5271teptgq1" path="res://scenes/CastleGate.tscn" id="6_ed8b8"]
 [ext_resource type="PackedScene" uid="uid://cdaojy0lsa15w" path="res://assets/meshes/table/SM_table.glb" id="6_i2arf"]
 [ext_resource type="PackedScene" uid="uid://c6ypetm2b2skj" path="res://scenes/environment/rock1small.tscn" id="6_y0td7"]
-[ext_resource type="Material" uid="uid://dtmf8tlb80alx" path="res://assets/materials/universal material.tres" id="7_5cvvu"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="7_5cvvu"]
 [ext_resource type="PackedScene" uid="uid://drjdups42402m" path="res://scenes/environment/rock2small.tscn" id="7_ry04y"]
 [ext_resource type="PackedScene" uid="uid://bpke0xnm44dhp" path="res://scenes/environment/rock2large.tscn" id="8_cvqoq"]
 [ext_resource type="PackedScene" uid="uid://dihvpur1tnl1t" path="res://scenes/environment/rock3large.tscn" id="9_0qy1f"]
@@ -274,7 +273,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3g52j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4iqu7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -305,11 +304,11 @@ transform = Transform3D(4.765, 0, 0, 0, 4.765, 0, 0, 0, 4.765, 0.31345153, 7.861
 
 [node name="SM_gameTitle" type="MeshInstance3D" parent="EnvironmentAssets/SM_gameTitle2" unique_id=1266041009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07605785, -0.04758811, 0)
-material_override = ExtResource("3_4iqu7")
+material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_ea2ej")
 
 [node name="SM_Ground" type="MeshInstance3D" parent="EnvironmentAssets" unique_id=985423964]
-material_override = ExtResource("3_4iqu7")
+material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_uxc8u")
 
 [node name="HillMesh" parent="EnvironmentAssets" unique_id=2067135215 instance=ExtResource("4_0p1ba")]
@@ -331,7 +330,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.853937, 9.536743e-07, 10.
 transform = Transform3D(-0.67914677, 0, -0.7340025, 0, 1, 0, 0.7340025, 0, -0.67914677, -7.005384, 1.6293955, -8.412102)
 
 [node name="SM_castleLarge" type="MeshInstance3D" parent="EnvironmentAssets/SM_castleLarge2" unique_id=1537931931]
-material_override = ExtResource("3_4iqu7")
+material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_cdqdb")
 
 [node name="Rock1" parent="EnvironmentAssets" unique_id=1797825905 instance=ExtResource("5_fsk3a")]
@@ -463,7 +462,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1216636196]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -509,7 +508,7 @@ visible = false
 transform = Transform3D(-0.1535033, 0, 0.98814815, 0, 1, 0, -0.98814815, 0, -0.1535033, 0.93252903, 1.0149999, -0.0012929812)
 
 [node name="SM_castle" type="MeshInstance3D" parent="SM_tower" unique_id=138225019]
-material_override = ExtResource("3_4iqu7")
+material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_mi7nf")
 
 [node name="SM_castleCrank" type="MeshInstance3D" parent="SM_tower/SM_castle" unique_id=643927999]
@@ -526,12 +525,12 @@ visible = false
 
 [node name="SM_castleCrank" type="MeshInstance3D" parent="SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="2" unique_id=1227651334]
 transform = Transform3D(1.4569005e-07, -3.333, 5.03269e-07, -3.333, -1.4569005e-07, 2.1998589e-14, -2.8231608e-21, -5.03269e-07, -3.333, -2.0956215e-08, -0.048288673, 0.0027656544)
-material_override = ExtResource("3_4iqu7")
+material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_3g52j")
+texture = SubResource("ViewportTexture_4iqu7")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://qsif260hysjo"]
 
 [ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_ys6re"]
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_3w457"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_3w457"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_owgmq"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="3_13w10"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]

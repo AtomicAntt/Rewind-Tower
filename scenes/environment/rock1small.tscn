@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c6ypetm2b2skj"]
 
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="1_tkua7"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="1_tkua7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h7r0"]
 

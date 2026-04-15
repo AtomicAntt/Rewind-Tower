@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfjyjlt06qkip" path="res://scripts/automat_window.gd" id="1_a71aj"]
 [ext_resource type="Material" uid="uid://cl348avlxqba6" path="res://assets/materials/universal material shiny.tres" id="2_e3bxy"]
-[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/universal material.tres" id="2_s5svj"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_s5svj"]
 [ext_resource type="Material" uid="uid://7mxo62d7hbft" path="res://assets/materials/universal material alpha.tres" id="3_04k3f"]
 [ext_resource type="PackedScene" uid="uid://gj7xiutpicpy" path="res://scenes/CoinSnapZone.tscn" id="4_04k3f"]
 [ext_resource type="PackedScene" uid="uid://c7rte4i5pqeln" path="res://scenes/automat/TwisterInteractable.tscn" id="4_a71aj"]

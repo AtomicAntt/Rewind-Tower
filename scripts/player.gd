@@ -151,6 +151,8 @@ func _process(_delta: float) -> void:
 		
 		coin_in_slot.global_position = coin_slot.global_position
 		coin_in_slot.rotation = coin_slot.rotation
+		
+	_set_turning()
 
 func _on_coin_respawn_timeout() -> void:
 	can_spawn_coin = true
@@ -165,3 +167,29 @@ func _on_left_function_pickup_has_picked_up(_what: Variant) -> void:
 
 func _on_right_function_pickup_has_picked_up(_what: Variant) -> void:
 	%XRToolsRumbler.rumble_hand(%RightController)
+	
+func _set_turning() -> void:
+	var turn_mode = SettingsHandler.get_turn_mode()
+	
+	var turn_handler = %Turning
+	
+	turn_handler.smooth_turn_speed = SettingsHandler.get_smooth_speed()
+	
+	match turn_mode:
+		0:
+			turn_handler.enabled = false
+		1:
+			turn_handler.enabled = true
+			turn_handler.turn_mode = XRToolsMovementTurn.TurnMode.SNAP
+			turn_handler.step_turn_angle = 30
+		2:
+			turn_handler.enabled = true
+			turn_handler.turn_mode = XRToolsMovementTurn.TurnMode.SNAP
+			turn_handler.step_turn_angle = 45
+		3:
+			turn_handler.enabled = true
+			turn_handler.turn_mode = XRToolsMovementTurn.TurnMode.SNAP
+			turn_handler.step_turn_angle = 90
+		4:
+			turn_handler.enabled = true
+			turn_handler.turn_mode = XRToolsMovementTurn.TurnMode.SMOOTH

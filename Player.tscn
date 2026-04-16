@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_e80uo"]
 [ext_resource type="Material" uid="uid://mgw652ymvt0x" path="res://Forcefield.tres" id="4_cxr5p"]
 [ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="5_tdg3f"]
+[ext_resource type="Script" uid="uid://kuxqh057vr5y" path="res://addons/godot-xr-tools/functions/movement_turn.gd" id="7_oudfo"]
+[ext_resource type="Script" uid="uid://ck4yn3hxuobj7" path="res://addons/godot-xr-tools/player/player_body.gd" id="9_r3kul"]
+[ext_resource type="Script" uid="uid://i2t7j1aj60s0" path="res://addons/godot-xr-tools/functions/movement_provider.gd" id="10_jatw7"]
 [ext_resource type="AudioStream" uid="uid://cpbk2rd5sftep" path="res://assets/audio/coins.ogg" id="12_rv870"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_d6rpx"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_r3kul"]
@@ -144,6 +147,24 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/Area3D" unique_id=276126665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
 shape = SubResource("BoxShape3D_e80uo")
+
+[node name="Turning" type="Node3D" parent="XROrigin3D/RightController" unique_id=2100333375 groups=["movement_providers"]]
+unique_name_in_owner = true
+script = ExtResource("7_oudfo")
+step_turn_angle = 30.0
+metadata/_custom_type_script = "uid://kuxqh057vr5y"
+
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D" unique_id=121707587]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("9_r3kul")
+player_calibrate_height = false
+player_height_min = 0.0
+metadata/_custom_type_script = "uid://ck4yn3hxuobj7"
+
+[node name="XRToolsMovementProvider" type="Node3D" parent="XROrigin3D" unique_id=1968771169 groups=["movement_providers"]]
+script = ExtResource("10_jatw7")
+metadata/_custom_type_script = "uid://i2t7j1aj60s0"
 
 [node name="Audio" type="Node3D" parent="." unique_id=244856922]
 

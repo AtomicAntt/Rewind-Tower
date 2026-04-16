@@ -22,6 +22,7 @@ const PLAYER_BODY := preload("res://addons/godot-xr-tools/player/player_body.tsc
 ## Enable movement provider
 @export var enabled : bool = true
 
+@export var order: int = 5
 
 ## If true, the movement provider is actively performing a move
 var is_active := false

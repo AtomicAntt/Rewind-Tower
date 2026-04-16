@@ -16,6 +16,10 @@ var master_value: float
 var music_value: float
 var sfx_value: float
 
+@onready var master_wheel: Node3D = %MasterWheel
+@onready var music_wheel: Node3D = %MusicWheel
+@onready var sfx_wheel: Node3D = %SfxWheel
+
 func _ready() -> void:
 	master_knob = %Master
 	music_knob = %Music
@@ -48,6 +52,9 @@ func _process(_delta: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus_index, music_value)
 	AudioServer.set_bus_volume_db(sfx_bus_index, sfx_value)
 	
+	master_wheel.rotation.z = -master_knob.rotation *.6
+	music_wheel.rotation.z = -music_knob.rotation *.6
+	sfx_wheel.rotation.z = -sfx_knob.rotation *.6
 	
 	if master_value < -9.5:
 		AudioServer.set_bus_mute(master_bus_index, true)

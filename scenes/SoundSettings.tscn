@@ -382,12 +382,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.1)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_2lebo")
 
-[node name="SM_musicWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1046753965]
+[node name="MusicWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1046753965]
+unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14596799)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_uta40")
 
-[node name="SM_sfxWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=742688971]
+[node name="SfxWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=742688971]
+unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14479265)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_tobj1")
@@ -397,7 +399,8 @@ transform = Transform3D(-0.68552375, -4.3856926e-07, -4.3856926e-07, 4.3856923e-
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_5ywfr")
 
-[node name="SM_volWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=748541152]
+[node name="MasterWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=748541152]
+unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14055362)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_wpx5s")
@@ -405,11 +408,10 @@ mesh = SubResource("ArrayMesh_wpx5s")
 [node name="MusicKnob" type="Node3D" parent="." unique_id=349449989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069, -0.11, 0.06)
 
-[node name="Music" type="Node3D" parent="MusicKnob" unique_id=45405399 node_paths=PackedStringArray("pickable", "wheel")]
+[node name="Music" type="Node3D" parent="MusicKnob" unique_id=45405399 node_paths=PackedStringArray("pickable")]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
-wheel = NodePath("../../SM_soundControlUnit/SM_SoundControlUnit/SM_musicWheel")
 
 [node name="Pickable" type="RigidBody3D" parent="MusicKnob/Music" unique_id=930128821]
 collision_layer = 5
@@ -441,11 +443,10 @@ mesh = SubResource("ArrayMesh_mj3fg")
 [node name="MasterKnob" type="Node3D" parent="." unique_id=614748387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089, 0.06)
 
-[node name="Master" type="Node3D" parent="MasterKnob" unique_id=874237200 node_paths=PackedStringArray("pickable", "wheel")]
+[node name="Master" type="Node3D" parent="MasterKnob" unique_id=874237200 node_paths=PackedStringArray("pickable")]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
-wheel = NodePath("../../SM_soundControlUnit/SM_SoundControlUnit/SM_volWheel")
 
 [node name="Pickable" type="RigidBody3D" parent="MasterKnob/Master" unique_id=24536932]
 collision_layer = 5
@@ -477,11 +478,10 @@ mesh = SubResource("ArrayMesh_xrrvr")
 [node name="SfxKnob" type="Node3D" parent="." unique_id=736010941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, -0.114, 0.06)
 
-[node name="SFX" type="Node3D" parent="SfxKnob" unique_id=1900082088 node_paths=PackedStringArray("pickable", "wheel")]
+[node name="SFX" type="Node3D" parent="SfxKnob" unique_id=1900082088 node_paths=PackedStringArray("pickable")]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
-wheel = NodePath("../../SM_soundControlUnit/SM_SoundControlUnit/SM_sfxWheel")
 
 [node name="Pickable" type="RigidBody3D" parent="SfxKnob/SFX" unique_id=1043594973]
 unique_name_in_owner = true

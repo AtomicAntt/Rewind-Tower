@@ -33,6 +33,22 @@ func get_sfx() -> float:
 		return config.get_value("AUDIO","sfx_volume")
 	return sfx_default
 
+func set_turn_mode(value: int):
+	config.set_value("CONTROLS","turn_mode",value)
+
+func get_turn_mode() -> int:
+	if config.get_value("CONTROLS","turn_mode") != null:
+		return config.get_value("CONTROLS","turn_mode")
+	return 0
+
+func set_smooth_speed(value: int):
+	config.set_value("CONTROLS","smooth_speed",value)
+
+func get_smooth_speed() -> int:
+	if config.get_value("CONTROLS","smooth_speed") != null:
+		return config.get_value("CONTROLS","smooth_speed")
+	return 2
+
 func _ready() -> void:
 	config.load(path)
 	

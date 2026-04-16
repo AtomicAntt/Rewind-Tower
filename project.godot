@@ -47,6 +47,7 @@ Boundary=""
 XRCamera3D="The XRCamera3D"
 DefenseTroop=""
 Cigarette=""
+movement_providers=""
 
 [layer_names]
 

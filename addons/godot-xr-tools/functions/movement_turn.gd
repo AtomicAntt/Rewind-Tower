@@ -18,7 +18,7 @@ enum TurnMode {
 
 
 ## Movement provider order
-@export var order : int = 5
+#@export var order : int = 5
 
 ## Movement mode property
 @export var turn_mode : TurnMode = TurnMode.DEFAULT

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dpemetey7y1hy"]
+
+[ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="1_lmth1"]
+[ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_qdkqj"]
+[ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="3_yg6oe"]
+[ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="4_iij4r"]
+[ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="5_83rue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7f47"]
+size = Vector3(0.5180664, 1.1401367, 0.26654053)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fr4md"]
+size = Vector3(0.1, 0.1, 0.275)
+
+[sub_resource type="Resource" id="Resource_nnwlo"]
+script = ExtResource("5_83rue")
+magnitude = 0.1
+duration_ms = 10
+metadata/_custom_type_script = "uid://b15qba0ch13uw"
+
+[node name="Crank" type="Node3D" unique_id=450228322 node_paths=PackedStringArray("pickable")]
+script = ExtResource("1_lmth1")
+pickable = NodePath("Crank")
+
+[node name="Crank" type="RigidBody3D" parent="." unique_id=1827322792]
+collision_layer = 5
+collision_mask = 5
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("2_qdkqj")
+picked_up_layer = 65541
+metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crank" unique_id=596594051]
+transform = Transform3D(-0.1, 0, 8.742278e-09, 0, 0.1, 0, -8.742278e-09, 0, -0.1, 0, 0, -0.15000004)
+shape = SubResource("BoxShape3D_t7f47")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Crank" unique_id=1315326043]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.15000004)
+mesh = SubResource("BoxMesh_fr4md")
+
+[node name="Audio" type="Node3D" parent="." unique_id=1834009279]
+
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="Audio" unique_id=54747058]
+unique_name_in_owner = true
+stream = ExtResource("3_yg6oe")
+bus = &"SFX"
+
+[node name="Rumbler" type="Node" parent="." unique_id=1678968895]
+unique_name_in_owner = true
+script = ExtResource("4_iij4r")
+event = SubResource("Resource_nnwlo")
+metadata/_custom_type_script = "uid://dff408qq7s26e"

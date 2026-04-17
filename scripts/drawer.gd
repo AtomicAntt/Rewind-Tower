@@ -16,3 +16,13 @@ func _physics_process(_delta: float) -> void:
 			if body is RigidBody3D:
 				var rigid_body_3d: RigidBody3D = body
 				rigid_body_3d.global_position += delta_position
+
+func _on_relative_area_3d_body_entered(body: Node3D) -> void:
+	if body is XRToolsPickable:
+		if body.has_method("show_xray"):
+			body.show_xray()
+
+func _on_relative_area_3d_body_exited(body: Node3D) -> void:
+	if body is XRToolsPickable:
+		if body.has_method("hide_xray"):
+			body.hide_xray()

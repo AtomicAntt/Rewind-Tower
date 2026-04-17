@@ -152,19 +152,11 @@ func _on_shoot_timer_timeout() -> void:
 		power -= power_lose_rate
 		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 
-
-func on_area_entered(area: Area3D) -> void:
-	if area.is_in_group("Drawer"):
-		xray.visible = true
-		
-	if area.is_in_group("Boundary"):
-		game_manager._respawn_troop(troop_type)
-		queue_free()
-
-
-func on_area_exited(area: Area3D) -> void:
-	if area.is_in_group("Drawer"):
-		xray.visible = false
-		
 func _play_arrow_hit():
 	%ArrowHit.play()
+
+func show_xray() -> void:
+	xray.visible = true
+
+func hide_xray() -> void:
+	xray.visible = false

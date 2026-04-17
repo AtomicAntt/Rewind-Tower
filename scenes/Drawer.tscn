@@ -158,3 +158,6 @@ target = NodePath("../../../StaticBody3D/SM_drawer/Handle/GrabPointHandRight")
 
 [node name="GrabPointRedirect2" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" unique_id=200286939 node_paths=PackedStringArray("target") instance=ExtResource("7_m70ks")]
 target = NodePath("../../../StaticBody3D/SM_drawer/Handle/GrabPointHandLeft")
+
+[connection signal="body_entered" from="SliderOrigin/InteractableSlider/StaticBody3D/RelativeArea3D" to="." method="_on_relative_area_3d_body_entered"]
+[connection signal="body_exited" from="SliderOrigin/InteractableSlider/StaticBody3D/RelativeArea3D" to="." method="_on_relative_area_3d_body_exited"]

@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
 [ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
+[ext_resource type="Script" uid="uid://sqsc7mqbih0a" path="res://scripts/boundary.gd" id="25_3g52j"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
@@ -276,7 +277,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4iqu7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3g52j"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -472,7 +473,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1142927959]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -540,7 +541,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_4iqu7")
+texture = SubResource("ViewportTexture_3g52j")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -553,8 +554,11 @@ text = "Intermission (Round 1)"
 script = ExtResource("24_0qy1f")
 
 [node name="Boundary" type="Node3D" parent="." unique_id=1770071088]
+script = ExtResource("25_3g52j")
 
 [node name="Area3D" type="Area3D" parent="Boundary" unique_id=1743596776 groups=["Boundary"]]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary/Area3D" unique_id=208815810 groups=["Boundary"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021369338, 0)
@@ -833,6 +837,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2, -0.53120345)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
+[connection signal="body_entered" from="Boundary/Area3D" to="Boundary" method="_on_area_3d_body_entered"]
 
 [editable path="Room/Table/table test"]
 [editable path="Drawer"]

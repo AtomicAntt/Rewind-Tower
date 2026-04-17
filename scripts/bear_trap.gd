@@ -30,18 +30,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			%BearTrapClose.play()
 			
 			%Timer.start()
-	if area.is_in_group("Drawer"):
-		xray.visible = true
-		
-	if area.is_in_group("Boundary") and not consumed:
-		game_manager._respawn_troop(type)
-		queue_free()
-	elif area.is_in_group("Boundary") and consumed:
-		queue_free()
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.is_in_group("Drawer"):
-		xray.visible = false
 
 func _on_timer_timeout() -> void:
 	animation_player.play(break_animation)
@@ -49,3 +37,9 @@ func _on_timer_timeout() -> void:
 	if is_instance_valid(enemy_trapping):
 		enemy_trapping.stunned = false
 	queue_free()
+
+func show_xray() -> void:
+	xray.visible = true
+
+func hide_xray() -> void:
+	xray.visible = false

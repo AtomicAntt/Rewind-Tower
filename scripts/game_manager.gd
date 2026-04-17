@@ -36,20 +36,6 @@ func _ready() -> void:
 	else:
 		AudioServer.set_bus_mute(2, false)
 
-func _respawn_troop(type: DefenseTroop.troop_types):
-	if type == DefenseTroop.troop_types.ARCHER:
-		var new_archer = archer_troop_scene.instantiate()
-		add_child(new_archer)
-		new_archer.global_position = drawer_spawn_point.global_position
-	elif type == DefenseTroop.troop_types.SWORDSMAN:
-		var new_swordsman = swordsman_troop_scene.instantiate()
-		add_child(new_swordsman)
-		new_swordsman.global_position = drawer_spawn_point.global_position
-	elif type == DefenseTroop.troop_types.BEARTRAP:
-		var new_beartrap = beartrap_scene.instantiate()
-		add_child(new_beartrap)
-		new_beartrap.global_position = drawer_spawn_point.global_position
-	
 func _pause_game():
 	game_paused = true
 	
@@ -61,7 +47,7 @@ func _pause_game():
 	
 	get_tree().call_group("Pauseable", "set_process", false)
 	get_tree().call_group("Pauseable", "set_physics_process", false)
-	
+
 func _unpause_game():
 	game_paused = false
 	get_tree().call_group("Pauseable", "set_process", true)

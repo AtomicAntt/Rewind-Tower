@@ -185,6 +185,8 @@ script = ExtResource("13_d6rpx")
 event = SubResource("Resource_d6rpx")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
+[connection signal="button_pressed" from="XROrigin3D/LeftController" to="." method="_on_left_controller_button_pressed"]
 [connection signal="has_picked_up" from="XROrigin3D/LeftController/FunctionPickup" to="." method="_on_left_function_pickup_has_picked_up"]
 [connection signal="timeout" from="XROrigin3D/LeftController/CoinSlot/CoinRespawn" to="." method="_on_coin_respawn_timeout"]
+[connection signal="button_pressed" from="XROrigin3D/RightController" to="." method="_on_right_controller_button_pressed"]
 [connection signal="has_picked_up" from="XROrigin3D/RightController/FunctionPickup" to="." method="_on_right_function_pickup_has_picked_up"]

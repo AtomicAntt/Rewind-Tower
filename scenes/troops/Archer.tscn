@@ -329,7 +329,7 @@ stream_1/stream = ExtResource("14_6gtsj")
 stream_2/stream = ExtResource("15_ma2m2")
 stream_3/stream = ExtResource("16_8l3ic")
 
-[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop"]]
+[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop", "Pauseable"]]
 collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_ys6re")
@@ -347,21 +347,21 @@ xray = NodePath("XRAY")
 ranged_grab_method = 2
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1477189192]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1477189192 groups=["Pauseable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01964112, 0)
 shape = SubResource("BoxShape3D_lnnsc")
 
-[node name="ShootTimer" type="Timer" parent="." unique_id=1128226714]
+[node name="ShootTimer" type="Timer" parent="." unique_id=1128226714 groups=["Pauseable"]]
 wait_time = 1.2
 autostart = true
 
-[node name="PowerBar" type="Sprite3D" parent="." unique_id=250522650]
+[node name="PowerBar" type="Sprite3D" parent="." unique_id=250522650 groups=["Pauseable"]]
 transform = Transform3D(0.013, -1.7053023e-14, 9.4587446e-12, 5.5422328e-14, 0.004, -8.503685e-12, -9.4587446e-12, 2.6165185e-12, 0.013, 1.1368684e-13, 0.10345233, -0.00010148283)
 texture = SubResource("ViewportTexture_nrlnj")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1648276138]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1648276138 groups=["Pauseable"]]
 
-[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1737062262]
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1737062262 groups=["Pauseable"]]
 layout_direction = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -375,39 +375,39 @@ theme_override_styles/background = SubResource("StyleBoxFlat_fu7nh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwwrs")
 max_value = 30.0
 
-[node name="SM_archer" type="Node3D" parent="." unique_id=2005014714]
+[node name="SM_archer" type="Node3D" parent="." unique_id=2005014714 groups=["Pauseable"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
 
-[node name="SM_archerBase" type="MeshInstance3D" parent="SM_archer" unique_id=1914381429]
+[node name="SM_archerBase" type="MeshInstance3D" parent="SM_archer" unique_id=1914381429 groups=["Pauseable"]]
 transform = Transform3D(0.740297, 0, 0, 0, 0.740297, 0, 0, 0, 0.740297, 0, 0, 0)
 material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_fwv7s")
 
-[node name="SM_archerBody" type="MeshInstance3D" parent="SM_archer/SM_archerBase" unique_id=1002539329]
+[node name="SM_archerBody" type="MeshInstance3D" parent="SM_archer/SM_archerBase" unique_id=1002539329 groups=["Pauseable"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
-[node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641]
+[node name="SM_archerArm" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=2123023641 groups=["Pauseable"]]
 transform = Transform3D(0.9659255, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659255, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_5ys36")
 
-[node name="SM_archerHead" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1704316942]
+[node name="SM_archerHead" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1704316942 groups=["Pauseable"]]
 transform = Transform3D(0.42261803, 0, 0.9063079, 0, 1, 0, -0.9063079, 0, 0.42261803, -0.007958941, 0.16343772, -0.003614734)
 material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_3yo6f")
 
-[node name="SM_archerhelmet" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1912288963]
+[node name="SM_archerhelmet" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1912288963 groups=["Pauseable"]]
 material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_ulej5")
 
-[node name="Crank" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=450228322 node_paths=PackedStringArray("pickable")]
+[node name="Crank" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=450228322 node_paths=PackedStringArray("pickable") groups=["Pauseable"]]
 transform = Transform3D(-0.40524274, -6.118995e-08, 2.6746977e-15, 0, -1.7713722e-08, -0.40524274, 6.118995e-08, -0.4052427, 1.7713722e-08, -0.009522152, 0.13583243, -0.018634249)
 script = ExtResource("2_owgmq")
 pickable = NodePath("Crank")
 
-[node name="Crank" type="RigidBody3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1827322792]
+[node name="Crank" type="RigidBody3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1827322792 groups=["Pauseable"]]
 transform = Transform3D(-0.99999976, -8.742277e-08, -1.5099576e-07, -8.742276e-08, 0.99999976, -4.371137e-08, 1.5099576e-07, -4.3711356e-08, -0.99999976, 0, 0, 0)
 collision_layer = 262144
 collision_mask = 0
@@ -420,33 +420,33 @@ picked_up_layer = 65552
 ranged_grab_method = 0
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="SM_archerCrank" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=2112353820]
+[node name="SM_archerCrank" type="MeshInstance3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=2112353820 groups=["Pauseable"]]
 transform = Transform3D(-1.4570458e-07, -3.3333323, 1.4570458e-07, 0, -1.4570458e-07, -3.3333323, 3.3333323, -1.4570458e-07, 0, 0.00050195935, 6.34844e-10, 0.0053123804)
 material_override = ExtResource("2_3w457")
 mesh = SubResource("ArrayMesh_utp47")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1186815834]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Crank" unique_id=1186815834 groups=["Pauseable"]]
 transform = Transform3D(-1.4570458e-07, -3.3333323, 1.4570458e-07, 0, -1.4570458e-07, -3.3333323, 3.3333323, -1.4570458e-07, 0, 0.0004551725, 0.025111571, -0.045905944)
 shape = SubResource("BoxShape3D_wygqj")
 
-[node name="Audio" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=877808349]
+[node name="Audio" type="Node3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=877808349 groups=["Pauseable"]]
 
-[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270]
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_archer/SM_archerBase/SM_archerBody/Crank/Audio" unique_id=1661815270 groups=["Pauseable"]]
 unique_name_in_owner = true
 stream = ExtResource("6_ma2m2")
 bus = &"SFX"
 
-[node name="Rumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061]
+[node name="Rumbler" type="Node" parent="SM_archer/SM_archerBase/SM_archerBody/Crank" unique_id=1568549061 groups=["Pauseable"]]
 unique_name_in_owner = true
 script = ExtResource("7_wygqj")
 event = SubResource("Resource_sohxs")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
-[node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252]
+[node name="ShootPosition" type="Marker3D" parent="SM_archer/SM_archerBase/SM_archerBody" unique_id=1614817252 groups=["Pauseable"]]
 unique_name_in_owner = true
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop") groups=["Pauseable"]]
 libraries/ = SubResource("AnimationLibrary_a2mnt")
 script = ExtResource("5_qm8lu")
 animator = NodePath(".")
@@ -454,35 +454,35 @@ animationAttack = "anim_archer_ArmShoot"
 animationHead = "anim_archerHeadrotat"
 defenseTroop = NodePath("../..")
 
-[node name="XRAY" type="Node3D" parent="." unique_id=1961972023]
+[node name="XRAY" type="Node3D" parent="." unique_id=1961972023 groups=["Pauseable"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
 visible = false
 
-[node name="SM_archerBase" type="MeshInstance3D" parent="XRAY" unique_id=684848962]
+[node name="SM_archerBase" type="MeshInstance3D" parent="XRAY" unique_id=684848962 groups=["Pauseable"]]
 transform = Transform3D(0.740297, 0, 0, 0, 0.740297, 0, 0, 0, 0.740297, 0, 0, 0)
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_fwv7s")
 
-[node name="SM_archerBody" type="MeshInstance3D" parent="XRAY/SM_archerBase" unique_id=437070252]
+[node name="SM_archerBody" type="MeshInstance3D" parent="XRAY/SM_archerBase" unique_id=437070252 groups=["Pauseable"]]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.0000011, 0, 1, 0, -4.3711395e-08, 0, 0, 0)
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
-[node name="SM_archerArm" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=544269908]
+[node name="SM_archerArm" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=544269908 groups=["Pauseable"]]
 transform = Transform3D(0.9659255, 0, 0.258819, 0, 1, 0, -0.25881898, 0, 0.9659256, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_5ys36")
 
-[node name="SM_archerHead" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=675351690]
+[node name="SM_archerHead" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=675351690 groups=["Pauseable"]]
 transform = Transform3D(0.42261803, 0, 0.9063079, 0, 1, 0, -0.9063079, 0, 0.42261803, -0.007958941, 0.16343772, -0.003614734)
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_3yo6f")
 
-[node name="SM_archerhelmet" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1564271761]
+[node name="SM_archerhelmet" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody/SM_archerHead" unique_id=1564271761 groups=["Pauseable"]]
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_ulej5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="XRAY" unique_id=1517720538 node_paths=PackedStringArray("animator", "defenseTroop")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="XRAY" unique_id=1517720538 node_paths=PackedStringArray("animator", "defenseTroop") groups=["Pauseable"]]
 libraries/ = SubResource("AnimationLibrary_a2mnt")
 script = ExtResource("5_qm8lu")
 animator = NodePath(".")
@@ -490,27 +490,27 @@ animationAttack = "anim_archer_ArmShoot"
 animationHead = "anim_archerHeadrotat"
 defenseTroop = NodePath("../..")
 
-[node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox"]]
+[node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox", "Pauseable"]]
 collision_layer = 256
 script = ExtResource("6_vtcc4")
 crank = NodePath("../SM_archer/SM_archerBase/SM_archerBody/Crank")
 defense_troop = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefenseTroopHitbox" unique_id=1128444388]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefenseTroopHitbox" unique_id=1128444388 groups=["Pauseable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01964112, 0)
 shape = SubResource("BoxShape3D_lnnsc")
 
-[node name="GrabPointHandLeft" parent="." unique_id=792512517 instance=ExtResource("7_gj00f")]
+[node name="GrabPointHandLeft" parent="." unique_id=792512517 groups=["Pauseable"] instance=ExtResource("7_gj00f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09014428, -0.11023357)
 hand_pose = SubResource("Resource_sm0sf")
 
-[node name="GrabPointHandRight" parent="." unique_id=1828255441 instance=ExtResource("8_wl1de")]
+[node name="GrabPointHandRight" parent="." unique_id=1828255441 groups=["Pauseable"] instance=ExtResource("8_wl1de")]
 transform = Transform3D(-1, -8.742278e-08, -7.642742e-15, -8.742278e-08, 1, 8.742278e-08, 0, 8.742278e-08, -1, 0.0021773688, 0.09365268, 0.09369985)
 hand_pose = SubResource("Resource_ea36a")
 
-[node name="Audio" type="Node3D" parent="." unique_id=556917948]
+[node name="Audio" type="Node3D" parent="." unique_id=556917948 groups=["Pauseable"]]
 
-[node name="ArrowHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=894424434]
+[node name="ArrowHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=894424434 groups=["Pauseable"]]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_wygqj")
 bus = &"SFX"

@@ -48,6 +48,8 @@ XRCamera3D="The XRCamera3D"
 DefenseTroop=""
 Cigarette=""
 movement_providers=""
+GameManager=""
+Pauseable=""
 
 [layer_names]
 

@@ -3,6 +3,8 @@ class_name Player
 
 var xr_interface: XRInterface
 
+var game_manager: GameManager
+
 @export var coins: int
 
 @onready var coin_slot: XRToolsSnapZone = %CoinSlot
@@ -56,6 +58,9 @@ func _ready():
 		# We couldn't start OpenXR.
 		print("OpenXR not instantiated!")
 		get_tree().quit()
+		
+	game_manager = get_tree().get_first_node_in_group("GameManager")
+	
 
 # Handle OpenXR session ready
 func _on_openxr_session_begun() -> void:
@@ -129,6 +134,7 @@ func _on_openxr_pose_recentered() -> void:
 		
 
 func _process(_delta: float) -> void:
+	
 	if coin_slot.has_snapped_object():
 		coin_display.text = ("Coins: " + str(coins+1)) # Visually show that the coin on the coin slot is included in the coin count.
 	else:
@@ -153,6 +159,7 @@ func _process(_delta: float) -> void:
 		coin_in_slot.rotation = coin_slot.rotation
 		
 	_set_turning()
+	
 
 func _on_coin_respawn_timeout() -> void:
 	can_spawn_coin = true
@@ -193,3 +200,16 @@ func _set_turning() -> void:
 		4:
 			turn_handler.enabled = true
 			turn_handler.turn_mode = XRToolsMovementTurn.TurnMode.SMOOTH
+
+func _on_right_controller_button_pressed(name: String) -> void:
+	if name == "by_button" and !game_manager.game_paused:
+		game_manager._pause_game()
+	elif name == "by_button" and game_manager.game_paused:
+		game_manager._unpause_game()
+
+
+func _on_left_controller_button_pressed(name: String) -> void:
+	if name == "by_button" and !game_manager.game_paused:
+		game_manager._pause_game()
+	elif name == "by_button" and game_manager.game_paused:
+		game_manager._unpause_game()

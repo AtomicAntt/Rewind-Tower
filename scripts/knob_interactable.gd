@@ -24,9 +24,11 @@ var delta_rot: float
 func _ready() -> void:
 	position = pickable.position
 	rotation = 0
+
 func _process(_delta: float) -> void:
 	pickable.position = position
 	pickable.rotation = Vector3(0,0,rotation)
+	
 	
 	if pickable.is_picked_up():
 		has_been_let_go = false
@@ -63,8 +65,6 @@ func _process(_delta: float) -> void:
 			value *= 6
 		else:
 			value *= 2.75
-		
-		#print(delta_rot)
 		
 	else:
 		has_been_picked_up = false

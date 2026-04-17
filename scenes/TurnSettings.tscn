@@ -174,21 +174,21 @@ open_pose = ExtResource("13_8objg")
 closed_pose = ExtResource("13_8objg")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-[node name="TurnSettings" type="Node3D" unique_id=1201442643]
+[node name="TurnSettings" type="Node3D" unique_id=1201442643 groups=["Unpauseable"]]
 script = ExtResource("1_5xkht")
 
-[node name="SM_playerRotUnit2" type="Node3D" parent="." unique_id=207695242]
+[node name="SM_playerRotUnit2" type="Node3D" parent="." unique_id=207695242 groups=["Unpauseable"]]
 
-[node name="SM_playerRotUnit" type="MeshInstance3D" parent="SM_playerRotUnit2" unique_id=1766501078]
+[node name="SM_playerRotUnit" type="MeshInstance3D" parent="SM_playerRotUnit2" unique_id=1766501078 groups=["Unpauseable"]]
 material_override = ExtResource("1_8x1l4")
 mesh = SubResource("ArrayMesh_yjmdo")
 
-[node name="SM_RotMetalText" type="MeshInstance3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=2033067500]
+[node name="SM_RotMetalText" type="MeshInstance3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=2033067500 groups=["Unpauseable"]]
 transform = Transform3D(-0.68552375, -5.217634e-07, -5.217634e-07, 5.217634e-07, 0, -0.68552375, 5.217634e-07, -0.68552375, 3.9712276e-13, 0.055683397, 0.3540079, -0.028745055)
 material_override = ExtResource("1_8x1l4")
 mesh = SubResource("ArrayMesh_eoe34")
 
-[node name="Crank" type="Node3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=450228322 node_paths=PackedStringArray("pickable")]
+[node name="Crank" type="Node3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=450228322 node_paths=PackedStringArray("pickable") groups=["Unpauseable"]]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 1, 0, -0.25881907, -1.4901161e-08, -0.9659258, -0.9659258, -3.7252903e-08, 0.25881907, -0.13964185, 0.064, 0)
 script = ExtResource("2_g3ya4")
@@ -225,30 +225,30 @@ script = ExtResource("5_mmuu1")
 event = SubResource("Resource_nnwlo")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
-[node name="Knob" type="Node3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=45405399 node_paths=PackedStringArray("pickable")]
+[node name="Knob" type="Node3D" parent="SM_playerRotUnit2/SM_playerRotUnit" unique_id=45405399 node_paths=PackedStringArray("pickable") groups=["Unpauseable"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -0.94264156, 0.33380675, 0, -0.33380675, -0.94264156, -0.036, 0.136, -0.26)
 script = ExtResource("8_o1erg")
 pickable = NodePath("Pickable")
 
-[node name="Pickable" type="RigidBody3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob" unique_id=930128821]
+[node name="Pickable" type="RigidBody3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob" unique_id=930128821 groups=["Unpauseable"]]
 unique_name_in_owner = true
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("3_5xkht")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable" unique_id=902048852]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable" unique_id=902048852 groups=["Unpauseable"]]
 shape = SubResource("BoxShape3D_cd6fd")
 
-[node name="SM_automatCrank" type="MeshInstance3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable" unique_id=1446403497]
+[node name="SM_automatCrank" type="MeshInstance3D" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable" unique_id=1446403497 groups=["Unpauseable"]]
 material_override = ExtResource("1_8x1l4")
 mesh = SubResource("ArrayMesh_5b5dq")
 
-[node name="GrabPointHandLeft" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable/SM_automatCrank" unique_id=744177840 instance=ExtResource("9_ayn3b")]
+[node name="GrabPointHandLeft" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable/SM_automatCrank" unique_id=744177840 groups=["Unpauseable"] instance=ExtResource("9_ayn3b")]
 transform = Transform3D(1.3113416e-07, 1, -3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, 1.3113416e-07, 4.371139e-08, 0.09514968, 0.1212682, 0.038438767)
 hand_pose = SubResource("Resource_2ij6s")
 
-[node name="GrabPointHandRight" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable/SM_automatCrank" unique_id=48174599 instance=ExtResource("12_j118u")]
+[node name="GrabPointHandRight" parent="SM_playerRotUnit2/SM_playerRotUnit/Knob/Pickable/SM_automatCrank" unique_id=48174599 groups=["Unpauseable"] instance=ExtResource("12_j118u")]
 transform = Transform3D(-2.1855693e-07, -1, 7.642742e-15, -4.371139e-08, 1.9106855e-15, -1, 1, -2.1855693e-07, -4.371139e-08, -0.09448956, 0.11619894, 0.048066687)
 hand_pose = SubResource("Resource_tlk1a")

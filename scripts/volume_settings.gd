@@ -46,8 +46,6 @@ func _ready() -> void:
 	music_knob.rotation = music_knob.delta_rot
 	sfx_knob.rotation = sfx_knob.delta_rot
 	
-	print(music_knob.delta_rot)
-	
 	
 func _process(_delta: float) -> void:
 	
@@ -68,8 +66,6 @@ func _process(_delta: float) -> void:
 	master_wheel.rotation.z = -master_knob.rotation *.6
 	music_wheel.rotation.z = -music_knob.rotation *.6
 	sfx_wheel.rotation.z = -sfx_knob.rotation *.6
-	
-	print(music_knob.delta_rot)
 	
 	if master_value < -9.5:
 		AudioServer.set_bus_mute(master_bus_index, true)

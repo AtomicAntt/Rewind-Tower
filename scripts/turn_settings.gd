@@ -17,6 +17,12 @@ func _ready() -> void:
 	
 	knob.value = smooth_speed_value
 	
+	knob.delta_rot = -smooth_speed_value / 2.75
+	
+	knob.prev_rotation = -smooth_speed_value
+	
+	knob.rotation = knob.delta_rot
+	
 
 func _process(delta: float) -> void:
 	turn_mode_value = crank.crank_value

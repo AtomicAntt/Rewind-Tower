@@ -329,7 +329,7 @@ stream_1/stream = ExtResource("14_6gtsj")
 stream_2/stream = ExtResource("15_ma2m2")
 stream_3/stream = ExtResource("16_8l3ic")
 
-[node name="DefenseTroop" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop", "Pauseable"]]
+[node name="Archer" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop", "Pauseable"]]
 collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_ys6re")
@@ -446,6 +446,8 @@ metadata/_custom_type_script = "uid://dff408qq7s26e"
 unique_name_in_owner = true
 transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, 0.13508092, 0.13508077, -5.9045755e-09)
 
+[node name="Node3D" type="Node3D" parent="SM_archer/SM_archerBase" unique_id=410799499]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop") groups=["Pauseable"]]
 libraries/ = SubResource("AnimationLibrary_a2mnt")
 script = ExtResource("5_qm8lu")
@@ -469,7 +471,7 @@ material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_jmt06")
 
 [node name="SM_archerArm" type="MeshInstance3D" parent="XRAY/SM_archerBase/SM_archerBody" unique_id=544269908 groups=["Pauseable"]]
-transform = Transform3D(0.9659255, 0, 0.258819, 0, 1, 0, -0.25881898, 0, 0.9659256, -0.052413225, 0.13324311, 0.019046383)
+transform = Transform3D(0.9659255, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659255, -0.052413225, 0.13324311, 0.019046383)
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_5ys36")
 

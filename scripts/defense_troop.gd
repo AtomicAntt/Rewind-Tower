@@ -11,7 +11,6 @@ var shoot_raycast: RayCast3D
 var game_manager: Node3D
 
 var power: int = 0
-var power_lost: int = 0;
 
 @export var attack_range: float = 100.0
 @export var attack_damage: float = 2.0
@@ -44,7 +43,6 @@ var closest_enemy_area: Area3D = null
 
 @export var xray: Node3D
 
-var enemy_distance: float
 @onready var initial_body_orientation: Vector3 = body.rotation
 
 func _ready():
@@ -63,8 +61,6 @@ func _ready():
 		shoot_raycast.swordsman = self
 	else:
 		shoot_position = %ShootPosition
-		
-	enemy_distance = attack_range + 1
 	
 	# For tutorial
 	grabbed.connect(emit_grab_troop)
@@ -82,9 +78,6 @@ func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	if is_instance_valid(closest_enemy_area):
-		enemy_distance = global_position.distance_to(closest_enemy_area.global_position)
-	
 	if is_picked_up():
 		crank.pickable.enabled = true
 		body.rotation = initial_body_orientation
@@ -92,8 +85,6 @@ func _physics_process(_delta: float) -> void:
 		crank.pickable.enabled = false
 	
 	power = crank.power
-	#power -= power_lost * delta
-	#crank.power -= power_lost * delta
 	
 	crank.crank_value = clamp(crank.crank_value, -max_power, max_power ) 
 	power = clamp(power, 0, max_power)
@@ -108,7 +99,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if not Engine.is_editor_hint():
 		closest_enemy_area = find_closest_enemy_area3d()
-		if is_instance_valid(closest_enemy_area) and can_shoot and enemy_distance <= attack_range:
+		if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
 			body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
 			body.rotation.x = 0
 			body.rotate_y(look_offset)
@@ -129,8 +120,14 @@ func find_closest_enemy_area3d() -> Area3D:
 				closest_distance = global_position.distance_to(enemy_area.global_position)
 	return closest_area3d
 
+func get_enemy_distance(enemy_area: Area3D) -> float:
+	if is_instance_valid(enemy_area):
+		return global_position.distance_to(enemy_area.global_position)
+	else:
+		return INF 
+
 func _on_shoot_timer_timeout() -> void:
-	if is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and !melee and enemy_distance <= attack_range:
+	if is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and !melee and get_enemy_distance(closest_enemy_area) <= attack_range:
 		var projectile_instance: DefenseProjectile = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
 		projectile_instance.global_position = shoot_position.global_position
@@ -143,7 +140,7 @@ func _on_shoot_timer_timeout() -> void:
 		crank.power -= power_lose_rate
 		power -= power_lose_rate
 		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
-	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and enemy_distance <= attack_range:
+	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and get_enemy_distance(closest_enemy_area) <= attack_range:
 		animator._animate()
 		shoot_raycast._hit()
 		%SwordHit.play()

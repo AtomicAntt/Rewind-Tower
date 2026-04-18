@@ -1,0 +1,65 @@
+[gd_scene format=4 uid="uid://cu4hq3ll1n4oj"]
+
+[ext_resource type="Script" uid="uid://dakqdw0xvylpo" path="res://scripts/catapult_projectile.gd" id="1_csn06"]
+[ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_sockv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5pxm"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k6dco"]
+_surfaces = [{
+"aabb": AABB(-0.012968628, -0.014499417, -0.012333774, 0.025937255, 0.028998796, 0.024667531),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("BwAIAAAACAADAAAAAAAFAAcAAAADAAkAAAAJAAUAAwAGAAkABQAJAAEACQAGAAEABwAFAAoABQABAAoABwACAAgABwAKAAIACAALAAMACwAGAAMAAgALAAgAAQAGAAQACgABAAQABAAGAAsACgAEAAIAAgAEAAsA"),
+"lods": [0.015583242, PackedByteArray("AAABAAIAAQAEAAIAAAAFAAEAAQAGAAQABQAGAAEABAAGAAMAAwAGAAUAAgAEAAMAAAADAAUAAgADAAAA"), 0.023374865, PackedByteArray("AAABAAIAAgABAAMAAAADAAEAAgADAAAA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("ouUrPMZ61Lscx/k7pVCDO4Z61DuZE0q8XnpUvMZ61LsIxhiypVCDO4Z61DuGE0o8ouUrvIZ61DtKx/m7ouUrPMZ61LtKx/m7AAAAAM2ObTwIxhiyAAAAAPaObbwIxhiypVCDu8Z61LuGE0o8XnpUPIZ61DsIxhiypVCDu8Z61LuZE0q8ouUrvIZ61Dscx/k7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_csn06"]
+resource_name = "SM_catapult_SM_catapultRock"
+_surfaces = [{
+"aabb": AABB(-0.012968628, -0.014499417, -0.012333774, 0.025937255, 0.028998796, 0.024667531),
+"attribute_data": PackedByteArray("S3aVPtYecz9LdpU+TDpjP0t2lT7WHnM/S3aVPkw6Yz9LdpU+TDpjP0t2lT7WHnM/S3aVPtJnWT9LdpU+UPF8P0t2lT7WHnM/S3aVPkw6Yz9LdpU+1h5zP0t2lT5MOmM/"),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("BwAIAAAACAADAAAAAAAFAAcAAAADAAkAAAAJAAUAAwAGAAkABQAJAAEACQAGAAEABwAFAAoABQABAAoABwACAAgABwAKAAIACAALAAMACwAGAAMAAgALAAgAAQAGAAQACgABAAQABAAGAAsACgAEAAIAAgAEAAsA"),
+"lods": [0.015583242, PackedByteArray("AAABAAIAAQAEAAIAAAAFAAEAAQAGAAQABQAGAAEABAAGAAMAAwAGAAUAAgAEAAMAAAADAAUAAgADAAAA"), 0.023374865, PackedByteArray("AAABAAIAAgABAAMAAAADAAEAAgADAAAA")],
+"material": SubResource("StandardMaterial3D_v5pxm"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("ouUrPMZ61Lscx/k7pVCDO4Z61DuZE0q8XnpUvMZ61LsIxhiypVCDO4Z61DuGE0o8ouUrvIZ61DtKx/m7ouUrPMZ61LtKx/m7AAAAAM2ObTwIxhiyAAAAAPaObbwIxhiypVCDu8Z61LuGE0o8XnpUPIZ61DsIxhiypVCDu8Z61LuZE0q8ouUrvIZ61Dscx/k7l7ZBXv///z+i24bp////v6oqVFX///+/eJZbpP///z+9IWbJ////v0HemDb///+//3///////7//fwAA////v4Zpo1v///8/VNWqqv///79cJHgW////v2dJvaH///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k6dco")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3u36s"]
+radius = 0.014499398
+
+[node name="CatapultProjectile" type="Area3D" unique_id=549616968]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+script = ExtResource("1_csn06")
+damage = null
+speed = null
+
+[node name="DestructionTimer" type="Timer" parent="." unique_id=1819717150]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="SM_catapultRock" type="MeshInstance3D" parent="." unique_id=1102037983]
+material_override = ExtResource("2_sockv")
+mesh = SubResource("ArrayMesh_csn06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=428136258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8626451e-08, -8.381903e-09)
+shape = SubResource("SphereShape3D_3u36s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]

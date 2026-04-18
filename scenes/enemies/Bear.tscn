@@ -535,17 +535,22 @@ value = 10.0
 [node name="AttackTimer" type="Timer" parent="." unique_id=95284099]
 unique_name_in_owner = true
 
-[node name="BearRoar" type="AudioStreamPlayer3D" parent="." unique_id=1620940403]
-stream = ExtResource("3_4khxr")
-autoplay = true
-bus = &"SFX"
-
 [node name="Audio" type="Node3D" parent="." unique_id=419924875]
 
 [node name="EnemyBreak" type="AudioStreamPlayer3D" parent="Audio" unique_id=881369094]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_8lssu")
 max_distance = 3.0
+bus = &"SFX"
+
+[node name="BearRoar" type="AudioStreamPlayer3D" parent="Audio" unique_id=1620940403]
+transform = Transform3D(1.0000951, 1.8189894e-12, 0, 9.094947e-13, 1.0000532, -3.682601e-10, 0, 3.2937209e-10, 1.0000743, 0, 0, 0)
+stream = ExtResource("3_4khxr")
+autoplay = true
+bus = &"SFX"
+
+[node name="EnemyHit" type="AudioStreamPlayer3D" parent="Audio" unique_id=1068893255]
+unique_name_in_owner = true
 bus = &"SFX"
 
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_area_entered"]

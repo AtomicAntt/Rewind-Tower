@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://5yergo6mgc4d"]
 
-[ext_resource type="Script" uid="uid://cuuhv6d7yyq3c" path="res://scripts/archer.gd" id="1_ns7c4"]
+[ext_resource type="Script" uid="uid://oplkjqio173a" path="res://scripts/catapult.gd" id="1_r2tni"]
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_abn2m"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="4_im3b3"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_lwdeq"]
@@ -168,7 +168,7 @@ shadow_mesh = SubResource("ArrayMesh_l4h1j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5pxm"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_k6dco"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_r2tni"]
 _surfaces = [{
 "aabb": AABB(-0.012968628, -0.014499417, -0.012333774, 0.025937255, 0.028998796, 0.024667531),
 "format": 34359742465,
@@ -198,7 +198,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("ouUrPMZ61Lscx/k7pVCDO4Z61DuZE0q8XnpUvMZ61LsIxhiypVCDO4Z61DuGE0o8ouUrvIZ61DtKx/m7ouUrPMZ61LtKx/m7AAAAAM2ObTwIxhiyAAAAAPaObbwIxhiypVCDu8Z61LuGE0o8XnpUPIZ61DsIxhiypVCDu8Z61LuZE0q8ouUrvIZ61Dscx/k7l7ZBXv///z+i24bp////v6oqVFX///+/eJZbpP///z+9IWbJ////v0HemDb///+//3///////7//fwAA////v4Zpo1v///8/VNWqqv///79cJHgW////v2dJvaH///8/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_k6dco")
+shadow_mesh = SubResource("ArrayMesh_r2tni")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cktpy"]
 
@@ -291,7 +291,7 @@ tracks/5/keys = PackedFloat32Array(0, 1, -0.31601983, 0, 0, 0.9487526)
 
 [sub_resource type="Animation" id="Animation_gly4i"]
 resource_name = "SM_catapultLaunch"
-length = 0.6666667
+length = 0.7
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -461,14 +461,16 @@ stream_3/stream = ExtResource("20_k8rqe")
 [node name="Catapult" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "body", "animator", "xray") groups=["DefenseTroop", "Pauseable"]]
 collision_layer = 36
 collision_mask = 33
-script = ExtResource("1_ns7c4")
-animation_attack = "SM_catapultLaunch"
+script = ExtResource("1_r2tni")
+anim_catapult_launch = "SM_catapultLaunch"
+anim_frame_launch = "SM_catapultFrameLaunch"
+anim_rock_launch = "SM_catapultRockLaunch"
 attack_range = 1.0
 attack_damage = 3.0
 max_power = 60
 power_lose_rate = 20
 power_bar = NodePath("SubViewport/ProgressBar")
-crank = NodePath("SM_catapult/SM_catapultBase/SM_archerBody_001/Crank")
+crank = NodePath("SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank")
 body = NodePath("SM_catapult/SM_catapultBase/SM_archerBody_001")
 animator = NodePath("SM_catapult/AnimationPlayer")
 xray = NodePath("XRAY")
@@ -479,7 +481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.066886514, 3.3093855e-08
 shape = SubResource("CylinderShape3D_iq0n1")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1128226714 groups=["Pauseable"]]
-wait_time = 1.2
+wait_time = 3.0
 autostart = true
 
 [node name="PowerBar" type="Sprite3D" parent="." unique_id=250522650 groups=["Pauseable"]]
@@ -500,7 +502,7 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_fu7nh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwwrs")
-max_value = 30.0
+max_value = 60.0
 
 [node name="SM_catapult" type="Node3D" parent="." unique_id=1339709493]
 
@@ -528,12 +530,12 @@ transform = Transform3D(1, 0, 0, 0, 0.8002629, -0.59964925, 0, 0.59964925, 0.800
 material_override = ExtResource("2_abn2m")
 mesh = SubResource("ArrayMesh_0g7wo")
 
-[node name="Crank" type="Node3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001" unique_id=450228322 node_paths=PackedStringArray("pickable")]
-transform = Transform3D(-4.371139e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0, 0.99999994, 0.060826316, 0.1435389, 0.017586557)
+[node name="Crank" type="Node3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame" unique_id=450228322 node_paths=PackedStringArray("pickable")]
+transform = Transform3D(-3.235941e-08, -0.740297, 0, 0.74029696, -3.235941e-08, 0, 0, 0, 0.74029696, 0.04502954, 0.08226143, 0.06801928)
 script = ExtResource("4_im3b3")
 pickable = NodePath("Crank")
 
-[node name="Crank" type="RigidBody3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank" unique_id=1827322792]
+[node name="Crank" type="RigidBody3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank" unique_id=1827322792]
 transform = Transform3D(0.9999999, 3.5527137e-15, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0.0009773746, 0)
 collision_layer = 262144
 collision_mask = 0
@@ -542,34 +544,34 @@ lock_rotation = true
 script = ExtResource("5_lwdeq")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="SM_catapultCrank" type="MeshInstance3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank/Crank" unique_id=26074260]
+[node name="SM_catapultCrank" type="MeshInstance3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank/Crank" unique_id=26074260]
 transform = Transform3D(5.644681e-08, 1.2913523, 1.1289359e-07, 5.644678e-08, -1.128936e-07, 1.2913523, 1.2913525, -5.6446797e-08, -5.6446797e-08, 0.00068739057, 0.0033608153, 0.00026037917)
 material_override = ExtResource("2_abn2m")
 mesh = SubResource("ArrayMesh_e8k6i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank/Crank" unique_id=1061309755]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank/Crank" unique_id=1061309755]
 transform = Transform3D(5.644681e-08, 1.2913523, 1.1289359e-07, 5.644678e-08, -1.128936e-07, 1.2913523, 1.2913525, -5.6446797e-08, -5.6446797e-08, 0.0007055148, -0.006367554, -0.0195819)
 shape = SubResource("BoxShape3D_iq0n1")
 
-[node name="Audio" type="Node3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank" unique_id=1834009279]
+[node name="Audio" type="Node3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank" unique_id=1834009279]
 
-[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank/Audio" unique_id=54747058]
+[node name="Ratchet" type="AudioStreamPlayer3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank/Audio" unique_id=54747058]
 unique_name_in_owner = true
 stream = ExtResource("6_cet4y")
 bus = &"SFX"
 
-[node name="Rumbler" type="Node" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/Crank" unique_id=1678968895]
+[node name="Rumbler" type="Node" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/Crank" unique_id=1678968895]
 unique_name_in_owner = true
 script = ExtResource("7_4kgx3")
 event = SubResource("Resource_nnwlo")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
-[node name="ShootPosition" type="Marker3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001" unique_id=807467071 groups=["Pauseable"]]
-unique_name_in_owner = true
-transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.3508092, 0, -5.9045753e-08, -0.008898882, 0.17428526, 0.035221994)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_catapult" unique_id=1549339981]
 libraries/ = SubResource("AnimationLibrary_mc62u")
+
+[node name="ShootPosition" type="Marker3D" parent="SM_catapult" unique_id=1062209691]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16705339, -0.01090217)
 
 [node name="XRAY" type="Node3D" parent="." unique_id=1961972023 groups=["Pauseable"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -599,11 +601,10 @@ transform = Transform3D(1, 0, 0, 0, 0.80026287, -0.59964937, 0, 0.59964937, 0.80
 material_override = ExtResource("10_73e4m")
 mesh = SubResource("ArrayMesh_0g7wo")
 
-[node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox", "Pauseable"]]
+[node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("defense_troop") groups=["DefenseTroopHitbox", "Pauseable"]]
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("11_pif63")
-crank = NodePath("")
 defense_troop = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefenseTroopHitbox" unique_id=768098377]
@@ -626,5 +627,6 @@ stream = SubResource("AudioStreamRandomizer_wygqj")
 bus = &"SFX"
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="animation_changed" from="SM_catapult/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="area_entered" from="DefenseTroopHitbox" to="." method="on_area_entered"]
 [connection signal="area_exited" from="DefenseTroopHitbox" to="." method="on_area_exited"]

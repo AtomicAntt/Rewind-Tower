@@ -172,3 +172,8 @@ func check_if_valid_attack(defense_hitbox: DefenseHitbox, defense_troop_hitbox: 
 		return false
 	
 	return true
+
+## Plays the hit sound on this enemy given an AudioStream.
+func play_hit_sound(new_stream: AudioStream) -> void:
+	%EnemyHit.stream = new_stream
+	%EnemyHit.play()

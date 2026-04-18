@@ -19,16 +19,10 @@ func _on_shoot_timer_timeout() -> void:
 		projectile_instance.global_position = shoot_position.global_position
 		projectile_instance.look_at(closest_enemy_area.global_position)
 		projectile_instance.set_damage(attack_damage)
-		projectile_instance.set_defense_troop(self)
+		projectile_instance.set_stream(%ArrowHit.stream)
 		
 		animate()
-		
-		crank.power -= power_lose_rate
-		power -= power_lose_rate
-		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
-
-func play_arrow_hit() -> void:
-	%ArrowHit.play()
+		lose_power()
 
 func animate() -> void:
 	animator.speed_scale = 2

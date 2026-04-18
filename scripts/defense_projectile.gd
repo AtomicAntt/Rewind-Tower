@@ -7,23 +7,24 @@ extends Area3D
 ## How fast this projectile moves in m/s
 @export var speed: float = 2.0
 
-var defense_troop: DefenseTroop
+## AudioStream that will play on the Enemy when this projectile hits an enemy.
+var audio_stream: AudioStream
 
 ## Sets the damage of this projectile.
 func set_damage(amount: float) -> void:
 	damage = amount
 
-## Sets the defense troop that shot this defense projectile.
-func set_defense_troop(new_defense_troop: DefenseTroop) -> void:
-	defense_troop = new_defense_troop
+## Sets the AudioStream that will play on the Enemy when hitting them.
+func set_stream(new_stream: AudioStream) -> void:
+	audio_stream = new_stream
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("EnemyHitbox"):
 		# Area in group Enemy should just be the hitbox of the enemy.
 		var enemy: Enemy = area.get_parent()
 		enemy.hurt(damage)
-		if is_instance_valid(defense_troop):
-			defense_troop.play_arrow_hit()
+		if audio_stream:
+			enemy.play_hit_sound(audio_stream)
 		queue_free()
 
 func _physics_process(delta: float) -> void:

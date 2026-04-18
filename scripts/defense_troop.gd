@@ -8,8 +8,6 @@ var shoot_position: Marker3D
 #Used for swordsman
 var shoot_raycast: RayCast3D
 
-var game_manager: Node3D
-
 var power: int = 0
 
 @export var attack_range: float = 100.0
@@ -25,8 +23,6 @@ var melee: bool
 
 @export var power_bar: ProgressBar
 @export var crank: Crank
-
-@export var pickable: XRToolsPickable
 
 #The object that gets rotated towards the enemy
 @export var body: Node3D
@@ -48,8 +44,6 @@ var closest_enemy_area: Area3D = null
 func _ready():
 	super._ready()
 	power_bar.max_value = max_power
-	
-	game_manager = get_parent_node_3d()
 	
 	if troop_type == troop_types.ARCHER:
 		melee = false
@@ -92,7 +86,7 @@ func _physics_process(_delta: float) -> void:
 	
 	power_bar.value = power
 	
-	if power >= power_lose_rate and not pickable.is_picked_up():
+	if power >= power_lose_rate and not is_picked_up():
 		can_shoot = true
 	else:
 		can_shoot = false

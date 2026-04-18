@@ -2,21 +2,10 @@
 class_name DefenseTroop
 extends XRToolsPickable
 
-@onready var projectile: PackedScene = preload("res://scenes/DefenseProjectile.tscn")
-#Used for archer
-var shoot_position: Marker3D
-#Used for swordsman
-var shoot_raycast: RayCast3D
-
 var power: int = 0
 
 @export var attack_range: float = 100.0
 @export var attack_damage: float = 2.0
-
-enum troop_types {ARCHER, SWORDSMAN, BEARTRAP}
-
-@export var troop_type: troop_types
-var melee: bool
 
 @export var max_power: int = 0
 @export var power_lose_rate: int = 0
@@ -44,17 +33,6 @@ var closest_enemy_area: Area3D = null
 func _ready():
 	super._ready()
 	power_bar.max_value = max_power
-	
-	if troop_type == troop_types.ARCHER:
-		melee = false
-	elif troop_type == troop_types.SWORDSMAN:
-		melee = true
-	
-	if melee:
-		shoot_raycast = %ShootRaycast
-		shoot_raycast.swordsman = self
-	else:
-		shoot_position = %ShootPosition
 	
 	# For tutorial
 	grabbed.connect(emit_grab_troop)
@@ -90,18 +68,17 @@ func _physics_process(_delta: float) -> void:
 		can_shoot = true
 	else:
 		can_shoot = false
-	
-	if not Engine.is_editor_hint():
-		closest_enemy_area = find_closest_enemy_area3d()
-		if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
-			body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
-			body.rotation.x = 0
-			body.rotate_y(look_offset)
-			body.rotation.z = 0
 		
-		# For tutorial
-		if power >= max_power:
-			TutorialSystem.emit_signal("complete", "RewindTroop")
+	closest_enemy_area = find_closest_enemy_area3d()
+	if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
+		body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
+		body.rotation.x = 0
+		body.rotate_y(look_offset)
+		body.rotation.z = 0
+	
+	# For tutorial
+	if power >= max_power:
+		TutorialSystem.emit_signal("complete", "RewindTroop")
 
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null
@@ -120,31 +97,11 @@ func get_enemy_distance(enemy_area: Area3D) -> float:
 	else:
 		return INF 
 
-func _on_shoot_timer_timeout() -> void:
-	if is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and !melee and get_enemy_distance(closest_enemy_area) <= attack_range:
-		var projectile_instance: DefenseProjectile = projectile.instantiate()
-		get_parent().add_child(projectile_instance)
-		projectile_instance.global_position = shoot_position.global_position
-		projectile_instance.look_at(closest_enemy_area.global_position)
-		projectile_instance.set_damage(attack_damage)
-		projectile_instance.set_defense_troop(self)
-		
-		animator._animate()
-		
-		crank.power -= power_lose_rate
-		power -= power_lose_rate
-		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
-	elif is_instance_valid(closest_enemy_area) and not Engine.is_editor_hint() and can_shoot and melee and get_enemy_distance(closest_enemy_area) <= attack_range:
-		animator._animate()
-		shoot_raycast._hit()
-		%SwordHit.play()
-		
-		crank.power -= power_lose_rate
-		power -= power_lose_rate
-		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
-
-func _play_arrow_hit():
-	%ArrowHit.play()
+## This method decreases the power of this defense troop by the power_lose_rate.
+func lose_power() -> void:
+	crank.power -= power_lose_rate
+	power -= power_lose_rate
+	crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 
 func show_xray() -> void:
 	xray.visible = true

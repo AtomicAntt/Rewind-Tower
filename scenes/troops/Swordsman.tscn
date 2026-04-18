@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c0pr3pvqnlmfd"]
 
-[ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_x0p4g"]
+[ext_resource type="Script" uid="uid://lut1by47lhic" path="res://scripts/swordsman.gd" id="1_olph7"]
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_olph7"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="4_ck1k0"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_miqn4"]
@@ -290,18 +290,16 @@ stream_6/stream = ExtResource("18_d6b8k")
 stream_7/stream = ExtResource("19_4df0d")
 stream_8/stream = ExtResource("20_55swy")
 
-[node name="Swordsman" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "pickable", "body", "animator", "xray") groups=["DefenseTroop"]]
+[node name="Swordsman" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "body", "animator", "xray") groups=["DefenseTroop"]]
 collision_layer = 36
 collision_mask = 33
-script = ExtResource("1_x0p4g")
+script = ExtResource("1_olph7")
 attack_range = 0.2
 attack_damage = 1.5
-troop_type = 1
 max_power = 35
 power_lose_rate = 1
 power_bar = NodePath("SubViewport/ProgressBar")
 crank = NodePath("SM_swordsman/SM_swordsmanBase/SM_swordsmanBody/Crank")
-pickable = NodePath(".")
 body = NodePath("SM_swordsman/SM_swordsmanBase/SM_swordsmanBody")
 animator = NodePath("SM_swordsman/AnimationPlayer")
 xray = NodePath("XRAY")

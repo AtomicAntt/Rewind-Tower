@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://qsif260hysjo"]
 
-[ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="1_ys6re"]
+[ext_resource type="Script" uid="uid://cuuhv6d7yyq3c" path="res://scripts/archer.gd" id="1_3w457"]
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="2_3w457"]
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_owgmq"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="3_13w10"]
@@ -332,7 +332,7 @@ stream_3/stream = ExtResource("16_8l3ic")
 [node name="Archer" type="RigidBody3D" unique_id=818195771 node_paths=PackedStringArray("power_bar", "crank", "body", "animator", "xray") groups=["DefenseTroop", "Pauseable"]]
 collision_layer = 36
 collision_mask = 33
-script = ExtResource("1_ys6re")
+script = ExtResource("1_3w457")
 attack_range = 1.0
 attack_damage = 1.5
 max_power = 30
@@ -343,7 +343,6 @@ body = NodePath("SM_archer/SM_archerBase/SM_archerBody")
 look_offset = -90
 animator = NodePath("SM_archer/AnimationPlayer")
 xray = NodePath("XRAY")
-ranged_grab_method = 2
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1477189192 groups=["Pauseable"]]

@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
 [ext_resource type="PackedScene" uid="uid://cn2ukcfhnhk6u" path="res://scenes/Cigarrete.tscn" id="39_3g52j"]
+[ext_resource type="PackedScene" uid="uid://5yergo6mgc4d" path="res://scenes/troops/Catapult.tscn" id="40_b3pp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -835,6 +836,9 @@ transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9
 [node name="SoundSettingsSpawn" type="Node3D" parent="." unique_id=1458959707]
 unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2, -0.53120345)
+
+[node name="Catapult" parent="." unique_id=818195771 instance=ExtResource("40_b3pp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07226801, 1.0150001, -0.35490948)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 [connection signal="body_entered" from="Boundary/Area3D" to="Boundary" method="_on_area_3d_body_entered"]

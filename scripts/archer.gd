@@ -3,7 +3,10 @@ class_name Archer
 extends DefenseTroop
 
 @onready var projectile: PackedScene = preload("res://scenes/DefenseProjectile.tscn")
-@onready var shoot_position = %ShootPosition
+@onready var shoot_position: Marker3D = %ShootPosition
+
+@export var animation_attack: String
+@export var animation_head: String
 
 func _on_shoot_timer_timeout() -> void:
 	# Do not shoot if inside the editor.
@@ -18,11 +21,18 @@ func _on_shoot_timer_timeout() -> void:
 		projectile_instance.set_damage(attack_damage)
 		projectile_instance.set_defense_troop(self)
 		
-		animator._animate()
+		animate()
 		
 		crank.power -= power_lose_rate
 		power -= power_lose_rate
 		crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 
-func _play_arrow_hit():
+func play_arrow_hit() -> void:
 	%ArrowHit.play()
+
+func animate() -> void:
+	animator.speed_scale = 2
+	
+	animator.queue(animation_attack)
+	if animation_head != "":
+		animator.queue(animation_head)

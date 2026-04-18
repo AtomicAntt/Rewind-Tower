@@ -23,7 +23,7 @@ func _on_area_entered(area: Area3D) -> void:
 		var enemy: Enemy = area.get_parent()
 		enemy.hurt(damage)
 		if is_instance_valid(defense_troop):
-			defense_troop._play_arrow_hit()
+			defense_troop.play_arrow_hit()
 		queue_free()
 
 func _physics_process(delta: float) -> void:

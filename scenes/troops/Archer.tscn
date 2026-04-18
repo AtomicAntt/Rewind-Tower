@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="2_owgmq"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="3_13w10"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_qm8lu"]
-[ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="5_qm8lu"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="6_ma2m2"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/defense_troop_hitbox.gd" id="6_vtcc4"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_gj00f"]
@@ -333,6 +332,8 @@ stream_3/stream = ExtResource("16_8l3ic")
 collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_3w457")
+animation_attack = "anim_archer_ArmShoot"
+animation_head = "anim_archerHeadrotat"
 attack_range = 1.0
 attack_damage = 1.0
 max_power = 30
@@ -446,13 +447,8 @@ transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.350809
 
 [node name="Node3D" type="Node3D" parent="SM_archer/SM_archerBase" unique_id=410799499]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 node_paths=PackedStringArray("animator", "defenseTroop") groups=["Pauseable"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_archer" unique_id=224409925 groups=["Pauseable"]]
 libraries/ = SubResource("AnimationLibrary_a2mnt")
-script = ExtResource("5_qm8lu")
-animator = NodePath(".")
-animationAttack = "anim_archer_ArmShoot"
-animationHead = "anim_archerHeadrotat"
-defenseTroop = NodePath("../..")
 
 [node name="XRAY" type="Node3D" parent="." unique_id=1961972023 groups=["Pauseable"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.05, 0)
@@ -482,13 +478,8 @@ mesh = SubResource("ArrayMesh_3yo6f")
 material_override = ExtResource("7_q5yvk")
 mesh = SubResource("ArrayMesh_ulej5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="XRAY" unique_id=1517720538 node_paths=PackedStringArray("animator", "defenseTroop") groups=["Pauseable"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="XRAY" unique_id=1517720538 groups=["Pauseable"]]
 libraries/ = SubResource("AnimationLibrary_a2mnt")
-script = ExtResource("5_qm8lu")
-animator = NodePath(".")
-animationAttack = "anim_archer_ArmShoot"
-animationHead = "anim_archerHeadrotat"
-defenseTroop = NodePath("../..")
 
 [node name="DefenseTroopHitbox" type="Area3D" parent="." unique_id=183804413 node_paths=PackedStringArray("crank", "defense_troop") groups=["DefenseTroopHitbox", "Pauseable"]]
 collision_layer = 256

@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="6_cet4y"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="7_4kgx3"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="8_xgvf4"]
-[ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="9_mwpfb"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/materials/xray material.tres" id="10_73e4m"]
 [ext_resource type="Script" uid="uid://ls3v6gnl325a" path="res://scripts/defense_troop_hitbox.gd" id="11_pif63"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="12_vmt8v"]
@@ -463,6 +462,7 @@ stream_3/stream = ExtResource("20_k8rqe")
 collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_ns7c4")
+animation_attack = "SM_catapultLaunch"
 attack_range = 1.0
 attack_damage = 3.0
 max_power = 60
@@ -570,8 +570,6 @@ transform = Transform3D(-5.9045753e-08, 0, 1.3508092, 0, 1.3508077, 0, -1.350809
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_catapult" unique_id=1549339981]
 libraries/ = SubResource("AnimationLibrary_mc62u")
-script = ExtResource("9_mwpfb")
-animationAttack = "SM_catapultLaunch"
 
 [node name="XRAY" type="Node3D" parent="." unique_id=1961972023 groups=["Pauseable"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)

@@ -34,7 +34,7 @@ var can_shoot: bool = false
 
 var closest_enemy_area: Area3D = null
 
-## References the AnimationPlayer which should have the defense_animator script on it
+## References the AnimationPlayer.
 @export var animator: AnimationPlayer
 
 ## A duplicate model with stencil buffer x-ray material so you can see this troop through walls.

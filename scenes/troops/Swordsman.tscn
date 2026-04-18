@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://mpi46q6n1hf3" path="res://scripts/crank.gd" id="4_ck1k0"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_miqn4"]
 [ext_resource type="AudioStream" uid="uid://cufjv5r55oib4" path="res://assets/audio/ratchet.ogg" id="5_nysg6"]
-[ext_resource type="Script" uid="uid://gv0nm1vmq65p" path="res://scripts/defense_animator.gd" id="6_ihm32"]
 [ext_resource type="Script" uid="uid://dff408qq7s26e" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="6_qnl7s"]
 [ext_resource type="Script" uid="uid://b15qba0ch13uw" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="7_5lux3"]
 [ext_resource type="Material" uid="uid://cvmhek8pcevq" path="res://assets/materials/xray material.tres" id="7_jt50a"]
@@ -294,6 +293,7 @@ stream_8/stream = ExtResource("20_55swy")
 collision_layer = 36
 collision_mask = 33
 script = ExtResource("1_olph7")
+animation_attack = "anim_swordmove"
 attack_range = 0.2
 attack_damage = 1.5
 max_power = 35
@@ -319,7 +319,7 @@ material_override = ExtResource("2_olph7")
 mesh = SubResource("ArrayMesh_cipnl")
 
 [node name="SM_swordsmanArm" type="MeshInstance3D" parent="SM_swordsman/SM_swordsmanBase/SM_swordsmanBody" unique_id=84159214]
-transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.8212357, 1.0705055, -0.065383404, -0.03501591, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
+transform = Transform3D(1.0719285, -0.8165826, 0.09405909, 0.82123566, 1.0705055, -0.065383404, -0.035015907, 0.109068714, 1.3459433, -0.026160665, 0.11504311, 0.020893408)
 material_override = ExtResource("2_olph7")
 mesh = SubResource("ArrayMesh_7vkeg")
 
@@ -374,12 +374,8 @@ collide_with_areas = true
 script = ExtResource("12_5nm3u")
 raycast = NodePath(".")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_swordsman" unique_id=1286942803 node_paths=PackedStringArray("animator", "defenseTroop")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_swordsman" unique_id=1286942803]
 libraries/ = SubResource("AnimationLibrary_ma3pd")
-script = ExtResource("6_ihm32")
-animator = NodePath(".")
-animationAttack = "anim_swordmove"
-defenseTroop = NodePath("../..")
 
 [node name="XRAY" type="Node3D" parent="." unique_id=1796101761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09570815, -0.050602548, 0)

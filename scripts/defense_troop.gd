@@ -4,28 +4,40 @@ extends XRToolsPickable
 
 var power: int = 0
 
+## The attack range of this defense troop, which is how close the enemy must be to be able to target them.
 @export var attack_range: float = 100.0
+
+## The attack damage of this defense troop. If there are projectiles, it should have their damage set by this value automatically.
 @export var attack_damage: float = 2.0
 
+## The max power which this troop can have.
 @export var max_power: int = 0
+
+## The amount of power this troop loses whenever they use their attack/ability.
 @export var power_lose_rate: int = 0
 
+## The ProgressBar control node that is used to display power value.
 @export var power_bar: ProgressBar
+
+## The crank attached to this defense troop.
 @export var crank: Crank
 
-#The object that gets rotated towards the enemy
+## The object that gets rotated towards the enemy when it looks at them.
 @export var body: Node3D
 
-#Offset for looking at the enemies
+## Offset for looking at the enemies on the body
 @export var look_offset: int
 
+## Whether this troop can use their attack/ability.
+## Not true if players pick this up, or if it does not have sufficient power.
 var can_shoot: bool = false
 
 var closest_enemy_area: Area3D = null
 
-#Reference the AnimationPlayer which should have the defense_animator script on it
+## References the AnimationPlayer which should have the defense_animator script on it
 @export var animator: AnimationPlayer
 
+## A duplicate model with stencil buffer x-ray material so you can see this troop through walls.
 @export var xray: Node3D
 
 @onready var initial_body_orientation: Vector3 = body.rotation
@@ -80,6 +92,7 @@ func _physics_process(_delta: float) -> void:
 	if power >= max_power:
 		TutorialSystem.emit_signal("complete", "RewindTroop")
 
+## Find the closest enemy hitbox it can find that is alive. If none is found, it returns null.
 func find_closest_enemy_area3d() -> Area3D:
 	var closest_area3d: Area3D = null
 	var closest_distance: float = INF
@@ -91,6 +104,7 @@ func find_closest_enemy_area3d() -> Area3D:
 				closest_distance = global_position.distance_to(enemy_area.global_position)
 	return closest_area3d
 
+## Gets the enemy distance given an enemy area (hitbox)
 func get_enemy_distance(enemy_area: Area3D) -> float:
 	if is_instance_valid(enemy_area):
 		return global_position.distance_to(enemy_area.global_position)
@@ -103,8 +117,10 @@ func lose_power() -> void:
 	power -= power_lose_rate
 	crank.crank_value = (crank.crank_value/abs(crank.crank_value)) * crank.power
 
+## Shows the stencil buffer xray
 func show_xray() -> void:
 	xray.visible = true
 
+## Hides the stencil buffer xray
 func hide_xray() -> void:
 	xray.visible = false

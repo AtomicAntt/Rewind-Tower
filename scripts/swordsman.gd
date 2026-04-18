@@ -5,6 +5,7 @@ extends DefenseTroop
 @onready var shoot_raycast: RayCast3D = %ShootRaycast
 
 func _on_shoot_timer_timeout() -> void:
+	# Do not shoot if inside the editor.
 	if Engine.is_editor_hint():
 		return
 	

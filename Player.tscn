@@ -49,14 +49,14 @@ magnitude = 0.2
 duration_ms = 20
 metadata/_custom_type_script = "uid://b15qba0ch13uw"
 
-[node name="Player" type="Node3D" unique_id=970537108 groups=["Player"]]
+[node name="Player" type="Node3D" unique_id=970537108 groups=["Dont Pause", "Player"]]
 script = ExtResource("1_e80uo")
 
-[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886]
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886 groups=["Dont Pause"]]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["XRCamera3D"]]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["Dont Pause", "XRCamera3D"]]
 
-[node name="Snapzone" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=485673022]
+[node name="Snapzone" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=485673022 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049652874, -0.10750523)
 collision_layer = 5
@@ -66,10 +66,10 @@ grab_distance = 1.0
 snap_require = "Cigarette"
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=1037221598]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=1037221598 groups=["Dont Pause"]]
 shape = SubResource("BoxShape3D_wi0c6")
 
-[node name="MouthParticles" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=21089323]
+[node name="MouthParticles" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=21089323 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 3.552713e-16, 0, -3.552713e-16, 0.01, 0, 0, 0)
 emitting = false
@@ -80,35 +80,35 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_hp6x6")
 draw_pass_1 = SubResource("BoxMesh_3tkgg")
 
-[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=129644625]
+[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=129644625 groups=["Dont Pause"]]
 unique_name_in_owner = true
 tracker = &"left_hand"
 
-[node name="FunctionPickup" parent="XROrigin3D/LeftController" unique_id=1356690824 instance=ExtResource("1_xhfnw")]
+[node name="FunctionPickup" parent="XROrigin3D/LeftController" unique_id=1356690824 groups=["Dont Pause"] instance=ExtResource("1_xhfnw")]
 grab_distance = 0.1
 grab_collision_mask = 327700
 ranged_collision_mask = 20
 
-[node name="LeftHand" parent="XROrigin3D/LeftController" unique_id=418794988 instance=ExtResource("2_kne1u")]
+[node name="LeftHand" parent="XROrigin3D/LeftController" unique_id=418794988 groups=["Dont Pause"] instance=ExtResource("2_kne1u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05035741, 0.05016762)
 hand_material_override = ExtResource("4_cxr5p")
 
-[node name="CoinDisplay" type="Label3D" parent="XROrigin3D/LeftController/LeftHand" unique_id=1700539181]
+[node name="CoinDisplay" type="Label3D" parent="XROrigin3D/LeftController/LeftHand" unique_id=1700539181 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(-1.0927846e-09, -1.0927849e-09, 0.025, -0.025, -1.0927848e-09, -1.0927848e-09, 1.0927849e-09, -0.025, -1.0927848e-09, 0.017, 0, 0.065)
 text = "Coins: "
 font_size = 64
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661]
+[node name="Area3D" type="Area3D" parent="XROrigin3D/LeftController" unique_id=771519661 groups=["Dont Pause"]]
 collision_layer = 64
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/Area3D" unique_id=764276801]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/Area3D" unique_id=764276801 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
 shape = SubResource("BoxShape3D_e80uo")
 
-[node name="CoinSlot" type="Area3D" parent="XROrigin3D/LeftController" unique_id=991365255]
+[node name="CoinSlot" type="Area3D" parent="XROrigin3D/LeftController" unique_id=991365255 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -4.3711385e-08, 1, -4.3711385e-08, -1, -4.3711385e-08, 0, -0.05035741, 0.15057735)
 collision_layer = 4
@@ -118,43 +118,43 @@ snap_mode = 1
 snap_require = "Coin"
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/CoinSlot" unique_id=1560383783]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/CoinSlot" unique_id=1560383783 groups=["Dont Pause"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_dtqjt")
 
-[node name="CoinRespawn" type="Timer" parent="XROrigin3D/LeftController/CoinSlot" unique_id=2086081812]
+[node name="CoinRespawn" type="Timer" parent="XROrigin3D/LeftController/CoinSlot" unique_id=2086081812 groups=["Dont Pause"]]
 unique_name_in_owner = true
 autostart = true
 
-[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=334774302]
+[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=334774302 groups=["Dont Pause"]]
 unique_name_in_owner = true
 tracker = &"right_hand"
 
-[node name="FunctionPickup" parent="XROrigin3D/RightController" unique_id=1486564980 instance=ExtResource("1_xhfnw")]
+[node name="FunctionPickup" parent="XROrigin3D/RightController" unique_id=1486564980 groups=["Dont Pause"] instance=ExtResource("1_xhfnw")]
 grab_distance = 0.1
 grab_collision_mask = 327700
 ranged_collision_mask = 20
 
-[node name="RightHand" parent="XROrigin3D/RightController" unique_id=1188517998 instance=ExtResource("3_e80uo")]
+[node name="RightHand" parent="XROrigin3D/RightController" unique_id=1188517998 groups=["Dont Pause"] instance=ExtResource("3_e80uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05035741, 0.05016762)
 hand_material_override = ExtResource("4_cxr5p")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/RightController" unique_id=1893232261]
+[node name="Area3D" type="Area3D" parent="XROrigin3D/RightController" unique_id=1893232261 groups=["Dont Pause"]]
 collision_layer = 64
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/Area3D" unique_id=276126665]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/Area3D" unique_id=276126665 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02995073, 0.045187138)
 shape = SubResource("BoxShape3D_e80uo")
 
-[node name="Turning" type="Node3D" parent="XROrigin3D/RightController" unique_id=2100333375 groups=["movement_providers"]]
+[node name="Turning" type="Node3D" parent="XROrigin3D/RightController" unique_id=2100333375 groups=["Dont Pause", "movement_providers"]]
 unique_name_in_owner = true
 script = ExtResource("7_oudfo")
 step_turn_angle = 30.0
 metadata/_custom_type_script = "uid://kuxqh057vr5y"
 
-[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D" unique_id=121707587]
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D" unique_id=121707587 groups=["Dont Pause"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("9_r3kul")
@@ -162,24 +162,24 @@ player_calibrate_height = false
 player_height_min = 0.0
 metadata/_custom_type_script = "uid://ck4yn3hxuobj7"
 
-[node name="XRToolsMovementProvider" type="Node3D" parent="XROrigin3D" unique_id=1968771169 groups=["movement_providers"]]
+[node name="XRToolsMovementProvider" type="Node3D" parent="XROrigin3D" unique_id=1968771169 groups=["Dont Pause", "movement_providers"]]
 script = ExtResource("10_jatw7")
 metadata/_custom_type_script = "uid://i2t7j1aj60s0"
 
-[node name="Audio" type="Node3D" parent="." unique_id=244856922]
+[node name="Audio" type="Node3D" parent="." unique_id=244856922 groups=["Dont Pause"]]
 
-[node name="Coins" type="AudioStreamPlayer" parent="Audio" unique_id=867959921]
+[node name="Coins" type="AudioStreamPlayer" parent="Audio" unique_id=867959921 groups=["Dont Pause"]]
 unique_name_in_owner = true
 stream = ExtResource("12_rv870")
 bus = &"SFX"
 
-[node name="XRToolsRumbler" type="Node" parent="." unique_id=877640356]
+[node name="XRToolsRumbler" type="Node" parent="." unique_id=877640356 groups=["Dont Pause"]]
 unique_name_in_owner = true
 script = ExtResource("13_d6rpx")
 event = SubResource("Resource_jatw7")
 metadata/_custom_type_script = "uid://dff408qq7s26e"
 
-[node name="CoinPickupRumbler" type="Node" parent="." unique_id=1114918464]
+[node name="CoinPickupRumbler" type="Node" parent="." unique_id=1114918464 groups=["Dont Pause"]]
 unique_name_in_owner = true
 script = ExtResource("13_d6rpx")
 event = SubResource("Resource_d6rpx")

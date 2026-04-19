@@ -371,142 +371,142 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g8k42")
 
-[node name="SoundSettings" type="Node3D" unique_id=406405812 groups=["Unpauseable"]]
+[node name="SoundSettings" type="Node3D" unique_id=406405812 groups=["Dont Pause"]]
 script = ExtResource("1_wfjxy")
 
-[node name="SM_soundControlUnit" type="Node3D" parent="." unique_id=383976758 groups=["Unpauseable"]]
+[node name="SM_soundControlUnit" type="Node3D" parent="." unique_id=383976758 groups=["Dont Pause"]]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="SM_SoundControlUnit" type="MeshInstance3D" parent="SM_soundControlUnit" unique_id=1686946921 groups=["Unpauseable"]]
+[node name="SM_SoundControlUnit" type="MeshInstance3D" parent="SM_soundControlUnit" unique_id=1686946921 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.1)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_2lebo")
 
-[node name="MusicWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1046753965 groups=["Unpauseable"]]
+[node name="MusicWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1046753965 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14596799)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_uta40")
 
-[node name="SfxWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=742688971 groups=["Unpauseable"]]
+[node name="SfxWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=742688971 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14479265)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_tobj1")
 
-[node name="SM_volMetalic" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1646542149 groups=["Unpauseable"]]
+[node name="SM_volMetalic" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=1646542149 groups=["Dont Pause"]]
 transform = Transform3D(-0.68552375, -4.3856926e-07, -4.3856926e-07, 4.3856923e-07, 0, -0.6855238, 4.3856923e-07, -0.6855238, 2.8057816e-13, -0.06974131, 0.11012981, -0.14973596)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_5ywfr")
 
-[node name="MasterWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=748541152 groups=["Unpauseable"]]
+[node name="MasterWheel" type="MeshInstance3D" parent="SM_soundControlUnit/SM_SoundControlUnit" unique_id=748541152 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.0901918, 0, 0, 0, 0.0901918, 0, 0, 0, 0.0901918, 0, 0.11123111, -0.14055362)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_wpx5s")
 
-[node name="MusicKnob" type="Node3D" parent="." unique_id=349449989 groups=["Unpauseable"]]
+[node name="MusicKnob" type="Node3D" parent="." unique_id=349449989 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069, -0.11, 0.06)
 
-[node name="Music" type="Node3D" parent="MusicKnob" unique_id=45405399 node_paths=PackedStringArray("pickable") groups=["Unpauseable"]]
+[node name="Music" type="Node3D" parent="MusicKnob" unique_id=45405399 node_paths=PackedStringArray("pickable") groups=["Dont Pause"]]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
 
-[node name="Pickable" type="RigidBody3D" parent="MusicKnob/Music" unique_id=930128821 groups=["Unpauseable"]]
+[node name="Pickable" type="RigidBody3D" parent="MusicKnob/Music" unique_id=930128821 groups=["Dont Pause"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("4_b331x")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MusicKnob/Music/Pickable" unique_id=1348666662 groups=["Unpauseable"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MusicKnob/Music/Pickable" unique_id=1348666662 groups=["Dont Pause"]]
 shape = SubResource("BoxShape3D_ool78")
 
-[node name="SM_automatCrank" type="MeshInstance3D" parent="MusicKnob/Music/Pickable" unique_id=1446403497 groups=["Unpauseable"]]
+[node name="SM_automatCrank" type="MeshInstance3D" parent="MusicKnob/Music/Pickable" unique_id=1446403497 groups=["Dont Pause"]]
 visible = false
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_5b5dq")
 
-[node name="GrabPointHandLeft" parent="MusicKnob/Music/Pickable/SM_automatCrank" unique_id=744177840 groups=["Unpauseable"] instance=ExtResource("5_p05vy")]
+[node name="GrabPointHandLeft" parent="MusicKnob/Music/Pickable/SM_automatCrank" unique_id=744177840 groups=["Dont Pause"] instance=ExtResource("5_p05vy")]
 transform = Transform3D(1.3113416e-07, 1, -3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, 1.3113416e-07, 4.371139e-08, 0.09514968, 0.1212682, 0.038438767)
 hand_pose = SubResource("Resource_2ij6s")
 
-[node name="GrabPointHandRight" parent="MusicKnob/Music/Pickable/SM_automatCrank" unique_id=48174599 groups=["Unpauseable"] instance=ExtResource("8_rm8av")]
+[node name="GrabPointHandRight" parent="MusicKnob/Music/Pickable/SM_automatCrank" unique_id=48174599 groups=["Dont Pause"] instance=ExtResource("8_rm8av")]
 transform = Transform3D(-2.1855693e-07, -1, 7.642742e-15, -4.371139e-08, 1.9106855e-15, -1, 1, -2.1855693e-07, -4.371139e-08, -0.09448956, 0.11619894, 0.048066687)
 hand_pose = SubResource("Resource_tlk1a")
 
-[node name="SM_musicNob" type="MeshInstance3D" parent="MusicKnob/Music/Pickable" unique_id=94033884 groups=["Unpauseable"]]
+[node name="SM_musicNob" type="MeshInstance3D" parent="MusicKnob/Music/Pickable" unique_id=94033884 groups=["Dont Pause"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_mj3fg")
 
-[node name="MasterKnob" type="Node3D" parent="." unique_id=614748387 groups=["Unpauseable"]]
+[node name="MasterKnob" type="Node3D" parent="." unique_id=614748387 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.089, 0.06)
 
-[node name="Master" type="Node3D" parent="MasterKnob" unique_id=874237200 node_paths=PackedStringArray("pickable") groups=["Unpauseable"]]
+[node name="Master" type="Node3D" parent="MasterKnob" unique_id=874237200 node_paths=PackedStringArray("pickable") groups=["Dont Pause"]]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
 
-[node name="Pickable" type="RigidBody3D" parent="MasterKnob/Master" unique_id=24536932 groups=["Unpauseable"]]
+[node name="Pickable" type="RigidBody3D" parent="MasterKnob/Master" unique_id=24536932 groups=["Dont Pause"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("4_b331x")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MasterKnob/Master/Pickable" unique_id=1202747717 groups=["Unpauseable"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MasterKnob/Master/Pickable" unique_id=1202747717 groups=["Dont Pause"]]
 shape = SubResource("BoxShape3D_ool78")
 
-[node name="SM_automatCrank" type="MeshInstance3D" parent="MasterKnob/Master/Pickable" unique_id=1438362337 groups=["Unpauseable"]]
+[node name="SM_automatCrank" type="MeshInstance3D" parent="MasterKnob/Master/Pickable" unique_id=1438362337 groups=["Dont Pause"]]
 visible = false
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_ool78")
 
-[node name="GrabPointHandLeft" parent="MasterKnob/Master/Pickable/SM_automatCrank" unique_id=1144666510 groups=["Unpauseable"] instance=ExtResource("5_p05vy")]
+[node name="GrabPointHandLeft" parent="MasterKnob/Master/Pickable/SM_automatCrank" unique_id=1144666510 groups=["Dont Pause"] instance=ExtResource("5_p05vy")]
 transform = Transform3D(1.3113416e-07, 1, -3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, 1.3113416e-07, 4.371139e-08, 0.09514968, 0.1212682, 0.038438767)
 hand_pose = SubResource("Resource_b331x")
 
-[node name="GrabPointHandRight" parent="MasterKnob/Master/Pickable/SM_automatCrank" unique_id=724225795 groups=["Unpauseable"] instance=ExtResource("8_rm8av")]
+[node name="GrabPointHandRight" parent="MasterKnob/Master/Pickable/SM_automatCrank" unique_id=724225795 groups=["Dont Pause"] instance=ExtResource("8_rm8av")]
 transform = Transform3D(-2.1855693e-07, -1, 7.642742e-15, -4.371139e-08, 1.9106855e-15, -1, 1, -2.1855693e-07, -4.371139e-08, -0.09448956, 0.11619894, 0.048066687)
 hand_pose = SubResource("Resource_p05vy")
 
-[node name="SM_volNob" type="MeshInstance3D" parent="MasterKnob/Master/Pickable" unique_id=927304155 groups=["Unpauseable"]]
+[node name="SM_volNob" type="MeshInstance3D" parent="MasterKnob/Master/Pickable" unique_id=927304155 groups=["Dont Pause"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_xrrvr")
 
-[node name="SfxKnob" type="Node3D" parent="." unique_id=736010941 groups=["Unpauseable"]]
+[node name="SfxKnob" type="Node3D" parent="." unique_id=736010941 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, -0.114, 0.06)
 
-[node name="SFX" type="Node3D" parent="SfxKnob" unique_id=1900082088 node_paths=PackedStringArray("pickable") groups=["Unpauseable"]]
+[node name="SFX" type="Node3D" parent="SfxKnob" unique_id=1900082088 node_paths=PackedStringArray("pickable") groups=["Dont Pause"]]
 unique_name_in_owner = true
 script = ExtResource("3_ool78")
 pickable = NodePath("Pickable")
 
-[node name="Pickable" type="RigidBody3D" parent="SfxKnob/SFX" unique_id=1043594973 groups=["Unpauseable"]]
+[node name="Pickable" type="RigidBody3D" parent="SfxKnob/SFX" unique_id=1043594973 groups=["Dont Pause"]]
 unique_name_in_owner = true
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("4_b331x")
 metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SfxKnob/SFX/Pickable" unique_id=1037557145 groups=["Unpauseable"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SfxKnob/SFX/Pickable" unique_id=1037557145 groups=["Dont Pause"]]
 shape = SubResource("BoxShape3D_ool78")
 
-[node name="SM_automatCrank" type="MeshInstance3D" parent="SfxKnob/SFX/Pickable" unique_id=531174642 groups=["Unpauseable"]]
+[node name="SM_automatCrank" type="MeshInstance3D" parent="SfxKnob/SFX/Pickable" unique_id=531174642 groups=["Dont Pause"]]
 visible = false
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_ool78")
 
-[node name="GrabPointHandLeft" parent="SfxKnob/SFX/Pickable/SM_automatCrank" unique_id=421232930 groups=["Unpauseable"] instance=ExtResource("5_p05vy")]
+[node name="GrabPointHandLeft" parent="SfxKnob/SFX/Pickable/SM_automatCrank" unique_id=421232930 groups=["Dont Pause"] instance=ExtResource("5_p05vy")]
 transform = Transform3D(1.3113416e-07, 1, -3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, 1.3113416e-07, 4.371139e-08, 0.09514968, 0.1212682, 0.038438767)
 hand_pose = SubResource("Resource_b331x")
 
-[node name="GrabPointHandRight" parent="SfxKnob/SFX/Pickable/SM_automatCrank" unique_id=124222728 groups=["Unpauseable"] instance=ExtResource("8_rm8av")]
+[node name="GrabPointHandRight" parent="SfxKnob/SFX/Pickable/SM_automatCrank" unique_id=124222728 groups=["Dont Pause"] instance=ExtResource("8_rm8av")]
 transform = Transform3D(-2.1855693e-07, -1, 7.642742e-15, -4.371139e-08, 1.9106855e-15, -1, 1, -2.1855693e-07, -4.371139e-08, -0.09448956, 0.11619894, 0.048066687)
 hand_pose = SubResource("Resource_p05vy")
 
-[node name="SM_sfxNob" type="MeshInstance3D" parent="SfxKnob/SFX/Pickable" unique_id=1612421595 groups=["Unpauseable"]]
+[node name="SM_sfxNob" type="MeshInstance3D" parent="SfxKnob/SFX/Pickable" unique_id=1612421595 groups=["Dont Pause"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 material_override = ExtResource("2_11hxr")
 mesh = SubResource("ArrayMesh_kgiym")

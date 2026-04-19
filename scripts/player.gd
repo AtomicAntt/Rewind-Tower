@@ -181,6 +181,7 @@ func _set_turning() -> void:
 	var turn_handler = %Turning
 	
 	turn_handler.smooth_turn_speed = SettingsHandler.get_smooth_speed()
+	turn_handler.smooth_turn_speed = remap(turn_handler.smooth_turn_speed, -10.45, 6.0, 2, 20)
 	
 	match turn_mode:
 		0:

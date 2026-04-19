@@ -49,7 +49,7 @@ DefenseTroop=""
 Cigarette=""
 movement_providers=""
 GameManager=""
-Pauseable=""
+"Dont Pause"=""
 
 [layer_names]
 

@@ -32,14 +32,15 @@
 [ext_resource type="Script" uid="uid://brl4nrxuagftm" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
+[ext_resource type="Script" uid="uid://cuddky0oy25pu" path="res://scripts/defense_troop.gd" id="21_ybhw4"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
 [ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
-[ext_resource type="Script" uid="uid://sqsc7mqbih0a" path="res://scripts/boundary.gd" id="25_3g52j"]
+[ext_resource type="Script" path="res://scripts/boundary.gd" id="25_3g52j"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
 [ext_resource type="PackedScene" uid="uid://cn2ukcfhnhk6u" path="res://scenes/Cigarrete.tscn" id="39_3g52j"]
-[ext_resource type="PackedScene" uid="uid://5yergo6mgc4d" path="res://scenes/troops/Catapult.tscn" id="40_b3pp0"]
+[ext_resource type="PackedScene" path="res://scenes/troops/Catapult.tscn" id="40_b3pp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqhe0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -278,7 +279,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b3pp0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ybhw4"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex6dp"]
@@ -287,7 +288,7 @@ size = Vector3(5, 0.05, 5)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cg2kh"]
 data = PackedVector3Array(0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.662, -0.7001, 2.1104999, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 1.8052, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0, 0.662, -0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.662, 0.7001, 0, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.5755, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 2.1104999, 0.5755, 0.7001, 2.1104999, 0.662, 0.7001, 1.8052, 0.662, 0.3922, 1.8052, 0.4236, 0.25849998, 1.8052, 0.19929999, 0.1094, 1.8052, 0.3576, 0.7001, 1.8052, 0.5755, 0.25849998, 1.8052, 0.19929999, 0.3922, 1.8052, 0.4236, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, 0.1094, 1.8052, 0.3576, 0.25849998, 1.8052, 0.19929999, -0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.25849998, 1.8052, 0.19929999, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.1094, 1.8052, 0.3576, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 2.1104999, 0.4236, -0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 2.1104999, 0.3576, 0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.1094, 1.8052, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 2.1104999, 0.3576, 0.3922, 2.1104999, 0.4236, 0.3922, 1.8052, 0.4236, 0.3922, 2.1104999, 0.4236, 0.7001, 2.1104999, 0.5755, 0.3922, 1.8052, 0.4236, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.7001, 0.8204, 0.662, -0.7001, 0, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.7001, 1.8052, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 2.1104999, -0.0298, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 0.8204, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0, -0.0298, 0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 2.1104999, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, -0.0298, -0.80179995, 2.1104999, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 1.8052, -0.0298, -0.80179995, 0, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 0.8204, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0, -0.0298, -0.80179995, 0.8204, -0.0298, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1009, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, 0.7197, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1009, -0.0802, -0.8218, 2.1009, -0.0802, -0.8218, 2.1009, 0.7197, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1634, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1634, 0.7197, -0.8218, 2.1634, 0.7197)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ybhw4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kba41"]
 viewport_path = NodePath("SubViewport")
 
 [node name="GameScene" type="Node3D" unique_id=407102983 node_paths=PackedStringArray("drawer_spawn_point") groups=["GameManager"]]
@@ -320,9 +321,9 @@ mesh = SubResource("ArrayMesh_ea2ej")
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_uxc8u")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EnvironmentAssets/SM_Ground" unique_id=999373575]
+[node name="StaticBody3D" type="StaticBody3D" parent="EnvironmentAssets/SM_Ground" unique_id=999373575 groups=["Dont Pause"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnvironmentAssets/SM_Ground/StaticBody3D" unique_id=572361447]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnvironmentAssets/SM_Ground/StaticBody3D" unique_id=572361447 groups=["Dont Pause"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.058819026, 0)
 shape = SubResource("BoxShape3D_3g52j")
 
@@ -477,7 +478,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1142927959]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
@@ -506,6 +507,9 @@ shape = SubResource("BoxShape3D_4fxa8")
 
 [node name="DefenseTroop" parent="." unique_id=150638980 instance=ExtResource("12_0exr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100302, 0.83589834, -0.25400668)
+script = ExtResource("21_ybhw4")
+attack_damage = 1.5
+ranged_grab_method = 2
 
 [node name="(GrabTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
@@ -545,7 +549,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_b3pp0")
+texture = SubResource("ViewportTexture_ybhw4")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -796,7 +800,7 @@ visible = false
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999999, 0.17531645, -0.08002964, 2.558608)
 visible = false
 
-[node name="GlobalAudioManager" type="Node" parent="." unique_id=1783369220 node_paths=PackedStringArray("game_over_audio", "round_start_audio", "round_win_audio", "intermission_music", "gametime_music")]
+[node name="GlobalAudioManager" type="Node" parent="." unique_id=1783369220 node_paths=PackedStringArray("game_over_audio", "round_start_audio", "round_win_audio", "intermission_music", "gametime_music") groups=["Dont Pause"]]
 script = ExtResource("19_6qjax")
 game_over_audio = NodePath("GameOver")
 round_start_audio = NodePath("RoundStart")
@@ -804,15 +808,15 @@ round_win_audio = NodePath("RoundWin")
 intermission_music = NodePath("../Music/Intermission")
 gametime_music = NodePath("../Music/Gametime")
 
-[node name="GameOver" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1129667753]
+[node name="GameOver" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1129667753 groups=["Dont Pause"]]
 stream = ExtResource("20_k8u5j")
 bus = &"Music"
 
-[node name="RoundStart" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=2039169721]
+[node name="RoundStart" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=2039169721 groups=["Dont Pause"]]
 stream = ExtResource("21_0p1ba")
 bus = &"Music"
 
-[node name="RoundWin" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1904967774]
+[node name="RoundWin" type="AudioStreamPlayer" parent="GlobalAudioManager" unique_id=1904967774 groups=["Dont Pause"]]
 stream = ExtResource("22_igvw6")
 bus = &"Music"
 
@@ -832,19 +836,26 @@ transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.1
 [node name="Cigarette" parent="." unique_id=1965363167 instance=ExtResource("39_3g52j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7402221, 1.025, -0.14563093)
 
-[node name="TurnSettingsSpawn" type="Node3D" parent="." unique_id=2070717149]
+[node name="TurnSettingsSpawn" type="Node3D" parent="." unique_id=2070717149 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9396926, -0.50944334, 1.0215818, -0.580122)
 
-[node name="SoundSettingsSpawn" type="Node3D" parent="." unique_id=1458959707]
+[node name="SoundSettingsSpawn" type="Node3D" parent="." unique_id=1458959707 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2, -0.53120345)
 
 [node name="Catapult" parent="." unique_id=818195771 instance=ExtResource("40_b3pp0")]
 transform = Transform3D(0.34277448, 0, -0.9394177, 0, 1, 0, 0.9394177, 0, 0.34277448, -0.07226801, 1.0150001, -0.35490948)
+look_offset = null
 
 [node name="PowerBar" parent="Catapult" index="2" unique_id=250522650]
-texture = SubResource("ViewportTexture_ybhw4")
+texture = SubResource("ViewportTexture_kba41")
+
+[node name="SM_catapultArm" parent="Catapult/SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame" parent_id_path=PackedInt32Array(818195771, 794393183) index="0" unique_id=2108578334]
+transform = Transform3D(1, 0, 0, 0, 0.800263, 0.5996492, 0, -0.5996492, 0.800263, 0, 0.06303716, 0.06297345)
+
+[node name="SM_catapultRock" parent="Catapult/SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm" index="0" unique_id=476581759]
+transform = Transform3D(1, 0, 0, 0, 0.800263, -0.5996492, 0, 0.5996492, 0.800263, 0, 0.0013321564, -0.08136417)
 
 [connection signal="timeout" from="Room/MapLayout/Path3D/EnemySpawner" to="Room/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 [connection signal="body_entered" from="Boundary/Area3D" to="Boundary" method="_on_area_3d_body_entered"]

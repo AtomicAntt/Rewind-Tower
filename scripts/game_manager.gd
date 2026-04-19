@@ -21,6 +21,9 @@ func _ready() -> void:
 	var music_value = SettingsHandler.get_music()
 	var sfx_value = SettingsHandler.get_sfx()
 	
+	for child in get_tree().get_nodes_in_group("Dont Pause"):
+		child.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	if master_value < -9.5:
 		AudioServer.set_bus_mute(0, true)
 	else:
@@ -45,13 +48,17 @@ func _pause_game():
 	%TurnSettingsSpawn.add_child(turn_settings_instance)
 	%SoundSettingsSpawn.add_child(sound_settings_instance)
 	
-	get_tree().call_group("Pauseable", "set_process", false)
-	get_tree().call_group("Pauseable", "set_physics_process", false)
+	for node: Node in get_children():
+		if node.process_mode != ProcessMode.PROCESS_MODE_ALWAYS:
+			node.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _unpause_game():
 	game_paused = false
-	get_tree().call_group("Pauseable", "set_process", true)
-	get_tree().call_group("Pauseable", "set_physics_process", true)
+	
+	for node: Node in get_children():
+		if node.process_mode != ProcessMode.PROCESS_MODE_ALWAYS:
+			node.process_mode = Node.PROCESS_MODE_INHERIT
+
 	
 	for child in %TurnSettingsSpawn.get_children():
 		child.queue_free()

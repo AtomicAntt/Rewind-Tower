@@ -30,6 +30,7 @@ func _ready() -> void:
 	sfx_value = SettingsHandler.get_sfx()
 	
 	
+	
 	master_knob.value = master_value
 	music_knob.value = music_value
 	sfx_knob.value = sfx_value
@@ -45,6 +46,15 @@ func _ready() -> void:
 	master_knob.rotation = master_knob.delta_rot
 	music_knob.rotation = music_knob.delta_rot
 	sfx_knob.rotation = sfx_knob.delta_rot
+	
+	master_knob.rotation = clamp(master_knob.rotation, -1, 3.8)
+	music_knob.rotation = clamp(music_knob.rotation, -1, 3.8)
+	sfx_knob.rotation = clamp(sfx_knob.rotation, -1, 3.8)
+	
+	
+	master_wheel.rotation.z = -master_value *.6
+	music_wheel.rotation.z = -master_value *.6
+	sfx_wheel.rotation.z = -master_value *.6
 	
 	
 func _process(_delta: float) -> void:

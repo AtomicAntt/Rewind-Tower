@@ -14,6 +14,12 @@ var position: Vector3
 
 var turnmode: int
 
+@export var min_rot: float = 0.05
+@export var max_rot: float = -.75 
+
+@export var min_value: float = 0
+@export var max_value: float = 4 
+
 func _ready() -> void:
 	position = pickable.position
 
@@ -38,18 +44,13 @@ func _physics_process(_delta) -> void:
 		elif delta_rot < -PI:
 			delta_rot += TAU
 		
-		#Ill make this more generic later
-		var pickable_rot_remapped = remap(pickable.rotation.y, -1, 0, 0, 5)
-		pickable_rot_remapped = roundi(pickable_rot_remapped)
-		pickable_rot_remapped = clamp(pickable_rot_remapped, 1, 5)
-		pickable_rot_remapped *= 2
 		
 		@warning_ignore("narrowing_conversion")
-		crank_value = remap(pickable.rotation.y, -.9, .05, 5, 0)
-		crank_value = clamp(crank_value, 0, 4)
+		crank_value = remap(pickable.rotation.y, min_rot, max_rot, min_value, max_value)
+		crank_value = clamp(crank_value, min_value, max_value)
 		crank_value = roundi(crank_value)
 		
-		pickable.rotation.y = remap(pickable_rot_remapped, 0, 10, -.9, 0.05)
+		pickable.rotation.y = remap(crank_value, min_value, max_value, min_rot, max_rot)
 
 		prev_rotation = current_rotation
 		

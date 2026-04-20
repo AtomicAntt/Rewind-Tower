@@ -12,9 +12,16 @@ func _ready() -> void:
 	turn_mode_value = SettingsHandler.get_turn_mode()
 	smooth_speed_value = SettingsHandler.get_smooth_speed()
 	
-	crank.pickable.rotation.y = remap(turn_mode_value,5, 0, -.9, .05)
+	var crank_min = crank.min_rot
+	var crank_max = crank.max_rot
+	
+	var value_min = crank.min_value
+	var value_max = crank.max_value
+	
+	crank.pickable.rotation.y = remap(turn_mode_value,value_min, value_max, crank_min, crank_max)
 	crank.crank_value = turn_mode_value
 	
+	print(crank.crank_value)
 	
 	knob.value = smooth_speed_value
 	
@@ -28,8 +35,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	turn_mode_value = crank.crank_value
 	smooth_speed_value = knob.value
-	
-	print(crank.pickable.rotation.y)
 	
 	SettingsHandler.set_turn_mode(turn_mode_value)
 	SettingsHandler.set_smooth_speed(smooth_speed_value)

@@ -557,7 +557,7 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_fu7nh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwwrs")
-max_value = 60.0
+max_value = 30.0
 
 [node name="SM_catapult" type="Node3D" parent="." unique_id=1339709493]
 

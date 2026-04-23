@@ -257,6 +257,24 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.3160198, 0, 0, 0.9487526)
+
+[sub_resource type="Animation" id="Animation_iq0n1"]
+resource_name = "SM_catapultArmReset"
+length = 0.8666667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.033333335, 1, 0.6000391, 0, 0, 0.7999706, 0.8333333, 1, -0.3160198, 0, 0, 0.9487526)
 
 [sub_resource type="Animation" id="Animation_ojjn7"]
 resource_name = "SM_catapultFrameLaunch"
@@ -306,7 +324,7 @@ tracks/5/keys = PackedFloat32Array(0, 1, -0.31601983, 0, 0, 0.9487526)
 
 [sub_resource type="Animation" id="Animation_gly4i"]
 resource_name = "SM_catapultLaunch"
-length = 0.7
+length = 0.93333334
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -317,45 +335,31 @@ tracks/0/keys = PackedFloat32Array(0, 1, -0.31601983, 0, 0, 0.9487526, 0.0333333
 tracks/1/type = "position_3d"
 tracks/1/imported = true
 tracks/1/enabled = true
-tracks/1/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame")
+tracks/1/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm/SM_catapultRock")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.03241942, -0.07429451)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.0013321564, -0.08136417)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = true
 tracks/2/enabled = true
-tracks/2/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame")
+tracks/2/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm/SM_catapultRock")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/3/type = "position_3d"
+tracks/2/keys = PackedFloat32Array(0, 1, 0.31601986, 0, 0, 0.9487526)
+tracks/3/type = "scale_3d"
 tracks/3/imported = true
 tracks/3/enabled = true
 tracks/3/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm/SM_catapultRock")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.0013321564, -0.08136417)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/4/type = "method"
+tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm/SM_catapultRock")
+tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0.31601986, 0, 0, 0.9487526)
-tracks/5/type = "scale_3d"
-tracks/5/imported = true
-tracks/5/enabled = true
-tracks/5/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame/SM_catapultArm/SM_catapultRock")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("..")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/keys = {
 "times": PackedFloat32Array(0.27),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -363,18 +367,32 @@ tracks/6/keys = {
 "method": &"fire_projectile"
 }]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("%SM_catapultRock:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%SM_catapultRock:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.27),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0.03241942, -0.07429451, 0.23333333, 1, 0, 0.03241942, -0.07429451, 0.26666668, 1, 0, 0.044088695, -0.07429451, 0.3, 1, 0, 0.05575797, -0.07429451, 0.33333334, 1, 0, 0.06742724, -0.07429451, 0.36666667, 1, 0, 0.06742724, -0.07429451, 0.4, 1, 0, 0.04992333, -0.07429451, 0.43333334, 1, 0, 0.03241942, -0.07429451, 0.875, 1, 0, 0.03241942, -0.07429451)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SM_catapultBase/SM_archerBody_001/SM_catapultFrame")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.23333333, 1, 0, 0, 0, 1, 0.26666668, 1, 0.038727984, 0, 0, 0.9992499, 0.3, 1, 0.07739784, 0, 0, 0.99700034, 0.33333334, 1, 0.11595165, 0, 0, 0.99325496, 0.36666667, 1, 0.11595165, 0, 0, 0.99325496, 0.4, 1, 0.058073804, 0, 0, 0.9983123, 0.43333334, 1, 0, 0, 0, 1, 0.46666667, 1, -0.02860327, 0, 0, 0.9995909, 0.5, 1, -0.057183135, 0, 0, 0.99836373, 0.53333336, 1, -0.057183135, 0, 0, 0.99836373, 0.56666666, 1, -0.08571624, 0, 0, 0.9963196, 0.6, 1, -0.11417916, 0, 0, 0.9934602, 0.6333333, 1, -0.09661722, 0, 0, 0.9953217, 0.6666667, 1, -0.043772504, 0, 0, 0.9990416, 0.7, 1, -0.043772504, 0, 0, 0.9990416, 0.73333335, 1, -0.016784031, 0, 0, 0.99985915, 0.76666665, 1, -0.02801969, 0, 0, 0.9996074, 0.8, 1, -0.003940773, 0, 0, 0.99999225, 0.8333333, 1, -0.005838161, 0, 0, 0.99998295, 0.8666667, 1, -0.005838161, 0, 0, 0.99998295, 0.875, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_7t80x"]
 resource_name = "SM_catapultRockLaunch"
@@ -483,6 +501,7 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mc62u"]
 _data = {
 &"RESET": SubResource("Animation_r2tni"),
+&"SM_catapultArmReset": SubResource("Animation_iq0n1"),
 &"SM_catapultFrameLaunch": SubResource("Animation_ojjn7"),
 &"SM_catapultLaunch": SubResource("Animation_gly4i"),
 &"SM_catapultRockLaunch": SubResource("Animation_7t80x"),
@@ -520,6 +539,7 @@ anim_catapult_launch = "SM_catapultLaunch"
 anim_frame_launch = "SM_catapultFrameLaunch"
 anim_rock_launch = "SM_catapultRockLaunch"
 anim_rock_reset = "SM_catapultRockReset"
+anim_arm_reset = "SM_catapultArmReset"
 attack_range = 2.0
 attack_damage = 3.0
 max_power = 30
@@ -536,7 +556,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.066886514, 3.3093855e-08
 shape = SubResource("CylinderShape3D_iq0n1")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1128226714 groups=["Pauseable"]]
-wait_time = 3.0
+wait_time = 2.4
 autostart = true
 
 [node name="PowerBar" type="Sprite3D" parent="." unique_id=250522650 groups=["Pauseable"]]
@@ -576,7 +596,7 @@ material_override = ExtResource("2_abn2m")
 mesh = SubResource("ArrayMesh_vi2ku")
 
 [node name="SM_catapultArm" type="MeshInstance3D" parent="SM_catapult/SM_catapultBase/SM_archerBody_001/SM_catapultFrame" unique_id=2108578334]
-transform = Transform3D(1, 0, 0, 0, 0.8002629, 0.59964925, 0, -0.59964925, 0.8002629, 0, 0.06303716, 0.06297345)
+transform = Transform3D(1, 0, 0, 0, 0.800263, 0.5996492, 0, -0.5996492, 0.800263, 0, 0.06303716, 0.06297345)
 material_override = ExtResource("2_abn2m")
 mesh = SubResource("ArrayMesh_v506w")
 

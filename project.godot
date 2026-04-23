@@ -57,6 +57,7 @@ GameManager=""
 3d_physics/layer_7="Coin Drops Area"
 3d_physics/layer_8="Enemy Area"
 3d_physics/layer_9="Defense Area"
+3d_physics/layer_10="Floor"
 
 [physics]
 

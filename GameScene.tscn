@@ -473,7 +473,7 @@ transform = Transform3D(0.94932127, 0, 0.31430724, 0, 1, 0, -0.31430724, 0, 0.94
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
+[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1142927959]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ex6dp")
 

@@ -1,3 +1,4 @@
+@tool
 class_name TwisterInteractable
 extends XRToolsInteractableHandleDriven
 
@@ -16,9 +17,15 @@ var prev_rotation: float = 0.0
 signal turned(controller: XRController3D)
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	pickable.global_position = global_position
 
 func _physics_process(_delta) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	# basically crank but z
 	pickable.global_position = global_position
 	pickable.rotation = Vector3(0, 0, pickable.rotation.z)

@@ -6,6 +6,7 @@ extends DefenseTroop
 @export var anim_frame_launch: String
 @export var anim_rock_launch: String
 @export var anim_rock_reset: String
+@export var anim_arm_reset: String
 
 @onready var shoot_position: Marker3D = %ShootPosition
 
@@ -29,6 +30,7 @@ func play_shoot_animation() -> void:
 		#var enemy_target: Enemy = closest_enemy_area.get_parent()
 		#fire_projectile(enemy_target.global_position)
 	#animator.queue(anim_frame_launch)
+	animator.queue(anim_arm_reset)
 	animator.queue(anim_rock_reset)
 
 ## This should get called in the AnimationPlayer in Catapult Launch right when the catapult handle hits the cross beam.

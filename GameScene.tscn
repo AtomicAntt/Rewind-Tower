@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dihvpur1tnl1t" path="res://scenes/environment/rock3large.tscn" id="9_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://cpv76fhn7wiha" path="res://scenes/Drawer.tscn" id="9_ed8b8"]
 [ext_resource type="PackedScene" uid="uid://brd00a61qq522" path="res://scenes/environment/rock3small.tscn" id="10_s8bal"]
-[ext_resource type="Script" uid="uid://rh7cr6xpjtgw" path="res://scripts/table.gd" id="10_ybhw4"]
 [ext_resource type="PackedScene" uid="uid://byfo3v12bg3se" path="res://scenes/environment/tree3.tscn" id="11_4iqu7"]
 [ext_resource type="PackedScene" uid="uid://qsif260hysjo" path="res://scenes/troops/Archer.tscn" id="12_0exr2"]
 [ext_resource type="PackedScene" uid="uid://b7sntgxcdmna0" path="res://scenes/environment/tree2.tscn" id="12_3g52j"]
@@ -31,14 +30,20 @@
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="16_tm1sv"]
 [ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/troops/BearTrap.tscn" id="17_6qjax"]
 [ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="17_gd15m"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="17_od6yw"]
 [ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="18_31x0w"]
 [ext_resource type="PackedScene" uid="uid://cyl5k1jmir2q" path="res://tutorial/TutorialUITooltip3D.tscn" id="18_sao6o"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="19_6j76h"]
 [ext_resource type="Script" uid="uid://brl4nrxuagftm" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="20_rrp7n"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="21_8uqg6"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
 [ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
 [ext_resource type="Script" uid="uid://sqsc7mqbih0a" path="res://scripts/boundary.gd" id="25_3g52j"]
+[ext_resource type="Script" uid="uid://rh7cr6xpjtgw" path="res://scripts/height_manager.gd" id="33_od6yw"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
 [ext_resource type="PackedScene" uid="uid://7mo24tesbk7u" path="res://scenes/DefenseProjectile.tscn" id="37_s8bal"]
@@ -234,7 +239,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ybhw4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_od6yw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14n63"]
@@ -273,6 +278,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n3hb1")
+
+[sub_resource type="Resource" id="Resource_vpbl4"]
+script = ExtResource("19_6j76h")
+open_pose = ExtResource("18_31x0w")
+closed_pose = ExtResource("18_31x0w")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
+
+[sub_resource type="Resource" id="Resource_ydsku"]
+script = ExtResource("19_6j76h")
+open_pose = ExtResource("21_8uqg6")
+closed_pose = ExtResource("21_8uqg6")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4ehh"]
 
@@ -396,6 +413,7 @@ size = Vector3(5, 0.05, 5)
 data = PackedVector3Array(0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.19929999, 0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 0.8204, 0.19929999, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.662, -0.7001, 2.1104999, 0.5755, -0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 1.8052, 0.662, -0.7001, 1.8052, 0.5755, -0.7001, 0.8204, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0, 0.5755, -0.7001, 0.8204, 0.662, -0.7001, 0.8204, 0.5755, -0.7001, 0, 0.5755, -0.7001, 0, 0.662, -0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.19929999, 0.7001, 1.8052, 0.19929999, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0, 0.662, 0.7001, 0, 0.5755, 0.7001, 0.8204, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.5755, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.662, 0.7001, 1.8052, 0.5755, 0.7001, 2.1104999, 0.5755, 0.7001, 2.1104999, 0.662, 0.7001, 1.8052, 0.662, 0.3922, 1.8052, 0.4236, 0.25849998, 1.8052, 0.19929999, 0.1094, 1.8052, 0.3576, 0.7001, 1.8052, 0.5755, 0.25849998, 1.8052, 0.19929999, 0.3922, 1.8052, 0.4236, 0.7001, 1.8052, 0.5755, 0.7001, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, 0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, 0.1094, 1.8052, 0.3576, 0.25849998, 1.8052, 0.19929999, -0.25849998, 1.8052, 0.19929999, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.25849998, 1.8052, 0.19929999, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 1.8052, 0.4236, -0.25849998, 1.8052, 0.19929999, -0.7001, 1.8052, 0.19929999, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.1094, 1.8052, 0.3576, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 1.8052, 0.4236, -0.7001, 1.8052, 0.5755, -0.7001, 2.1104999, 0.5755, -0.3922, 2.1104999, 0.4236, -0.3922, 2.1104999, 0.4236, -0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 1.8052, 0.3576, -0.1094, 2.1104999, 0.3576, 0.1094, 2.1104999, 0.3576, -0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.1094, 1.8052, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 1.8052, 0.3576, 0.1094, 2.1104999, 0.3576, 0.3922, 1.8052, 0.4236, 0.1094, 2.1104999, 0.3576, 0.3922, 2.1104999, 0.4236, 0.3922, 1.8052, 0.4236, 0.3922, 2.1104999, 0.4236, 0.7001, 2.1104999, 0.5755, 0.3922, 1.8052, 0.4236, 0.7001, 2.1104999, 0.5755, 0.7001, 1.8052, 0.5755, -0.7001, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 2.1104999, 0.662, -0.7001, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 1.8052, 0.662, -0.7001, 0.8204, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, 0.662, -0.7001, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.7001, 0.8204, 0.662, -0.7001, 0, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0.8204, 0.662, 0.80179995, 0, 0.662, 0.7001, 0, 0.662, 0.7001, 1.8052, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.7001, 1.8052, 0.662, 0.7001, 2.1104999, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 2.1104999, 0.662, 0.80179995, 2.1104999, -0.0298, 0.80179995, 1.8052, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 1.8052, -0.0298, 0.80179995, 0.8204, -0.0298, 0.80179995, 1.8052, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, 0.662, 0.80179995, 0.8204, -0.0298, 0.80179995, 0, -0.0298, 0.80179995, 0.8204, 0.662, 0.80179995, 0, -0.0298, 0.80179995, 0, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, 0.662, -0.80179995, 1.8052, -0.0298, -0.80179995, 2.1104999, -0.0298, -0.80179995, 1.8052, 0.662, -0.80179995, 2.1104999, -0.0298, -0.80179995, 2.1104999, 0.662, -0.80179995, 0.8204, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 1.8052, -0.0298, -0.80179995, 0, 0.662, -0.80179995, 0.8204, -0.0298, -0.80179995, 0.8204, 0.662, -0.80179995, 0, 0.662, -0.80179995, 0, -0.0298, -0.80179995, 0.8204, -0.0298, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1009, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, -0.0802, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1634, 0.7197, 0.8218, 2.1634, -0.0802, 0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, 0.8218, 2.1634, 0.7197, 0.8218, 2.1009, 0.7197, -0.8218, 2.1009, 0.7197, -0.8218, 2.1634, 0.7197, -0.8218, 2.1009, -0.0802, 0.8218, 2.1009, 0.7197, 0.8218, 2.1009, -0.0802, -0.8218, 2.1009, -0.0802, -0.8218, 2.1009, 0.7197, 0.8218, 2.1009, 0.7197, 0.8218, 2.1634, -0.0802, -0.8218, 2.1634, 0.7197, -0.8218, 2.1634, -0.0802, 0.8218, 2.1634, -0.0802, 0.8218, 2.1634, 0.7197, -0.8218, 2.1634, 0.7197)
 
 [node name="GameScene" type="Node3D" unique_id=407102983 node_paths=PackedStringArray("drawer_spawn_point") groups=["GameManager"]]
+process_mode = 1
 script = ExtResource("1_4fxa8")
 drawer_spawn_point = NodePath("Room/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/TroopRespawn")
 
@@ -421,7 +439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07605785, -0.04758811, 0)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_ea2ej")
 
-[node name="SM_Ground" type="MeshInstance3D" parent="EnvironmentAssets" unique_id=985423964]
+[node name="SM_Ground" type="MeshInstance3D" parent="EnvironmentAssets" unique_id=985423964 groups=["Dont Pause"]]
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_uxc8u")
 
@@ -517,11 +535,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44972354, -0.085645795, 0.
 
 [node name="Room" type="Node3D" parent="." unique_id=1081908468]
 
-[node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480 groups=["Dont Pause", "Table"]]
+[node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480 groups=["Table"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22700137, 0)
-script = ExtResource("10_ybhw4")
-min_height = -0.2
-max_height = 0.2
 
 [node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
@@ -572,7 +587,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_ybhw4")
+texture = SubResource("ViewportTexture_od6yw")
 
 [node name="Label3D2" type="Label3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=1774004614]
 transform = Transform3D(-0.06899227, 0, -0.07238827, 0, 0.1, 0, 0.07238827, 0, -0.06899227, -0.11405249, 0.37033558, -0.119546056)
@@ -584,7 +599,7 @@ transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 1, 0, -0.56208354, 0, -0.8
 
 [node name="SliderOrigin" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment" unique_id=1649502038]
 
-[node name="AdjustSlider" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin" unique_id=3195262 instance=ExtResource("15_lul5g")]
+[node name="AdjustSlider" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin" unique_id=3195262 groups=["AdjustSlider"] instance=ExtResource("15_lul5g")]
 unique_name_in_owner = true
 slider_limit_min = -0.02
 slider_limit_max = 0.08
@@ -604,10 +619,18 @@ collision_mask = 37
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00014670938, 0.112153545)
 shape = SubResource("BoxShape3D_14n63")
 
-[node name="SM_tableHeightHandle3" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider" unique_id=1928350268]
-transform = Transform3D(-2.4045686e-08, 0, -0.55010116, 0, 0.55010116, 0, 0.55010116, 0, -2.4045686e-08, 0, 0, 0)
+[node name="SM_tableHeightHandle3" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D" unique_id=1928350268]
+transform = Transform3D(-0.55010116, 0, 7.4505806e-08, 0, 0.55010116, 0, -7.4505806e-08, 0, -0.55010116, 0, 0, 0)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_ordfo")
+
+[node name="GrabPointHandRight" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=304559981 instance=ExtResource("17_od6yw")]
+transform = Transform3D(8.742278e-08, 2, 3.019916e-07, 2, -8.742278e-08, 0, 1.3200472e-14, 3.019916e-07, -2, 0.19207382, -5.2485944e-09, 0.093632214)
+hand_pose = SubResource("Resource_vpbl4")
+
+[node name="GrabPointHandLeft" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=1214559439 instance=ExtResource("20_rrp7n")]
+transform = Transform3D(8.7425555e-08, -1.9999363, -0.015952243, -2, -8.742278e-08, -6.9729e-10, -2.6867397e-14, 0.015952243, -1.9999363, -0.18810508, -1.1369918e-08, 0.09571162)
+hand_pose = SubResource("Resource_ydsku")
 
 [node name="HandleOrigin" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider" unique_id=99047426]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.12591459, -0.013659589, 0.019498762)
@@ -618,9 +641,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7252903e-09, 0, 0.011332631)
 shape = SubResource("BoxShape3D_14n63")
 
-[node name="GrabPointRedirect" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=687633695 instance=ExtResource("17_gd15m")]
+[node name="GrabPointRedirect" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=687633695 node_paths=PackedStringArray("target") instance=ExtResource("17_gd15m")]
+target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandRight")
 
-[node name="GrabPointRedirect2" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1679058393 instance=ExtResource("17_gd15m")]
+[node name="GrabPointRedirect2" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1679058393 node_paths=PackedStringArray("target") instance=ExtResource("17_gd15m")]
+target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandLeft")
 
 [node name="TableEnvironment" type="Node3D" parent="Room/Table/table test/SM_tableV22" unique_id=694859774]
 transform = Transform3D(-0.9993787, 0, 0.035248306, 0, 1, 0, -0.035248306, 0, -0.9993787, 0.01894823, -1.02, -0.39462036)
@@ -737,6 +762,34 @@ transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9
 [node name="SoundSettingsSpawn" type="Node3D" parent="Room/Table" unique_id=1458959707 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2310586, -0.53120345)
+
+[node name="Tooltips" type="Node3D" parent="Room/Table" unique_id=1187912382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="(EnemiesSpawn)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=1383273705 instance=ExtResource("18_sao6o")]
+transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 1.0277145, 0.18400192)
+visible = false
+
+[node name="(SuggestionLocation)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=1575375691 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.5508098, 0.84567726, -0.72084045)
+visible = false
+
+[node name="(SuggestionLocation)UITooltipTutorial2" parent="Room/Table/Tooltips" unique_id=1357287140 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.575, 0.8455154, -0.3934101)
+visible = false
+
+[node name="(CrankTower)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=379038653 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, 1.1625984, 0.1950146)
+visible = false
+
+[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
+transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 0.97576165, 0.18400192)
+visible = false
+
+[node name="HeightManager" type="Node3D" parent="Room/Table" unique_id=1194437489 groups=["Dont Pause"]]
+script = ExtResource("33_od6yw")
+min_height = -0.2
+max_height = 0.2
 
 [node name="SM_tableLegs" type="MeshInstance3D" parent="Room" unique_id=1744199611]
 transform = Transform3D(-0.99937856, 0, -0.035248302, 0, 1, 0, 0.035248302, 0, -0.99937856, 0.026175741, 0.0073632, 0.20458415)
@@ -916,40 +969,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
-tool_tips = [NodePath("(EnemiesSpawn)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial"), NodePath("(SuggestionLocation)UITooltipTutorial2")]
+tool_tips = [NodePath("../../Room/Table/Tooltips/(EnemiesSpawn)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(SuggestionLocation)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
-
-[node name="(EnemiesSpawn)UITooltipTutorial" parent="TutorialManager/DropTroopUITutorial" unique_id=1383273705 instance=ExtResource("18_sao6o")]
-transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
-visible = false
-
-[node name="(SuggestionLocation)UITooltipTutorial" parent="TutorialManager/DropTroopUITutorial" unique_id=1575375691 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.5508098, -0.33283818, 0.7995696)
-visible = false
-
-[node name="(SuggestionLocation)UITooltipTutorial2" parent="TutorialManager/DropTroopUITutorial" unique_id=1357287140 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.575, -0.333, 1.127)
-visible = false
 
 [node name="CrankTowerUITutorial" parent="TutorialManager" unique_id=2089567214 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
-tool_tips = [NodePath("(CrankTower)UITooltipTutorial"), NodePath("(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
+tool_tips = [NodePath("../../Room/Table/Tooltips/(CrankTower)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
-
-[node name="(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=379038653 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, -0.031128168, 1.7154247)
-visible = false
-
-[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="TutorialManager/CrankTowerUITutorial" unique_id=567878876 instance=ExtResource("18_sao6o")]
-transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, -0.14216912, 1.704412)
-visible = false
 
 [node name="AwaitRoundComplete" parent="TutorialManager" unique_id=1245266120 node_paths=PackedStringArray("tool_tips") instance=ExtResource("17_sao6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)

@@ -51,6 +51,8 @@ movement_providers=""
 GameManager=""
 "Dont Pause"=""
 TroopHolder=""
+Table=""
+AdjustSlider=""
 
 [layer_names]
 

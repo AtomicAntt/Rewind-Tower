@@ -20,34 +20,32 @@ func set_sfx(value: float):
 	config.set_value("AUDIO","sfx_volume",value)
 	
 func get_master() -> float:
-	if config.get_value("AUDIO","master_volume") != null:
-		return config.get_value("AUDIO","master_volume")
-	return master_default
+	return config.get_value("AUDIO","master_volume", master_default)
+
 func get_music() -> float:
-	if config.get_value("AUDIO","music_volume") != null:
-		return config.get_value("AUDIO","music_volume")
-	return music_default
-	
+	return config.get_value("AUDIO","music_volume", music_default)
+
 func get_sfx() -> float:
-	if config.get_value("AUDIO","sfx_volume") != null:
-		return config.get_value("AUDIO","sfx_volume")
-	return sfx_default
+	return config.get_value("AUDIO","sfx_volume", sfx_default)
 
 func set_turn_mode(value: int):
 	config.set_value("CONTROLS","turn_mode",value)
 
 func get_turn_mode() -> int:
-	if config.get_value("CONTROLS","turn_mode") != null:
-		return config.get_value("CONTROLS","turn_mode")
-	return 0
+	return config.get_value("CONTROLS","turn_mode", 0)
 
 func set_smooth_speed(value: int):
 	config.set_value("CONTROLS","smooth_speed",value)
 
 func get_smooth_speed() -> int:
-	if config.get_value("CONTROLS","smooth_speed") != null:
-		return config.get_value("CONTROLS","smooth_speed")
-	return 2
+	return config.get_value("CONTROLS","smooth_speed", 2)
+
+func set_table_height(value: float):
+	config.set_value("GENERAL","table_height",value)
+
+func get_table_height() -> float:
+	return config.get_value("GENERAL","table_height", 0)
+
 
 func _ready() -> void:
 	config.load(path)

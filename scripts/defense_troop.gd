@@ -57,8 +57,8 @@ func _ready():
 func emit_grab_troop(_pickable, _by) -> void:
 	TutorialSystem.emit_signal("complete", "GrabTroop")
 	
-	if (!troop_holder.is_ancestor_of(self)):
-		troop_holder.add_child(self)
+	if (troop_holder.is_ancestor_of(self) == false):
+		self.reparent(troop_holder)
 
 func emit_drop_troop(_pickable) -> void:
 	TutorialSystem.emit_signal("complete", "DropTroop")

@@ -12,8 +12,12 @@ var consumed: bool = false
 @onready var xray: Node3D = %XRAY
 var game_manager: Node3D
 
+var troop_holder: Node3D
+
 func _ready():
 	game_manager = get_parent_node_3d()
+	
+	troop_holder = get_tree().get_first_node_in_group("TroopHolder")
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("EnemyHitbox") and not consumed:
@@ -41,3 +45,8 @@ func show_xray() -> void:
 
 func hide_xray() -> void:
 	xray.visible = false
+
+
+func _on_grabbed(pickable: Variant, by: Variant) -> void:
+	if (troop_holder.is_ancestor_of(self) == false):
+		self.reparent(troop_holder)

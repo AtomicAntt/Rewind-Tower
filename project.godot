@@ -50,6 +50,7 @@ Cigarette=""
 movement_providers=""
 GameManager=""
 "Dont Pause"=""
+TroopHolder=""
 
 [layer_names]
 

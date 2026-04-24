@@ -2,6 +2,8 @@
 class_name DefenseTroop
 extends XRToolsPickable
 
+var troop_holder: Node3D
+
 var power: int = 0
 
 ## The attack range of this defense troop, which is how close the enemy must be to be able to target them.
@@ -49,12 +51,15 @@ func _ready():
 	# For tutorial
 	grabbed.connect(emit_grab_troop)
 	dropped.connect(emit_drop_troop)
+	
+	troop_holder = get_tree().get_first_node_in_group("TroopHolder")
 
-## This is for tutorial purposes only
 func emit_grab_troop(_pickable, _by) -> void:
 	TutorialSystem.emit_signal("complete", "GrabTroop")
+	
+	if (!troop_holder.is_ancestor_of(self)):
+		troop_holder.add_child(self)
 
-## This is for tutorial purposes only
 func emit_drop_troop(_pickable) -> void:
 	TutorialSystem.emit_signal("complete", "DropTroop")
 

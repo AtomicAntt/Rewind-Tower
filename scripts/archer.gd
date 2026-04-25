@@ -13,9 +13,6 @@ func _on_shoot_timer_timeout() -> void:
 	if Engine.is_editor_hint():
 		return
 	
-		print("pow")
-	
-	
 	if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
 		var projectile_instance: DefenseProjectile = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
@@ -26,7 +23,6 @@ func _on_shoot_timer_timeout() -> void:
 		
 		animate()
 		lose_power()
-		print("pow")
 
 func animate() -> void:
 	animator.speed_scale = 2

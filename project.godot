@@ -53,6 +53,7 @@ GameManager=""
 TroopHolder=""
 Table=""
 AdjustSlider=""
+BearTrap=""
 
 [layer_names]
 

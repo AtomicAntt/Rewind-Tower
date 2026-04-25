@@ -207,7 +207,7 @@ shadow_mesh = SubResource("ArrayMesh_674tt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wh7d"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_sb0n8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_72f32"]
 _surfaces = [{
 "aabb": AABB(-0.03465174, -0.0039067003, -0.015066948, 0.03857248, 0.007841473, 0.015066948),
 "format": 34359742465,
@@ -237,7 +237,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("KzDhvMcDgLuO0dW7zIoIvY2bKzsAAACAD7AqO8cDgLv+hay6D7AqO0bvgDv/hay6a5/LvI/EKbuHeQC8D7AqO42bKzuHeQC8KzDhvEbvgDuO0dW7D7AqO8cDgLuO0dW7zIoIvccDgLucSmG8zIoIvccDgLv+hay6y2fWvI/EKbsAAACAy2fWvEbvgDv+hay6D7AqO4/EKbuHeQC8a5/LvI2bKzuHeQC8D7AqO0bvgDuO0dW7y2fWvJDEKbucSmG8KzDhvEbvgDucSmG8zIoIvUbvgDucSmG8/O4NvZDEKbucSmG8/O4NvY2bKzv+hay6/O4NvY7EKbv+hay6D7AqO42bKzsAAACAD7AqO4/EKbsAAACAh3mAO4/EKbv+hay6y2fWvMcDgLv+hay6h3mAO4ybKzv+hay6h3mAO47EKbuO0dW7h3mAO42bKzuO0dW7y2fWvI2bKzsAAACAy2fWvJDEKbtHCha8y2fWvI6bKztHCha8zIoIvUbvgDuHeQC8zIoIvUbvgDv+hay6y2fWvI6bKzucSmG8KzDhvI2bKztc23a8KzDhvI/EKbtc23a8KzDhvMcDgLucSmG8zIoIvY/EKbtc23a8zIoIvY2bKztc23a8/O4NvY6bKzucSmG8/O4NvY/EKbuHeQC8/O4NvY2bKzuHeQC8zIoIvccDgLuHeQC8zIoIvY/EKbsAAACAWJWsCv///7/yYwyc////PwycGTj///8/DJzlx////z9215wU////v/Lj8uP///+/WJVS9f///78ZuAwc////v+VHDBz///+/8mMZOP///z//f4Fa////P/9/gdr///8/8uMMHP///79212Pr////vxm48uP///+/8uPlR////78ZuPLj////v+VH8uP///+/DBzlR////78ZOAyc////Pxk48mP///8/DJwMnP///z8MnPJj////P+XH8mP///8//399Jf///z/lxwyc////P/Lj5Uf///+/8uMZuP///7//f32l////P3bX20L///+/dtcjvf///7+BWoHa////v/Jj5cf///8/8uMZuP///7/y4/Lj////v/LjDBz///+/GbgMHP///78MHAwc////vwwc8uP///+/DBwZuP///799JYFa////v30lfaX///+/gVp9Jf///7/yY/Jj////Pw==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_sb0n8")
+shadow_mesh = SubResource("ArrayMesh_72f32")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wygqj"]
 size = Vector3(0.03857248, 0.007841473, 0.015066948)

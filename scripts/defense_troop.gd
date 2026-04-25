@@ -24,6 +24,9 @@ var power: int = 0
 ## The crank attached to this defense troop.
 @export var crank: Crank
 
+## Whether or not this defense troop needs to look at enemies.
+@export var looks_at_enemy: bool = true
+
 ## The object that gets rotated towards the enemy when it looks at them.
 @export var body: Node3D
 
@@ -57,8 +60,8 @@ func _ready():
 func emit_grab_troop(_pickable, _by) -> void:
 	TutorialSystem.emit_signal("complete", "GrabTroop")
 	
-	if (troop_holder.is_ancestor_of(self) == false):
-		self.reparent(troop_holder)
+	#if (troop_holder.is_ancestor_of(self) == false):
+		#self.reparent(troop_holder)
 
 func emit_drop_troop(_pickable) -> void:
 	TutorialSystem.emit_signal("complete", "DropTroop")
@@ -86,12 +89,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		can_shoot = false
 		
-	closest_enemy_area = find_closest_enemy_area3d()
-	if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
-		body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
-		body.rotation.x = 0
-		body.rotate_y(look_offset)
-		body.rotation.z = 0
+	if looks_at_enemy:
+		closest_enemy_area = find_closest_enemy_area3d()
+		if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
+			body.look_at(find_closest_enemy_area3d().global_position, Vector3.UP, true)
+			body.rotation.x = 0
+			body.rotate_y(look_offset)
+			body.rotation.z = 0
 	
 	# For tutorial
 	if power >= max_power:

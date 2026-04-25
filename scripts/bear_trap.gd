@@ -5,6 +5,7 @@ extends XRToolsPickable
 @export var shut_animation: String = "anin_bearTrapShut"
 @export var break_animation: String = "anin_bearTrapBreak"
 @onready var animation_player: AnimationPlayer = %BearTrapAnimPlayer
+@onready var bear_trap_mesh: MeshInstance3D = %SM_bearTrap
 
 var enemy_trapping: Enemy
 var consumed: bool = false

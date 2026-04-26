@@ -53,6 +53,7 @@ GameManager=""
 TroopHolder=""
 Table=""
 AdjustSlider=""
+MoveWithTable=""
 
 [layer_names]
 

@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_kdeyn"]
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="7_yn0bm"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_14n63"]
+size = Vector3(0.2, 0.05, 0.05)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2djk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n3hb1"]
@@ -56,54 +59,44 @@ open_pose = ExtResource("7_yn0bm")
 closed_pose = ExtResource("7_yn0bm")
 metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_14n63"]
-size = Vector3(0.2, 0.05, 0.06)
-
 [node name="TableAdjustment" type="Node3D" unique_id=1173134073]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="SliderOrigin" type="Node3D" parent="." unique_id=1649502038]
 
-[node name="AdjustSlider" parent="SliderOrigin" unique_id=3195262 instance=ExtResource("1_wv5ij")]
-slider_limit_min = -0.02
-slider_limit_max = 0.08
+[node name="AdjustSlider" parent="SliderOrigin" unique_id=3195262 groups=["AdjustSlider"] instance=ExtResource("1_wv5ij")]
+slider_limit_min = -0.45
+slider_limit_max = 0.0
+set_initial = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SliderOrigin/AdjustSlider" unique_id=1178170081]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="SM_tableHeightHandle3" type="MeshInstance3D" parent="SliderOrigin/AdjustSlider/StaticBody3D" unique_id=1928350268]
-transform = Transform3D(-0.55010116, 0, 4.8091373e-08, 0, 0.55010116, 0, -4.8091373e-08, 0, -0.55010116, 0, 0, 0)
-material_override = ExtResource("1_6nesw")
-mesh = SubResource("ArrayMesh_ordfo")
-
-[node name="GrabPointHandRight" parent="SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=1812515892 instance=ExtResource("3_ogn0m")]
-transform = Transform3D(4.371139e-08, 1.000001, 8.742277e-08, 1, -4.371143e-08, 0, 3.821371e-15, 8.742286e-08, -0.99999994, 0.04786631, 0.00037516045, -0.12469967)
-visible = true
-hand_pose = SubResource("Resource_wa7e0")
-
-[node name="GrabPointHandLeft" parent="SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=592998101 instance=ExtResource("6_kdeyn")]
-transform = Transform3D(4.371139e-08, -1.0000006, -8.742277e-08, -1, -4.3711413e-08, 0, -3.821371e-15, 8.7422826e-08, -0.99999994, -0.047866296, -0.005933508, -0.13115132)
-visible = true
-hand_pose = SubResource("Resource_u5gxu")
+transform = Transform3D(-4.3711385e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 0, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/AdjustSlider/StaticBody3D" unique_id=653567538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 shape = SubResource("BoxShape3D_14n63")
 
-[node name="RelativeArea3D" type="Area3D" parent="SliderOrigin/AdjustSlider/StaticBody3D" unique_id=176283368]
-collision_mask = 37
+[node name="SM_tableHeightHandle3" type="MeshInstance3D" parent="SliderOrigin/AdjustSlider/StaticBody3D" unique_id=1928350268]
+transform = Transform3D(-0.55010116, 0, 4.8091373e-08, 0, 0.55010116, 3.257837e-16, -4.8091373e-08, -3.1554436e-30, -0.55010116, 0, 0, 0)
+material_override = ExtResource("1_6nesw")
+mesh = SubResource("ArrayMesh_ordfo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/AdjustSlider/StaticBody3D/RelativeArea3D" unique_id=1981638217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
-shape = SubResource("BoxShape3D_14n63")
+[node name="GrabPointHandRight" parent="SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=1812515892 instance=ExtResource("3_ogn0m")]
+transform = Transform3D(6.556708e-08, 1.5, 2.2649371e-07, 1.5, -6.556708e-08, 0, 9.900354e-15, 2.2649371e-07, -1.5, 0.0478663, 0.00037516045, -0.061290085)
+hand_pose = SubResource("Resource_wa7e0")
+
+[node name="GrabPointHandLeft" parent="SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=592998101 instance=ExtResource("6_kdeyn")]
+transform = Transform3D(6.556708e-08, -1.5, -2.2649371e-07, -1.5, -6.556708e-08, 0, -9.900354e-15, 2.2649371e-07, -1.5, -0.047866285, -0.005933508, -0.06774174)
+hand_pose = SubResource("Resource_u5gxu")
 
 [node name="HandleOrigin" type="Node3D" parent="SliderOrigin/AdjustSlider" unique_id=99047426]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.12591459, -0.013659589, 0.019498762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.423896e-09, -0.10120694, 0)
 
 [node name="InteractableHandle" parent="SliderOrigin/AdjustSlider/HandleOrigin" unique_id=2099257954 instance=ExtResource("2_7ango")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1222463262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026840033, 0, 0.030392438)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_14n63")
 
 [node name="GrabPointRedirectRight" parent="SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=687633695 node_paths=PackedStringArray("target") instance=ExtResource("3_wv5ij")]

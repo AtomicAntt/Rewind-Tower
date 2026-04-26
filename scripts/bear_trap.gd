@@ -47,6 +47,6 @@ func hide_xray() -> void:
 	xray.visible = false
 
 
-func _on_grabbed(pickable: Variant, by: Variant) -> void:
-	if (troop_holder.is_ancestor_of(self) == false):
-		self.reparent(troop_holder)
+#func _on_grabbed(pickable: Variant, by: Variant) -> void:
+	#if (troop_holder.is_ancestor_of(self) == false):
+		#self.reparent(troop_holder)

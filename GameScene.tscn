@@ -25,24 +25,18 @@
 [ext_resource type="PackedScene" uid="uid://dpy7oein2g13m" path="res://scenes/automat/AutomatWindow.tscn" id="14_cg2kh"]
 [ext_resource type="PackedScene" uid="uid://cdmu2yfespg51" path="res://scenes/environment/vineMesh.tscn" id="14_y0td7"]
 [ext_resource type="PackedScene" uid="uid://c0pr3pvqnlmfd" path="res://scenes/troops/Swordsman.tscn" id="15_cg2kh"]
-[ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="15_lul5g"]
 [ext_resource type="PackedScene" uid="uid://ui1alaphpder" path="res://tutorial/tutorial_manager.tscn" id="16_icjtl"]
-[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="16_tm1sv"]
 [ext_resource type="PackedScene" uid="uid://b1b0ofplv78m2" path="res://scenes/troops/BearTrap.tscn" id="17_6qjax"]
-[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="17_gd15m"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="17_od6yw"]
 [ext_resource type="PackedScene" uid="uid://dcmme20brdxkg" path="res://tutorial/TutorialUI3D.tscn" id="17_sao6o"]
-[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="18_31x0w"]
+[ext_resource type="PackedScene" uid="uid://5ar87tgbr3hq" path="res://scenes/TableAdjustment.tscn" id="17_ybhw4"]
 [ext_resource type="PackedScene" uid="uid://cyl5k1jmir2q" path="res://tutorial/TutorialUITooltip3D.tscn" id="18_sao6o"]
-[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="19_6j76h"]
 [ext_resource type="Script" uid="uid://brl4nrxuagftm" path="res://scripts/global_audio_manager.gd" id="19_6qjax"]
 [ext_resource type="AudioStream" uid="uid://bj328bwpqes1y" path="res://assets/audio/defeated.ogg" id="20_k8u5j"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="20_rrp7n"]
 [ext_resource type="AudioStream" uid="uid://b4djj8qbkvyjh" path="res://assets/audio/ROUND START.ogg" id="21_0p1ba"]
-[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="21_8uqg6"]
 [ext_resource type="AudioStream" uid="uid://g85nyyjt1725" path="res://assets/audio/round win.ogg" id="22_igvw6"]
 [ext_resource type="Script" uid="uid://bygsvg03orqkp" path="res://scripts/state_label_tower.gd" id="24_0qy1f"]
 [ext_resource type="Script" uid="uid://sqsc7mqbih0a" path="res://scripts/boundary.gd" id="25_3g52j"]
+[ext_resource type="Script" uid="uid://bg4a4o0nmula6" path="res://scripts/move_with_table.gd" id="27_kba41"]
 [ext_resource type="Script" uid="uid://rh7cr6xpjtgw" path="res://scripts/height_manager.gd" id="33_od6yw"]
 [ext_resource type="AudioStream" uid="uid://cakkyc2y2lggt" path="res://assets/audio/XR March Gametime.ogg" id="34_cvqoq"]
 [ext_resource type="AudioStream" uid="uid://tcehp2p7f8ju" path="res://assets/audio/XR March Intermission.ogg" id="35_0qy1f"]
@@ -202,9 +196,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1av1u")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4fxa8"]
-size = Vector3(0.25836182, 0.111328125, 0.5456543)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d5g0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_08oju"]
@@ -239,57 +230,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_od6yw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kba41"]
 viewport_path = NodePath("SubViewport")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_14n63"]
-size = Vector3(0.2, 0.05, 0.06)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2djk"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_n3hb1"]
-_surfaces = [{
-"aabb": AABB(-0.1744399, -0.027149636, -0.23961413, 0.3488798, 0.054299273, 0.24128853),
-"format": 34359742465,
-"index_count": 528,
-"index_data": PackedByteArray("NAAXAB8AHwAXABoAHgA0AB8ANAA1ABcAHgAfACAAHwAaACAAHgA2ADQAHgAgACEANgAeABkAIQAZAB4AIAA3ACEAIAA4ADcAOAAgABoAIQA3ADkAOAA6ADcAOQA3ADoAOAAaADsAIQA5ABwAIQAcABkAOQA6ACIAGwA7ABoAPAAcADkAGQAcABIAPAASABwAOQA9ADwAOQAiAD0AJwASADwAPQA+ADwAJwA8AD4AIgA/AD0APQAUAD4APwAUAD0AIgBAAD8AQQBAACIAQQAiADoAMwA/AEAAPwBCABQAMwBCAD8AMwBAAAkACQBAAEEAMwAdAEIACQARADMAEQAdADMACQAPABEAEQAQAB0ADQAPAAkAHQAQAA4ADQAJAEMACQBBAEMAMgANAEMAMgALAA0ARABDAEEARAAyAEMAMgAKAAsAIwBEAEEAIwBBADoAOAAjADoAIwBFAEQAMgBEAEUAOABGACMAIwBGAEUAOAA7AEYAMgBFAEcAMgBHAAoAMQAKAEcAMQAMAAoADgAMADEASAAxAEcASABHAEUADgAxADAAMAAxAEgAHQAOADAAQgAdADAAQgAwAEkAMABIAEkAFABCAEkAKABIAEUAKABJAEgAKABFAEYAFABJAEoAKABKAEkAPgAUAEoASwAoAEYASgAoAEsASwBGADsAPgBKAEwASgBLAEwAGwBLADsATABLABsAJwA+AEwATAAbACYAJwBMACYAJgAbACUAGgAlABsAGgAXACUAJgAlABUAJwAmABUAFwBNACUATQAVACUAFwA1AE0AJwAVACkAKQASACcAKQAYABIAGQASABgAFQBOACkATgAYACkAGABPABkAFQBQAE4ATQBQABUATgBRABgAGABRAE8ANgAZAE8AUQBOAFIAUABSAE4AUQBTAE8AUwA2AE8AUQBSACoAUQAqAFMAUAArAFIAVABQAE0AVAArAFAANQBUAE0AKwBVAFIAKgBSAFUAKwBUAFYAKgBXAFMAKwBYAFUAKwBWAFgAKgBVAFkAKgBZAFcAWABaAFUAWgBZAFUAJABWAFQANQAkAFQAWwBYAFYANQBcACQANQA0AFwANgBcADQAJABdAFYAXQBbAFYAXgAkAFwAXgBdACQANgATAFwAEwBeAFwAUwATADYAVwATAFMAEwBfAF4AVwBfABMALwBdAF4AXwAvAF4AFgBfAFcAXwAWAC8ALwAuAF0AXQAuAFsABgAuAC8AFgAGAC8ABgAEAC4AFgAIAAYALgAEAAAALgAAAFsABwAIABYAAAAsAFsAWwAsAFgAAAABACwAWAAsAFoALAABAAMALAADAFoAAgBaAAMAAgADAAUAAgAFAAcAWgACAFkAAgAHAC0AWQACAC0ABwAWAC0AWQAtAFcAFgBXAC0A"),
-"lods": [0.03966638, PackedByteArray("HgAXAB8AHgAfACAAHgAgACEAHwAaACAAHwAXABoAIAAcACEAIAAaABwAIQAZAB4AHgAZABcAIQAcABkAGgAiABwAHAAiABQAGgAjACIAGQAcABIAHAAUABIAGQAkABcAGgAXACUAGgAlABsAGwAjABoAFwAVACUAJgAbACUAJgAlABUAJwAbACYAJwAmABUAJwASABsAGwAoACMAEgAoABsAKQASACcAJwAVACkAKQAYABIAFQAYACkAGQASABgAEgAUACgAGAATABkAGQATACQAFQAqABgAGAAqABMAFQArACoAFwArABUAFwAkACsAKwACACoAJAAsACsAKwAsAAIAKgAtABMAKgACAC0AAgAHAC0AAgAFAAcAAgADAAUALAADAAIALAABAAMAAAABACwABwAWAC0ALQAWABMABwAIABYAFgAIAAYALgAAACwAJAAuACwALgAEAAAABgAEAC4ALwAuACQABgAuAC8AFgAGAC8AEwAvACQAEwAWAC8AKAAwADEAFAAwACgAKAAxADIAKAAyACMADgAxADAADgAMADEAMQAMAAoAMQAKADIAMgAKAAsAMgALAA0AIwAyAAkAMgANAAkADQAPAAkAIwAJACIACQAPABEAIgAJADMACQARADMAIgAzABQAEQAdADMAMwAdABQAFAAdADAAHQAOADAAEQAQAB0AHQAQAA4A"), 0.11589637, PackedByteArray("AAABAAIAAgABAAMAAgADAAUAAgAFAAcAFgAAAAIAAgAHABYAFgAEAAAABwAIABYABgAEABYAFgAIAAYAEwAWAAIAEwACABYAFwATABUAFQATABgAGQATABcAGAATABkAGgAXABUAGQAXABoAEgAVABgAGQASABgAEgAbABUAGgAVABsAGQAcABIAGQAaABwAHAAUABIAEgAUABsAGgAUABwAGwAUABoAFAAdAAkAFAAJAB0ADQAPAAkACQALAA0ACQAPABEACQAKAAsACQARAB0AHQAKAAkAEQAQAB0AHQAMAAoAHQAQAA4ADgAMAB0A"), 0.17384455, PackedByteArray("AAABAAIAAgABAAMAAgAEAAAAAgADAAUABgAEAAIAAgAFAAcAAgAIAAYABwAIAAIACQAKAAsACQAMAAoACQALAA0ADgAMAAkADQAPAAkACQAQAA4ACQAPABEAEQAQAAkAEgATABQAFAATABUAFQATABIAEgAUABUA")],
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 96,
-"vertex_data": PackedByteArray("498cvnjRDzx4d9s6/tUfvi4zPzx4d9s6YKAyvnjRDzxjjWK+Raovvi4zPzx4d9s6498cvnjRD7x4d9s6YKAyvnjRDzx4d9s6/tUfvi4zP7x4d9s6YKAyvnjRD7x4d9s6Raovvi4zP7x4d9s6YKAyPnjRD7xjjWK+498cPnjRD7x4d9s6/tUfPi4zP7x4d9s6498cPnjRDzx4d9s6RaovPi4zP7x4d9s6/tUfPi4zPzx4d9s6YKAyPnjRD7x4d9s6RaovPi4zPzx4d9s6YKAyPnjRDzx4d9s6tuvOPQ+4xjxoXXW+7dfUvS4zP7y2JGK+7dfUPS4zPzy2JGK+tuvOvepo3jxJuUC+Raovvi4zP7w33F2+tuvOvQ+4xrwuwz2+tuvOvQ+4xjxoXXW+tuvOvQ+4xrxoXXW+tuvOPQ+4xrwuwz2+tuvOPQ+4xjwuwz2+tuvOPQ+4xrxoXXW+RaovPi4zPzw33F2+tuvOvepo3rxNZ3K+tuvOvepo3rxJuUC+tuvOPepo3rxJuUC+tuvOPepo3rxNZ3K+7dfUPbRGCbx+g2W+7dfUPS4zP7zg+1C+7dfUvbRGCbwYnU2+tuvOvQ+4xjwuwz2+tuvOPepo3jxJuUC+tuvOPepo3jxNZ3K+7dfUPbRGCTwYnU2+tuvOvepo3jxNZ3K+7dfUvbRGCTx+g2W+7dfUvS4zPzzg+1C+/tUfvi4zPzzCd0y+YKAyvnjRD7xjjWK+498cvnjRD7z9pkq+/tUfvi4zP7zCd0y+/tUfPi4zPzzCd0y+498cPnjRDzz9pkq+/tUfPi4zP7zCd0y+YKAyPnjRDzxjjWK+7dfUvQ+4xrweIES+7dfUvWmBq7xJuUC+7dfUvQ+4xrx4AG++7dfUPQ+4xrx4AG++7dfUPQ+4xrweIES+7dfUPWmBq7xNZ3K+7dfUPS4zP7y2JGK+7dfUPWmBq7xJuUC+7dfUPWmBqzxNZ3K+7dfUPbRGCTx+g2W+7dfUPQ+4xjx4AG++RaovPh6HCTx+g2W+RaovPh6HCbx+g2W+upErPi4zP7y9KGK+upErPi4zPzy9KGK+RaovPi4zP7w33F2+YuwbPi4zP7zZ91C+yOkZPh6HCbwYnU2+7dfUPbRGCbwYnU2+498cPnjRD7z9pkq+yOkZPh6HCTwYnU2+YuwbPi4zPzzZ91C+7dfUPS4zPzzg+1C+7dfUPWmBqzxJuUC+7dfUPQ+4xjweIES+7dfUvWmBqzxJuUC+7dfUvQ+4xjx4AG++7dfUvWmBq7xNZ3K+7dfUvQ+4xjweIES+7dfUvWmBqzxNZ3K+7dfUvS4zPzy2JGK+7dfUvbRGCbx+g2W+7dfUvbRGCTwYnU2+upErvi4zPzy9KGK+yOkZvh6HCTwYnU2+Raovvh6HCbx+g2W+Yuwbvi4zPzzZ91C+Raovvh6HCTx+g2W+Raovvi4zPzw33F2+498cvnjRDzz9pkq+7dfUvS4zP7zg+1C+yOkZvh6HCbwYnU2+Yuwbvi4zP7zZ91C+upErvi4zP7y9KGK+")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ordfo"]
-resource_name = "SM_tableHeightHandle_SM_tableHeightHandle"
-_surfaces = [{
-"aabb": AABB(-0.1744399, -0.027149636, -0.23961413, 0.3488798, 0.054299273, 0.24128853),
-"attribute_data": PackedByteArray("QlwyPZR/Tj9BXDI9YdZMP0BcMj1iCC0/QVwyPSHGRT9CXDI9a4JQP0FcMj0T1EQ/QlwyPeKMTz9BXDI9FQ5HP0FcMj0Askg/gPsqPUvbLj+C+yo9cXlRP4L7Kj3+YFA/gvsqPahsUD+B+yo9BaBJP4L7Kj3t8U4/gfsqPfUoSD+B+yo9LP1HP4H7Kj2o5kY/DpQdPiglFj8OlB0+BpMaPw6UHT7MzBQ/DpQdPpQEAz9BXDI94WoxP0RcMj2sJFE/gPsqPVG+Lj+D+yo9x/pOPw6UHT7WayU/DpQdPsCzFj8OlB0+P5ooPw6UHT64igU/DpQdPiFeFD8OlB0+GSgTPw6UHT6FWSU/DpQdPpIUFj8OlB0+zHUYPw6UHT6Qeyg/DpQdPlhoHT8OlB0+fQoYPw6UHT6I2A8/DpQdPgJqAz8OlB0+ZCoFPw6UHT41VxM/DpQdPn4QDT8OlB0+oU8UPw6UHT5i4hM/DpQdPmf4ED9BXDI9FDE5P0JcMj29PTo/RFwyPdQuUT9BXDI9qz02P0NcMj0KP08/Q1wyPZoxTz9BXDI9/IAvP4T7Kj3Ux08/gfsqPfbrNj+B+yo9vZM4P4H7Kj2lkTg/hPsqPfRvUD+E+yo9hqpPP4D7Kj1bYC0/DpQdPlYJFj8OlB0+NAsUPw6UHT6SJSM/DpQdPkdtFT8OlB0+lF0NPw6UHT7weho/DpQdPkRcBT8OlB0+LO8EPw6UHT52BBI/DpQdPrYHET8OlB0+xH8TPw6UHT46MSM/DpQdPjKIFj8OlB0+yGUmPw6UHT4cTCY/DpQdPsCEGD8OlB0+1XQdPw6UHT7mKhc/DpQdPs/kFT8OlB0+XPoTPw6UHT68kw8/DpQdPol4Fj8OlB0+sJoHPw6UHT4QNAc/QVwyPYy5MD9AXDI9TWMuP0BcMj1gMC4/QVwyPUzyNz9BXDI9ug44P0FcMj2a/C8/Q1wyPUzvTj9EXDI9gchQP0FcMj3UZzk/RFwyPSyfTz9CXDI9sHc7P0FcMj1qKjM/QlwyPcjZOj9EXDI9KG1RP4H7Kj13cjA/gPsqPZikLj+D+yo9gQBPP4H7Kj0kiTg/hPsqPdKKTz+B+yo9bAgwP4H7Kj3tTzI/hPsqPVTmTz+B+yo9NagwP4L7Kj0WIzo/gvsqPX/3Oj+E+yo9bmtQP4L7Kj0RyDk/gvsqPTvXOT8="),
-"format": 34359742487,
-"index_count": 528,
-"index_data": PackedByteArray("PAAeACEAIQAeABsAIAA8ACEAPAA9AB4AIAAhACIAIQAbACIAIAA+ADwAPQA8AD8APgA/ADwAPQA/ACkAPgATAD8APQApAEAAQQATAD4APQBAAEIAHgA9AEIAQABDAEIAQAAqAEMAQwAqAEQAHgBCACcAQgBDABUAQgAVACcAGwAeACcAQwBEAEUAFQBDAEUARgBFAEQARgBEACsARgArAEEARgBBAEcAQQA+AEcARQBGAB8AHwBGAEcAPgAaAEcAHwBHABoAPgAgABoARQAfAC0AFQBFAC0AGgASAB8ALQAfABIALAAVAC0ALQASACwAIwAaACAAIAAiACMAGgAcABIAIwAcABoASAASABwALAASAEgAIwBJABwASAAcAEkAIgBKACMAIwBKAEkAIgBLAEoASQBKAEwASwBMAEoASQBMACQASQAkAE0ASQBNAEgASwAlAEwASwAiABsASwBOACUATQBPAEgALABIAE8ATQAUAE8ATwAUAFAASwBRAE4ASwAbAFEAUgBOAFEAUgAmAE4AUAAmAFIAHQBRABsAHQBSAFEAGwAnAB0AUABSAFMATwBQAFMAUwBSAB0ALABPAFMAKAAdACcAUwAdACgALABTACgAKAAnABUALAAoABUAFgBUADQABwAWADQABwAIABYAFgAIAAYAAgAHADQAAgAFAAcAAgADAAUAVQACADQAVQA0AFQAAgBWAAMAVgACAFUAMQADAFYAMQABAAMAAAABADEAVwAxAFYAAAAxAFgAWAAxAFcALwAAAFgALwAEAAAABgAEAC8AVwBWAFkAVgBVAFkAMwBZAFUAMwBVAFQAMwBaAFkAMwBUAFsAMgBZAFoAMgBXAFkAVAAXAFsAMgBcAFcAWABXAFwAMgBdAFwAMABcAF0AXgBYAFwAMABeAFwAXgAvAFgAVABfABcAFgBfAFQAFwBfAGAAYABeADAAFwBgAGEAYAAwAGEALgBeAGAALgAvAF4AXwAuAGAAXwAWAC4ABgAvAC4AFgAGAC4AOwBiAGMAYwBiABkAYwAZAGQAOgBjAGQAGQBiAGUAGQBlAGYANQBmAGUAOgBnAGMAOwBjAGcAaABnADoAaAA6AGkAOwBnAAkACQBnAGgAOQBoAGkACQARADsACQAPABEADQAPAAkAEQAYADsAEQAQABgAOwAYAGIAGAAQAA4AYgAYADYAGAAOADYAYgA2AGUADQAJAGoACQBoAGoAOAANAGoAOAALAA0AawBqAGgAawA4AGoAOQBrAGgAOAAKAAsAOQBsAGsAOABrAGwAOQBtAGwANQBsAG0AOABsAG4AOABuAAoANQBvAGwAbwBuAGwANQBlAG8ANgBvAGUAbwA3AG4ANgA3AG8ANwAKAG4ADgA3ADYANwAMAAoADgAMADcA"),
-"lods": [0.03966638, PackedByteArray("IAAeACEAIAAhACIAIAAiACMAIQAbACIAIQAeABsAIgAcACMAIgAbABwAIwAaACAAIAAaAB4AIwAcABoAGwAkABwAHAAkABQAGwAlACQAHAAUABIAGgAcABIAEgAUACYAHQAmACUAHQAlABsAEgAmAB0AGwAnAB0AGwAeACcAKAAdACcAGgApAB4AHgApACoAGgATACkAHgAVACcAHgAqABUAKAAnABUAFQAqACsALAAdACgALAAoABUALAASAB0ALAAVAC0ALQASACwAFQArAB8AFQAfAC0ALQAfABIAHwArABMAGgASAB8AHwATABoALgAvADAAFwAuADAAMAAvADEAMAAxADIABgAvAC4ABgAEAC8ALwAEAAAALwAAADEAAAABADEAMQABAAMAMgAxAAIAMQADAAIAAgADAAUAMgACADMAAgAFAAcAMwACADQAAgAHADQAMwA0ABcABwAWADQANAAWABcAFwAWAC4AFgAGAC4ABwAIABYAFgAIAAYANQA2ADcAGQA2ADUANQA3ADgANQA4ADkADgA3ADYADgAMADcANwAMAAoANwAKADgAOAAKAAsAOAALAA0AOQA4AAkAOAANAAkADQAPAAkAOQAJADoACQAPABEAOgAJADsACQARADsAOgA7ABkAEQAYADsAOwAYABkAGQAYADYAGAAOADYAEQAQABgAGAAQAA4A"), 0.11589637, PackedByteArray("AAABAAIAAgABAAMAAgADAAUAAgAFAAcAFgAAAAIAAgAHABYAFgAEAAAABwAIABYABgAEABYAFgAIAAYAFwAWAAIAFwACABYACQAKAAsACQALAA0ADQAPAAkACQAPABEAGAAKAAkACQARABgAGAAMAAoAEQAQABgADgAMABgAGAAQAA4AGQAYAAkAGQAJABgAGgAbABwAGwAUABwAHQAUABsAHAAUABIAEgAUAB0AGgAcABIAGgAeABsAGwAVAB0AEgAdABUAGwAeABUAGgASAB8AEgAVAB8AGgATAB4AHgATABUAHwATABoAFQATAB8A"), 0.17384455, PackedByteArray("AAABAAIAAgABAAMAAgAEAAAAAgADAAUABgAEAAIAAgAFAAcAAgAIAAYABwAIAAIACQAKAAsACQAMAAoACQALAA0ADgAMAAkADQAPAAkACQAQAA4ACQAPABEAEQAQAAkAEgATABQAFAATABUAFQATABIAEgAUABUA")],
-"material": SubResource("StandardMaterial3D_n2djk"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 112,
-"vertex_data": PackedByteArray("498cvnjRDzx4d9s6/tUfvi4zPzx4d9s6YKAyvnjRDzxjjWK+Raovvi4zPzx4d9s6498cvnjRD7x4d9s6YKAyvnjRDzx4d9s6/tUfvi4zP7x4d9s6YKAyvnjRD7x4d9s6Raovvi4zP7x4d9s6YKAyPnjRD7xjjWK+498cPnjRD7x4d9s6/tUfPi4zP7x4d9s6498cPnjRDzx4d9s6RaovPi4zP7x4d9s6/tUfPi4zPzx4d9s6YKAyPnjRD7x4d9s6RaovPi4zPzx4d9s6YKAyPnjRDzx4d9s6tuvOPQ+4xjxoXXW+7dfUvS4zP7y2JGK+7dfUPS4zPzy2JGK+tuvOvepo3jxJuUC+Raovvi4zP7w33F2+7dfUvS4zP7y2JGK+RaovPi4zPzw33F2+7dfUPS4zPzy2JGK+tuvOvQ+4xrxoXXW+tuvOPQ+4xrwuwz2+tuvOPQ+4xrxoXXW+tuvOPQ+4xjwuwz2+tuvOvQ+4xrwuwz2+tuvOvQ+4xjxoXXW+tuvOvepo3rxNZ3K+tuvOvepo3rxJuUC+tuvOPepo3rxJuUC+tuvOPepo3rxNZ3K+7dfUPbRGCbx+g2W+7dfUPS4zP7zg+1C+7dfUPbRGCTwYnU2+tuvOvQ+4xjwuwz2+tuvOPepo3jxJuUC+7dfUvbRGCbwYnU2+7dfUvS4zPzzg+1C+7dfUvbRGCTx+g2W+tuvOPepo3jxNZ3K+tuvOvepo3jxNZ3K+/tUfvi4zP7zCd0y+498cvnjRD7z9pkq+7dfUvbRGCbwYnU2+/tUfvi4zPzzCd0y+7dfUvS4zPzzg+1C+7dfUvbRGCTx+g2W+YKAyvnjRD7xjjWK+7dfUPbRGCTwYnU2+/tUfPi4zPzzCd0y+498cPnjRDzz9pkq+/tUfPi4zP7zCd0y+7dfUPS4zP7zg+1C+7dfUPbRGCbx+g2W+YKAyPnjRDzxjjWK+7dfUvQ+4xrweIES+7dfUvWmBq7xJuUC+7dfUvQ+4xrx4AG++7dfUvS4zP7zg+1C+7dfUvbRGCTwYnU2+7dfUvbRGCbx+g2W+7dfUvWmBqzxJuUC+7dfUvQ+4xjweIES+7dfUvS4zPzy2JGK+7dfUvQ+4xjx4AG++7dfUvWmBqzxNZ3K+7dfUvWmBq7xNZ3K+7dfUPWmBqzxNZ3K+7dfUPWmBq7xNZ3K+7dfUPQ+4xrx4AG++7dfUPQ+4xrweIES+7dfUPS4zP7y2JGK+7dfUPbRGCTx+g2W+7dfUPbRGCbwYnU2+7dfUPQ+4xjx4AG++7dfUPS4zPzzg+1C+7dfUPWmBq7xJuUC+7dfUPWmBqzxJuUC+7dfUPQ+4xjweIES+Raovvh6HCbx+g2W+Raovvh6HCTx+g2W+Raovvi4zPzw33F2+Yuwbvi4zPzzZ91C+498cvnjRDzz9pkq+upErvi4zPzy9KGK+7dfUvS4zPzy2JGK+7dfUvbRGCbx+g2W+yOkZvh6HCTwYnU2+7dfUvbRGCTwYnU2+yOkZvh6HCbwYnU2+upErvi4zP7y9KGK+Yuwbvi4zP7zZ91C+7dfUvS4zP7zg+1C+upErPi4zPzy9KGK+RaovPh6HCTx+g2W+7dfUPbRGCTx+g2W+YuwbPi4zPzzZ91C+7dfUPS4zPzzg+1C+RaovPh6HCbx+g2W+upErPi4zP7y9KGK+7dfUPS4zP7y2JGK+RaovPi4zP7w33F2+YuwbPi4zP7zZ91C+yOkZPh6HCbwYnU2+7dfUPbRGCbwYnU2+498cPnjRD7z9pkq+yOkZPh6HCTwYnU2+gdp9pf///799pYHanvZRiywjeMA3gCPdgVqB2tH26vSB2oFa////v30lfaXkks3WfaV9JZD3LQp9JYFaGm3N1oFafSWQ99F10tyGP4yrGid9JYFaf2X834FafSU7Cdr0fSV9pVyTXtd9pX0lQgksi4FagdrsCDp1gdqBWj+S+Cl9pYHa4Ai2CoHafaVzZ10i6uLU3v///78AAP9/////v////3////+/1V7Awf///z/GVPgi1f+jc36lAgDOeSiuOKsG3eQGMnuAWvz/ySJiexQdKiH///+/KaHrYv///z/q4ioh////vymhE53///8/1V7rYv///z8UHdTe////v8BBKiH///+/1V4+Pv///z8poT4+////Pz6+KiH///+/////f////7////9/////v////3////+/1V4Tnf///z8pocDB////PwAA/3////+/AAD/f////78AAP9/////vz6+1N7///+/wEHU3v///78RmQkjFmNGwWvC5lpS6r0SAoCEWr9LjnURmfXc2Pxp8gKAgdob3EX9g9r8//pMkYksI4Y/UuDLavx/eqXwU6UE7Wb13NUCCw6TPRilaKT6xu1mCSN3CtWC/H99JdCJsS57JQIAconqadLceMBTdlggZywFXf///z9nLJF2////P/kil1P///+/AAD/f////78AAP9/////vwAA/3////+/Zyxtif///z9nLPmi////PwAA/3////+/+SJnrP///79uCWes////v24Jl1P///+/kPZnrP///7+Q9pdT////vwXdl1P///+/l9MFXf///z////9/////v////3////+/////f////78F3Wes////v////3////+/l9ORdv///z+X022J////P5fT+aL///8/LiG9HABzmZsuIUHjMkbzk8ZUBt3Z/sTy9Ypi3s3qw/lrwhilvNrRk4lUuvf13fGEfqX8/6fb9YGD2gIAzG0smT6boqP6dE9kAoB6pQqyHfc+m1xc9kqtdYlURAiYduOu9YqcISN3HMsCgH0lmtsifnaruvf5Ifd60N5B40O2v3B7Jfz/Sqvkewl1Yt5eFe0F/H+B2hGHSq7Q3r0cGoETanarRAgjjW1QgFoCAO4ioPs4q/ginQNqjwl1nCFqjGU1wGRcXBZ1sBj8f4RaX3tgFJM95lpdwV93wGSio3mumAE=")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_n3hb1")
-
-[sub_resource type="Resource" id="Resource_vpbl4"]
-script = ExtResource("19_6j76h")
-open_pose = ExtResource("18_31x0w")
-closed_pose = ExtResource("18_31x0w")
-metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
-
-[sub_resource type="Resource" id="Resource_ydsku"]
-script = ExtResource("19_6j76h")
-open_pose = ExtResource("21_8uqg6")
-closed_pose = ExtResource("21_8uqg6")
-metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4ehh"]
 
@@ -372,6 +314,9 @@ data = PackedVector3Array(0, 1, 0.39909998, 0.0773, 0.95699996, 0.39429998, 0.07
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kil2"]
 size = Vector3(2.5949707, 0.052734375, 1.4463196)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fxa8"]
+size = Vector3(0.25836182, 0.111328125, 0.5456543)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be31n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_77dy3"]
@@ -415,7 +360,7 @@ data = PackedVector3Array(0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.
 [node name="GameScene" type="Node3D" unique_id=407102983 node_paths=PackedStringArray("drawer_spawn_point") groups=["GameManager"]]
 process_mode = 1
 script = ExtResource("1_4fxa8")
-drawer_spawn_point = NodePath("Room/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/TroopRespawn")
+drawer_spawn_point = NodePath("TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/TroopRespawn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=490626395]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -533,263 +478,216 @@ transform = Transform3D(9.27, 0, 0, 0, 9.27, 0, 0, 0, 9.27, -9.398195, -0.047579
 [node name="VineMesh3" parent="EnvironmentAssets" unique_id=183885322 instance=ExtResource("14_y0td7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44972354, -0.085645795, 0.74455374)
 
-[node name="Room" type="Node3D" parent="." unique_id=1081908468]
+[node name="MoveWithTable" type="Node3D" parent="." unique_id=1837117708 groups=["MoveWithTable"]]
 
-[node name="Table" type="StaticBody3D" parent="Room" unique_id=2088106480 groups=["Table"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22700137, 0)
+[node name="DefenseTroop" parent="MoveWithTable" unique_id=150638980 instance=ExtResource("12_0exr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100302, 1.0647223, -0.25400668)
+attack_damage = 1.5
+ranged_grab_method = 2
 
-[node name="table test" parent="Room/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
+[node name="(GrabTroop)UITooltipTutorial" parent="MoveWithTable/DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
+
+[node name="(RewindTroop)UITooltipTutorial" parent="MoveWithTable/DefenseTroop" unique_id=915860077 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
+
+[node name="(DropTroop)UITooltipTutorial" parent="MoveWithTable/DefenseTroop" unique_id=594823687 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
+
+[node name="TableAdjustment" parent="." unique_id=1173134073 instance=ExtResource("17_ybhw4")]
+transform = Transform3D(-3.6996404e-08, -0.8463791, -0.53258085, 1, -4.371139e-08, 0, -2.3279847e-08, -0.53258085, 0.8463791, -0.6004077, 1.2210014, 0.085596204)
+
+[node name="Table" type="StaticBody3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin" parent_id_path=PackedInt32Array(1173134073, 99047426) index="1" unique_id=2088106480 groups=["Table"]]
+transform = Transform3D(-3.6996408e-08, 1, -2.3279858e-08, -0.8463794, -4.3711385e-08, -0.53258103, -0.53258103, 0, 0.8463794, -1, -0.36179307, -0.39200002)
+
+[node name="table test" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/Table/table test" index="0" unique_id=1955109913]
+[node name="SM_table" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test" index="0" unique_id=1955109913]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_ex6dp")
 
-[node name="SM_tableV22" type="Node3D" parent="Room/Table/table test" unique_id=660200656]
+[node name="SM_tableV22" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test" unique_id=660200656]
 transform = Transform3D(0.98927236, 0, 0.14608303, 0, 1, 0, -0.14608303, 0, 0.98927236, 0.05, 1.02, 0.58)
 
-[node name="SM_tableV2" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22" unique_id=610863691]
+[node name="SM_tableV2" type="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22" unique_id=610863691]
 transform = Transform3D(1.0000001, 0, -1.1175871e-08, 0, 1, 0, 1.1175871e-08, 0, 1.0000001, -1.8626451e-09, -1.0126368, -0.6)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_vylfn")
 
-[node name="Drawer" parent="Room/Table/table test/SM_tableV22/SM_tableV2" unique_id=1729992228 instance=ExtResource("9_ed8b8")]
-transform = Transform3D(0.53191596, 0, 0.8467972, 0, 1, 0, -0.8467972, 0, 0.53191596, -0.38631815, 0.9276823, 0.4570238)
-
-[node name="TroopRespawn" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer" parent_id_path=PackedInt32Array(1729992228, 416603683) index="1" unique_id=1495670663]
-transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.1736483, 0, -0.040077686, 0)
-
-[node name="Area3D" type="Area3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer" parent_id_path=PackedInt32Array(1729992228, 416603683) index="2" unique_id=710296789 groups=["Drawer"]]
-transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.1736483, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/Area3D" unique_id=561307692]
-transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.007537782, -0.052462578, -0.009642586)
-shape = SubResource("BoxShape3D_4fxa8")
-
-[node name="SM_tower" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2" unique_id=166081072]
+[node name="SM_tower" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2" unique_id=166081072]
 transform = Transform3D(0.11857737, 0, -0.99294484, 0, 1, 0, 0.99294484, 0, 0.11857737, -0.91304684, 0.78691924, 0.17380178)
 
-[node name="TowerCrank" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=450228322 instance=ExtResource("12_4fxa8")]
+[node name="TowerCrank" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=450228322 instance=ExtResource("12_4fxa8")]
 transform = Transform3D(1.6698916e-08, -0.21304084, 0.21121933, -0.29999998, -1.3113416e-08, 1.0491378e-08, 1.7823816e-09, -0.2112193, -0.21304086, -0.12604831, 0.49776468, -0.13003424)
 
-[node name="CollisionShape3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="0" unique_id=596594051]
+[node name="CollisionShape3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="0" unique_id=596594051]
 transform = Transform3D(-0.1, 0, 8.742278e-09, 0, 0.1, 0, -8.742278e-09, 0, -0.1, 1.8647393e-08, 0, -0.21330133)
 
-[node name="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="1" unique_id=1315326043]
+[node name="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="1" unique_id=1315326043]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 visible = false
 
-[node name="SM_castleCrank" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="2" unique_id=1227651334]
+[node name="SM_castleCrank" type="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank/Crank" parent_id_path=PackedInt32Array(450228322, 1827322792) index="2" unique_id=1227651334]
 transform = Transform3D(1.4569005e-07, -3.333, 5.03269e-07, -3.333, -1.4569005e-07, 2.1998589e-14, -2.8231608e-21, -5.03269e-07, -3.333, 0, -0.048288707, 0)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_o8roe")
 
-[node name="ProgressBar" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank" index="1" unique_id=2128294132]
+[node name="ProgressBar" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_od6yw")
+texture = SubResource("ViewportTexture_kba41")
 
-[node name="Label3D2" type="Label3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=1774004614]
+[node name="Label3D2" type="Label3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=1774004614]
 transform = Transform3D(-0.06899227, 0, -0.07238827, 0, 0.1, 0, 0.07238827, 0, -0.06899227, -0.11405249, 0.37033558, -0.119546056)
 text = "Intermission (Round 1)"
 script = ExtResource("24_0qy1f")
 
-[node name="TableAdjustment" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2" unique_id=1173134073 groups=["Dont Pause"]]
-transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 1, 0, -0.56208354, 0, -0.8270805, 0.622, 0.987, 0.141)
-
-[node name="SliderOrigin" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment" unique_id=1649502038]
-
-[node name="AdjustSlider" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin" unique_id=3195262 groups=["AdjustSlider"] instance=ExtResource("15_lul5g")]
-unique_name_in_owner = true
-slider_limit_min = -0.02
-slider_limit_max = 0.08
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider" unique_id=1178170081]
-unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D" unique_id=653567538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00014670938, 0.112153545)
-shape = SubResource("BoxShape3D_14n63")
-
-[node name="RelativeArea3D" type="Area3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D" unique_id=176283368]
-collision_mask = 37
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D/RelativeArea3D" unique_id=1981638217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00014670938, 0.112153545)
-shape = SubResource("BoxShape3D_14n63")
-
-[node name="SM_tableHeightHandle3" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D" unique_id=1928350268]
-transform = Transform3D(-0.55010116, 0, 7.4505806e-08, 0, 0.55010116, 0, -7.4505806e-08, 0, -0.55010116, 0, 0, 0)
-material_override = ExtResource("7_5cvvu")
-mesh = SubResource("ArrayMesh_ordfo")
-
-[node name="GrabPointHandRight" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=304559981 instance=ExtResource("17_od6yw")]
-transform = Transform3D(8.742278e-08, 2, 3.019916e-07, 2, -8.742278e-08, 0, 1.3200472e-14, 3.019916e-07, -2, 0.19207382, -5.2485944e-09, 0.093632214)
-hand_pose = SubResource("Resource_vpbl4")
-
-[node name="GrabPointHandLeft" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/StaticBody3D/SM_tableHeightHandle3" unique_id=1214559439 instance=ExtResource("20_rrp7n")]
-transform = Transform3D(8.7425555e-08, -1.9999363, -0.015952243, -2, -8.742278e-08, -6.9729e-10, -2.6867397e-14, 0.015952243, -1.9999363, -0.18810508, -1.1369918e-08, 0.09571162)
-hand_pose = SubResource("Resource_ydsku")
-
-[node name="HandleOrigin" type="Node3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider" unique_id=99047426]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.12591459, -0.013659589, 0.019498762)
-
-[node name="InteractableHandle" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin" unique_id=2099257954 instance=ExtResource("16_tm1sv")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1222463262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7252903e-09, 0, 0.011332631)
-shape = SubResource("BoxShape3D_14n63")
-
-[node name="GrabPointRedirect" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=687633695 node_paths=PackedStringArray("target") instance=ExtResource("17_gd15m")]
-target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandRight")
-
-[node name="GrabPointRedirect2" parent="Room/Table/table test/SM_tableV22/SM_tableV2/TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1679058393 node_paths=PackedStringArray("target") instance=ExtResource("17_gd15m")]
-target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandLeft")
-
-[node name="TableEnvironment" type="Node3D" parent="Room/Table/table test/SM_tableV22" unique_id=694859774]
+[node name="TableEnvironment" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22" unique_id=694859774]
 transform = Transform3D(-0.9993787, 0, 0.035248306, 0, 1, 0, -0.035248306, 0, -0.9993787, 0.01894823, -1.02, -0.39462036)
 
-[node name="Rock2" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=415157629 instance=ExtResource("6_y0td7")]
+[node name="Rock2" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=415157629 instance=ExtResource("6_y0td7")]
 transform = Transform3D(0.134384, 0, -0.9909293, 0, 1, 0, 0.9909293, 0, 0.134384, -0.49055004, 1.015, -0.3367777)
 
-[node name="Rock3" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=567535282 instance=ExtResource("7_ry04y")]
+[node name="Rock3" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=567535282 instance=ExtResource("7_ry04y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26594207, 1.0149999, -0.5057014)
 
-[node name="Rock6" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1140409602 instance=ExtResource("10_s8bal")]
+[node name="Rock6" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1140409602 instance=ExtResource("10_s8bal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27587235, 1.0149999, -0.32619417)
 
-[node name="Tree1Small" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=412586314 instance=ExtResource("11_4iqu7")]
+[node name="Tree1Small" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=412586314 instance=ExtResource("11_4iqu7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.207944, 1.015, 0.07822284)
 
-[node name="Tree1Small4" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1910165083 instance=ExtResource("11_4iqu7")]
+[node name="Tree1Small4" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1910165083 instance=ExtResource("11_4iqu7")]
 transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -0.94729537, 1.015, 0.022902459)
 
-[node name="Tree1Small5" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=808801066 instance=ExtResource("11_4iqu7")]
+[node name="Tree1Small5" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=808801066 instance=ExtResource("11_4iqu7")]
 transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -0.58780086, 1.015, -0.75800073)
 
-[node name="Tree1Small2" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1702610132 instance=ExtResource("12_3g52j")]
+[node name="Tree1Small2" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1702610132 instance=ExtResource("12_3g52j")]
 transform = Transform3D(0.1506915, 0, -0.9885808, 0, 1, 0, 0.9885808, 0, 0.1506915, -0.7335087, 1.015, -0.71532094)
 
-[node name="Tree1Small6" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1772830971 instance=ExtResource("12_3g52j")]
+[node name="Tree1Small6" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1772830971 instance=ExtResource("12_3g52j")]
 transform = Transform3D(-0.23154429, 0, 0.9728243, 0, 1, 0, -0.9728243, 0, -0.23154429, 1.0108316, 1.015, -0.32666266)
 
-[node name="Tree1Small3" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=999813291 instance=ExtResource("13_b3pp0")]
+[node name="Tree1Small3" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=999813291 instance=ExtResource("13_b3pp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1701134, 1.0149999, -0.17802669)
 
-[node name="Tree1Small8" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=69230387 instance=ExtResource("13_b3pp0")]
+[node name="Tree1Small8" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=69230387 instance=ExtResource("13_b3pp0")]
 transform = Transform3D(0.72, 0, 0, 0, 0.72, 0, 0, 0, 0.72, -0.5069064, 1.007778, -0.6917604)
 
-[node name="Tree1Small7" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1486397902 instance=ExtResource("13_b3pp0")]
+[node name="Tree1Small7" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1486397902 instance=ExtResource("13_b3pp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0627604, 1.0149999, 0.1382627)
 
-[node name="Rock7" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1522849822 instance=ExtResource("7_ry04y")]
+[node name="Rock7" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1522849822 instance=ExtResource("7_ry04y")]
 transform = Transform3D(-0.81185937, 0, -0.58385307, 0, 1, 0, 0.58385307, 0, -0.81185937, 0.75748503, 1.0149999, -0.17122522)
 
-[node name="CastleGate" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=727058708 instance=ExtResource("6_ed8b8")]
+[node name="CastleGate" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=727058708 instance=ExtResource("6_ed8b8")]
 transform = Transform3D(-0.94932127, 0, -0.31430733, 0, 1, 0, 0.31430733, 0, -0.94932127, 0.90258545, 1.105413, -0.11824244)
 
-[node name="SM_castle" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=138225019]
+[node name="SM_castle" type="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=138225019]
 transform = Transform3D(-0.1535033, 0, 0.98814815, 0, 1, 0, -0.98814815, 0, -0.1535033, 0.93252903, 1.0149999, -0.0012929812)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_mi7nf")
 
-[node name="SM_castleCrank" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment/SM_castle" unique_id=643927999]
+[node name="SM_castleCrank" type="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/SM_castle" unique_id=643927999]
 transform = Transform3D(0.69722795, 0, -0.7168495, 0, 1, 0, 0.7168495, 0, 0.69722795, -0.11452559, 0.27572855, -0.11861005)
 visible = false
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_o8roe")
 
-[node name="slab" type="Node3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=888868659]
+[node name="slab" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=888868659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0653865, 1.019525, 0.20315917)
 
-[node name="SM_slab" type="MeshInstance3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment/slab" unique_id=1498403701]
+[node name="SM_slab" type="MeshInstance3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/slab" unique_id=1498403701]
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_odw6k")
 
-[node name="Cigarette" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=1965363167 instance=ExtResource("39_3g52j")]
+[node name="Cigarette" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=1965363167 instance=ExtResource("39_3g52j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7402221, 1.025, -0.14563093)
 
-[node name="MapLayout" type="Node3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment" unique_id=276869224]
+[node name="MapLayout" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment" unique_id=276869224]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.008394543, 0, -0.8937242)
 
-[node name="Path3D" type="Path3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment/MapLayout" unique_id=1164165072]
+[node name="Path3D" type="Path3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/MapLayout" unique_id=1164165072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0676088, 1.0322342, -1.0527828)
 curve = SubResource("Curve3D_1kil2")
 
-[node name="EnemySpawner" type="Timer" parent="Room/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
+[node name="EnemySpawner" type="Timer" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D" unique_id=543316159 node_paths=PackedStringArray("path_3d")]
 wait_time = 4.0
 autostart = true
 script = ExtResource("4_b5kf5")
 path_3d = NodePath("..")
 
-[node name="SM_tower" type="Node3D" parent="Room/Table/table test/SM_tableV22/TableEnvironment/MapLayout" unique_id=936196175]
+[node name="SM_tower" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/MapLayout" unique_id=936196175]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.83082944, 1.0000001, -0.7471706)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/Table" unique_id=1229946595]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1229946595]
 transform = Transform3D(-0.99939084, 0, -0.03489945, 0, 1, 0, 0.03489945, 0, -0.99939084, -0.01, 0.015, 0.189)
 shape = SubResource("ConcavePolygonShape3D_oieil")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Table" unique_id=2122649313]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=2122649313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012573242, 0.9951172, -0.3709259)
 visible = false
 shape = SubResource("BoxShape3D_1kil2")
 disabled = true
 
-[node name="TroopHolder" type="Node3D" parent="Room/Table" unique_id=434059243 groups=["TroopHolder"]]
+[node name="TroopHolder" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=434059243 groups=["TroopHolder"]]
 
-[node name="DefenseTroop" parent="Room/Table/TroopHolder" unique_id=150638980 instance=ExtResource("12_0exr2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100302, 0.83772093, -0.25400668)
-attack_damage = 1.5
-ranged_grab_method = 2
-
-[node name="(GrabTroop)UITooltipTutorial" parent="Room/Table/TroopHolder/DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
-[node name="(RewindTroop)UITooltipTutorial" parent="Room/Table/TroopHolder/DefenseTroop" unique_id=915860077 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
-[node name="(DropTroop)UITooltipTutorial" parent="Room/Table/TroopHolder/DefenseTroop" unique_id=594823687 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
-[node name="TurnSettingsSpawn" type="Node3D" parent="Room/Table" unique_id=2070717149 groups=["Dont Pause"]]
+[node name="TurnSettingsSpawn" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=2070717149 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9396926, -0.50944334, 1.0266268, -0.580122)
 
-[node name="SoundSettingsSpawn" type="Node3D" parent="Room/Table" unique_id=1458959707 groups=["Dont Pause"]]
+[node name="SoundSettingsSpawn" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1458959707 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2310586, -0.53120345)
 
-[node name="Tooltips" type="Node3D" parent="Room/Table" unique_id=1187912382]
+[node name="Tooltips" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1187912382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
-[node name="(EnemiesSpawn)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=1383273705 instance=ExtResource("18_sao6o")]
+[node name="(EnemiesSpawn)UITooltipTutorial" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips" unique_id=1383273705 instance=ExtResource("18_sao6o")]
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 1.0277145, 0.18400192)
 visible = false
 
-[node name="(SuggestionLocation)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=1575375691 instance=ExtResource("18_sao6o")]
+[node name="(SuggestionLocation)UITooltipTutorial" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips" unique_id=1575375691 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.5508098, 0.84567726, -0.72084045)
 visible = false
 
-[node name="(SuggestionLocation)UITooltipTutorial2" parent="Room/Table/Tooltips" unique_id=1357287140 instance=ExtResource("18_sao6o")]
+[node name="(SuggestionLocation)UITooltipTutorial2" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips" unique_id=1357287140 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.575, 0.8455154, -0.3934101)
 visible = false
 
-[node name="(CrankTower)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=379038653 instance=ExtResource("18_sao6o")]
+[node name="(CrankTower)UITooltipTutorial" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips" unique_id=379038653 instance=ExtResource("18_sao6o")]
 transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, 1.1625984, 0.1950146)
 visible = false
 
-[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="Room/Table/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
+[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 0.97576165, 0.18400192)
 visible = false
 
-[node name="HeightManager" type="Node3D" parent="Room/Table" unique_id=1194437489 groups=["Dont Pause"]]
+[node name="HeightManager" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1194437489 groups=["Dont Pause"]]
 script = ExtResource("33_od6yw")
-min_height = -0.2
-max_height = 0.2
+
+[node name="MoveWithTable" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1440230107]
+script = ExtResource("27_kba41")
+
+[node name="Drawer" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table" unique_id=1729992228 instance=ExtResource("9_ed8b8")]
+transform = Transform3D(-0.5017373, 0, -0.8650202, -5.293956e-22, 1, -3.1763736e-22, 0.8650202, 0, -0.5017373, 0.39576238, 0.9435313, -0.2654005)
+
+[node name="TroopRespawn" type="Node3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer" parent_id_path=PackedInt32Array(1729992228, 416603683) index="1" unique_id=1495670663]
+transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.1736483, 0, -0.040077686, 0)
+
+[node name="Area3D" type="Area3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer" parent_id_path=PackedInt32Array(1729992228, 416603683) index="2" unique_id=710296789 groups=["Drawer"]]
+transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.1736483, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/Area3D" unique_id=561307692]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.007537782, -0.052462578, -0.009642586)
+shape = SubResource("BoxShape3D_4fxa8")
+
+[node name="Room" type="Node3D" parent="." unique_id=1081908468]
 
 [node name="SM_tableLegs" type="MeshInstance3D" parent="Room" unique_id=1744199611]
 transform = Transform3D(-0.99937856, 0, -0.035248302, 0, 1, 0, 0.035248302, 0, -0.99937856, 0.026175741, 0.0073632, 0.20458415)
@@ -949,7 +847,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
-tool_tips = [NodePath("../../Room/Table/TroopHolder/DefenseTroop/(GrabTroop)UITooltipTutorial")]
+tool_tips = [NodePath("../../MoveWithTable/DefenseTroop/(GrabTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Grab Troop"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -959,7 +857,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "RewindTroop"
 tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
-tool_tips = [NodePath("../../Room/Table/TroopHolder/DefenseTroop/(RewindTroop)UITooltipTutorial")]
+tool_tips = [NodePath("../../MoveWithTable/DefenseTroop/(RewindTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Rewind Crank"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -969,7 +867,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
-tool_tips = [NodePath("../../Room/Table/Tooltips/(EnemiesSpawn)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(SuggestionLocation)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(SuggestionLocation)UITooltipTutorial2")]
+tool_tips = [NodePath("../../TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips/(EnemiesSpawn)UITooltipTutorial"), NodePath("../../TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips/(SuggestionLocation)UITooltipTutorial"), NodePath("../../TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips/(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -979,7 +877,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
-tool_tips = [NodePath("../../Room/Table/Tooltips/(CrankTower)UITooltipTutorial"), NodePath("../../Room/Table/Tooltips/(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
+tool_tips = [NodePath("../../TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips/(CrankTower)UITooltipTutorial"), NodePath("../../TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Tooltips/(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -1053,10 +951,11 @@ bus = &"Music"
 [node name="DefenseProjectile" parent="." unique_id=549616968 instance=ExtResource("37_s8bal")]
 transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
 
-[connection signal="timeout" from="Room/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" to="Room/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
+[connection signal="timeout" from="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" to="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 [connection signal="body_entered" from="Boundary/Area3D" to="Boundary" method="_on_area_3d_body_entered"]
 
-[editable path="Room/Table/table test"]
-[editable path="Room/Table/table test/SM_tableV22/SM_tableV2/Drawer"]
-[editable path="Room/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank"]
+[editable path="TableAdjustment"]
+[editable path="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test"]
+[editable path="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank"]
+[editable path="TableAdjustment/SliderOrigin/AdjustSlider/HandleOrigin/Table/Drawer"]
 [editable path="AutomatFrame"]

@@ -44,7 +44,7 @@ func set_table_height(value: float):
 	config.set_value("GENERAL","table_height",value)
 
 func get_table_height() -> float:
-	return config.get_value("GENERAL","table_height", 0)
+	return config.get_value("GENERAL","table_height", 1)
 
 
 func _ready() -> void:

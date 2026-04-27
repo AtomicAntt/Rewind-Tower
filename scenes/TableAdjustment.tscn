@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://5ar87tgbr3hq"]
 
 [ext_resource type="Material" uid="uid://ce817r5mmpsa3" path="res://assets/materials/universal material.tres" id="1_6nesw"]
-[ext_resource type="Script" uid="uid://ccrk325upil0e" path="res://scripts/table_adjustment.gd" id="1_ordfo"]
+[ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="1_wv5ij"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="2_7ango"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_ogn0m"]
+[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="3_wv5ij"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="4_xojvh"]
+[ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_2jj6l"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_kdeyn"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="7_yn0bm"]
 
-<<<<<<< Updated upstream
-=======
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ango"]
-size = Vector3(0.18, 0.05, 0.125)
-
->>>>>>> Stashed changes
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2djk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n3hb1"]
@@ -25,7 +26,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ik8h2"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ordfo"]
 resource_name = "SM_tableHeightHandle_SM_tableHeightHandle"
 _surfaces = [{
 "aabb": AABB(-0.1744399, -0.027149636, -0.23961413, 0.3488798, 0.054299273, 0.24128853),
@@ -43,20 +44,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n3hb1")
 
-[node name="TableAdjustment" type="RigidBody3D" unique_id=1963862463]
-collision_layer = 5
-collision_mask = 5
-freeze = true
-script = ExtResource("1_ordfo")
-min_value = -0.2
-picked_up_layer = 0
-metadata/_custom_type_script = "uid://bfrlpbsqg5lqr"
+[sub_resource type="Resource" id="Resource_wa7e0"]
+script = ExtResource("5_2jj6l")
+open_pose = ExtResource("4_xojvh")
+closed_pose = ExtResource("4_xojvh")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1407682988]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06397483)
-shape = SubResource("BoxShape3D_7ango")
+[sub_resource type="Resource" id="Resource_u5gxu"]
+script = ExtResource("5_2jj6l")
+open_pose = ExtResource("7_yn0bm")
+closed_pose = ExtResource("7_yn0bm")
+metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 
-<<<<<<< Updated upstream
 [sub_resource type="BoxShape3D" id="BoxShape3D_14n63"]
 size = Vector3(0.2, 0.05, 0.06)
 
@@ -114,9 +113,3 @@ target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandRigh
 [node name="GrabPointRedirectLeft" parent="SliderOrigin/AdjustSlider/HandleOrigin/InteractableHandle" unique_id=1679058393 node_paths=PackedStringArray("target") instance=ExtResource("3_wv5ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0159632, 0, 0.0135050565)
 target = NodePath("../../../StaticBody3D/SM_tableHeightHandle3/GrabPointHandLeft")
-=======
-[node name="SM_tableHeightHandle" type="MeshInstance3D" parent="." unique_id=879870176]
-transform = Transform3D(0.55010116, 0, 0, 0, 0.55010116, 0, 0, 0, 0.55010116, 0, 0, 0)
-material_override = ExtResource("1_6nesw")
-mesh = SubResource("ArrayMesh_ik8h2")
->>>>>>> Stashed changes

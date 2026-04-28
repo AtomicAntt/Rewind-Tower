@@ -864,6 +864,7 @@ bones/2/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 
 [node name="SM_bearTrap" type="MeshInstance3D" parent="SM_bearTrapFactory2/SM_bearTrapFactory/BearTrapArmature/Skeleton3D" unique_id=489221746]
 unique_name_in_owner = true
+visible = false
 material_override = ExtResource("1_1pv6m")
 mesh = SubResource("ArrayMesh_becjs")
 skin = SubResource("Skin_3vpqn")

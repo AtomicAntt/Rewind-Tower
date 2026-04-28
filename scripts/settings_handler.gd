@@ -45,6 +45,12 @@ func set_table_height(value: float):
 
 func get_table_height() -> float:
 	return config.get_value("GENERAL","table_height", 1)
+	
+func set_has_height_calibrated(value: bool):
+	config.set_value("GENERAL","has_calibrated_height", value)
+
+func get_has_height_calibrated() -> bool:
+	return config.get_value("GENERAL","has_calibrated_height", false)
 
 
 func _ready() -> void:

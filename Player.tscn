@@ -54,9 +54,10 @@ script = ExtResource("1_e80uo")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=601485886 groups=["Dont Pause"]]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["Dont Pause", "XRCamera3D"]]
+[node name="Camera" type="XRCamera3D" parent="XROrigin3D" unique_id=736786103 groups=["Dont Pause", "XRCamera3D"]]
+unique_name_in_owner = true
 
-[node name="Snapzone" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=485673022 groups=["Dont Pause"]]
+[node name="Snapzone" type="Area3D" parent="XROrigin3D/Camera" unique_id=485673022 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049652874, -0.10750523)
 collision_layer = 5
@@ -66,10 +67,10 @@ grab_distance = 1.0
 snap_require = "Cigarette"
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=1037221598 groups=["Dont Pause"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Camera/Snapzone" unique_id=1037221598 groups=["Dont Pause"]]
 shape = SubResource("BoxShape3D_wi0c6")
 
-[node name="MouthParticles" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D/Snapzone" unique_id=21089323 groups=["Dont Pause"]]
+[node name="MouthParticles" type="GPUParticles3D" parent="XROrigin3D/Camera/Snapzone" unique_id=21089323 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 3.552713e-16, 0, -3.552713e-16, 0.01, 0, 0, 0)
 emitting = false

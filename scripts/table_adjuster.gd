@@ -10,6 +10,8 @@ var starting_z: float
 
 var starting_rot: Vector3
 
+var player: Player
+
 func _ready():
 	starting_x = position.x
 	starting_z = position.z
@@ -18,8 +20,18 @@ func _ready():
 	
 	var table_height = SettingsHandler.get_table_height()
 	position.y = table_height
+	
+	player = get_tree().get_first_node_in_group("Player")
 
 func _process(_delta: float) -> void:
+	if !SettingsHandler.get_has_height_calibrated():
+		var player_height = player.camera.position.y * 100
+		var calibrated_height = remap(player_height, 100, 175, min_value, max_value)
+		
+		position.y = calibrated_height
+		
+		SettingsHandler.set_has_height_calibrated(true)
+	
 	rotation = starting_rot
 	
 	position.x = starting_x

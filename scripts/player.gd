@@ -5,6 +5,8 @@ var xr_interface: XRInterface
 
 var game_manager: GameManager
 
+@onready var camera: XRCamera3D = %Camera
+
 @export var coins: int
 
 @onready var coin_slot: XRToolsSnapZone = %CoinSlot

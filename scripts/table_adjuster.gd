@@ -1,4 +1,4 @@
-@tool
+@warning_ignore("missing_tool")
 extends XRToolsPickable
 class_name TableAdjuster
 
@@ -13,9 +13,6 @@ var starting_rot: Vector3
 var player: Player
 
 func _ready():
-	if Engine.is_editor_hint():
-		return
-	
 	starting_x = position.x
 	starting_z = position.z
 	
@@ -27,9 +24,6 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
-	
 	if !SettingsHandler.get_has_height_calibrated():
 		var player_height = player.camera.position.y * 100
 		var calibrated_height = remap(player_height, 100, 175, min_value, max_value)

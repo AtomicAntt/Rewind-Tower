@@ -65,9 +65,6 @@ func refresh_cost_label() -> void:
 	item_info_label.text = item_description + "\nCost:\n" + str(cost) + " coins"
 
 func enable_displayed_item() -> void:
-	if not is_instance_valid(displayed_item):
-		return
-	
 	displayed_item.enabled = true
 	displayed_item.collision_layer = original_collision_layer
 	displayed_item.collision_mask = original_collision_mask
@@ -80,9 +77,6 @@ func enable_displayed_item() -> void:
 
 ## This is for extra optimization
 func disable_displayed_item() -> void:
-	if not is_instance_valid(displayed_item):
-		return
-	
 	original_collision_layer = displayed_item.collision_layer
 	original_collision_mask = displayed_item.collision_mask
 	

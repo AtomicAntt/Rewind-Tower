@@ -6,7 +6,17 @@ extends Node3D
 
 @onready var prev_position: Vector3 = global_position
 
+@onready var drawer_troop: DefenseTroop = get_tree().get_first_node_in_group("DrawerTroop")
+@onready var troop_spawn: Node3D = %TroopSpawn
+
+var has_set_troop_pos: bool = false
+
 func _physics_process(_delta: float) -> void:
+	if !has_set_troop_pos:
+		drawer_troop.global_position = troop_spawn.global_position
+		drawer_troop.rotation = troop_spawn.rotation
+		has_set_troop_pos = true
+	
 	var delta_position: Vector3 = static_body_3d.global_position - prev_position
 	
 	prev_position = static_body_3d.global_position

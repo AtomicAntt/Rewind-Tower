@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bov1xim3k40hp" path="res://scripts/game_manager.gd" id="1_4fxa8"]
 [ext_resource type="PackedScene" uid="uid://7lkhpklyrfs" path="res://Player.tscn" id="1_eqhe0"]
+[ext_resource type="Script" uid="uid://bg4a4o0nmula6" path="res://scripts/move_with_table.gd" id="2_ybhw4"]
 [ext_resource type="PackedScene" uid="uid://b741fbxy6vc0q" path="res://scenes/environment/hillMesh.tscn" id="4_0p1ba"]
 [ext_resource type="Script" uid="uid://p4xqt2y1g2xm" path="res://scripts/enemy_spawner.gd" id="4_b5kf5"]
 [ext_resource type="Texture2D" uid="uid://cnieu8jxw4l8s" path="res://assets/textures/T_UniversalTexture.jpg" id="4_oieil"]
@@ -231,7 +232,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_08oju")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b3pp0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ybhw4"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aoek"]
@@ -347,6 +348,21 @@ data = PackedVector3Array(0, 1, 0.39909998, 0.0773, 0.95699996, 0.39429998, 0.07
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kil2"]
 size = Vector3(2.5949707, 0.052734375, 1.4463196)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3pp0"]
+size = Vector3(1, 1, 0.86)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm1sv"]
+size = Vector3(0.51881105, 0.15, 0.32860106)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybhw4"]
+size = Vector3(1, 1, 0.8046875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kba41"]
+size = Vector3(0.39013672, 1, 0.82614136)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lul5g"]
+size = Vector3(0.86376953, 1, 1.0893555)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be31n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_77dy3"]
@@ -391,6 +407,23 @@ data = PackedVector3Array(0.7001, 0, 0.5755, -0.7001, 0.8204, 0.5755, 0.7001, 0.
 process_mode = 1
 script = ExtResource("1_4fxa8")
 drawer_spawn_point = NodePath("Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/TroopRespawn")
+
+[node name="DefenseTroop" parent="." unique_id=150638980 groups=["DrawerTroop"] instance=ExtResource("12_0exr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100427, 1.051352, -0.25355285)
+attack_damage = 1.5
+ranged_grab_method = 2
+
+[node name="(GrabTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
+
+[node name="(RewindTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=915860077 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
+
+[node name="(DropTroop)UITooltipTutorial" parent="DefenseTroop" unique_id=594823687 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=490626395]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -510,7 +543,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44972354, -0.085645795, 0.
 
 [node name="Room" type="Node3D" parent="." unique_id=1081908468]
 
-[node name="TableAdjustment" parent="Room" unique_id=1278114786 instance=ExtResource("17_ybhw4")]
+[node name="TableAdjustment" parent="Room" unique_id=1278114786 groups=["TableAdjuster"] instance=ExtResource("17_ybhw4")]
 transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -0.507, 1.2, -0.025)
 min_value = 0.8
 max_value = 1.2
@@ -541,7 +574,7 @@ material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_vylfn")
 
 [node name="Drawer" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2" unique_id=1729992228 instance=ExtResource("9_ed8b8")]
-transform = Transform3D(0.53191596, 0, 0.8467972, 0, 1, 0, -0.8467972, 0, 0.53191596, -0.38631815, 0.9276823, 0.4570238)
+transform = Transform3D(0.53191596, 0, 0.8467972, 0, 1, 0, -0.8467972, 0, 0.53191596, -0.38741773, 0.9276823, 0.45877427)
 
 [node name="TroopRespawn" type="Node3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer" parent_id_path=PackedInt32Array(1729992228, 416603683) index="1" unique_id=1495670663]
 transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.1736483, 0, -0.040077686, 0)
@@ -552,6 +585,10 @@ transform = Transform3D(0.1736483, 0, 0.98480767, 0, 1, 0, -0.98480767, 0, 0.173
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/Drawer/SliderOrigin/InteractableSlider/StaticBody3D/SM_drawer/Area3D" unique_id=561307692]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.007537782, -0.052462578, -0.009642586)
 shape = SubResource("BoxShape3D_4fxa8")
+
+[node name="TroopSpawn" type="Node3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/Drawer" unique_id=530252135]
+unique_name_in_owner = true
+transform = Transform3D(-0.5017372, 0, 0.86502004, 0, 1, 0, -0.86502004, 0, -0.5017372, 0.0052781403, -0.09732461, -0.017914802)
 
 [node name="SM_tower" type="Node3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2" unique_id=166081072]
 transform = Transform3D(0.11857737, 0, -0.99294484, 0, 1, 0, 0.99294484, 0, 0.11857737, -0.91304684, 0.78691924, 0.17380178)
@@ -573,7 +610,7 @@ mesh = SubResource("ArrayMesh_o8roe")
 
 [node name="ProgressBar" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/SM_tower/TowerCrank" index="1" unique_id=2128294132]
 transform = Transform3D(-5.777068e-10, 0.004, 5.540013e-14, 5.767517e-10, 1.7055801e-14, -0.013, -0.013, -1.7775593e-10, -5.767517e-10, -0.44202965, -0.015410151, 0.012526251)
-texture = SubResource("ViewportTexture_b3pp0")
+texture = SubResource("ViewportTexture_ybhw4")
 
 [node name="Label3D2" type="Label3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/SM_tableV2/SM_tower" unique_id=1774004614]
 transform = Transform3D(-0.06899227, 0, -0.07238827, 0, 0.1, 0, 0.07238827, 0, -0.06899227, -0.11405249, 0.37033558, -0.119546056)
@@ -676,26 +713,6 @@ visible = false
 shape = SubResource("BoxShape3D_1kil2")
 disabled = true
 
-[node name="TroopHolder" type="Node3D" parent="Room/TableAdjustment/Table" unique_id=434059243 groups=["TroopHolder"]]
-
-[node name="DefenseTroop" parent="Room/TableAdjustment/Table/TroopHolder" unique_id=150638980 instance=ExtResource("12_0exr2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4100302, 0.83772093, -0.25400668)
-attack_damage = 1.5
-looks_at_enemy = null
-ranged_grab_method = 2
-
-[node name="(GrabTroop)UITooltipTutorial" parent="Room/TableAdjustment/Table/TroopHolder/DefenseTroop" unique_id=869678736 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
-[node name="(RewindTroop)UITooltipTutorial" parent="Room/TableAdjustment/Table/TroopHolder/DefenseTroop" unique_id=915860077 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
-[node name="(DropTroop)UITooltipTutorial" parent="Room/TableAdjustment/Table/TroopHolder/DefenseTroop" unique_id=594823687 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.50897396, -0.75676215, -0.41019088, 0, 0.47653288, -0.87915665, 0.8607819, 0.44746783, 0.24254282, 0.004207611, 0.14930302, 0.009070933)
-visible = false
-
 [node name="TurnSettingsSpawn" type="Node3D" parent="Room/TableAdjustment/Table" unique_id=2070717149 groups=["Dont Pause"]]
 unique_name_in_owner = true
 transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9396926, -0.50944334, 1.0266268, -0.580122)
@@ -726,6 +743,48 @@ visible = false
 [node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="Room/TableAdjustment/Table/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
 transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 0.97576165, 0.18400192)
 visible = false
+
+[node name="MoveWithTable" type="Node3D" parent="Room/TableAdjustment/Table" unique_id=1196371895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2516975e-05, -0.2136311, -0.00045382045)
+script = ExtResource("2_ybhw4")
+
+[node name="Area3D" type="Area3D" parent="Room/TableAdjustment/Table/MoveWithTable" unique_id=1471240196]
+unique_name_in_owner = true
+collision_layer = 36
+collision_mask = 37
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1143744557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4881942, -0.6421107)
+shape = SubResource("BoxShape3D_b3pp0")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1854854751]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0.26557627, 1.1155075, -0.020256856)
+shape = SubResource("BoxShape3D_tm1sv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=923360470]
+transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, 0.63108397, 1.4881942, -0.47301227)
+shape = SubResource("BoxShape3D_ybhw4")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1164422396]
+transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, 1.0772458, 1.4881942, 0.0540284)
+shape = SubResource("BoxShape3D_kba41")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1377725486]
+transform = Transform3D(0.7071069, 0, 0.7071065, 0, 1, 0, -0.7071065, 0, 0.7071069, -0.58176976, 1.4881942, -0.4018191)
+shape = SubResource("BoxShape3D_ybhw4")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1551079535]
+transform = Transform3D(2.9802322e-07, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, 2.9802322e-07, -0.0005903281, 1.4881942, -0.6398491)
+shape = SubResource("BoxShape3D_lul5g")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=81109091]
+transform = Transform3D(0.7071069, 0, 0.7071065, 0, 1, 0, -0.7071065, 0, 0.7071069, -1.0508811, 1.4881942, 0.102272116)
+shape = SubResource("BoxShape3D_kba41")
+debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="SM_tableLegs" type="MeshInstance3D" parent="Room" unique_id=1744199611]
 transform = Transform3D(-0.99937856, 0, -0.035248302, 0, 1, 0, 0.035248302, 0, -0.99937856, 0.026175741, 0.0073632, 0.20458415)
@@ -885,7 +944,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "GrabTroop"
 tutorial_text = "Hello, and welcome to Rewind Tower! Start by grabbing and pulling the drawer underneath the table. Then grab your first defense troop from the drawer."
-tool_tips = [NodePath("../../Room/TableAdjustment/Table/TroopHolder/DefenseTroop/(GrabTroop)UITooltipTutorial")]
+tool_tips = [NodePath("../../DefenseTroop/(GrabTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Grab Troop"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -895,7 +954,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "RewindTroop"
 tutorial_text = "Your first defense troop will be the archer, but right now it's got no power left! Grab the crank behind it and rewind it until it's back to max power!"
-tool_tips = [NodePath("../../Room/TableAdjustment/Table/TroopHolder/DefenseTroop/(RewindTroop)UITooltipTutorial")]
+tool_tips = [NodePath("../../DefenseTroop/(RewindTroop)UITooltipTutorial")]
 tool_tip_text = Array[String](["Rewind Crank"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -990,6 +1049,7 @@ bus = &"Music"
 transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
 
 [connection signal="timeout" from="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" to="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
+[connection signal="body_entered" from="Room/TableAdjustment/Table/MoveWithTable/Area3D" to="Room/TableAdjustment/Table/MoveWithTable" method="_on_body_entered"]
 [connection signal="body_entered" from="Boundary/Area3D" to="Boundary" method="_on_area_3d_body_entered"]
 
 [editable path="Room/TableAdjustment"]

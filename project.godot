@@ -54,6 +54,8 @@ TroopHolder=""
 Table=""
 AdjustSlider=""
 BearTrap=""
+TableAdjuster=""
+DrawerTroop=""
 
 [layer_names]
 

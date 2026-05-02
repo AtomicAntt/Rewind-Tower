@@ -14,6 +14,9 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	hand = XRHelpers.get_left_controller(player)
 	
+	var game_manager: GameManager = get_tree().get_first_node_in_group("GameManager")
+	reparent(game_manager)
+	
 	await get_tree().create_timer(randf_range(0.5, 1.0)).timeout
 	move_towards_hand = true
 	rigidbody.gravity_scale = 0

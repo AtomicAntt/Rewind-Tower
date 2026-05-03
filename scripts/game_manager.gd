@@ -8,7 +8,7 @@ const beartrap_scene: PackedScene = preload("res://scenes/troops/BearTrap.tscn")
 const sound_settings: PackedScene = preload("res://scenes/SoundSettings.tscn")
 const turn_settings: PackedScene = preload("res://scenes/TurnSettings.tscn")
 
-@export var drawer_spawn_point: Node3D
+@onready var drawer_spawn_point: Node3D = %TroopSpawn
 
 var game_paused: bool = false
 

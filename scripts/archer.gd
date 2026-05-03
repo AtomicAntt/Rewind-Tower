@@ -15,7 +15,8 @@ func _on_shoot_timer_timeout() -> void:
 	
 	if is_instance_valid(closest_enemy_area) and can_shoot and get_enemy_distance(closest_enemy_area) <= attack_range:
 		var projectile_instance: DefenseProjectile = projectile.instantiate()
-		get_parent().add_child(projectile_instance)
+		var game_manager: Node3D = get_tree().get_first_node_in_group("MoveWithTable")
+		game_manager.add_child(projectile_instance)
 		projectile_instance.global_position = shoot_position.global_position
 		projectile_instance.look_at(closest_enemy_area.global_position)
 		projectile_instance.set_damage(attack_damage)

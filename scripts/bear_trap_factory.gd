@@ -59,7 +59,8 @@ func spawn_beartrap() -> void:
 	var bear_trap_instance: BearTrap = bear_trap.instantiate()
 	current_bear_trap = bear_trap_instance
 	bear_trap_instance.global_position = snapzone.global_position
-	get_parent().add_child(bear_trap_instance)
+	var game_manager = get_tree().get_first_node_in_group("GameManager")
+	game_manager.add_child(bear_trap_instance)
 	
 	# Not intuitive at first, but if pickables are highlighted, it means they are grabbable by the player.
 	# In short, we prompt grabs if the player can pick up the bear trap.

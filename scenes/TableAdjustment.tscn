@@ -53,6 +53,12 @@ metadata/_custom_type_script = "uid://dvobm6vcfnqe8"
 [node name="TableAdjustment" type="RigidBody3D" unique_id=1278114786]
 collision_layer = 5
 collision_mask = 0
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+lock_rotation = true
 freeze = true
 script = ExtResource("1_ordfo")
 picked_up_layer = 0

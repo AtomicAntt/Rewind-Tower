@@ -568,7 +568,7 @@ transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.707
 [node name="table test" parent="Room/TableAdjustment/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/TableAdjustment/Table/table test" index="0" unique_id=1216636196]
+[node name="SM_table" parent="Room/TableAdjustment/Table/table test" index="0" unique_id=1021341641]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_ex6dp")
@@ -731,29 +731,6 @@ transform = Transform3D(-0.9396926, 0, -0.34202003, 0, 1, 0, 0.34202003, 0, -0.9
 unique_name_in_owner = true
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.1, 1.2310586, -0.53120345)
 
-[node name="Tooltips" type="Node3D" parent="Room/TableAdjustment/Table" unique_id=1187912382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-
-[node name="(EnemiesSpawn)UITooltipTutorial" parent="Room/TableAdjustment/Table/Tooltips" unique_id=1383273705 instance=ExtResource("18_sao6o")]
-transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 1.0277145, 0.18400192)
-visible = false
-
-[node name="(SuggestionLocation)UITooltipTutorial" parent="Room/TableAdjustment/Table/Tooltips" unique_id=1575375691 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.5508098, 0.84567726, -0.72084045)
-visible = false
-
-[node name="(SuggestionLocation)UITooltipTutorial2" parent="Room/TableAdjustment/Table/Tooltips" unique_id=1357287140 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.575, 0.8455154, -0.3934101)
-visible = false
-
-[node name="(CrankTower)UITooltipTutorial" parent="Room/TableAdjustment/Table/Tooltips" unique_id=379038653 instance=ExtResource("18_sao6o")]
-transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, 1.1625984, 0.1950146)
-visible = false
-
-[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="Room/TableAdjustment/Table/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
-transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 0.97576165, 0.18400192)
-visible = false
-
 [node name="MoveWithTable" type="Node3D" parent="Room/TableAdjustment/Table" unique_id=1872197113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2516975e-05, -0.2136311, -0.00045382045)
 script = ExtResource("26_kba41")
@@ -770,6 +747,7 @@ shape = SubResource("BoxShape3D_tm1sv")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1414744014]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0.26557627, 1.1155075, -0.020256856)
 shape = SubResource("BoxShape3D_gd15m")
+debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=680855476]
 transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, 0.63108397, 1.4881942, -0.47301227)
@@ -800,6 +778,32 @@ debug_color = Color(1, 1, 1, 0.41960785)
 transform = Transform3D(-0.99937856, 0, -0.035248302, 0, 1, 0, 0.035248302, 0, -0.99937856, 0.026175741, 0.0073632, 0.20458415)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_l34mj")
+
+[node name="MoveWithTable" type="Node3D" parent="Room" unique_id=851587451 groups=["MoveWithTable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507, 1.2, -0.02)
+
+[node name="Tooltips" type="Node3D" parent="Room/MoveWithTable" unique_id=1187912382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50701255, -0.78636897, 0.02045382)
+
+[node name="(EnemiesSpawn)UITooltipTutorial" parent="Room/MoveWithTable/Tooltips" unique_id=1383273705 instance=ExtResource("18_sao6o")]
+transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 1.0277145, 0.18400192)
+visible = false
+
+[node name="(SuggestionLocation)UITooltipTutorial" parent="Room/MoveWithTable/Tooltips" unique_id=1575375691 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.5508098, 0.84567726, -0.72084045)
+visible = false
+
+[node name="(SuggestionLocation)UITooltipTutorial2" parent="Room/MoveWithTable/Tooltips" unique_id=1357287140 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, -0.575, 0.8455154, -0.3934101)
+visible = false
+
+[node name="(CrankTower)UITooltipTutorial" parent="Room/MoveWithTable/Tooltips" unique_id=379038653 instance=ExtResource("18_sao6o")]
+transform = Transform3D(0.81568336, 0, -0.57849836, 0, 0.9999998, 0, 0.5784983, 0, 0.8156834, 0.81697184, 1.1625984, 0.1950146)
+visible = false
+
+[node name="(EnemiesSpawn)(CrankTower)UITooltipTutorial" parent="Room/MoveWithTable/Tooltips" unique_id=567878876 instance=ExtResource("18_sao6o")]
+transform = Transform3D(-0.16655983, 0.7132569, 0.68082476, 0, 0.6904697, -0.72336125, -0.98603135, -0.12048293, -0.11500452, -1.0892884, 0.97576165, 0.18400192)
+visible = false
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1916239903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9663031, -2.3213594)
@@ -998,7 +1002,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "DropTroop"
 tutorial_text = "Congratulations! You rewinded your first troop to full power! Now place it in a good place to prepare your defense against the first round."
-tool_tips = [NodePath("../../Room/TableAdjustment/Table/Tooltips/(EnemiesSpawn)UITooltipTutorial"), NodePath("../../Room/TableAdjustment/Table/Tooltips/(SuggestionLocation)UITooltipTutorial"), NodePath("../../Room/TableAdjustment/Table/Tooltips/(SuggestionLocation)UITooltipTutorial2")]
+tool_tips = [NodePath("../../Room/MoveWithTable/Tooltips/(EnemiesSpawn)UITooltipTutorial"), NodePath("../../Room/MoveWithTable/Tooltips/(SuggestionLocation)UITooltipTutorial"), NodePath("../../Room/MoveWithTable/Tooltips/(SuggestionLocation)UITooltipTutorial2")]
 tool_tip_text = Array[String](["Enemy spawn", "Defensive placement", "Defensive placement"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -1008,7 +1012,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.396885, -1.5204101)
 visible = false
 tutorial_name = "CrankTower"
 tutorial_text = "When you are ready, wind up the crank in the right tower!"
-tool_tips = [NodePath("../../Room/TableAdjustment/Table/Tooltips/(CrankTower)UITooltipTutorial"), NodePath("../../Room/TableAdjustment/Table/Tooltips/(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
+tool_tips = [NodePath("../../Room/MoveWithTable/Tooltips/(CrankTower)UITooltipTutorial"), NodePath("../../Room/MoveWithTable/Tooltips/(EnemiesSpawn)(CrankTower)UITooltipTutorial")]
 tool_tip_text = Array[String](["Tower Crank", "Enemy Spawn"])
 awaiting_next = false
 scene_properties_keys = PackedStringArray("tutorial_ui_2d.gd")
@@ -1081,6 +1085,9 @@ bus = &"Music"
 
 [node name="DefenseProjectile" parent="." unique_id=549616968 instance=ExtResource("37_s8bal")]
 transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
+
+[node name="BearTrapFactory" parent="." unique_id=368273808 instance=ExtResource("31_b3pp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6850961, 1.2286313, -0.14841479)
 
 [connection signal="timeout" from="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" to="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 [connection signal="body_entered" from="Room/TableAdjustment/Table/MoveWithTable/Area3D" to="Room/TableAdjustment/Table/MoveWithTable" method="_on_body_entered"]

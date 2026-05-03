@@ -12,6 +12,8 @@ var starting_rot: Vector3
 
 var player: Player
 
+@onready var move_with_table: Node3D = get_tree().get_first_node_in_group("MoveWithTable")
+
 func _ready():
 	if Engine.is_editor_hint():
 		return
@@ -47,3 +49,5 @@ func _process(_delta: float) -> void:
 	
 	SettingsHandler.set_table_height(position.y)
 	SettingsHandler.save()
+	
+	move_with_table.position.y = position.y

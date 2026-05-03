@@ -62,7 +62,8 @@ func fire_projectile() -> void:
 	
 	# Now we can shoot the projectile
 	var projectile_instance: CatapultProjectile = catapult_projectile.instantiate()
-	get_parent().add_child(projectile_instance)
+	var game_manager: GameManager = get_tree().get_first_node_in_group("GameManager")
+	game_manager.add_child(projectile_instance)
 	projectile_instance.global_position = shoot_position.global_position
 	projectile_instance.look_at(closest_enemy_area.global_position, Vector3.UP, true)
 	projectile_instance.rotation.z = 0

@@ -14,6 +14,10 @@ var player: Player
 
 @onready var move_with_table: Node3D = get_tree().get_first_node_in_group("MoveWithTable")
 
+## This is the global position reported AFTER clamp changes, to be used for relative movement.
+## TODO: Combine move_with_table.gd with table_adjuster to be a more clean solution.
+@onready var reported_global_position: Vector3 = global_position
+
 func _ready():
 	if Engine.is_editor_hint():
 		return
@@ -28,7 +32,7 @@ func _ready():
 	
 	player = get_tree().get_first_node_in_group("Player")
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
@@ -46,6 +50,7 @@ func _process(_delta: float) -> void:
 	position.z = starting_z
 	
 	position.y = clamp(position.y, min_value, max_value)
+	reported_global_position = global_position
 	
 	SettingsHandler.set_table_height(position.y)
 	SettingsHandler.save()

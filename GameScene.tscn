@@ -568,7 +568,7 @@ transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.707
 [node name="table test" parent="Room/TableAdjustment/Table" unique_id=1422244952 instance=ExtResource("6_i2arf")]
 transform = Transform3D(-0.9938067, 0, 0.111122064, 0, 1, 0, -0.111122064, 0, -0.9938067, -0.009733698, 0, 0.18692103)
 
-[node name="SM_table" parent="Room/TableAdjustment/Table/table test" index="0" unique_id=1021341641]
+[node name="SM_table" parent="Room/TableAdjustment/Table/table test" index="0" unique_id=1142927959]
 transform = Transform3D(0.98939174, 0, 0.14527147, 0, 1, 0, -0.14527147, 0, 0.98939174, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_ex6dp")
@@ -738,7 +738,7 @@ script = ExtResource("26_kba41")
 [node name="Area3D" type="Area3D" parent="Room/TableAdjustment/Table/MoveWithTable" unique_id=2090402487]
 unique_name_in_owner = true
 collision_layer = 36
-collision_mask = 37
+collision_mask = 2147483685
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/TableAdjustment/Table/MoveWithTable/Area3D" unique_id=1177128231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4881942, -0.6421107)

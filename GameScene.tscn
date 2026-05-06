@@ -456,6 +456,7 @@ material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_ea2ej")
 
 [node name="SM_Ground" type="MeshInstance3D" parent="EnvironmentAssets" unique_id=985423964 groups=["Dont Pause"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024969578, 0, 0.0019159317)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_uxc8u")
 
@@ -577,7 +578,7 @@ material_override = SubResource("StandardMaterial3D_ex6dp")
 transform = Transform3D(0.98927236, 0, 0.14608303, 0, 1, 0, -0.14608303, 0, 0.98927236, 0.05, 1.02, 0.58)
 
 [node name="SM_tableV2" type="MeshInstance3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22" unique_id=610863691]
-transform = Transform3D(1.0000001, 0, -1.1175871e-08, 0, 1, 0, 1.1175871e-08, 0, 1.0000001, -1.8626451e-09, -1.0126368, -0.6)
+transform = Transform3D(1.0000001, 0, -1.1175871e-08, 0, 1, 0, 1.1175871e-08, 0, 1.0000001, -5.7352707e-05, -1.0115825, -0.59949934)
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_vylfn")
 
@@ -692,9 +693,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0653865, 1.019525, 0.20315
 material_override = ExtResource("7_5cvvu")
 mesh = SubResource("ArrayMesh_odw6k")
 
-[node name="Cigarette" parent="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment" unique_id=1965363167 instance=ExtResource("39_3g52j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.504333, 1.4018079, 1.072192)
-
 [node name="MapLayout" type="Node3D" parent="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment" unique_id=276869224]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.008394543, 0, -0.8937242)
 
@@ -737,6 +735,7 @@ script = ExtResource("26_kba41")
 
 [node name="Area3D" type="Area3D" parent="Room/TableAdjustment/Table/MoveWithTable" unique_id=2090402487]
 unique_name_in_owner = true
+visible = false
 collision_layer = 36
 collision_mask = 2147483685
 
@@ -1086,8 +1085,8 @@ bus = &"Music"
 [node name="DefenseProjectile" parent="." unique_id=549616968 instance=ExtResource("37_s8bal")]
 transform = Transform3D(1, 0, 0, 0, -0.117936075, 0.9930212, 0, -0.9930212, -0.117936075, 0, -0.047004834, 1.0788828)
 
-[node name="BearTrapFactory" parent="." unique_id=368273808 instance=ExtResource("31_b3pp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6850961, 1.2286313, -0.14841479)
+[node name="Cigarette" parent="." unique_id=1965363167 instance=ExtResource("39_3g52j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5043205, 1.615439, 1.0726458)
 
 [connection signal="timeout" from="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" to="Room/TableAdjustment/Table/table test/SM_tableV22/TableEnvironment/MapLayout/Path3D/EnemySpawner" method="_on_timeout"]
 [connection signal="body_entered" from="Room/TableAdjustment/Table/MoveWithTable/Area3D" to="Room/TableAdjustment/Table/MoveWithTable" method="_on_body_entered"]

@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 		# Check for specifically defensive projectiles
 		for area in area3d.get_overlapping_areas():
 			if area is DefenseProjectile:
-				print("defense projectile detected")
 				var defense_projectile: DefenseProjectile = area
 				defense_projectile.global_position += delta_position
 	
